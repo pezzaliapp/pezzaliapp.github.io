@@ -25,20 +25,45 @@
         html {
             scroll-behavior: smooth;
         }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+        }
+        .nav-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            color: white;
+            margin-right: 20px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#fotografia">Fotografia</a></li>
-                <li><a href="#coding">Coding</a></li>
-                <li><a href="#scrittura">Scrittura</a></li>
-                <li><a href="#sfondi">Sfondi & Salvaschermo</a></li>
-                <li><a href="https://pezzaliapp.com" target="_blank">pezzaliapp.com</a></li>
-            </ul>
-        </nav>
+        <div class="nav-container">
+            <div class="nav-title">ALESSANDRO PEZZALI</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#fotografia">Fotografia</a></li>
+                    <li><a href="#coding">Coding</a></li>
+                    <li><a href="#scrittura">Scrittura</a></li>
+                    <li><a href="#sfondi">Sfondi & Salvaschermo</a></li>
+                    <li><a href="https://pezzaliapp.com" target="_blank">pezzaliapp.com</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     
     <div class="container">
