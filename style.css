@@ -1,45 +1,61 @@
-/* Animazione di fade-in */
+/* Animazione di fade-in all'apertura */
 body {
   background-color: #000;
   color: #fff;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   text-align: center;
+
+  /* Effetto fade-in */
   opacity: 0;
   animation: fadeIn 1.5s ease-in forwards;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-/* Header e Navbar: posizione statica (NON fissa) */
+/* Header con position: sticky; top: 0; 
+   Resta "normale" finché l'utente non fa scroll. 
+   Quando la parte superiore della finestra "raggiunge" l'header, questo si incolla. 
+*/
 header {
-  position: static; /* il menu scorre con la pagina */
+  position: sticky;
+  top: 0;
   background: rgba(0, 0, 0, 0.8);
-  padding: 15px 0;
-  text-align: center;
+  text-align: left; /* Testo allineato a sinistra */
+  z-index: 1000;    /* Sopra il contenuto quando "sticky" */
 }
 
+/* Contenitore dell'intestazione, disposto a colonna:
+   - Prima riga: nav-title 
+   - Seconda riga: menu orizzontale
+*/
 .nav-container {
   display: flex;
-  align-items: center;
-  justify-content: flex-start; /* Allinea tutto a sinistra */
-  padding: 15px 20px;
+  flex-direction: column;
+  align-items: flex-start;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
+  padding: 15px 20px;
 }
 
+/* Titolo in prima riga */
 .nav-title {
   font-weight: 600;
   font-size: 1.2rem;
   text-transform: uppercase;
   color: white;
-  margin-right: 20px; /* Spazio tra titolo e menu */
+  margin-bottom: 10px; /* Distanza dal menu */
 }
 
+/* Menu in seconda riga, orizzontale */
 nav ul {
   display: flex;
   list-style: none;
@@ -47,11 +63,13 @@ nav ul {
   margin: 0;
 }
 
+/* Ogni voce del menu */
 nav ul li {
-  margin: 0 15px;
-  position: relative;
+  position: relative; 
+  margin-right: 20px; /* Spaziatura orizzontale tra le voci */
 }
 
+/* Link di menu */
 nav ul li a {
   color: #fff;
   text-decoration: none;
@@ -67,25 +85,27 @@ nav ul li a:hover {
 .submenu {
   display: none;
   position: absolute;
-  top: 100%;
+  top: 100%;   /* Appena sotto la voce di menu */
   left: 0;
   background: rgba(0, 0, 0, 0.9);
-  padding: 10px 0;
   list-style: none;
-  text-align: center;
+  text-align: left;
   min-width: 180px;
+  margin: 0;
+  padding: 10px 0;
 }
 
 .submenu li {
-  padding: 10px 0;
+  padding: 5px 20px;
 }
 
 .submenu li a {
-  color: white;
+  color: #fff;
   text-decoration: none;
   display: block;
 }
 
+/* Mostra il submenu al passaggio del mouse */
 nav ul li:hover .submenu {
   display: block;
 }
@@ -105,10 +125,11 @@ nav ul li:hover .submenu {
   padding: 20px;
 }
 
-/* Contenitore */
+/* Contenitore principale */
 .container {
-  /* Se desideri un piccolo spazio tra il menu e l'immagine, aggiungi margin-top */
-  margin-top: 20px;
+  /* Nessun grande margin-top, 
+     perché l'header sticky non copre l'immagine iniziale all'avvio */
+  margin-top: 0;
   padding: 20px;
   max-width: 1200px;
   margin-left: auto;
@@ -143,33 +164,26 @@ footer {
   margin-top: 50px;
   padding: 20px;
   background: rgba(0, 0, 0, 0.8);
+  text-align: center;
 }
 
-/* Media Queries (opzionali per adattare meglio il layout) */
+/* Media Queries per layout responsive */
 @media (max-width: 768px) {
   .nav-container {
-    flex-direction: column;
     align-items: flex-start;
   }
   .nav-title {
+    font-size: 1.1rem;
     margin-bottom: 10px;
   }
-  nav ul {
-    flex-wrap: wrap;
-  }
+  /* Il menu resta orizzontale finché c'è spazio sufficiente */
 }
 
 @media (max-width: 480px) {
-  .nav-container {
-    padding: 10px;
-  }
   .nav-title {
     font-size: 1rem;
   }
-  nav ul {
-    flex-direction: column;
-  }
-  nav ul li {
-    margin: 5px 0;
-  }
+  /* Se preferisci il menu verticale sugli schermi piccoli,
+     puoi aggiungere flex-wrap o flex-direction: column; 
+     In caso contrario, rimane orizzontale finché lo schermo lo permette. */
 }
