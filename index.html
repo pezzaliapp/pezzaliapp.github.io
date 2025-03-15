@@ -3,25 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alessandro Pezzali</title>
+    <title>Alessandro Pezzali - Arti Liberali Digitali</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .grid-item img {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .grid-item img:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#about">Chi sono</a></li>
-                <li><a href="#contact">Contatti</a></li>
+                <li><a href="#fotografia">Fotografia</a></li>
+                <li><a href="#coding">Coding</a></li>
+                <li><a href="#scrittura">Scrittura</a></li>
+                <li><a href="https://pezzaliapp.com" target="_blank">pezzaliapp.com</a></li>
             </ul>
         </nav>
     </header>
     
     <div class="container">
-        <h1 class="hero">Benvenuto su Alessandro Pezzali</h1>
-        <p>Il nuovo sito è in costruzione. Presto disponibile.</p>
-        <a href="#about" class="button">Scopri di più</a>
+        <h1 class="hero">Alessandro Pezzali</h1>
+        <p>Esplora il connubio tra digitale e arti liberali.</p>
+        
+        <div class="grid">
+            <div class="grid-item">
+                <a href="#fotografia">
+                    <img src="images/fotografia.jpg" alt="Fotografia">
+                    <h2>Fotografia</h2>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="#coding">
+                    <img src="images/coding.jpg" alt="Coding">
+                    <h2>Coding</h2>
+                </a>
+            </div>
+            <div class="grid-item">
+                <a href="#scrittura">
+                    <img src="images/scrittura.jpg" alt="Scrittura">
+                    <h2>Scrittura</h2>
+                </a>
+            </div>
+        </div>
     </div>
     
     <footer>
