@@ -1,4 +1,4 @@
-/* Ottimizzazione per mobile, tablet e desktop */
+/* Stile generale */
 body {
     background-color: #000;
     color: #fff;
@@ -7,6 +7,8 @@ body {
     padding: 0;
     text-align: center;
 }
+
+/* Header e Navbar */
 header {
     position: fixed;
     top: 0;
@@ -49,6 +51,8 @@ nav ul li a {
 nav ul li a:hover {
     color: #bbb;
 }
+
+/* Submenu */
 .submenu {
     display: none;
     position: absolute;
@@ -57,11 +61,22 @@ nav ul li a:hover {
     background: rgba(0, 0, 0, 0.9);
     padding: 10px 0;
     list-style: none;
-    text-align: left;
+    text-align: center;
+    min-width: 180px;
+}
+.submenu li {
+    padding: 10px 0;
+}
+.submenu li a {
+    color: white;
+    text-decoration: none;
+    display: block;
 }
 nav ul li:hover .submenu {
     display: block;
 }
+
+/* Hero Image */
 .hero-image {
     width: 100%;
     max-height: 70vh;
@@ -74,61 +89,19 @@ nav ul li:hover .submenu {
     font-size: 1.5rem;
     padding: 20px;
 }
+
+/* Contenitore */
 .container {
-    margin-top: 80px;
+    margin-top: 100px;
     padding: 20px;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-.grid-item {
-    text-align: center;
-}
-.grid-item img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-.grid-item img:hover {
-    transform: scale(1.05);
-}
+
+/* Footer */
 footer {
     margin-top: 50px;
     padding: 20px;
     background: rgba(0, 0, 0, 0.8);
-}
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-    }
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        padding-top: 10px;
-    }
-    nav ul li {
-        margin: 10px 0;
-    }
-    .hero-text {
-        font-size: 1.2rem;
-    }
-    .grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-}
-@media (max-width: 480px) {
-    .hero-text {
-        font-size: 1rem;
-    }
-    .nav-title {
-        font-size: 1rem;
-    }
 }
