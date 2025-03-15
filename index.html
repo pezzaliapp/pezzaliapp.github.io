@@ -46,6 +46,32 @@
         }
         nav ul li {
             margin: 0 15px;
+            position: relative;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 10px 0;
+            list-style: none;
+            text-align: left;
+        }
+        .submenu li {
+            padding: 5px 20px;
+        }
+        .submenu li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        nav ul li:hover .submenu {
+            display: block;
         }
     </style>
 </head>
@@ -57,10 +83,14 @@
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#fotografia">Fotografia</a></li>
-                    <li><a href="#coding">Coding</a></li>
+                    <li>
+                        <a href="#coding">Coding</a>
+                        <ul class="submenu">
+                            <li><a href="https://pezzaliapp.com" target="_blank">pezzaliapp.com</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#scrittura">Scrittura</a></li>
                     <li><a href="#sfondi">Sfondi & Salvaschermo</a></li>
-                    <li><a href="https://pezzaliapp.com" target="_blank">pezzaliapp.com</a></li>
                 </ul>
             </nav>
         </div>
