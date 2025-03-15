@@ -1,169 +1,70 @@
 <!DOCTYPE html>
- <html lang="it">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Alessandro Pezzali - Arti Liberali Digitali</title>
-     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="style.css">
-     <style>
-         body {
-             opacity: 0;
-             animation: fadeIn 1.5s ease-in forwards;
-             text-align: center;
-             background-color: #000;
-             color: #fff;
-         }
-         @keyframes fadeIn {
-             from { opacity: 0; }
-             to { opacity: 1; }
-         }
-         .hero-image {
-             width: 100%;
-             max-height: 80vh;
-             object-fit: cover;
-             display: block;
-             margin: 0 auto;
-         }
-         .hero-text {
-             margin-top: 20px;
-             font-size: 1.5rem;
-             padding: 20px;
-         }
-         .nav-container {
-             display: flex;
-             align-items: center;
-             justify-content: space-between;
-             padding: 15px 20px;
-             background: rgba(0, 0, 0, 0.8);
-             position: fixed;
-             top: 0;
-             width: 100%;
-             z-index: 1000;
-         }
-         .nav-title {
-             font-weight: 600;
-             font-size: 1.2rem;
-             text-transform: uppercase;
-             color: white;
-             margin-left: 20px;
-         }
-         nav ul {
-             display: flex;
-             list-style: none;
-             padding: 0;
-             margin: 0;
-         }
-         nav ul li {
-             margin: 0 15px;
-             position: relative;
-         }
-         nav ul li a {
-             text-decoration: none;
-             color: white;
-             font-weight: 600;
-         }
-         .submenu {
-             display: none;
-             position: absolute;
-             top: 100%;
-             left: 0;
-             background: rgba(0, 0, 0, 0.9);
-             padding: 10px 0;
-             list-style: none;
-             text-align: left;
-         }
-         .submenu li {
-             padding: 5px 20px;
-         }
-         .submenu li a {
-             color: white;
-             text-decoration: none;
-             display: block;
-         }
-         nav ul li:hover .submenu {
-             display: block;
-         }
-         .grid {
-             display: grid;
-             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-             gap: 20px;
-             padding: 20px;
-         }
-         .grid-item {
-             text-align: center;
-         }
-         .grid-item img {
-             width: 100%;
-             max-width: 400px;
-             border-radius: 10px;
-             transition: transform 0.3s ease;
-         }
-         .grid-item img:hover {
-             transform: scale(1.05);
-         }
-     </style>
- </head>
- <body>
-     <header>
-         <div class="nav-container">
-             <div class="nav-title">ALESSANDRO PEZZALI</div>
-             <nav>
-                 <ul>
-                     <li><a href="#">Home</a></li>
-                     <li><a href="#fotografia">Fotografia</a></li>
-                     <li>
-                         <a href="#coding">Coding</a>
-                         <ul class="submenu">
-                             <li><a href="https://pezzaliapp.com" target="_blank">pezzaliapp.com</a></li>
-                         </ul>
-                     </li>
-                     <li><a href="#scrittura">Scrittura</a></li>
-                     <li><a href="#sfondi">Sfondi & Salvaschermo</a></li>
-                 </ul>
-             </nav>
-         </div>
-     </header>
- 
-     <div class="container" style="margin-top: 80px;">
-         
-         <img src="images/alessandro-pezzali.jpg" alt="Alessandro Pezzali" class="hero-image">
-         <div class="hero-text">
-            
-             <p>...uno spazio in cui il digitale incontra le arti liberali per creare nuove forme di espressione e innovazione.</p>
-             <p>📸 Fotografia | 💻 Coding | 🖋 Scrittura | 🎨 Sfondi & Salvaschermo</p>
-         </div>
- 
-         <div class="grid">
-             <div class="grid-item">
-                 <a href="#fotografia">
-                     <img src="images/fotografia.jpg" alt="Fotografia">
-                     <h2>Fotografia</h2>
-                 </a>
-             </div>
-             <div class="grid-item">
-                 <a href="#coding">
-                     <img src="images/coding.jpg" alt="Coding">
-                     <h2>Coding</h2>
-                 </a>
-             </div>
-             <div class="grid-item">
-                 <a href="#scrittura">
-                     <img src="images/scrittura.jpg" alt="Scrittura">
-                     <h2>Scrittura</h2>
-                 </a>
-             </div>
-             <div class="grid-item">
-                 <a href="#sfondi">
-                     <img src="images/sfondi.jpg" alt="Sfondi & Salvaschermo">
-                     <h2>Sfondi & Salvaschermo</h2>
-                 </a>
-             </div>
-         </div>
-     </div>
- 
-     <footer>
-         <p>© 2025 Alessandro Pezzali - Tutti i diritti riservati</p>
-     </footer>
- </body>
- </html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alessandro Pezzali - Arti Liberali Digitali</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="nav-title">ALESSANDRO PEZZALI</div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#fotografia">Fotografia</a></li>
+          <li>
+            <a href="#coding">Coding</a>
+            <ul class="submenu">
+              <li><a href="https://pezzaliapp.com" target="_blank">pezzaliapp.com</a></li>
+            </ul>
+          </li>
+          <li><a href="#scrittura">Scrittura</a></li>
+          <li><a href="#sfondi">Sfondi &amp; Salvaschermo</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <img src="images/alessandro-pezzali.jpg" alt="Alessandro Pezzali" class="hero-image">
+    <div class="hero-text">
+      <p>...uno spazio in cui il digitale incontra le arti liberali per creare nuove forme di espressione e innovazione.</p>
+      <p>📸 Fotografia | 💻 Coding | 🖋 Scrittura | 🎨 Sfondi &amp; Salvaschermo</p>
+    </div>
+
+    <div class="grid">
+      <div class="grid-item">
+        <a href="#fotografia">
+          <img src="images/fotografia.jpg" alt="Fotografia">
+          <h2>Fotografia</h2>
+        </a>
+      </div>
+      <div class="grid-item">
+        <a href="#coding">
+          <img src="images/coding.jpg" alt="Coding">
+          <h2>Coding</h2>
+        </a>
+      </div>
+      <div class="grid-item">
+        <a href="#scrittura">
+          <img src="images/scrittura.jpg" alt="Scrittura">
+          <h2>Scrittura</h2>
+        </a>
+      </div>
+      <div class="grid-item">
+        <a href="#sfondi">
+          <img src="images/sfondi.jpg" alt="Sfondi &amp; Salvaschermo">
+          <h2>Sfondi &amp; Salvaschermo</h2>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Alessandro Pezzali - Tutti i diritti riservati</p>
+  </footer>
+</body>
+</html>
