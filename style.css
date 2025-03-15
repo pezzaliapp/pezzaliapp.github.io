@@ -1,107 +1,186 @@
 /* Stile generale */
 body {
-    background-color: #000;
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Header e Navbar */
 header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 15px 0;
-    text-align: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px 0;
+  text-align: center;
+  z-index: 1000;
 }
+
 .nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    max-width: 1200px;
-    margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Allinea tutto a sinistra */
+  padding: 15px 20px;
+  max-width: 1200px;
+  margin: auto;
 }
+
 .nav-title {
-    font-weight: 600;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: white;
+  margin-right: 20px; /* Spazio tra titolo e menu */
 }
+
 nav ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
+
 nav ul li {
-    margin: 0 15px;
-    position: relative;
+  margin: 0 15px;
+  position: relative;
 }
+
 nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
 }
+
 nav ul li a:hover {
-    color: #bbb;
+  color: #bbb;
 }
 
 /* Submenu */
 .submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: rgba(0, 0, 0, 0.9);
-    padding: 10px 0;
-    list-style: none;
-    text-align: center;
-    min-width: 180px;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 10px 0;
+  list-style: none;
+  text-align: center;
+  min-width: 180px;
 }
+
 .submenu li {
-    padding: 10px 0;
+  padding: 10px 0;
 }
+
 .submenu li a {
-    color: white;
-    text-decoration: none;
-    display: block;
+  color: white;
+  text-decoration: none;
+  display: block;
 }
+
 nav ul li:hover .submenu {
-    display: block;
+  display: block;
 }
 
 /* Hero Image */
 .hero-image {
-    width: 100%;
-    max-height: 70vh;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto;
+  width: 100%;
+  max-height: 70vh;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
 }
+
 .hero-text {
-    margin-top: 20px;
-    font-size: 1.5rem;
-    padding: 20px;
+  margin-top: 20px;
+  font-size: 1.5rem;
+  padding: 20px;
 }
 
 /* Contenitore */
 .container {
-    margin-top: 100px;
-    padding: 20px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+  margin-top: 100px;
+  padding: 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.grid-item {
+  text-align: center;
+}
+
+.grid-item img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.grid-item img:hover {
+  transform: scale(1.05);
 }
 
 /* Footer */
 footer {
-    margin-top: 50px;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.8);
+  margin-top: 50px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive Design */
+/* Tablet (fino a 768px) */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+  .nav-title {
+    margin: 0 0 10px 0;
+  }
+  nav ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  nav ul li {
+    margin: 0 10px 10px 0;
+  }
+}
+
+/* Smartphone (fino a 480px) */
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 10px;
+  }
+  .nav-title {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+  nav ul li {
+    margin: 5px 0;
+  }
 }
