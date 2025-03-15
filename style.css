@@ -1,4 +1,4 @@
-/* Animazione di fade-in iniziale */
+/* Animazione di fade-in */
 body {
   background-color: #000;
   color: #fff;
@@ -15,15 +15,12 @@ body {
   to   { opacity: 1; }
 }
 
-/* Header e Navbar fissi in alto */
+/* Header e Navbar: posizione statica (NON fissa) */
 header {
-  position: fixed;
-  top: 0;
-  width: 100%;
+  position: static; /* il menu scorre con la pagina */
   background: rgba(0, 0, 0, 0.8);
   padding: 15px 0;
   text-align: center;
-  z-index: 1000;
 }
 
 .nav-container {
@@ -108,9 +105,10 @@ nav ul li:hover .submenu {
   padding: 20px;
 }
 
-/* Contenitore principale (lasciamo uno spazio per l'header) */
+/* Contenitore */
 .container {
-  margin-top: 100px; /* spazio per l'header fisso su schermi grandi */
+  /* Se desideri un piccolo spazio tra il menu e l'immagine, aggiungi margin-top */
+  margin-top: 20px;
   padding: 20px;
   max-width: 1200px;
   margin-left: auto;
@@ -147,57 +145,31 @@ footer {
   background: rgba(0, 0, 0, 0.8);
 }
 
-/* Responsive Design */
-
-/* Tablet (fino a 768px di larghezza) */
+/* Media Queries (opzionali per adattare meglio il layout) */
 @media (max-width: 768px) {
   .nav-container {
     flex-direction: column;
     align-items: flex-start;
-    padding: 10px 20px;
   }
-
   .nav-title {
-    margin: 0 0 10px 0;
+    margin-bottom: 10px;
   }
-
   nav ul {
-    flex-direction: row;
     flex-wrap: wrap;
-  }
-
-  nav ul li {
-    margin: 0 10px 10px 0;
-  }
-
-  /* Aumentiamo il margine-top per evitare sovrapposizioni */
-  .container {
-    margin-top: 140px;
   }
 }
 
-/* Smartphone (fino a 480px di larghezza) */
 @media (max-width: 480px) {
   .nav-container {
     padding: 10px;
   }
-
   .nav-title {
     font-size: 1rem;
-    margin-bottom: 8px;
   }
-
   nav ul {
     flex-direction: column;
-    width: 100%;
   }
-
   nav ul li {
     margin: 5px 0;
-  }
-
-  /* Margine-top ancora maggiore su smartphone per il menu aperto */
-  .container {
-    margin-top: 160px;
   }
 }
