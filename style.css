@@ -122,7 +122,7 @@ nav ul li:hover .submenu {
 
 .hero-text {
   font-size: 1.4rem;
-  line-height: 1.4;
+  line-height: 1.2; /* ↓ Ridotta per compattezza */
   padding: 30px 20px;
   max-width: 800px;
   margin: 0 auto;
