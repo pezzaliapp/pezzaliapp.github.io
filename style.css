@@ -185,3 +185,64 @@ footer {
     font-size: 1rem;
   }
 }
+section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+section p {
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+  color: #ccc;
+}
+
+.apps-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.app-card {
+  background: #1e1e1e;
+  padding: 15px;
+  border-radius: 10px;
+  width: calc(33.33% - 40px);
+  box-sizing: border-box;
+  max-width: 280px;
+  text-align: center;
+}
+
+.app-card img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.app-card h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.app-card p {
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+.app-card a {
+  display: inline-block;
+  margin: 5px;
+  padding: 8px 16px;
+  background: #0984e3;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.85rem;
+}
