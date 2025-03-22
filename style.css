@@ -39,7 +39,7 @@ nav a {
   font-weight: bold;
 }
 
-/* Se preferisci usare le classi per i colori invece di selettori basati su href, lascia pure queste: */
+/* Colori personalizzati */
 .verde {
   color: #00b894;
 }
@@ -48,41 +48,44 @@ nav a {
   color: #0984e3;
 }
 
-/* Hero */
+/* Hero: "Made for Makers" */
 .made-title {
   text-align: center;
   margin-top: 30px;
   font-size: 2rem;
   font-weight: bold;
+  /* Aggiungi un po’ di margin-bottom per distanziare dal resto */
+  margin-bottom: 20px;
 }
 
 /* Stili specifici per "Made for Makers" */
 .made-title .made-text,
 .made-title .makers-text {
-  color: #fff;  /* Colore differente da "progetti DIY" */
+  color: #fff;
 }
 
 .made-title .for-text {
-  color: #0984e3;  /* Colore di pezzaliAPP */
+  color: #0984e3;
 }
 
+/* Immagine principale */
 .hero-image {
   max-width: 100%;
   height: auto;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 20px; /* aggiunto un margin-bottom per più aria */
 }
 
 .hero-text {
   font-size: 1.2rem;
-  line-height: 1.4;
-  padding: 20px;
+  line-height: 1.5;
+  padding: 0 20px; /* ridotto un po’ il padding in alto/basso, mantenuto ai lati */
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto 40px; /* aggiunto margin-bottom per distanziare dalla sezione successiva */
   text-align: center;
 }
 
-/* App Section */
+/* Sezione App */
 .app-section {
   padding: 40px 20px;
   text-align: center;
@@ -90,11 +93,11 @@ nav a {
 
 .app-section h2 {
   font-size: 1.5rem;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .app-section p {
-  font-size: 0.9rem;
+  font-size: 1rem; 
   margin-bottom: 30px;
   color: #ccc;
 }
@@ -151,14 +154,59 @@ nav a {
   background: #74b9ff;
 }
 
-/* Link PDF diverso */
+/* Link PDF in un colore differente */
 .app-card a.pdf-link {
   background: #00b894;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 20px;
   font-size: 0.85rem;
   color: #aaa;
+}
+
+/* ============================= */
+/* MEDIA QUERY per schermi piccoli */
+/* ============================= */
+@media (max-width: 768px) {
+  /* Riduci un po’ la dimensione dei titoli */
+  .made-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .hero-text {
+    font-size: 1.1rem;
+    padding: 0 15px;
+    margin-bottom: 30px;
+  }
+  
+  .app-section h2 {
+    font-size: 1.3rem;
+  }
+  
+  /* Imposta le card su una colonna se lo schermo è stretto */
+  .apps-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .app-card {
+    width: 100%;
+    max-width: 400px; /* dimensione massima su mobile */
+    margin: 0 auto;   /* centra la card */
+  }
+  
+  /* Nav: se vuoi un layout verticale su mobile */
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  
+  nav a {
+    font-size: 1rem;
+  }
 }
