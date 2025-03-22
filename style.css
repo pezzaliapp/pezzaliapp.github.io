@@ -35,6 +35,8 @@ nav ul {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+  justify-content: center;
+  width: 100%;
 }
 
 nav li a {
@@ -152,4 +154,53 @@ section p {
 
 .app-card a:first-of-type {
   background: #00b894; /* verde PDF */
+}
+
+/* Aggiunte responsive e miglioramenti */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.app-card a {
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin: 8px auto;
+  display: inline-block;
+  min-width: 120px;
+}
+
+@media (max-width: 600px) {
+  .app-card {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .app-card img {
+    width: 60px;
+    height: auto;
+  }
+
+  .app-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .app-card a {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-text {
+    font-size: 1.1rem;
+    padding: 15px;
+  }
 }
