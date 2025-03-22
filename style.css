@@ -3,57 +3,54 @@ body {
   font-family: 'Arial', sans-serif;
   background-color: #000;
   color: #fff;
-  padding-top: 100px;
 }
 
 header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 999;
   background-color: #111;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.nav-wrapper {
+.nav-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 10px 0;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  justify-content: space-between;
 }
 
 .nav-title {
   font-weight: bold;
-  font-size: 1.2rem;
-  color: #fff;
-  margin-bottom: 5px;
+  font-size: 1.1rem;
 }
 
 nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  list-style: none;
   padding: 0;
   margin: 0;
-  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  width: 100%;
 }
 
-nav ul li a {
+nav li a {
   text-decoration: none;
-  font-weight: bold;
   color: #fff;
-  padding: 5px 10px;
-  transition: color 0.3s;
+  font-weight: bold;
 }
 
-nav ul li:nth-child(2) a {
-  color: #00ffb3;
+nav li:nth-child(2) a {
+  color: #00ffb3; /* verde */
 }
 
-nav ul li:nth-child(3) a {
-  color: #3399ff;
+nav li:nth-child(3) a {
+  color: #3399ff; /* blu */
 }
 
 .made-title {
@@ -86,6 +83,14 @@ nav ul li:nth-child(3) a {
   text-align: center;
 }
 
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Sezione App */
 section {
   padding: 40px 20px;
   text-align: center;
@@ -151,30 +156,24 @@ section p {
   background: #00b894; /* verde PDF */
 }
 
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-  color: #ccc;
+/* Aggiunte responsive e miglioramenti */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
 }
 
-/* Responsive mobile */
+.app-card a {
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin: 8px auto;
+  display: inline-block;
+  min-width: 120px;
+}
+
 @media (max-width: 600px) {
-  body {
-    padding-top: 140px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .hero-text {
-    font-size: 1.1rem;
-    padding: 15px;
-  }
-
   .app-card {
     width: 100%;
     max-width: 90%;
@@ -192,5 +191,16 @@ footer {
   .app-card a {
     width: 100%;
     box-sizing: border-box;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-text {
+    font-size: 1.1rem;
+    padding: 15px;
   }
 }
