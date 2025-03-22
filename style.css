@@ -1,4 +1,4 @@
-/* Fade-in all’avvio */
+/* Animazione di fade-in all'apertura */
 body {
   background-color: #000;
   color: #fff;
@@ -15,7 +15,6 @@ body {
   to { opacity: 1; }
 }
 
-/* Header sticky */
 header {
   position: sticky;
   top: 0;
@@ -24,7 +23,6 @@ header {
   z-index: 1000;
 }
 
-/* Titolo + menu */
 .nav-container {
   display: flex;
   flex-direction: column;
@@ -50,44 +48,56 @@ nav ul {
 }
 
 nav ul li {
+  position: relative;
   margin-right: 20px;
 }
 
 nav ul li a {
+  color: #fff;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s;
 }
 
-/* Colori menu */
-nav ul li a[href="#progetti"] {
-  color: #00cc99;
+nav ul li a[href*="DIY"] {
+  color: #00CC99;
 }
-nav ul li a[href*="pezzaliapp"] {
-  color: #0066ff;
+
+nav ul li a[href*="pezzaliAPP"] {
+  color: #0066FF;
 }
-nav ul li a:not([href*="pezzaliapp"]):not([href="#progetti"]) {
-  color: #fff;
-}
+
 nav ul li a:hover {
   color: #bbb;
 }
 
-/* Titolo Made for Makers con colori */
-.made-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-top: 30px;
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.9);
+  list-style: none;
+  text-align: left;
+  min-width: 180px;
+  margin: 0;
+  padding: 10px 0;
 }
 
-.made-title .verde {
-  color: #00cc99;
-}
-.made-title .blu {
-  color: #0066ff;
+.submenu li {
+  padding: 5px 20px;
 }
 
-/* Immagine principale */
+.submenu li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+nav ul li:hover .submenu {
+  display: block;
+}
+
 .hero-image {
   width: 100%;
   max-height: 70vh;
@@ -96,40 +106,76 @@ nav ul li a:hover {
   margin: 0 auto;
 }
 
-/* Testo descrittivo */
+.made-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.made-title .verde {
+  color: #00CC99;
+}
+
+.made-title .blu {
+  color: #0066FF;
+}
+
 .hero-text {
-  font-size: 1.5rem;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 30px auto 60px auto;
-  padding: 0 20px;
+  margin-top: 20px;
+  font-size: 1.4rem;
+  padding: 20px;
+  line-height: 1.4;
+}
+
+.container {
+  margin-top: 0;
+  padding: 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.grid-item {
   text-align: center;
 }
 
-/* Footer */
+.grid-item img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.grid-item img:hover {
+  transform: scale(1.05);
+}
+
 footer {
   margin-top: 50px;
   padding: 20px;
   background: rgba(0, 0, 0, 0.8);
   text-align: center;
-  font-size: 0.9rem;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
+  .nav-container {
+    align-items: flex-start;
+  }
   .nav-title {
     font-size: 1.1rem;
-  }
-  .hero-text {
-    font-size: 1.2rem;
+    margin-bottom: 10px;
   }
 }
 
 @media (max-width: 480px) {
   .nav-title {
     font-size: 1rem;
-  }
-  .hero-text {
-    font-size: 1.1rem;
   }
 }
