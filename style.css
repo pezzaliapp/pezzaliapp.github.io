@@ -39,11 +39,12 @@ nav a {
   font-weight: bold;
 }
 
-nav a[href*="progetti"] {
+/* Se preferisci usare le classi per i colori invece di selettori basati su href, lascia pure queste: */
+.verde {
   color: #00b894;
 }
 
-nav a[href*="pezzaliAPP"] {
+.blu {
   color: #0984e3;
 }
 
@@ -53,14 +54,6 @@ nav a[href*="pezzaliAPP"] {
   margin-top: 30px;
   font-size: 2rem;
   font-weight: bold;
-}
-
-.verde {
-  color: #00b894;
-}
-
-.blu {
-  color: #0984e3;
 }
 
 .hero-image {
