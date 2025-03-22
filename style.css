@@ -59,12 +59,12 @@ nav ul li a {
   transition: color 0.3s;
 }
 
-nav ul li a[href*="DIY"] {
-  color: #00CC99;
+nav ul li:nth-child(2) a {
+  color: #00CC99; /* Verde Acqua */
 }
 
-nav ul li a[href*="pezzaliAPP"] {
-  color: #0066FF;
+nav ul li:nth-child(3) a {
+  color: #0066FF; /* Blu Elettrico */
 }
 
 nav ul li a:hover {
@@ -109,22 +109,23 @@ nav ul li:hover .submenu {
 .made-title {
   font-size: 2rem;
   font-weight: bold;
-  margin: 20px 0;
+  margin-top: 40px;
 }
 
 .made-title .verde {
-  color: #00CC99;
+  color: #00CC99; /* Verde Acqua */
 }
 
 .made-title .blu {
-  color: #0066FF;
+  color: #0066FF; /* Blu Elettrico */
 }
 
 .hero-text {
-  margin-top: 20px;
   font-size: 1.4rem;
-  padding: 20px;
   line-height: 1.4;
+  padding: 30px 20px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .container {
