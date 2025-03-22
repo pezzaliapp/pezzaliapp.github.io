@@ -1,0 +1,23 @@
+{
+  "name": "Alessandro Pezzali",
+  "short_name": "Pezzali",
+  "description": "Un sito statico, elegante e ultraleggero. 100% gratuito, personale e open.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait",
+  "lang": "it-IT",
+  "icons": [
+    {
+      "src": "icon/pezzaliapp-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon/pezzaliapp-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
