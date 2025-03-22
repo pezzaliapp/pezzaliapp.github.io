@@ -1,3 +1,4 @@
+/* Effetto fade-in */
 body {
   background-color: #000;
   color: #fff;
@@ -10,10 +11,15 @@ body {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
+/* Header sticky */
 header {
   position: sticky;
   top: 0;
@@ -22,6 +28,7 @@ header {
   z-index: 1000;
 }
 
+/* Container del menu */
 .nav-container {
   display: flex;
   flex-direction: column;
@@ -31,6 +38,7 @@ header {
   padding: 15px 20px;
 }
 
+/* Titolo a sinistra */
 .nav-title {
   font-weight: 600;
   font-size: 1.2rem;
@@ -39,6 +47,7 @@ header {
   margin-bottom: 10px;
 }
 
+/* Menu orizzontale */
 nav ul {
   display: flex;
   list-style: none;
@@ -61,19 +70,15 @@ nav ul li a:hover {
   color: #bbb;
 }
 
-.verde {
-  color: #00CC99;
+/* Colori personalizzati */
+nav ul li a[href*="progetti"] {
+  color: #00cc99;
 }
-.blu {
-  color: #0066FF;
-}
-.verde-acqua {
-  color: #00CC99;
-}
-.blu-elettrico {
-  color: #0066FF;
+nav ul li a[href*="pezzaliAPP"] {
+  color: #0066ff;
 }
 
+/* Immagine hero */
 .hero-image {
   width: 100%;
   max-height: 70vh;
@@ -82,33 +87,49 @@ nav ul li a:hover {
   margin: 0 auto;
 }
 
-.made-title {
-  margin-top: 40px;
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.dual-text {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  max-width: 1000px;
-  margin: 40px auto 20px auto;
-  text-align: left;
-  font-size: 1rem;
-  line-height: 1.6;
-  gap: 40px;
-}
-
-.dual-text .col {
-  width: 45%;
-}
-
-.center-text {
-  font-size: 1rem;
+/* Testo sotto immagine */
+.hero-text {
   margin-top: 20px;
+  font-size: 1.5rem;
+  padding: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+  text-align: center;
 }
 
+/* Contenuto principale */
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Griglia immagini */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.grid-item {
+  text-align: center;
+}
+
+.grid-item img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.grid-item img:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
 footer {
   margin-top: 50px;
   padding: 20px;
@@ -116,13 +137,19 @@ footer {
   text-align: center;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
-  .dual-text {
-    flex-direction: column;
-    text-align: center;
+  .nav-container {
+    align-items: flex-start;
   }
+  .nav-title {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+}
 
-  .dual-text .col {
-    width: 100%;
+@media (max-width: 480px) {
+  .nav-title {
+    font-size: 1rem;
   }
 }
