@@ -56,6 +56,16 @@ nav a {
   font-weight: bold;
 }
 
+/* Stili specifici per "Made for Makers" */
+.made-title .made-text,
+.made-title .makers-text {
+  color: #fff;  /* Colore differente da "progetti DIY" */
+}
+
+.made-title .for-text {
+  color: #0984e3;  /* Colore di pezzaliAPP */
+}
+
 .hero-image {
   max-width: 100%;
   height: auto;
