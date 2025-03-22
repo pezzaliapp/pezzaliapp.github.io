@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FleXiLift – Sistema di Monitoraggio IoT per Sollevatori Industriali">
+  <title>FleXiLift – Monitoraggio IoT</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #111;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 2rem 0;
+    }
+    ul {
+      list-style: none;
+      padding-left: 1em;
+    }
+    ul li::before {
+      content: "\2022 ";
+      color: #007acc;
+    }
+    .note {
+      background: #eef;
+      padding: 10px;
+      border-left: 5px solid #007acc;
+    }
+    .license {
+      font-size: 0.9em;
+      color: #555;
+    }
+    .pdf-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #007acc;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .pdf-link:hover {
+      background-color: #005f99;
+    }
+  </style>
+</head>
+<body>
+  <h1>FleXiLift – Sistema di Monitoraggio IoT per Sollevatori Industriali</h1>
+
+  <h2>Introduzione</h2>
+  <p><strong>FleXiLift</strong> è un progetto formativo nato con l’obiettivo di esplorare e rendere accessibile la tecnologia <strong>IoT</strong> per applicazioni industriali.<br>
+  Realizzato con componenti hardware essenziali e codice sviluppato in autonomia nel tempo libero, il sistema simula il comportamento di un sollevatore industriale, offrendo un <strong>monitoraggio in tempo reale</strong> sia su <strong>display locale</strong> che via <strong>web</strong>.</p>
+  <p>Un prototipo completamente funzionante, sviluppato in ambiente “garage”, che dimostra come sia possibile progettare soluzioni intelligenti con <strong>costi contenuti</strong> e un approccio <strong>open source</strong>.</p>
+
+  <hr>
+  <h2>Componenti Hardware Utilizzati</h2>
+  <ul>
+    <li><strong>ESP32 (LILYGO T-Display S3):</strong> Microcontrollore WiFi + Bluetooth con display TFT integrato da 1,9”.</li>
+    <li><strong>Display TFT LCD:</strong> Visualizzazione diretta dello stato operativo, altezza simulata e conferma invio dati.</li>
+    <li><strong>Connessione WiFi 2.4GHz:</strong> Per l’invio dei dati in tempo reale alla piattaforma cloud.</li>
+    <li><strong>Cavi jumper e breadboard:</strong> Collegamento semplice e modulare dei componenti.</li>
+    <li><strong>(Opzionale) Batteria ricaricabile:</strong> Alimentazione in mobilità tramite batteria Li-Po (non inclusa in questa fase).</li>
+    <li><strong>(Predisposto) Sensore VL53L1X/VL53L0X:</strong> Sensore Time-of-Flight per misurazione laser precisa dell’altezza (attualmente simulata).</li>
+  </ul>
+
+  <hr>
+  <h2>Funzionalità Attualmente Operative</h2>
+  <ul>
+    <li>✅ Rilevazione in tempo reale dello stato operativo del sollevatore (Occupato/Libero)</li>
+    <li>✅ Simulazione ciclica dell’altezza da terra (0–200 cm)</li>
+    <li>✅ Visualizzazione dei dati sul display integrato</li>
+    <li>✅ Dashboard web con storico aggiornato e visualizzazione dell’altezza</li>
+    <li>✅ Timestamp sincronizzati tramite NTP</li>
+    <li>✅ Invio dati in tempo reale su Firebase Realtime Database</li>
+    <li>✅ Accesso tramite PWA, con layout minimale, fluido e responsive</li>
+  </ul>
+
+  <hr>
+  <h2>Obiettivi Futuri</h2>
+  <ul>
+    <li>🔄 Collegamento del sensore VL53L1X per misurazioni fisiche reali (già predisposto)</li>
+    <li>📊 Integrazione con moduli di machine learning per analisi predittiva</li>
+    <li>🔔 Notifiche in tempo reale per anomalie operative</li>
+    <li>🔋 Aggiunta di batteria ricaricabile per una portabilità completa</li>
+    <li>🌐 Integrazione con sistemi gestionali avanzati (ERP/MES) per applicazioni industriali</li>
+  </ul>
+
+  <hr>
+  <h2>Modalità di Accesso</h2>
+  <p>Il sistema è attualmente in <strong>modalità test</strong>: i dati sono disponibili solo durante le sessioni attivate manualmente dallo sviluppatore.</p>
+  <p>La <strong>Progressive Web App (PWA)</strong> pubblicata su GitHub Pages consente di visualizzare:</p>
+  <ul>
+    <li>Lo stato del sollevatore in tempo reale</li>
+    <li>L’altezza simulata</li>
+    <li>Uno storico aggiornato dinamicamente dal cloud</li>
+  </ul>
+
+  <hr>
+  <h2>Architettura Software</h2>
+  <ul>
+    <li>Programmazione in C++ su Arduino Framework</li>
+    <li>Firebase ESP Client per comunicazione con il database</li>
+    <li>Libreria NTP per sincronizzazione oraria</li>
+    <li>Firebase Realtime Database (cloud)</li>
+    <li>HTML, CSS e JavaScript per la Progressive Web App</li>
+    <li>GitHub Pages per la distribuzione web della PWA</li>
+  </ul>
+
+  <hr>
+  <h2>Prospettive di Sviluppo</h2>
+  <ul>
+    <li>Attivazione del sensore VL53L1X per misurazioni reali</li>
+    <li>Espansione del sistema a più sollevatori con dashboard centralizzata</li>
+    <li>Aggiunta di analisi predittiva e notifiche smart per manutenzione preventiva</li>
+    <li>Integrazione con piattaforme secondo lo standard Industria 5.0</li>
+  </ul>
+
+  <hr>
+  <h2>🔧 Nota Tecnica</h2>
+  <div class="note">
+    La simulazione attuale è progettata per emulare il comportamento del sensore fisico, riducendo tempi e costi di test.<br>
+    Nei progetti complessi, l’uso di simulatori rappresenta un asset strategico per evitare errori progettuali e ottimizzare il ciclo di sviluppo.
+  </div>
+
+  <hr>
+  <h2>Licenza</h2>
+  <div class="license">
+    <p><strong>MIT License</strong><br>
+    © Alessandro Pezzali 2025<br>
+    Piattaforma ufficiale: <a href="https://pezzaliapp.com" target="_blank">pezzaliapp.com</a></p>
+    <p>Il progetto è distribuito con licenza MIT per favorire la collaborazione, il riutilizzo aperto e lo sviluppo continuo da parte della community e di aziende interessate.<br>
+    📎 Tutti i file (sketch, PWA, risorse grafiche) sono pubblicati su GitHub e possono essere utilizzati liberamente per scopi educativi o applicazioni industriali.</p>
+    <p><em>Sviluppato “in the garage”, in puro stile DIY, ogni sera e nel fine settimana, con passione e competenze multidisciplinari.</em></p>
+  </div>
+
+  <a class="pdf-link" href="/pdf/FleXiLift-Doc.pdf" target="_blank">📄 Scarica la versione PDF</a>
+
+</body>
+</html>
