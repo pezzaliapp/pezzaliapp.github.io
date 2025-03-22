@@ -21,7 +21,7 @@ body {
   }
 }
 
-/* Header sticky */
+/* Header con position: sticky; top: 0; */
 header {
   position: sticky;
   top: 0;
@@ -106,9 +106,16 @@ nav ul li:hover .submenu {
 }
 
 .hero-text {
-  margin-top: 20px;
+  margin: 40px auto;
+  padding: 0 20px;
+  max-width: 700px;
   font-size: 1.5rem;
-  padding: 20px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.hero-text::first-line {
+  font-weight: 600;
 }
 
 .container {
@@ -148,7 +155,6 @@ footer {
   text-align: center;
 }
 
-/* Media Queries */
 @media (max-width: 768px) {
   .nav-container {
     align-items: flex-start;
@@ -163,24 +169,4 @@ footer {
   .nav-title {
     font-size: 1rem;
   }
-}
-
-/* 🔽 Aggiunte per titolo "Made for Makers" */
-
-.made-title {
-  margin-top: 40px;
-  margin-bottom: 20px;
-  font-size: 2rem;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-/* Colori coerenti con il menu */
-.made-title span.made,
-.made-title span.makers {
-  color: #00CC99; /* Verde acqua: come "progetti DIY" */
-}
-
-.made-title span.for {
-  color: #0066FF; /* Blu elettrico: come pezzaliAPP */
 }
