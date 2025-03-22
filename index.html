@@ -4,78 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Alessandro Pezzali - Arti Liberali Digitali</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #fff;
-      color: #333;
-    }
-    .nav-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-    }
-    .nav-title {
-      font-weight: bold;
-      font-size: 1.5rem;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      padding: 0;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
     nav ul li a.pezzaliapp-link {
       color: #0066FF;
     }
     nav ul li a.diy-link {
       color: #00CC99;
     }
-    .container {
-      text-align: center;
-      padding: 40px 20px;
-    }
-    .hero-image {
-      max-width: 300px;
-      width: 100%;
-      border-radius: 10px;
-    }
-    .hero-text {
-      margin-top: 30px;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-    .hero-text h1 {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      background: #f0f0f0;
-      margin-top: 40px;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
 <body>
   <header>
     <div class="nav-container">
+      <!-- Titolo in prima riga -->
       <div class="nav-title">ALESSANDRO PEZZALI</div>
+      <!-- Menu aggiornato -->
       <nav>
         <ul>
           <li><a href="#">Home</a></li>
@@ -88,27 +36,30 @@
   </header>
 
   <div class="container">
-    <img src="images/alessandro-pezzali.jpg" alt="Alessandro Pezzali" class="hero-image" />
+    <!-- Titolo grande -->
+    <h1 class="made-title">
+      <span class="made">Made</span> <span class="for">for</span> <span class="makers">Makers</span>
+    </h1>
+
+    <!-- Immagine iniziale -->
+    <img
+      src="images/alessandro-pezzali.jpg"
+      alt="Alessandro Pezzali"
+      class="hero-image"
+    />
+
+    <!-- Testo introduttivo -->
     <div class="hero-text">
-      <h1>
-        <span style="color: #00CC99;">Made</span>
-        <span style="color: #0066FF;">for</span>
-        <span style="color: #00CC99;">Makers</span>
-      </h1>
       <p>
-        Un sito nuovo, statico, elegante e ultraleggero, progettato per essere veloce, sostenibile e totalmente sotto il mio controllo.
-        <br />
+        Uno spazio pensato per chi ama costruire, sperimentare, creare. Non solo coding, non solo hardware, ma un punto d'incontro tra tecnologia e creatività, tra sapere e saper fare.
+      </p>
+      <p>
+        Un sito nuovo, statico, elegante e ultraleggero, progettato per essere veloce, sostenibile e totalmente sotto il mio controllo.<br>
         Niente plugin inutili. Niente distrazioni. Solo contenuti che contano.
       </p>
       <p>
-        Fotografia. Coding. Scrittura. Progetti DIY.
-        <br />
+        Fotografia. Coding. Scrittura. Progetti DIY.<br>
         Un ecosistema creativo dove le arti liberali incontrano il digitale.
-      </p>
-      <p>
-        Uno spazio pensato per chi ama costruire, sperimentare, creare.
-        <br />
-        Non solo coding, non solo hardware, ma un punto d'incontro tra tecnologia e creatività, tra sapere e saper fare.
       </p>
     </div>
   </div>
