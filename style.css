@@ -21,22 +21,15 @@ body {
   }
 }
 
-/* Header con position: sticky; top: 0; 
-   Resta "normale" finché l'utente non fa scroll. 
-   Quando la parte superiore della finestra "raggiunge" l'header, questo si incolla. 
-*/
+/* Header sticky */
 header {
   position: sticky;
   top: 0;
   background: rgba(0, 0, 0, 0.8);
-  text-align: left; /* Testo allineato a sinistra */
-  z-index: 1000;    /* Sopra il contenuto quando "sticky" */
+  text-align: left;
+  z-index: 1000;
 }
 
-/* Contenitore dell'intestazione, disposto a colonna:
-   - Prima riga: nav-title 
-   - Seconda riga: menu orizzontale
-*/
 .nav-container {
   display: flex;
   flex-direction: column;
@@ -46,16 +39,14 @@ header {
   padding: 15px 20px;
 }
 
-/* Titolo in prima riga */
 .nav-title {
   font-weight: 600;
   font-size: 1.2rem;
   text-transform: uppercase;
   color: white;
-  margin-bottom: 10px; /* Distanza dal menu */
+  margin-bottom: 10px;
 }
 
-/* Menu in seconda riga, orizzontale */
 nav ul {
   display: flex;
   list-style: none;
@@ -63,13 +54,11 @@ nav ul {
   margin: 0;
 }
 
-/* Ogni voce del menu */
 nav ul li {
-  position: relative; 
-  margin-right: 20px; /* Spaziatura orizzontale tra le voci */
+  position: relative;
+  margin-right: 20px;
 }
 
-/* Link di menu */
 nav ul li a {
   color: #fff;
   text-decoration: none;
@@ -81,11 +70,10 @@ nav ul li a:hover {
   color: #bbb;
 }
 
-/* Submenu */
 .submenu {
   display: none;
   position: absolute;
-  top: 100%;   /* Appena sotto la voce di menu */
+  top: 100%;
   left: 0;
   background: rgba(0, 0, 0, 0.9);
   list-style: none;
@@ -105,12 +93,10 @@ nav ul li a:hover {
   display: block;
 }
 
-/* Mostra il submenu al passaggio del mouse */
 nav ul li:hover .submenu {
   display: block;
 }
 
-/* Hero Image */
 .hero-image {
   width: 100%;
   max-height: 70vh;
@@ -125,10 +111,7 @@ nav ul li:hover .submenu {
   padding: 20px;
 }
 
-/* Contenitore principale */
 .container {
-  /* Nessun grande margin-top, 
-     perché l'header sticky non copre l'immagine iniziale all'avvio */
   margin-top: 0;
   padding: 20px;
   max-width: 1200px;
@@ -136,7 +119,6 @@ nav ul li:hover .submenu {
   margin-right: auto;
 }
 
-/* Griglia */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -159,7 +141,6 @@ nav ul li:hover .submenu {
   transform: scale(1.05);
 }
 
-/* Footer */
 footer {
   margin-top: 50px;
   padding: 20px;
@@ -167,7 +148,7 @@ footer {
   text-align: center;
 }
 
-/* Media Queries per layout responsive */
+/* Media Queries */
 @media (max-width: 768px) {
   .nav-container {
     align-items: flex-start;
@@ -176,14 +157,30 @@ footer {
     font-size: 1.1rem;
     margin-bottom: 10px;
   }
-  /* Il menu resta orizzontale finché c'è spazio sufficiente */
 }
 
 @media (max-width: 480px) {
   .nav-title {
     font-size: 1rem;
   }
-  /* Se preferisci il menu verticale sugli schermi piccoli,
-     puoi aggiungere flex-wrap o flex-direction: column; 
-     In caso contrario, rimane orizzontale finché lo schermo lo permette. */
+}
+
+/* 🔽 Aggiunte per titolo "Made for Makers" */
+
+.made-title {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Colori coerenti con il menu */
+.made-title span.made,
+.made-title span.makers {
+  color: #00CC99; /* Verde acqua: come "progetti DIY" */
+}
+
+.made-title span.for {
+  color: #0066FF; /* Blu elettrico: come pezzaliAPP */
 }
