@@ -1,4 +1,4 @@
-/* Effetto fade-in */
+/* Fade-in all’avvio */
 body {
   background-color: #000;
   color: #fff;
@@ -11,12 +11,8 @@ body {
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Header sticky */
@@ -28,7 +24,7 @@ header {
   z-index: 1000;
 }
 
-/* Container del menu */
+/* Titolo + menu */
 .nav-container {
   display: flex;
   flex-direction: column;
@@ -38,7 +34,6 @@ header {
   padding: 15px 20px;
 }
 
-/* Titolo a sinistra */
 .nav-title {
   font-weight: 600;
   font-size: 1.2rem;
@@ -47,7 +42,6 @@ header {
   margin-bottom: 10px;
 }
 
-/* Menu orizzontale */
 nav ul {
   display: flex;
   list-style: none;
@@ -60,25 +54,40 @@ nav ul li {
 }
 
 nav ul li a {
-  color: #fff;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s;
 }
 
+/* Colori menu */
+nav ul li a[href="#progetti"] {
+  color: #00cc99;
+}
+nav ul li a[href*="pezzaliapp"] {
+  color: #0066ff;
+}
+nav ul li a:not([href*="pezzaliapp"]):not([href="#progetti"]) {
+  color: #fff;
+}
 nav ul li a:hover {
   color: #bbb;
 }
 
-/* Colori personalizzati */
-nav ul li a[href*="progetti"] {
+/* Titolo Made for Makers con colori */
+.made-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-top: 30px;
+}
+
+.made-title .verde {
   color: #00cc99;
 }
-nav ul li a[href*="pezzaliAPP"] {
+.made-title .blu {
   color: #0066ff;
 }
 
-/* Immagine hero */
+/* Immagine principale */
 .hero-image {
   width: 100%;
   max-height: 70vh;
@@ -87,46 +96,14 @@ nav ul li a[href*="pezzaliAPP"] {
   margin: 0 auto;
 }
 
-/* Testo sotto immagine */
+/* Testo descrittivo */
 .hero-text {
-  margin-top: 20px;
   font-size: 1.5rem;
-  padding: 20px;
+  line-height: 1.6;
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.4;
+  margin: 30px auto 60px auto;
+  padding: 0 20px;
   text-align: center;
-}
-
-/* Contenuto principale */
-.container {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Griglia immagini */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-
-.grid-item {
-  text-align: center;
-}
-
-.grid-item img {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-}
-
-.grid-item img:hover {
-  transform: scale(1.05);
 }
 
 /* Footer */
@@ -135,21 +112,24 @@ footer {
   padding: 20px;
   background: rgba(0, 0, 0, 0.8);
   text-align: center;
+  font-size: 0.9rem;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .nav-container {
-    align-items: flex-start;
-  }
   .nav-title {
     font-size: 1.1rem;
-    margin-bottom: 10px;
+  }
+  .hero-text {
+    font-size: 1.2rem;
   }
 }
 
 @media (max-width: 480px) {
   .nav-title {
     font-size: 1rem;
+  }
+  .hero-text {
+    font-size: 1.1rem;
   }
 }
