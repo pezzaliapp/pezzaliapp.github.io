@@ -100,6 +100,7 @@ nav a {
   color: #ccc;
 }
 
+/* Container che contiene le card */
 .apps-container {
   display: flex;
   flex-wrap: wrap;
@@ -107,15 +108,17 @@ nav a {
   gap: 20px;
 }
 
+/* Card flessibile */
 .app-card {
   background: #1e1e1e;
   padding: 20px;
   border-radius: 12px;
-  width: calc(33.33% - 40px); /* 3 card per riga su desktop */
-  max-width: 280px;
+  flex: 1 1 300px; /* base: ~300px, si allarga se c'è spazio */
+  max-width: 600px; /* dimensione massima su schermi larghi */
   box-sizing: border-box;
   text-align: center;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+  margin: 0 auto; /* se vuoi centrare la card quando non riempie la riga */
 }
 
 .app-card img {
@@ -167,19 +170,9 @@ footer {
 }
 
 /* ============================= */
-/* MEDIA QUERY per tablet/intermedi */
-/* ============================= */
-@media (max-width: 1024px) {
-  .app-card {
-    width: calc(50% - 40px); /* 2 card per riga su schermi medi */
-  }
-}
-
-/* ============================= */
 /* MEDIA QUERY per schermi piccoli */
 /* ============================= */
 @media (max-width: 768px) {
-  /* Riduci dimensione titoli e padding */
   .made-title {
     font-size: 1.8rem;
     margin-bottom: 15px;
@@ -195,19 +188,7 @@ footer {
     font-size: 1.3rem;
   }
   
-  /* Disposizione verticale delle card */
-  .apps-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .app-card {
-    width: 100%;
-    max-width: 400px; /* dimensione massima su mobile */
-    margin: 0 auto;
-  }
-  
-  /* Layout verticale del menu */
+  /* Nav in colonna su mobile */
   nav ul {
     flex-direction: column;
     gap: 10px;
@@ -216,5 +197,11 @@ footer {
   
   nav a {
     font-size: 1rem;
+  }
+  
+  /* Le card rimangono comunque flex: 1 1 300px,
+     ma su schermi piccoli si impilano una sotto l'altra */
+  .app-card {
+    max-width: 400px; /* su mobile non superare i 400px di larghezza */
   }
 }
