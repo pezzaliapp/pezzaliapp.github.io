@@ -6,46 +6,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AirQuality Monitor – DIY Edition</title>
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-      margin: 0;
-      padding: 2rem;
+   body {
+      font-family: Arial, sans-serif;
       line-height: 1.6;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
     }
     h1, h2, h3 {
-      color: #005288;
+      color: #111;
     }
-    code {
-      background-color: #eaeaea;
-      padding: 2px 4px;
-      border-radius: 3px;
-    }
-    blockquote {
-      border-left: 5px solid #005288;
-      padding-left: 1rem;
-      color: #555;
-      font-style: italic;
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 2rem 0;
     }
     ul {
-      padding-left: 1.2rem;
+      list-style: none;
+      padding-left: 1em;
     }
-    section {
-      background: #fff;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    ul li::before {
+      content: "\2022 ";
+      color: #007acc;
     }
-    a {
-      color: #005288;
+    .note {
+      background: #eef;
+      padding: 10px;
+      border-left: 5px solid #007acc;
+    }
+    .license {
+      font-size: 0.9em;
+      color: #555;
+    }
+    .pdf-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #007acc;
+      color: white;
       text-decoration: none;
+      border-radius: 4px;
     }
-    a:hover {
-      text-decoration: underline;
+    .pdf-link:hover {
+      background-color: #005f99;
     }
   </style>
+
 </head>
 <body>
   <section>
