@@ -39,6 +39,16 @@ nav a {
   font-weight: bold;
 }
 
+/* Link Patreon con cuore */
+.sostieni-link {
+  color: red;
+  transition: color 0.3s ease;
+}
+
+.sostieni-link:hover {
+  color: #00b894; /* verde */
+}
+
 /* Colori personalizzati */
 .verde {
   color: #00b894;
@@ -113,12 +123,12 @@ nav a {
   background: #1e1e1e;
   padding: 20px;
   border-radius: 12px;
-  flex: 1 1 300px; /* base: ~300px, si allarga se c'è spazio */
-  max-width: 600px; /* dimensione massima su schermi larghi */
+  flex: 1 1 300px;
+  max-width: 600px;
   box-sizing: border-box;
   text-align: center;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
-  margin: 0 auto; /* se vuoi centrare la card quando non riempie la riga */
+  margin: 0 auto;
 }
 
 .app-card img {
@@ -177,31 +187,28 @@ footer {
     font-size: 1.8rem;
     margin-bottom: 15px;
   }
-  
+
   .hero-text {
     font-size: 1.1rem;
     padding: 0 15px;
     margin-bottom: 30px;
   }
-  
+
   .app-section h2 {
     font-size: 1.3rem;
   }
-  
-  /* Nav in colonna su mobile */
+
   nav ul {
     flex-direction: column;
     gap: 10px;
     align-items: flex-start;
   }
-  
+
   nav a {
     font-size: 1rem;
   }
-  
-  /* Le card rimangono comunque flex: 1 1 300px,
-     ma su schermi piccoli si impilano una sotto l'altra */
+
   .app-card {
-    max-width: 400px; /* su mobile non superare i 400px di larghezza */
+    max-width: 400px;
   }
 }
