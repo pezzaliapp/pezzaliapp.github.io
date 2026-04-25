@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Progetti — Alessandro Pezzali · 34 PWA in 10 categorie</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Catalogo curato delle PWA, dei tool operativi e dei giochi pubblicati da Alessandro Pezzali. 34 progetti in 10 categorie: officina, vendita, AI, hardware DIY, spazio, musica, retro.">
+  <meta name="keywords" content="Alessandro Pezzali, progetti, PWA, pezzaliAPP, MeteorWatch, CubeSat, officina, vendita, AI, hardware, DIY, giochi, spazio, musica, open source, GitHub Pages">
+  <meta name="author" content="Alessandro Pezzali">
+  <meta name="theme-color" content="#121212">
+
+  <link rel="icon" href="favicon.ico">
+  <link rel="canonical" href="https://www.alessandropezzali.it/progetti.html">
+
+  <meta property="og:title" content="Progetti — Alessandro Pezzali">
+  <meta property="og:description" content="34 PWA, tool e giochi raccolti per categoria. Open source, leggeri, made for makers.">
+  <meta property="og:image" content="https://www.alessandropezzali.it/preview.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.alessandropezzali.it/progetti.html">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Alessandro Pezzali",
+    "alternateName":"PezzaliAPP",
+    "url":"https://www.alessandropezzali.it",
+    "sameAs":[
+      "https://pezzaliapp.com",
+      "https://github.com/pezzaliapp",
+      "https://www.linkedin.com/in/pezzaliapp/",
+      "https://www.youtube.com/@pezzaliapp",
+      "https://www.instagram.com/ale_pezzali/"
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    :root{
+      --bg:#121212;
+      --panel:#1b1b1b;
+      --panel-2:#202020;
+      --text:#f0f0f0;
+      --muted:#c8c8c8;
+      --soft:#9a9a9a;
+      --line:rgba(255,255,255,.08);
+      --brand:#00b894;
+      --blue:#0984e3;
+      --red:#ff2b2b;
+      --shadow:0 12px 32px rgba(0,0,0,.28);
+      --radius:16px;
+      --navH:64px;
+      --container:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;min-height:100%;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+    html{scroll-behavior:smooth}
+    img{max-width:100%;display:block}
+    a{color:inherit}
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at top left, rgba(0,184,148,.10), transparent 28%),
+        radial-gradient(circle at top right, rgba(9,132,227,.09), transparent 26%);
+      z-index:-1;
+    }
+
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+    .section-pad{padding:64px 0}
+    .section-title{font-size:clamp(1.4rem,3.2vw,2rem);margin:0 0 10px}
+    .section-lead{max-width:760px;margin:0 0 28px;color:var(--muted);font-size:1rem;line-height:1.7}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;padding:6px 12px;
+      border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);
+      font-size:.78rem;color:#d7fff6;margin-bottom:14px;letter-spacing:.3px;text-transform:uppercase
+    }
+    .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--brand)}
+
+    /* Nav */
+    nav.topnav{
+      position:fixed;inset:0 0 auto 0;z-index:1000;
+      background:rgba(8,8,8,.88);
+      backdrop-filter:saturate(140%) blur(10px);
+      -webkit-backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      height:var(--navH);
+    }
+    .nav-wrap{max-width:1320px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:18px;height:100%}
+    .logo{font-size:1rem;font-weight:700;letter-spacing:.2px;white-space:nowrap;flex-shrink:0}
+    .logo span{color:var(--brand)}
+    nav.topnav ul{display:flex;flex-wrap:nowrap;gap:6px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;max-width:100%}
+    nav.topnav ul::-webkit-scrollbar{display:none}
+    nav.topnav li{flex:0 0 auto}
+    nav.topnav a{
+      display:inline-flex;align-items:center;justify-content:center;min-height:38px;
+      padding:8px 12px;border-radius:999px;text-decoration:none;font-size:.92rem;color:#f0f0f0;
+      transition:background .2s ease,color .2s ease,transform .2s ease;
+    }
+    nav.topnav a:hover{background:rgba(255,255,255,.06);color:#fff;transform:translateY(-1px)}
+    nav.topnav a.active{background:rgba(0,184,148,.14);border:1px solid rgba(0,184,148,.30);color:#fff}
+    .nav-blue{color:#7ec8ff !important;font-weight:700}
+    .nav-red{color:#ff8181 !important;font-weight:700}
+
+    /* Hero */
+    .hero{
+      position:relative;margin-top:var(--navH);
+      padding:64px 0 36px;border-bottom:1px solid var(--line);overflow:hidden
+    }
+    .hero::before{
+      content:"";position:absolute;inset:auto -40% -50% auto;
+      width:520px;height:520px;border-radius:50%;
+      background:radial-gradient(circle, rgba(0,184,148,.16), transparent 60%);
+      pointer-events:none
+    }
+    .hero h1{
+      font-size:clamp(2rem,5.5vw,3.6rem);line-height:1.04;margin:0 0 16px;max-width:900px;font-weight:700
+    }
+    .hero h1 .accent{color:var(--brand)}
+    .hero h1 .accent-blue{color:var(--blue)}
+    .hero p.lead{font-size:1.06rem;line-height:1.75;color:#ececec;max-width:720px;margin:0 0 26px}
+    .hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:760px}
+    .stat{
+      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
+      border:1px solid var(--line);border-radius:14px;padding:16px 18px;
+    }
+    .stat strong{display:block;font-size:1.5rem;line-height:1;margin-bottom:6px}
+    .stat span{display:block;color:var(--muted);font-size:.88rem;line-height:1.45}
+
+    /* Quick chips: anchor index */
+    .chips-wrap{padding:24px 0 0;border-bottom:1px solid var(--line)}
+    .chips{
+      display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-start;
+      padding-bottom:24px
+    }
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 13px;border-radius:999px;
+      background:rgba(255,255,255,.04);border:1px solid var(--line);
+      text-decoration:none;color:#eaeaea;font-size:.88rem;
+      transition:background .18s ease,border-color .18s ease,transform .18s ease
+    }
+    .chip:hover{background:rgba(0,184,148,.12);border-color:rgba(0,184,148,.35);transform:translateY(-1px)}
+    .chip i{color:var(--brand);font-size:.95rem}
+    .chip .count{color:var(--soft);font-size:.78rem}
+
+    /* Section header per categoria */
+    .cat-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:22px;flex-wrap:wrap}
+    .cat-head .left{max-width:760px}
+    .cat-head .count-pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 13px;border-radius:999px;background:rgba(9,132,227,.13);
+      border:1px solid rgba(9,132,227,.25);color:#dff1ff;font-size:.85rem;font-weight:600
+    }
+
+    /* Apps grid */
+    .apps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .app-card{
+      background:linear-gradient(180deg, #1f1f1f, #181818);
+      padding:18px;border-radius:16px;border:1px solid var(--line);box-shadow:var(--shadow);
+      text-align:left;display:flex;flex-direction:column;
+      transition:transform .2s ease,border-color .2s ease
+    }
+    .app-card:hover{transform:translateY(-3px);border-color:rgba(0,184,148,.35)}
+    .icon-ph{
+      width:76px;height:76px;border-radius:14px;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg, rgba(0,184,148,.22), rgba(9,132,227,.20));
+      border:1px solid var(--line);font-size:1.9rem;color:#fff;margin-bottom:14px
+    }
+    .icon-ph.blue{background:linear-gradient(135deg, rgba(9,132,227,.30), rgba(0,184,148,.14))}
+    .icon-ph.warm{background:linear-gradient(135deg, rgba(255,193,7,.22), rgba(255,87,34,.18))}
+    .icon-ph.violet{background:linear-gradient(135deg, rgba(155,89,182,.28), rgba(9,132,227,.16))}
+    .icon-ph.mono{background:linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.04))}
+    .app-card h3{font-size:1.04rem;margin:0 0 8px;line-height:1.3}
+    .app-card p{font-size:.92rem;color:var(--muted);line-height:1.6;margin:0 0 14px;flex-grow:1}
+    .app-card .meta{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+    .tag{
+      display:inline-flex;padding:3px 9px;border-radius:999px;
+      background:rgba(255,255,255,.05);border:1px solid var(--line);
+      font-size:.72rem;color:#dcdcdc
+    }
+    .tag.brand{background:rgba(0,184,148,.13);border-color:rgba(0,184,148,.30);color:#aef0df}
+    .tag.blue{background:rgba(9,132,227,.13);border-color:rgba(9,132,227,.30);color:#cfe8ff}
+    .actions{display:flex;flex-wrap:wrap;gap:8px}
+    .actions a{
+      display:inline-flex;align-items:center;justify-content:center;gap:6px;
+      padding:9px 12px;border-radius:10px;text-decoration:none;
+      background:#2a2a2a;color:#fff;font-size:.88rem;font-weight:600;
+      transition:transform .18s ease, background .18s ease
+    }
+    .actions a:hover{transform:translateY(-1px)}
+    .actions a.primary{background:var(--brand)}
+    .actions a.primary:hover{background:#13d2ad}
+    .actions a.secondary{background:transparent;border:1px solid var(--line);color:#e5e5e5}
+    .actions a.secondary:hover{background:rgba(255,255,255,.06);border-color:rgba(0,184,148,.40)}
+    .actions a.todo-pdf{background:rgba(255,193,7,.10);border:1px dashed rgba(255,193,7,.45);color:#ffd766;cursor:not-allowed}
+    .actions a.todo-pdf:hover{transform:none;background:rgba(255,193,7,.16)}
+    .card-badge{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:4px 10px;border-radius:999px;
+      background:linear-gradient(135deg, rgba(32,191,132,.18), rgba(66,133,244,.20));
+      border:1px solid rgba(66,133,244,.40);
+      font-size:.7rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;
+      color:#cfe8ff;margin-bottom:10px;align-self:flex-start
+    }
+    .card-badge i{color:#ffd766;font-size:.78rem}
+
+    /* CTA panel finale */
+    .cta-panel{
+      background:linear-gradient(180deg, rgba(0,184,148,.08), rgba(9,132,227,.06));
+      border:1px solid var(--line);border-radius:18px;
+      padding:28px;text-align:center
+    }
+    .cta-panel h2{margin:0 0 8px;font-size:1.3rem}
+    .cta-panel p{color:var(--muted);margin:0 auto 18px;max-width:620px;line-height:1.7}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      min-height:44px;padding:11px 18px;border-radius:12px;text-decoration:none;font-weight:600;
+      border:1px solid transparent;transition:transform .18s ease, background .18s ease
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--brand);color:#fff}
+    .btn-secondary{background:rgba(255,255,255,.06);border-color:var(--line);color:#fff}
+    .btn-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+
+    /* Footer */
+    footer.site-footer{background:#161616;border-top:1px solid rgba(255,255,255,.06);padding:30px 0 16px;margin-top:24px}
+    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:start}
+    .footer-grid p{color:var(--muted);line-height:1.7;margin:0 0 10px}
+    .footer-grid h4{margin:0 0 10px;font-size:.95rem;color:#fff}
+    .social{display:flex;gap:12px;margin-top:10px}
+    .social a{
+      display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;
+      border-radius:50%;background:#232323;text-decoration:none;color:#fff;
+      transition:background .18s ease,color .18s ease,transform .18s ease
+    }
+    .social a:hover{background:#2d2d2d;color:var(--brand);transform:translateY(-2px)}
+    .footer-bottom{text-align:center;padding:16px 0 6px;color:#aaa;font-size:.85rem;border-top:1px solid rgba(255,255,255,.06);margin-top:24px}
+    .map-wrap{max-width:520px;margin:24px auto 0}
+
+    /* Responsive */
+    @media (max-width: 1180px){
+      .apps-grid{grid-template-columns:repeat(3,1fr)}
+    }
+    @media (max-width: 880px){
+      .apps-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:1fr}
+      .hero-stats{grid-template-columns:1fr}
+    }
+    @media (max-width: 540px){
+      .apps-grid{grid-template-columns:1fr}
+      .section-pad{padding:48px 0}
+      .container{padding:0 16px}
+      .hero{padding:44px 0 28px}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Navigazione principale">
+  <div class="nav-wrap">
+    <a class="logo" href="index.html">Alessandro <span>Pezzali</span></a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="progetti.html" class="active">Progetti</a></li>
+      <li><a href="https://pezzaliapp.com" target="_blank" rel="noopener" class="nav-blue">pezzaliAPP</a></li>
+      <li><a href="https://github.com/pezzaliapp" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="mailto:pezzalialessandro@gmail.com">Contatti</a></li>
+      <li><a href="https://www.patreon.com/c/pezzaliAPP?redirect=true" target="_blank" rel="noopener" class="nav-red">❤ Sostieni</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow"><span class="dot"></span>Made for Makers · Catalogo curato</div>
+    <h1>Tutti i progetti, <span class="accent">in chiaro</span>.<br>Strumenti, giochi, <span class="accent-blue">esperimenti</span>.</h1>
+    <p class="lead">
+      Una selezione di 34 progetti — PWA, tool operativi, giochi e simulatori — scelti tra oltre
+      250 repository pubblici. Tutto è statico, leggero, installabile come app, e quasi sempre
+      utilizzabile offline. Open source, scritto a mano, senza framework e senza tracker pesanti.
+    </p>
+    <div class="hero-stats">
+      <div class="stat"><strong>34</strong><span>Progetti curati nel catalogo</span></div>
+      <div class="stat"><strong>10</strong><span>Categorie, dall'officina allo spazio</span></div>
+      <div class="stat"><strong>250+</strong><span>Repo pubbliche su GitHub</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="chips-wrap" aria-label="Indice rapido categorie">
+  <div class="container">
+    <div class="chips">
+      <a class="chip" href="#officina"><i class="fa fa-wrench"></i> Officina e gomme <span class="count">3</span></a>
+      <a class="chip" href="#hardware"><i class="fa fa-microchip"></i> Hardware DIY <span class="count">3</span></a>
+      <a class="chip" href="#vendita"><i class="fa fa-line-chart"></i> Vendita e listini <span class="count">4</span></a>
+      <a class="chip" href="#ai"><i class="fa fa-flask"></i> AI e backoffice <span class="count">4</span></a>
+      <a class="chip" href="#trasporti"><i class="fa fa-truck"></i> Trasporti e noleggio <span class="count">2</span></a>
+      <a class="chip" href="#giochi"><i class="fa fa-gamepad"></i> Arcade e retro <span class="count">5</span></a>
+      <a class="chip" href="#spazio"><i class="fa fa-rocket"></i> Astronomia e spazio <span class="count">4</span></a>
+      <a class="chip" href="#scienza"><i class="fa fa-cubes"></i> Scienza e rompicapi <span class="count">4</span></a>
+      <a class="chip" href="#musica"><i class="fa fa-music"></i> Musica e creatività <span class="count">3</span></a>
+      <a class="chip" href="#cyber"><i class="fa fa-shield"></i> Cyber e tributi retro <span class="count">2</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 1. OFFICINA, SOLLEVATORI, GOMME ====== -->
+<section class="section-pad" id="officina">
+  <div class="container">
+    <div class="cat-head">
+      <div class="left">
+        <div class="eyebrow"><span class="dot"></span>Officina, sollevatori, gomme</div>
+        <h2 class="section-title">Strumenti per chi tiene su l'auto, davvero</h2>
+        <p class="section-lead">Sollevatori connessi, certificazione ponti e assistente per gommisti: strumenti per chi tiene su l'auto, davvero. Pensati per uso quotidiano sul campo.</p>
+      </div>
+      <span class="count-pill">3 progetti</span>
+    </div>
+
+    <div class="apps-grid">
+      <article class="app-card">
+        <div class="icon-ph"><i class="fa fa-arrows-v"></i></div>
+        <h3>FleXiLift</h3>
+        <p>Traccia lo stato del sollevatore in tempo reale. Hardware open via ESP32, interfaccia browser-first installabile come PWA.</p>
+        <div class="meta"><span class="tag brand">PWA</span><span class="tag">ESP32</span><span class="tag">Hardware</span></div>
+        <div class="actions">
+          <a class="primary" href="fleXiLift.html">Scheda</a>
+          <a class="secondary" href="https://pezzaliapp.github.io/FleXiLift/" target="_blank" rel="noopener"><i class="fa fa-external-link"></i> Apri</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph warm"><i class="fa fa-certificate"></i></div>
+        <h3>CertifiLIFT</h3>
+        <p>Compilazione assistita per la certificazione dei ponti sollevatori a forbice: schede, parametri e report stampabili.</p>
+        <div class="meta"><span class="tag">Compliance</span><span class="tag">Sollevatori</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/CertifiLIFT/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/CertifiLIFT" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph blue"><i class="fa fa-qrcode"></i></div>
+        <h3>GommistaPro Assistant</h3>
+        <p>Assistente per gommisti: gestisce listini fornitori, fa check stock e prezzi nei magazzini, genera preventivi. Senza fornitori caricati gira con dati demo. Legge anche il QR code dei pneumatici. App gratuita.</p>
+        <div class="meta"><span class="tag brand">Gommista</span><span class="tag blue">QR scan</span><span class="tag">Listini</span></div>
+        <div class="actions">
+          <a class="primary" href="https://gommistapro-assistant.alessandropezzali.it" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/gommistapro-assistant" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 2. HARDWARE DIY & IoT ====== -->
+<section class="section-pad" id="hardware">
+  <div class="container">
+    <div class="cat-head">
+      <div class="left">
+        <div class="eyebrow"><span class="dot"></span>Hardware DIY &amp; IoT</div>
+        <h2 class="section-title">Quando il software incontra il fisico</h2>
+        <p class="section-lead">Sensori, ESP32, BLE, payload Rubber Ducky, sistemi LoRa: progetti dove il browser parla all'hardware, non viceversa.</p>
+      </div>
+      <span class="count-pill">3 progetti</span>
+    </div>
+
+    <div class="apps-grid">
+      <article class="app-card">
+        <div class="icon-ph"><i class="fa fa-leaf"></i></div>
+        <h3>AirQuality Monitor — DIY Edition</h3>
+        <p>PM2.5, CO₂, VOC, temperatura, umidità, luce e pressione in tempo reale. PWA + hardware open ESP32/Arduino, in versione fissa e mobile.</p>
+        <div class="meta"><span class="tag brand">Open Hardware</span><span class="tag">ESP32</span></div>
+        <div class="actions">
+          <a class="primary" href="AirQualityMonitor-Styled.html">Scheda</a>
+          <a class="secondary" href="https://www.alessandropezzali.it/AirQualityMonitor-Hybrid/" target="_blank" rel="noopener"><i class="fa fa-external-link"></i> Apri</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph warm"><i class="fa fa-life-ring"></i></div>
+        <h3>FerryGuard</h3>
+        <p>Sistema SOS via LoRa per traghetti: localizza e protegge persone con disabilità in caso di emergenza, anche senza connessione Internet.</p>
+        <div class="meta"><span class="tag">LoRa</span><span class="tag">Safety</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/FerryGuard/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/FerryGuard" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph blue"><i class="fa fa-bluetooth-b"></i></div>
+        <h3>thinkair-ble</h3>
+        <p>Web app che dialoga con sensori ThinkAir via Bluetooth Low Energy, direttamente dal browser, senza app native.</p>
+        <div class="meta"><span class="tag blue">Web BLE</span><span class="tag">Sensori</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/thinkair-ble/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/thinkair-ble" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 3. VENDITA, LISTINI & PREVENTIVI ====== -->
+<section class="section-pad" id="vendita">
+  <div class="container">
+    <div class="cat-head">
+      <div class="left">
+        <div class="eyebrow"><span class="dot"></span>Vendita, listini &amp; preventivi</div>
+        <h2 class="section-title">Listini in CSV, sconti chiari, preventivi puliti</h2>
+        <p class="section-lead">Strumenti pensati per chi vende ogni giorno: importa il listino in CSV, applica sconti, calcola margini, esporta preventivi e gestisci visite e clienti.</p>
+      </div>
+      <span class="count-pill">4 progetti</span>
+    </div>
+
+    <div class="apps-grid">
+      <article class="app-card">
+        <div class="icon-ph"><i class="fa fa-table"></i></div>
+        <h3>ListinoHub</h3>
+        <p>Hub centrale per la gestione dei listini fornitori: importi i CSV, applichi sconti, calcoli margini ed esporti preventivi puliti. Successore evoluto della linea CSVXpress.</p>
+        <div class="meta"><span class="tag brand">Listini</span><span class="tag">Preventivi</span><span class="tag blue">CSV</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/ListinoHub/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/ListinoHub" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+          <a class="todo-pdf" href="#" title="Manuale PDF da caricare in pdf/ListinoHub-Doc.pdf"><i class="fa fa-file-pdf-o"></i> Manuale</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph blue"><i class="fa fa-files-o"></i></div>
+        <h3>FINDnMATCH</h3>
+        <p>Confronto Excel: indica le colonne da confrontare e ottieni match e differenze in un colpo. Essenziale, chiaro, immediato.</p>
+        <div class="meta"><span class="tag">Excel</span><span class="tag blue">Confronto</span></div>
+        <div class="actions">
+          <a class="primary" href="https://pezzaliapp.github.io/FINDNMATCH/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/FINDNMATCH" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph blue"><i class="fa fa-bolt"></i></div>
+        <h3>QuoteFlash</h3>
+        <p>Preventivo lampo per officine e gommisti: scansione QR EPREL/DOT/EAN, pneumatici nuovi e usati con posizione ruota, classi energetiche, output PDF/TXT/WhatsApp e webhook Make.com.</p>
+        <div class="meta"><span class="tag blue">Preventivi</span><span class="tag brand">EPREL</span><span class="tag">QR scan</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/quoteflash/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/quoteflash" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph"><i class="fa fa-search"></i></div>
+        <h3>CheckappExcel</h3>
+        <p>Confronta due o più file Excel/CSV di listini per codice prodotto e ottieni un Excel colorato con le differenze. Anche in versione Python.</p>
+        <div class="meta"><span class="tag">Listini</span><span class="tag brand">Excel</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/CheckappExcel/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/CheckappExcel" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 4. AI & BACKOFFICE ====== -->
+<section class="section-pad" id="ai">
+  <div class="container">
+    <div class="cat-head">
+      <div class="left">
+        <div class="eyebrow"><span class="dot"></span>AI &amp; backoffice</div>
+        <h2 class="section-title">AI applicata al lavoro vero</h2>
+        <p class="section-lead">Assistenti tecnici, agenti backoffice, dashboard di intelligence: AI che fa una cosa precisa, dichiarata, controllabile. Niente magia, solo strumenti.</p>
+      </div>
+      <span class="count-pill">4 progetti</span>
+    </div>
+
+    <div class="apps-grid">
+      <article class="app-card">
+        <span class="card-badge"><i class="fa fa-trophy"></i> Kaggle 2026</span>
+        <div class="icon-ph violet"><i class="fa fa-medkit"></i></div>
+        <h3>TriageFirst</h3>
+        <p>Assistente di triage medico offline-ready basato su Gemma 4: la PWA suggerisce livello di urgenza (rosso/giallo/verde) per comunità con accesso sanitario limitato. Ingresso voce/testo, 8 lingue, nessun account. In gara nella Kaggle Gemma 4 Impact Challenge.</p>
+        <div class="meta"><span class="tag brand">Gemma 4</span><span class="tag blue">Offline-ready</span><span class="tag">PWA</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/triagefirst/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/triagefirst" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph"><i class="fa fa-globe"></i></div>
+        <h3>GeoTrack</h3>
+        <p>Dashboard di geo-intelligence per le visite del sito: clustering Leaflet, heatmap, filtri temporali, export CSV/JSON. Lettura riservata via Firebase Auth, scrittura validata e immutabile.</p>
+        <div class="meta"><span class="tag brand">Firebase</span><span class="tag">Leaflet</span><span class="tag blue">Privacy-first</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/GeoTrack/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/GeoTrack" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph warm"><i class="fa fa-cutlery"></i></div>
+        <h3>RISTOAPP</h3>
+        <p>PWA che cerca ristoranti, pizzerie e trattorie in Italia su OpenStreetMap, poi ti porta con un click ai prezzi e ai menu sui portali (JustEat, Deliveroo, TheFork, Glovo). Geolocalizzazione, filtri per tipo locale, info su asporto e domicilio.</p>
+        <div class="meta"><span class="tag brand">PWA</span><span class="tag">OSM</span><span class="tag blue">Deep link</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/RISTOAPP/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/RISTOAPP" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph violet"><i class="fa fa-briefcase"></i></div>
+        <h3>Business Consultant</h3>
+        <p>Consulente AI per piccoli imprenditori: dialogo guidato su prezzi, margini, posizionamento e prossimi passi operativi.</p>
+        <div class="meta"><span class="tag">AI</span><span class="tag">Strategy</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/Business-Consultant/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/Business-Consultant" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 5. TRASPORTI & NOLEGGIO ====== -->
+<section class="section-pad" id="trasporti">
+  <div class="container">
+    <div class="cat-head">
+      <div class="left">
+        <div class="eyebrow"><span class="dot"></span>Trasporti &amp; noleggio</div>
+        <h2 class="section-title">Calcoli da pallet, non da slide</h2>
+        <p class="section-lead">Trasporti su bancale, groupage, locazione operativa: piccoli calcolatori dedicati ai conti che si fanno davvero in azienda.</p>
+      </div>
+      <span class="count-pill">2 progetti</span>
+    </div>
+
+    <div class="apps-grid">
+      <article class="app-card">
+        <div class="icon-ph"><i class="fa fa-truck"></i></div>
+        <h3>Trasporti Use Friendly</h3>
+        <p>Calcolo trasporti a bancale e in groupage, con interfaccia stripped-down e risultato immediato. Nessuna registrazione, nessuna telemetria.</p>
+        <div class="meta"><span class="tag">Trasporti</span><span class="tag brand">Offline</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/Trasporti-Use-Friendly/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/Trasporti-Use-Friendly" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph blue"><i class="fa fa-calculator"></i></div>
+        <h3>SLOF — Simulatore Locazione e Finanziamento</h3>
+        <p>PWA per simulare canoni di noleggio operativo e rate di finanziamento finalizzato. Coefficienti editabili, durate 12-60 mesi, checklist documenti dinamica e condivisione del preventivo via WhatsApp/PDF.</p>
+        <div class="meta"><span class="tag blue">Noleggio</span><span class="tag">Finanziamento</span><span class="tag brand">PWA</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/Simulatore-Locazione-Operativa-e-Finanziamento/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/Simulatore-Locazione-Operativa-e-Finanziamento" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 6. GIOCHI ARCADE & RETRO ====== -->
+<section class="section-pad" id="giochi">
+  <div class="container">
+    <div class="cat-head">
+      <div class="left">
+        <div class="eyebrow"><span class="dot"></span>Giochi arcade &amp; retro</div>
+        <h2 class="section-title">Sala giochi anni '80, dentro al browser</h2>
+        <p class="section-lead">Tributi giocabili ai classici, costruiti come PWA installabili. Niente emulatori, niente plugin: solo HTML5 e JavaScript a mano.</p>
+      </div>
+      <span class="count-pill">5 progetti</span>
+    </div>
+
+    <div class="apps-grid">
+      <article class="app-card">
+        <div class="icon-ph warm"><i class="fa fa-circle"></i></div>
+        <h3>PAC-MAN</h3>
+        <p>Il labirinto più famoso del mondo, ricostruito in versione PWA browser-based. Touch su mobile, tastiera su desktop.</p>
+        <div class="meta"><span class="tag">Arcade</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/PAC-MAN-PWA/" target="_blank" rel="noopener">Gioca</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/PAC-MAN-PWA" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph"><i class="fa fa-rocket"></i></div>
+        <h3>Galaga</h3>
+        <p>Classico arcade spaziale riportato sul web con un taglio leggero, immediato e fedele al ritmo dell'originale.</p>
+        <div class="meta"><span class="tag">Arcade</span><span class="tag brand">PWA</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/GalagaPWA/" target="_blank" rel="noopener">Gioca</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/GalagaPWA" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph blue"><i class="fa fa-bug"></i></div>
+        <h3>Frogger</h3>
+        <p>Tempismo, attraversamenti, traffico e fiume da superare. Reinterpretato in chiave PWA con controlli touch puliti.</p>
+        <div class="meta"><span class="tag">Arcade</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/FroggerPWA/" target="_blank" rel="noopener">Gioca</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/FroggerPWA" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph warm"><i class="fa fa-fighter-jet"></i></div>
+        <h3>Defender</h3>
+        <p>Tributo a uno scrolling orizzontale senza tregua, pensato come esperienza giocabile da browser e installabile come app.</p>
+        <div class="meta"><span class="tag">Arcade</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/DefenderPWA/" target="_blank" rel="noopener">Gioca</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/DefenderPWA" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph violet"><i class="fa fa-tint"></i></div>
+        <h3>ALESKAT — Deep Sea Survival</h3>
+        <p>Gioco di sopravvivenza negli abissi marini, in canvas 2D installabile come PWA. Guidi un lombrico bioluminescente, mangi krill e meduse, eviti i predatori. Senza framework, 60fps.</p>
+        <div class="meta"><span class="tag">Survival</span><span class="tag brand">Canvas 2D</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/ALESKAT/" target="_blank" rel="noopener">Gioca</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/ALESKAT" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 7. ASTRONOMIA & SPAZIO ====== -->
+<section class="section-pad" id="spazio">
+  <div class="container">
+    <div class="cat-head">
+      <div class="left">
+        <div class="eyebrow"><span class="dot"></span>Astronomia &amp; spazio</div>
+        <h2 class="section-title">Orbite, missioni, sistemi solari</h2>
+        <p class="section-lead">Dati live di asteroidi e bolidi, visualizzazioni 3D di costellazioni satellitari, simulazioni orbitali e tributi alle grandi missioni planetarie.</p>
+      </div>
+      <span class="count-pill">4 progetti</span>
+    </div>
+
+    <div class="apps-grid">
+      <article class="app-card">
+        <div class="icon-ph"><i class="fa fa-meteor"></i></div>
+        <h3>MeteorWatch</h3>
+        <p>PWA che aggrega dati pubblici NASA, JPL, ESA e CelesTrak per monitorare in tempo reale asteroidi NEO, bolidi, sciami meteorici, rientri atmosferici e passaggi ISS. Con APOD, mappa fireballs e alert opzionali.</p>
+        <div class="meta"><span class="tag brand">PWA</span><span class="tag">NASA · JPL</span><span class="tag blue">Live data</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/MeteorWatch/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/MeteorWatch" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph blue"><i class="fa fa-satellite"></i></div>
+        <h3>CubeSat Constellation</h3>
+        <p>Visualizzazione 3D multi-satellite con catalogo TLE live di Celestrak: meccanica orbitale SGP4/SDP4, libreria satelliti, tracciamento solare. CesiumJS PWA.</p>
+        <div class="meta"><span class="tag brand">CesiumJS</span><span class="tag">TLE live</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/CubeSat_Constellation/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/CubeSat_Constellation" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph"><i class="fa fa-rocket"></i></div>
+        <h3>Voyage to Mars</h3>
+        <p>Simulazione di un trasferimento Terra-Marte in stile NASA: finestre di lancio, traiettoria, fasi di volo e tempo di percorrenza.</p>
+        <div class="meta"><span class="tag">Astrodinamica</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/Voyage-to-Mars/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/Voyage-to-Mars" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph warm"><i class="fa fa-sun-o"></i></div>
+        <h3>Sistema Solare</h3>
+        <p>Tour interattivo del sistema solare con scala visiva, orbite e dati di base sui pianeti. Pensato per essere chiaro anche a scuola.</p>
+        <div class="meta"><span class="tag">Educational</span><span class="tag brand">3D</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/SistemaSolare/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/SistemaSolare" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 8. SCIENZA, MATEMATICA & ROMPICAPI ====== -->
+<section class="section-pad" id="scienza">
+  <div class="container">
+    <div class="cat-head">
+      <div class="left">
+        <div class="eyebrow"><span class="dot"></span>Scienza, matematica &amp; rompicapi</div>
+        <h2 class="section-title">Idee fisiche e logiche, da toccare col mouse</h2>
+        <p class="section-lead">Spaziotempo curvo, campo di Higgs, Cubo di Rubik, percorsi didattici di matematica: simulatori interattivi che spiegano un concetto facendolo manipolare, non solo leggere.</p>
+      </div>
+      <span class="count-pill">4 progetti</span>
+    </div>
+
+    <div class="apps-grid">
+      <article class="app-card">
+        <div class="icon-ph violet"><i class="fa fa-bullseye"></i></div>
+        <h3>SpazioTempo</h3>
+        <p>Una griglia flessibile e curvabile che simula visivamente il concetto di spaziotempo e materia, in HTML/CSS/JS puro.</p>
+        <div class="meta"><span class="tag">Fisica</span><span class="tag brand">Interattivo</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/SpazioTempo/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/SpazioTempo" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph blue"><i class="fa fa-asterisk"></i></div>
+        <h3>HiggsFieldSim</h3>
+        <p>Simulatore divulgativo del campo di Higgs e del meccanismo che dà massa alle particelle, costruito come PWA didattica.</p>
+        <div class="meta"><span class="tag">Particelle</span><span class="tag">Didattica</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/HiggsFieldSim/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/HiggsFieldSim" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph warm"><i class="fa fa-cube"></i></div>
+        <h3>RubikAPP</h3>
+        <p>Cubo di Rubik virtuale con visualizzazione 3D e supporto alla risoluzione assistita. Tributo allo storico rompicapo, in versione PWA.</p>
+        <div class="meta"><span class="tag">Puzzle</span><span class="tag brand">3D</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/RubikAPP/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/RubikAPP" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph blue"><i class="fa fa-graduation-cap"></i></div>
+        <h3>Percorsi di Matematica</h3>
+        <p>PWA didattica organizzata per anno scolastico (primaria 1ª–5ª, medie, liceo scientifico) con percorsi di matematica e informatica allineati alle Indicazioni Nazionali. Modalità LIM per la classe, offline, installabile su iPad e iPhone.</p>
+        <div class="meta"><span class="tag brand">Didattica</span><span class="tag blue">LIM</span><span class="tag">Offline</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/PercorsidiMatematica/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/PercorsidiMatematica" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 9. MUSICA & CREATIVITÀ ====== -->
+<section class="section-pad" id="musica">
+  <div class="container">
+    <div class="cat-head">
+      <div class="left">
+        <div class="eyebrow"><span class="dot"></span>Musica &amp; creatività</div>
+        <h2 class="section-title">Strumenti che suonano dal browser</h2>
+        <p class="section-lead">DJ deck con beatmatch, drum & bass machine sintetiche, synth poliphonic: piccoli strumenti web che fanno rumore vero, da un solo tap.</p>
+      </div>
+      <span class="count-pill">3 progetti</span>
+    </div>
+
+    <div class="apps-grid">
+      <article class="app-card">
+        <div class="icon-ph"><i class="fa fa-headphones"></i></div>
+        <h3>djappR1</h3>
+        <p>Fork R1 della piattaforma da DJ djApp: due deck con beatmatch riscritto da zero per funzionare su iPhone (buffer-based, indipendente dal DOM), pulsante REC responsive con safe-area, mixer e libreria. Web Audio puro.</p>
+        <div class="meta"><span class="tag brand">DJ</span><span class="tag blue">iOS-fix</span><span class="tag">Web Audio</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/djappR1/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/djappR1" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph warm"><i class="fa fa-bolt"></i></div>
+        <h3>DrumAPPBass</h3>
+        <p>Drum & bass machine browser-based: 8 voci drum sintetiche più una sezione BASS dedicata con step sequencer (accent/slide stile 303) e looper live con tastiera on-screen. Bounce WAV, REC live, MIDI out, 4 pattern A/B/C/D.</p>
+        <div class="meta"><span class="tag">Beat</span><span class="tag brand">Web Audio</span><span class="tag blue">MIDI</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/DrumAPPBass/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/DrumAPPBass" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph blue"><i class="fa fa-sliders"></i></div>
+        <h3>Poly 8</h3>
+        <p>Synth poliphonic a otto voci, browser-based: oscillatori, filtro e modulazioni in una sola pagina, navigabile come un sintetizzatore reale.</p>
+        <div class="meta"><span class="tag blue">Synth</span><span class="tag">Web Audio</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/moog-muse/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/moog-muse" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 10. CYBERSECURITY & TRIBUTI RETRO ====== -->
+<section class="section-pad" id="cyber">
+  <div class="container">
+    <div class="cat-head">
+      <div class="left">
+        <div class="eyebrow"><span class="dot"></span>Cybersecurity &amp; tributi retro</div>
+        <h2 class="section-title">Hacking didattico e nostalgia digitale</h2>
+        <p class="section-lead">Payload Rubber Ducky, esperimenti sulla supply chain della fiducia e tributi al BASIC delle origini. Curiosità che insegnano qualcosa.</p>
+      </div>
+      <span class="count-pill">2 progetti</span>
+    </div>
+
+    <div class="apps-grid">
+      <article class="app-card">
+        <div class="icon-ph warm"><i class="fa fa-qrcode"></i></div>
+        <h3>airgap-qr-exfil</h3>
+        <p>Payload didattico per Rubber Ducky: esfiltra clipboard e metadati di sistema via QR code, senza connessione Internet. Educational, contributed upstream.</p>
+        <div class="meta"><span class="tag">Hardware</span><span class="tag brand">Security</span></div>
+        <div class="actions">
+          <a class="primary" href="https://github.com/pezzaliapp/airgap-qr-exfil" target="_blank" rel="noopener"><i class="fa fa-github"></i> GitHub</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph mono"><i class="fa fa-terminal"></i></div>
+        <h3>BASIC RELOADED</h3>
+        <p>Scrivi. Esegui. Ricorda. Tributo all'epoca del BASIC home-computer, con interprete browser e palette nostalgica.</p>
+        <div class="meta"><span class="tag">Retro</span><span class="tag brand">Coding</span></div>
+        <div class="actions">
+          <a class="primary" href="https://www.alessandropezzali.it/BASIC-RELOADED/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/BASIC-RELOADED" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CTA finale ====== -->
+<section class="section-pad" style="padding-top:0">
+  <div class="container">
+    <div class="cta-panel">
+      <h2>Manca qualcosa? Probabilmente è su GitHub.</h2>
+      <p>Quello che vedi qui sopra è una selezione curata. La forma completa dell'archivio — oltre 250 repository pubbliche — vive su GitHub e non si ferma mai.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://github.com/pezzaliapp" target="_blank" rel="noopener"><i class="fa fa-github"></i> Tutte le repo</a>
+        <a class="btn btn-secondary" href="https://pezzaliapp.com" target="_blank" rel="noopener">Esplora pezzaliAPP</a>
+        <a class="btn btn-secondary" href="mailto:pezzalialessandro@gmail.com">Scrivimi</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Made for Makers</h4>
+        <p>Sito statico ultraleggero, scritto a mano. HTML/CSS/JS puro, niente framework, niente bundler. Hostato su GitHub Pages.</p>
+        <p>Ogni progetto è installabile come PWA, accessibile, mobile-first, e quasi sempre utilizzabile offline.</p>
+      </div>
+      <div>
+        <h4>Trovami qui</h4>
+        <p style="font-size:.92rem">Per email: <a href="mailto:pezzalialessandro@gmail.com" style="color:#aef0df">pezzalialessandro@gmail.com</a></p>
+        <div class="social">
+          <a href="https://github.com/pezzaliapp" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/pezzaliapp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+          <a href="https://www.youtube.com/@pezzaliapp" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
+          <a href="https://www.instagram.com/ale_pezzali/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+          <a href="https://pezzaliapp.com" target="_blank" rel="noopener" aria-label="pezzaliAPP"><i class="fa fa-globe"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-wrap">
+      <div id="mapmyvisitors" style="width:100%"></div>
+    </div>
+
+    <div class="footer-bottom">&copy; 2026 Alessandro Pezzali · Tutti i progetti sono open source salvo dove diversamente indicato.</div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="https://mapmyvisitors.com/map.js?cl=ffffff&w=a&t=tt&d=JWZAw6LMmQJ4s9bv0vPpPAhuGUraBPzrUI52jjFdEtM"></script>
+
+</body>
+</html>

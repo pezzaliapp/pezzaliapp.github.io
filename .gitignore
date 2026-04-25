@@ -1,0 +1,20 @@
+# --- Materiali di lavoro AI (non vanno nel sito pubblico) ---
+CLAUDE.md
+START_HERE.md
+repos.json
+_reference_pezzaliapp/
+.gitignore.add
+
+# --- Archivi e bundle ---
+*.zip
+GeoTrack-main.zip
+
+# --- Sistema ---
+.DS_Store
+Thumbs.db
+
+# --- Editor ---
+.vscode/
+.idea/
+*.swp
+*.swo

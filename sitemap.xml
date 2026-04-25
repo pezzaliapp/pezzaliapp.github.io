@@ -2,20 +2,38 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.alessandropezzali.it/</loc>
-    <lastmod>2025-03-22</lastmod>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.alessandropezzali.it/#progetti</loc>
-    <lastmod>2025-03-22</lastmod>
+    <loc>https://www.alessandropezzali.it/progetti.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.alessandropezzali.it/MeteorWatch/</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.alessandropezzali.it/CubeSat_Constellation/</loc>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.alessandropezzali.it/#contatti</loc>
-    <lastmod>2025-03-22</lastmod>
+    <loc>https://www.alessandropezzali.it/fleXiLift.html</loc>
+    <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.alessandropezzali.it/AirQualityMonitor-Styled.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
