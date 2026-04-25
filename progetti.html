@@ -127,7 +127,7 @@
     .hero h1 .accent{color:var(--brand)}
     .hero h1 .accent-blue{color:var(--blue)}
     .hero p.lead{font-size:1.06rem;line-height:1.75;color:#ececec;max-width:720px;margin:0 0 26px}
-    .hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:760px}
+    .hero-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;max-width:980px}
     .stat{
       background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
       border:1px solid var(--line);border-radius:14px;padding:16px 18px;
@@ -251,10 +251,12 @@
     @media (max-width: 1180px){
       .apps-grid{grid-template-columns:repeat(3,1fr)}
     }
+    @media (max-width: 980px){
+      .hero-stats{grid-template-columns:repeat(2,1fr)}
+    }
     @media (max-width: 880px){
       .apps-grid{grid-template-columns:repeat(2,1fr)}
       .footer-grid{grid-template-columns:1fr}
-      .hero-stats{grid-template-columns:1fr}
     }
     @media (max-width: 540px){
       .apps-grid{grid-template-columns:1fr}
@@ -293,6 +295,7 @@
       <div class="stat"><strong>34</strong><span>Progetti curati nel catalogo</span></div>
       <div class="stat"><strong>10</strong><span>Categorie, dall'officina allo spazio</span></div>
       <div class="stat"><strong>250+</strong><span>Repo pubbliche su GitHub</span></div>
+      <div class="stat"><strong>4.300+</strong><span>Contributi nell'ultimo anno</span></div>
     </div>
   </div>
 </header>
@@ -433,7 +436,7 @@
         <div class="actions">
           <a class="primary" href="https://www.alessandropezzali.it/ListinoHub/" target="_blank" rel="noopener">Apri</a>
           <a class="secondary" href="https://github.com/pezzaliapp/ListinoHub" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
-          <a class="todo-pdf" href="#" title="Manuale PDF da caricare in pdf/ListinoHub-Doc.pdf"><i class="fa fa-file-pdf-o"></i> Manuale</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/ListinoHub/raw/main/MANUALE.docx" target="_blank" rel="noopener"><i class="fa fa-file-word-o"></i> Manuale</a>
         </div>
       </article>
 

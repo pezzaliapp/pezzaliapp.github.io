@@ -173,7 +173,7 @@
 
     /* Stat cards */
     .stats-strip{padding:36px 0;border-bottom:1px solid var(--line);background:#0f0f0f}
-    .hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:840px;margin:0 auto}
+    .hero-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;max-width:1040px;margin:0 auto}
     .stat{
       background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
       border:1px solid var(--line);border-radius:14px;padding:18px 20px;text-align:center
@@ -288,9 +288,11 @@
     @media (max-width: 1180px){
       .apps-grid{grid-template-columns:repeat(2,1fr)}
     }
+    @media (max-width: 1040px){
+      .hero-stats{grid-template-columns:repeat(2,1fr);max-width:560px}
+    }
     @media (max-width: 880px){
       .footer-grid{grid-template-columns:1fr}
-      .hero-stats{grid-template-columns:1fr}
       .about-grid{grid-template-columns:1fr;text-align:center;padding:24px}
       .about-photo{margin:0 auto}
       .about-links{justify-content:center}
@@ -411,6 +413,7 @@
       <div class="stat"><strong>34</strong><span>Progetti curati nel catalogo</span></div>
       <div class="stat"><strong>10</strong><span>Categorie, dall'officina allo spazio</span></div>
       <div class="stat"><strong>250+</strong><span>Repo pubbliche su GitHub</span></div>
+      <div class="stat"><strong>4.300+</strong><span>Contributi nell'ultimo anno</span></div>
     </div>
   </div>
 </section>
