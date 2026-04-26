@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Alessandro Pezzali — Made for Makers · 34 PWA, tool e simulatori</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Sviluppatore indipendente, maker e autore. PWA operative, AI applicata al lavoro, simulatori scientifici e giochi arcade. Open source, leggero, scritto a mano.">
+  <meta name="description" content="Sviluppatore indipendente, maker e autore. PWA operative, AI applicata al lavoro, simulatori scientifici e giochi arcade. Open source, leggero, statico su GitHub Pages.">
   <meta name="keywords" content="Alessandro Pezzali, pezzaliAPP, PWA, Made for Makers, MeteorWatch, CubeSat, GeoTrack, FleXiLift, open source, GitHub Pages">
   <meta name="author" content="Alessandro Pezzali">
   <meta name="theme-color" content="#00b894">
@@ -13,7 +13,7 @@
   <link rel="canonical" href="https://www.alessandropezzali.it/">
 
   <meta property="og:title" content="Alessandro Pezzali — Made for Makers">
-  <meta property="og:description" content="34 PWA, tool e simulatori. Open source, leggeri, scritti a mano. Dall'officina allo spazio.">
+  <meta property="og:description" content="34 PWA, tool e simulatori. Open source, leggeri, statici. Dall'officina allo spazio.">
   <meta property="og:image" content="https://www.alessandropezzali.it/preview.jpg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.alessandropezzali.it/">
@@ -271,10 +271,10 @@
 
     /* Footer */
     footer.site-footer{background:#161616;border-top:1px solid rgba(255,255,255,.06);padding:30px 0 16px;margin-top:24px}
-    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:start}
+    .footer-grid{max-width:520px;margin:0 auto;text-align:center}
     .footer-grid p{color:var(--muted);line-height:1.7;margin:0 0 10px}
     .footer-grid h4{margin:0 0 10px;font-size:.95rem;color:#fff}
-    .social{display:flex;gap:12px;margin-top:10px}
+    .social{display:flex;gap:12px;margin-top:10px;justify-content:center}
     .social a{
       display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;
       border-radius:50%;background:#232323;text-decoration:none;color:#fff;
@@ -292,7 +292,6 @@
       .hero-stats{grid-template-columns:repeat(2,1fr);max-width:560px}
     }
     @media (max-width: 880px){
-      .footer-grid{grid-template-columns:1fr}
       .about-grid{grid-template-columns:1fr;text-align:center;padding:24px}
       .about-photo{margin:0 auto}
       .about-links{justify-content:center}
@@ -390,7 +389,7 @@
     <div class="eyebrow"><span class="dot"></span>Made for Makers · 2026</div>
     <h1>Strumenti, <span class="accent">simulatori</span><br>e <span class="accent-blue">spazio</span> dentro al browser.</h1>
     <p class="lead">
-      Sviluppatore indipendente, maker, autore. Pubblico PWA operative, AI applicata al lavoro, simulatori scientifici e giochi arcade. Open source, leggero, scritto a mano. Senza framework, senza tracker.
+      Sviluppatore indipendente, maker, autore. Pubblico PWA operative, AI applicata al lavoro, simulatori scientifici e giochi arcade. Statico, open source, senza framework e senza tracker.
     </p>
     <div class="hero-cta">
       <a class="btn btn-green" href="https://pezzaliapp.github.io/CubeSat_Constellation/" target="_blank" rel="noopener">
@@ -532,9 +531,9 @@
           scientifici e giochi arcade come palestra di codice.
         </p>
         <p>
-          Tutto quello che pubblico è statico, open source e installabile come app. Scritto
-          a mano, senza framework, hostato su GitHub Pages. L'ecosistema più ampio vive
-          su <a href="https://pezzaliapp.com" target="_blank" rel="noopener" style="color:#aef0df">pezzaliapp.com</a>.
+          Tutto è installabile come PWA, hostato su GitHub Pages, senza framework né
+          bundler. L'ecosistema più ampio vive su
+          <a href="https://pezzaliapp.com" target="_blank" rel="noopener" style="color:#aef0df">pezzaliapp.com</a>.
         </p>
         <div class="about-links">
           <a href="https://github.com/pezzaliapp" target="_blank" rel="noopener"><i class="fa fa-github"></i> GitHub</a>
@@ -549,21 +548,14 @@
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <div>
-        <h4>Made for Makers</h4>
-        <p>Sito statico ultraleggero, scritto a mano. HTML/CSS/JS puro, niente framework, niente bundler. Hostato su GitHub Pages.</p>
-        <p>Ogni progetto è installabile come PWA, accessibile, mobile-first, e quasi sempre utilizzabile offline.</p>
-      </div>
-      <div>
-        <h4>Trovami qui</h4>
-        <p style="font-size:.92rem">Per email: <a href="mailto:pezzalialessandro@gmail.com" style="color:#aef0df">pezzalialessandro@gmail.com</a></p>
-        <div class="social">
-          <a href="https://github.com/pezzaliapp" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/pezzaliapp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
-          <a href="https://www.youtube.com/@pezzaliapp" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
-          <a href="https://www.instagram.com/ale_pezzali/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
-          <a href="https://pezzaliapp.com" target="_blank" rel="noopener" aria-label="pezzaliAPP"><i class="fa fa-globe"></i></a>
-        </div>
+      <h4>Trovami qui</h4>
+      <p style="font-size:.92rem">Per email: <a href="mailto:pezzalialessandro@gmail.com" style="color:#aef0df">pezzalialessandro@gmail.com</a></p>
+      <div class="social">
+        <a href="https://github.com/pezzaliapp" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/pezzaliapp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/@pezzaliapp" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
+        <a href="https://www.instagram.com/ale_pezzali/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+        <a href="https://pezzaliapp.com" target="_blank" rel="noopener" aria-label="pezzaliAPP"><i class="fa fa-globe"></i></a>
       </div>
     </div>
 

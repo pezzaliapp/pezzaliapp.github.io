@@ -234,10 +234,10 @@
 
     /* Footer */
     footer.site-footer{background:#161616;border-top:1px solid rgba(255,255,255,.06);padding:30px 0 16px;margin-top:24px}
-    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:start}
+    .footer-grid{max-width:520px;margin:0 auto;text-align:center}
     .footer-grid p{color:var(--muted);line-height:1.7;margin:0 0 10px}
     .footer-grid h4{margin:0 0 10px;font-size:.95rem;color:#fff}
-    .social{display:flex;gap:12px;margin-top:10px}
+    .social{display:flex;gap:12px;margin-top:10px;justify-content:center}
     .social a{
       display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;
       border-radius:50%;background:#232323;text-decoration:none;color:#fff;
@@ -256,7 +256,6 @@
     }
     @media (max-width: 880px){
       .apps-grid{grid-template-columns:repeat(2,1fr)}
-      .footer-grid{grid-template-columns:1fr}
     }
     @media (max-width: 540px){
       .apps-grid{grid-template-columns:1fr}
@@ -289,7 +288,7 @@
     <p class="lead">
       Una selezione di 34 progetti — PWA, tool operativi, giochi e simulatori — scelti tra oltre
       250 repository pubblici. Tutto è statico, leggero, installabile come app, e quasi sempre
-      utilizzabile offline. Open source, scritto a mano, senza framework e senza tracker pesanti.
+      utilizzabile offline. Open source, senza framework e senza tracker pesanti.
     </p>
     <div class="hero-stats">
       <div class="stat"><strong>34</strong><span>Progetti curati nel catalogo</span></div>
@@ -582,7 +581,7 @@
       <div class="left">
         <div class="eyebrow"><span class="dot"></span>Giochi arcade &amp; retro</div>
         <h2 class="section-title">Sala giochi anni '80, dentro al browser</h2>
-        <p class="section-lead">Tributi giocabili ai classici, costruiti come PWA installabili. Niente emulatori, niente plugin: solo HTML5 e JavaScript a mano.</p>
+        <p class="section-lead">Tributi giocabili ai classici, costruiti come PWA installabili. Niente emulatori, niente plugin: solo HTML5 e JavaScript puro.</p>
       </div>
       <span class="count-pill">5 progetti</span>
     </div>
@@ -870,21 +869,14 @@
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <div>
-        <h4>Made for Makers</h4>
-        <p>Sito statico ultraleggero, scritto a mano. HTML/CSS/JS puro, niente framework, niente bundler. Hostato su GitHub Pages.</p>
-        <p>Ogni progetto è installabile come PWA, accessibile, mobile-first, e quasi sempre utilizzabile offline.</p>
-      </div>
-      <div>
-        <h4>Trovami qui</h4>
-        <p style="font-size:.92rem">Per email: <a href="mailto:pezzalialessandro@gmail.com" style="color:#aef0df">pezzalialessandro@gmail.com</a></p>
-        <div class="social">
-          <a href="https://github.com/pezzaliapp" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/pezzaliapp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
-          <a href="https://www.youtube.com/@pezzaliapp" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
-          <a href="https://www.instagram.com/ale_pezzali/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
-          <a href="https://pezzaliapp.com" target="_blank" rel="noopener" aria-label="pezzaliAPP"><i class="fa fa-globe"></i></a>
-        </div>
+      <h4>Trovami qui</h4>
+      <p style="font-size:.92rem">Per email: <a href="mailto:pezzalialessandro@gmail.com" style="color:#aef0df">pezzalialessandro@gmail.com</a></p>
+      <div class="social">
+        <a href="https://github.com/pezzaliapp" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/pezzaliapp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/@pezzaliapp" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
+        <a href="https://www.instagram.com/ale_pezzali/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+        <a href="https://pezzaliapp.com" target="_blank" rel="noopener" aria-label="pezzaliAPP"><i class="fa fa-globe"></i></a>
       </div>
     </div>
 
