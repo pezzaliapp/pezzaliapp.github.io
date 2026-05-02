@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Il Desktop di Babele — Alessandro Pezzali</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Una piccola riflessione sul disordine digitale, sulla microdecisione iterata, e sulla virtù di un piccolo strumento che sa cosa non può fare.">
+  <meta name="author" content="Alessandro Pezzali">
+  <meta name="theme-color" content="#00b894">
+
+  <link rel="icon" href="../favicon.ico">
+  <link rel="canonical" href="https://www.alessandropezzali.it/blog/il-desktop-di-babele.html">
+
+  <meta property="og:title" content="Il Desktop di Babele">
+  <meta property="og:description" content="Una piccola riflessione sul disordine digitale, sulla microdecisione iterata, e sulla virtù di un piccolo strumento che sa cosa non può fare.">
+  <meta property="og:image" content="https://www.alessandropezzali.it/preview.jpg">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.alessandropezzali.it/blog/il-desktop-di-babele.html">
+  <meta property="article:published_time" content="2026-05-02">
+  <meta property="article:author" content="Alessandro Pezzali">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BlogPosting",
+    "headline":"Il Desktop di Babele",
+    "description":"Una piccola riflessione sul disordine digitale, sulla microdecisione iterata, e sulla virtù di un piccolo strumento che sa cosa non può fare.",
+    "datePublished":"2026-05-02",
+    "author":{
+      "@type":"Person",
+      "name":"Alessandro Pezzali",
+      "url":"https://www.alessandropezzali.it"
+    },
+    "image":"https://www.alessandropezzali.it/preview.jpg",
+    "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":"https://www.alessandropezzali.it/blog/il-desktop-di-babele.html"
+    }
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    :root{
+      --bg:#121212;
+      --panel:#1b1b1b;
+      --text:#f0f0f0;
+      --muted:#c8c8c8;
+      --soft:#9a9a9a;
+      --line:rgba(255,255,255,.08);
+      --brand:#00b894;
+      --blue:#0984e3;
+      --shadow:0 12px 32px rgba(0,0,0,.28);
+      --navH:64px;
+      --container:1180px;
+      --read-w:720px;
+      --serif: Georgia, "Iowan Old Style", "Charter", "Source Serif Pro", "Cambria", serif;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;min-height:100%;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+    html{scroll-behavior:smooth}
+    img{max-width:100%;display:block}
+    a{color:inherit}
+
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+    /* Nav */
+    nav.topnav{
+      position:fixed;inset:0 0 auto 0;z-index:1000;
+      background:rgba(8,8,8,.88);
+      backdrop-filter:saturate(140%) blur(10px);
+      -webkit-backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      height:var(--navH);
+    }
+    .nav-wrap{max-width:1320px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:18px;height:100%}
+    .logo{font-size:1rem;font-weight:700;letter-spacing:.2px;white-space:nowrap;flex-shrink:0;text-decoration:none;color:#fff}
+    .logo span{color:var(--brand)}
+    nav.topnav ul{display:flex;flex-wrap:nowrap;gap:6px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;max-width:100%}
+    nav.topnav ul::-webkit-scrollbar{display:none}
+    nav.topnav li{flex:0 0 auto}
+    nav.topnav a{
+      display:inline-flex;align-items:center;justify-content:center;min-height:38px;
+      padding:8px 12px;border-radius:999px;text-decoration:none;font-size:.92rem;color:#f0f0f0;
+      transition:background .2s ease,color .2s ease,transform .2s ease;
+    }
+    nav.topnav a:hover{background:rgba(255,255,255,.06);color:#fff;transform:translateY(-1px)}
+    nav.topnav a.active{background:rgba(0,184,148,.14);border:1px solid rgba(0,184,148,.30);color:#fff}
+    .nav-blue{color:#7ec8ff !important;font-weight:700}
+    .nav-red{color:#ff8181 !important;font-weight:700}
+
+    /* Header articolo */
+    .article-header{
+      position:relative;margin-top:var(--navH);
+      padding:64px 0 32px;border-bottom:1px solid var(--line);overflow:hidden;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(0,184,148,.10), transparent 50%),
+        radial-gradient(ellipse at 80% 30%, rgba(9,132,227,.10), transparent 55%),
+        linear-gradient(180deg, #0a0e14 0%, #121212 100%);
+    }
+    .article-header .inner{max-width:var(--read-w);margin:0 auto;padding:0 20px}
+    .breadcrumb{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:.85rem;color:var(--soft);margin-bottom:18px;text-decoration:none;
+      transition:color .2s ease
+    }
+    .breadcrumb:hover{color:#aef0df}
+    .breadcrumb i{font-size:.78rem}
+    .article-header h1{
+      font-family:'Poppins',sans-serif;
+      font-size:clamp(1.9rem,4.6vw,2.8rem);line-height:1.15;
+      margin:0 0 16px;font-weight:700;letter-spacing:-.4px
+    }
+    .article-meta{
+      display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+      font-size:.88rem;color:var(--soft)
+    }
+    .article-meta .sep{opacity:.4}
+    .article-meta strong{color:var(--muted);font-weight:600}
+
+    /* Corpo articolo: serif per leggibilità */
+    article.post{
+      max-width:var(--read-w);margin:0 auto;padding:48px 20px 32px;
+      font-family:var(--serif);
+      font-size:1.16rem;line-height:1.78;color:#e8e8e8;
+    }
+    article.post p{margin:0 0 1.4em}
+    article.post p:first-of-type{
+      font-size:1.22rem;color:#f0f0f0
+    }
+    article.post a{
+      color:#aef0df;text-decoration:underline;text-decoration-color:rgba(0,184,148,.45);
+      text-underline-offset:3px;transition:color .2s ease,text-decoration-color .2s ease
+    }
+    article.post a:hover{color:#13d2ad;text-decoration-color:#13d2ad}
+    article.post h2,article.post h3{
+      font-family:'Poppins',sans-serif;color:#fff;
+      margin:1.8em 0 .6em;line-height:1.3
+    }
+    article.post h2{font-size:1.5rem}
+    article.post h3{font-size:1.2rem}
+    article.post em{color:#f0f0f0}
+    article.post strong{color:#fff;font-weight:700}
+    article.post blockquote{
+      margin:1.6em 0;padding:8px 0 8px 22px;
+      border-left:3px solid var(--brand);
+      color:var(--muted);font-style:italic
+    }
+    article.post code{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:.92em;background:rgba(255,255,255,.06);
+      padding:2px 6px;border-radius:5px;color:#aef0df
+    }
+
+    /* Box link al progetto / call-to-action */
+    .links-box{
+      max-width:var(--read-w);margin:8px auto 0;padding:0 20px;
+    }
+    .links-card{
+      background:linear-gradient(180deg, #1f1f1f, #181818);
+      border:1px solid var(--line);border-radius:14px;
+      padding:20px 22px;display:grid;gap:10px;box-shadow:var(--shadow);
+      font-family:'Poppins',sans-serif
+    }
+    .links-card h3{margin:0 0 4px;font-size:1rem;color:#fff;font-weight:600}
+    .links-card a{
+      display:inline-flex;align-items:center;gap:8px;
+      color:#cfe8ff;text-decoration:none;font-size:.95rem;font-weight:500;
+      padding:6px 0;transition:color .2s ease
+    }
+    .links-card a:hover{color:#7ec8ff}
+    .links-card a i{color:var(--brand);width:18px;text-align:center}
+
+    /* Navigazione tra articoli */
+    .post-nav{
+      max-width:var(--read-w);margin:48px auto 0;padding:24px 20px 0;
+      border-top:1px solid var(--line);
+      display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+      font-family:'Poppins',sans-serif
+    }
+    .post-nav a{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 16px;border-radius:10px;
+      background:rgba(255,255,255,.05);border:1px solid var(--line);
+      color:#fff;text-decoration:none;font-size:.92rem;font-weight:500;
+      transition:background .2s ease,border-color .2s ease,transform .2s ease
+    }
+    .post-nav a:hover{background:rgba(0,184,148,.12);border-color:rgba(0,184,148,.35);transform:translateY(-1px)}
+
+    /* Footer */
+    footer.site-footer{background:#161616;border-top:1px solid rgba(255,255,255,.06);padding:30px 0 16px;margin-top:64px}
+    .footer-grid{max-width:520px;margin:0 auto;text-align:center}
+    .footer-grid p{color:var(--muted);line-height:1.7;margin:0 0 10px}
+    .footer-grid h4{margin:0 0 10px;font-size:.95rem;color:#fff}
+    .social{display:flex;gap:12px;margin-top:10px;justify-content:center}
+    .social a{
+      display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;
+      border-radius:50%;background:#232323;text-decoration:none;color:#fff;
+      transition:background .18s ease,color .18s ease,transform .18s ease
+    }
+    .social a:hover{background:#2d2d2d;color:var(--brand);transform:translateY(-2px)}
+    .footer-bottom{text-align:center;padding:16px 0 6px;color:#aaa;font-size:.85rem;border-top:1px solid rgba(255,255,255,.06);margin-top:24px}
+
+    @media (max-width: 540px){
+      .article-header{padding:48px 0 24px}
+      article.post{padding:36px 18px 24px;font-size:1.08rem;line-height:1.75}
+      article.post p:first-of-type{font-size:1.14rem}
+      .post-nav{flex-direction:column;align-items:stretch}
+      .post-nav a{justify-content:center}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Navigazione principale">
+  <div class="nav-wrap">
+    <a class="logo" href="../index.html">Alessandro <span>Pezzali</span></a>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../progetti.html">Progetti</a></li>
+      <li><a href="index.html" class="active">Blog</a></li>
+      <li><a href="https://pezzaliapp.com" target="_blank" rel="noopener" class="nav-blue">pezzaliAPP</a></li>
+      <li><a href="https://github.com/pezzaliapp" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="mailto:pezzalialessandro@gmail.com">Contatti</a></li>
+      <li><a href="https://www.patreon.com/c/pezzaliAPP?redirect=true" target="_blank" rel="noopener" class="nav-red">❤ Sostieni</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="inner">
+    <a href="index.html" class="breadcrumb"><i class="fa fa-arrow-left" aria-hidden="true"></i> Tutti gli articoli</a>
+    <h1>Il Desktop di Babele</h1>
+    <div class="article-meta">
+      <strong>Alessandro Pezzali</strong>
+      <span class="sep">·</span>
+      <time datetime="2026-05-02">2 maggio 2026</time>
+      <span class="sep">·</span>
+      <span>5 min di lettura</span>
+    </div>
+  </div>
+</header>
+
+<article class="post">
+
+  <p>Si dice spesso che il computer abbia abolito la carta. Chi fa questa affermazione, evidentemente, non ha mai osservato il proprio Desktop.</p>
+
+  <p>Ho contato i file presenti sul mio questa mattina: duecento e qualcosa. Pdf di listini di tre anni fa, screenshot di finestre che non ricordo nemmeno di aver aperto, cartelle con nomi crittografici tipo <em>"definitivo_v3_FINALE_buono"</em>, documenti audio dei quali ignoro l'origine. Una piccola biblioteca di Babele in formato digitale, nella quale, come nel racconto di Borges, è statisticamente probabile che si trovi anche il libro che spiega come ordinare tutti gli altri.</p>
+
+  <p>Il problema, naturalmente, non è il disordine in sé. Il disordine è la condizione naturale dell'informazione accumulata. Il problema è la decisione: per ogni file occorre stabilire se vada conservato, archiviato altrove, o eliminato. Tre opzioni, in apparenza semplici, che però richiedono ciascuna una microscopica fatica cognitiva. Moltiplicata per duecento file, la fatica diventa proibitiva. Da cui la procrastinazione, e il proliferare ulteriore del caos.</p>
+
+  <p>Ho il sospetto che molti dei nostri problemi quotidiani — la casella di posta che trabocca, le righe di un foglio Excel da rivedere, le idee progettuali appuntate e abbandonate — appartengano alla stessa categoria. Non sono problemi di volume, sono problemi di <em>triage</em>: ovvero di una decisione iterata troppe volte, ciascuna troppo piccola perché valga la pena prepararsi, troppo numerosa perché si possa improvvisare.</p>
+
+  <p>Da queste considerazioni è nato <strong>TriageHub</strong>. È un'applicazione web che fa una cosa sola: mostra un oggetto alla volta e chiede di assegnargli uno fra tre stati. <em>Tieni, archivia, cestina.</em> Oppure: <em>caldo, tiepido, freddo.</em> O qualunque altra terna l'utente preferisca.</p>
+
+  <p>Nella prima versione, presuntuosamente, avevo predisposto otto modelli precaricati: file, email, contatti commerciali, candidature, idee, e altri ancora. Nel giro di qualche ora di utilizzo reale ho scoperto che quasi tutti erano fumo. Smistare email senza poterle leggere automaticamente è un esercizio inutile; smistare candidature senza i curricoli allegati è un'illusione di metodo. Ho dunque ridotto i modelli a tre: la pulizia dei file del Desktop, lo smistamento delle righe di un foglio Excel, e un modello vuoto per qualunque altra cosa. Tre soltanto, ma con un'automazione vera dietro: il caricamento dei file dal sistema, la lettura di un foglio di calcolo, l'esportazione di un nuovo foglio già organizzato. Si dice spesso che un buon prodotto sia quello che fa molte cose; sospetto invece che sia quello che ne fa poche, e bene.</p>
+
+  <p>Resta scoperto, è giusto dirlo, il caso delle email. Il triage di una casella di posta richiede una lettura preliminare del contenuto di ciascun messaggio: cosa che TriageHub non può fare, perché un'applicazione web non ha — né deve avere — accesso al vostro client di posta. Per quel problema specifico esistono già strumenti più appropriati: gli agenti conversazionali come Claude di Anthropic, o le integrazioni native dei moderni client mail. La virtù di un piccolo strumento, mi ripeto, sta nel sapere cosa non può fare.</p>
+
+  <p>I dati restano sul dispositivo, non vengono caricati altrove, non richiedono registrazione: sono preferenze tecniche, ma anche, se mi si concede, una piccola dichiarazione di metodo.</p>
+
+</article>
+
+<div class="links-box">
+  <div class="links-card">
+    <h3>TriageHub</h3>
+    <a href="https://www.alessandropezzali.it/TriageHub/" target="_blank" rel="noopener">
+      <i class="fa fa-external-link" aria-hidden="true"></i>
+      alessandropezzali.it/TriageHub/
+    </a>
+    <a href="https://github.com/pezzaliapp/TriageHub" target="_blank" rel="noopener">
+      <i class="fa fa-github" aria-hidden="true"></i>
+      github.com/pezzaliapp/TriageHub
+    </a>
+  </div>
+</div>
+
+<article class="post" style="padding-top:24px;padding-bottom:8px">
+  <p style="font-size:1.16rem">Se vi sembrerà utile, fatemelo sapere. Se vi sembrerà inutile, fatemelo sapere lo stesso: gli usi che un programma non riesce a soddisfare sono spesso più istruttivi di quelli che soddisfa.</p>
+</article>
+
+<nav class="post-nav" aria-label="Navigazione tra articoli">
+  <a href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i> Tutti gli articoli</a>
+  <a href="mailto:pezzalialessandro@gmail.com">Scrivimi cosa ne pensi <i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+</nav>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <h4>Trovami qui</h4>
+      <p style="font-size:.92rem">Per email: <a href="mailto:pezzalialessandro@gmail.com" style="color:#aef0df">pezzalialessandro@gmail.com</a></p>
+      <div class="social">
+        <a href="https://github.com/pezzaliapp" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/pezzaliapp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/@pezzaliapp" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
+        <a href="https://www.instagram.com/ale_pezzali/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+        <a href="https://pezzaliapp.com" target="_blank" rel="noopener" aria-label="pezzaliAPP"><i class="fa fa-globe"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Alessandro Pezzali · Tutti i progetti sono open source salvo dove diversamente indicato.</div>
+  </div>
+</footer>
+
+</body>
+</html>
