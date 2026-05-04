@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>La Terra, addosso — Alessandro Pezzali</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Note su EarthRadar, una piccola macchina per guardare il pianeta da abbastanza lontano da capirlo. Satelliti, terremoti, uragani, e un pezzo di metallo russo del 1986 che continua a girare sopra le nostre teste.">
+  <meta name="author" content="Alessandro Pezzali">
+  <meta name="theme-color" content="#00b894">
+
+  <link rel="icon" href="../favicon.ico">
+  <link rel="canonical" href="https://www.alessandropezzali.it/blog/la-terra-addosso.html">
+
+  <meta property="og:title" content="La Terra, addosso">
+  <meta property="og:description" content="Note su EarthRadar, una piccola macchina per guardare il pianeta da abbastanza lontano da capirlo.">
+  <meta property="og:image" content="https://www.alessandropezzali.it/preview.jpg">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.alessandropezzali.it/blog/la-terra-addosso.html">
+  <meta property="article:published_time" content="2026-05-04">
+  <meta property="article:author" content="Alessandro Pezzali">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BlogPosting",
+    "headline":"La Terra, addosso",
+    "description":"Note su EarthRadar, una piccola macchina per guardare il pianeta da abbastanza lontano da capirlo.",
+    "datePublished":"2026-05-04",
+    "author":{
+      "@type":"Person",
+      "name":"Alessandro Pezzali",
+      "url":"https://www.alessandropezzali.it"
+    },
+    "image":"https://www.alessandropezzali.it/preview.jpg",
+    "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":"https://www.alessandropezzali.it/blog/la-terra-addosso.html"
+    }
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    :root{
+      --bg:#121212;
+      --panel:#1b1b1b;
+      --text:#f0f0f0;
+      --muted:#c8c8c8;
+      --soft:#9a9a9a;
+      --line:rgba(255,255,255,.08);
+      --brand:#00b894;
+      --blue:#0984e3;
+      --shadow:0 12px 32px rgba(0,0,0,.28);
+      --navH:64px;
+      --container:1180px;
+      --read-w:720px;
+      --serif: Georgia, "Iowan Old Style", "Charter", "Source Serif Pro", "Cambria", serif;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;min-height:100%;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+    html{scroll-behavior:smooth}
+    img{max-width:100%;display:block}
+    a{color:inherit}
+
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+    /* Nav */
+    nav.topnav{
+      position:fixed;inset:0 0 auto 0;z-index:1000;
+      background:rgba(8,8,8,.88);
+      backdrop-filter:saturate(140%) blur(10px);
+      -webkit-backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      height:var(--navH);
+    }
+    .nav-wrap{max-width:1320px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:18px;height:100%}
+    .logo{font-size:1rem;font-weight:700;letter-spacing:.2px;white-space:nowrap;flex-shrink:0;text-decoration:none;color:#fff}
+    .logo span{color:var(--brand)}
+    nav.topnav ul{display:flex;flex-wrap:nowrap;gap:6px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;max-width:100%}
+    nav.topnav ul::-webkit-scrollbar{display:none}
+    nav.topnav li{flex:0 0 auto}
+    nav.topnav a{
+      display:inline-flex;align-items:center;justify-content:center;min-height:38px;
+      padding:8px 12px;border-radius:999px;text-decoration:none;font-size:.92rem;color:#f0f0f0;
+      transition:background .2s ease,color .2s ease,transform .2s ease;
+    }
+    nav.topnav a:hover{background:rgba(255,255,255,.06);color:#fff;transform:translateY(-1px)}
+    nav.topnav a.active{background:rgba(0,184,148,.14);border:1px solid rgba(0,184,148,.30);color:#fff}
+    .nav-blue{color:#7ec8ff !important;font-weight:700}
+    .nav-red{color:#ff8181 !important;font-weight:700}
+
+    /* Header articolo */
+    .article-header{
+      position:relative;margin-top:var(--navH);
+      padding:64px 0 32px;border-bottom:1px solid var(--line);overflow:hidden;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(0,184,148,.10), transparent 50%),
+        radial-gradient(ellipse at 80% 30%, rgba(9,132,227,.10), transparent 55%),
+        linear-gradient(180deg, #0a0e14 0%, #121212 100%);
+    }
+    .article-header .inner{max-width:var(--read-w);margin:0 auto;padding:0 20px}
+    .breadcrumb{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:.85rem;color:var(--soft);margin-bottom:18px;text-decoration:none;
+      transition:color .2s ease
+    }
+    .breadcrumb:hover{color:#aef0df}
+    .breadcrumb i{font-size:.78rem}
+    .article-header h1{
+      font-family:'Poppins',sans-serif;
+      font-size:clamp(1.9rem,4.6vw,2.8rem);line-height:1.15;
+      margin:0 0 16px;font-weight:700;letter-spacing:-.4px
+    }
+    .article-header .deck{
+      font-family:var(--serif);font-style:italic;
+      color:var(--muted);font-size:1.05rem;line-height:1.6;margin:0 0 16px;max-width:640px
+    }
+    .article-meta{
+      display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+      font-size:.88rem;color:var(--soft)
+    }
+    .article-meta .sep{opacity:.4}
+    .article-meta strong{color:var(--muted);font-weight:600}
+
+    /* Corpo articolo: serif per leggibilità */
+    article.post{
+      max-width:var(--read-w);margin:0 auto;padding:48px 20px 32px;
+      font-family:var(--serif);
+      font-size:1.16rem;line-height:1.78;color:#e8e8e8;
+    }
+    article.post p{margin:0 0 1.4em}
+    article.post p:first-of-type{
+      font-size:1.22rem;color:#f0f0f0
+    }
+    article.post a{
+      color:#aef0df;text-decoration:underline;text-decoration-color:rgba(0,184,148,.45);
+      text-underline-offset:3px;transition:color .2s ease,text-decoration-color .2s ease
+    }
+    article.post a:hover{color:#13d2ad;text-decoration-color:#13d2ad}
+    article.post h2,article.post h3{
+      font-family:'Poppins',sans-serif;color:#fff;
+      margin:1.8em 0 .6em;line-height:1.3
+    }
+    article.post h2{font-size:1.5rem}
+    article.post h3{font-size:1.2rem}
+    article.post em{color:#f0f0f0}
+    article.post strong{color:#fff;font-weight:700}
+    article.post blockquote{
+      margin:1.6em 0;padding:8px 0 8px 22px;
+      border-left:3px solid var(--brand);
+      color:var(--muted);font-style:italic
+    }
+    article.post code{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:.92em;background:rgba(255,255,255,.06);
+      padding:2px 6px;border-radius:5px;color:#aef0df
+    }
+
+    /* Box link al progetto / call-to-action */
+    .links-box{
+      max-width:var(--read-w);margin:8px auto 0;padding:0 20px;
+    }
+    .links-card{
+      background:linear-gradient(180deg, #1f1f1f, #181818);
+      border:1px solid var(--line);border-radius:14px;
+      padding:20px 22px;display:grid;gap:10px;box-shadow:var(--shadow);
+      font-family:'Poppins',sans-serif
+    }
+    .links-card h3{margin:0 0 4px;font-size:1rem;color:#fff;font-weight:600}
+    .links-card a{
+      display:inline-flex;align-items:center;gap:8px;
+      color:#cfe8ff;text-decoration:none;font-size:.95rem;font-weight:500;
+      padding:6px 0;transition:color .2s ease
+    }
+    .links-card a:hover{color:#7ec8ff}
+    .links-card a i{color:var(--brand);width:18px;text-align:center}
+
+    /* Navigazione tra articoli */
+    .post-nav{
+      max-width:var(--read-w);margin:48px auto 0;padding:24px 20px 0;
+      border-top:1px solid var(--line);
+      display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+      font-family:'Poppins',sans-serif
+    }
+    .post-nav a{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 16px;border-radius:10px;
+      background:rgba(255,255,255,.05);border:1px solid var(--line);
+      color:#fff;text-decoration:none;font-size:.92rem;font-weight:500;
+      transition:background .2s ease,border-color .2s ease,transform .2s ease
+    }
+    .post-nav a:hover{background:rgba(0,184,148,.12);border-color:rgba(0,184,148,.35);transform:translateY(-1px)}
+
+    /* Footer */
+    footer.site-footer{background:#161616;border-top:1px solid rgba(255,255,255,.06);padding:30px 0 16px;margin-top:64px}
+    .footer-grid{max-width:520px;margin:0 auto;text-align:center}
+    .footer-grid p{color:var(--muted);line-height:1.7;margin:0 0 10px}
+    .footer-grid h4{margin:0 0 10px;font-size:.95rem;color:#fff}
+    .social{display:flex;gap:12px;margin-top:10px;justify-content:center}
+    .social a{
+      display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;
+      border-radius:50%;background:#232323;text-decoration:none;color:#fff;
+      transition:background .18s ease,color .18s ease,transform .18s ease
+    }
+    .social a:hover{background:#2d2d2d;color:var(--brand);transform:translateY(-2px)}
+    .footer-bottom{text-align:center;padding:16px 0 6px;color:#aaa;font-size:.85rem;border-top:1px solid rgba(255,255,255,.06);margin-top:24px}
+
+    @media (max-width: 540px){
+      .article-header{padding:48px 0 24px}
+      article.post{padding:36px 18px 24px;font-size:1.08rem;line-height:1.75}
+      article.post p:first-of-type{font-size:1.14rem}
+      .post-nav{flex-direction:column;align-items:stretch}
+      .post-nav a{justify-content:center}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Navigazione principale">
+  <div class="nav-wrap">
+    <a class="logo" href="../index.html">Alessandro <span>Pezzali</span></a>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../progetti.html">Progetti</a></li>
+      <li><a href="index.html" class="active">Blog</a></li>
+      <li><a href="https://pezzaliapp.com" target="_blank" rel="noopener" class="nav-blue">pezzaliAPP</a></li>
+      <li><a href="https://github.com/pezzaliapp" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="mailto:pezzalialessandro@gmail.com">Contatti</a></li>
+      <li><a href="https://www.patreon.com/c/pezzaliAPP?redirect=true" target="_blank" rel="noopener" class="nav-red">❤ Sostieni</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="inner">
+    <a href="index.html" class="breadcrumb"><i class="fa fa-arrow-left" aria-hidden="true"></i> Tutti gli articoli</a>
+    <h1>La Terra, addosso</h1>
+    <p class="deck">Note su EarthRadar, una piccola macchina per guardare il pianeta da abbastanza lontano da capirlo.</p>
+    <div class="article-meta">
+      <strong>Alessandro Pezzali</strong>
+      <span class="sep">·</span>
+      <time datetime="2026-05-04">4 maggio 2026</time>
+      <span class="sep">·</span>
+      <span>8 min di lettura</span>
+    </div>
+  </div>
+</header>
+
+<article class="post">
+
+  <p>Esiste, da qualche parte sopra di noi, un pezzo di metallo russo del 1986 che continua a girare. Si chiama SL-14 R/B, è catalogato dal North American Aerospace Defense Command con il numero 16882 e con la designazione internazionale 1986-055B. È il secondo stadio di un vettore Tsyklon-3, lanciato dal cosmodromo di Plesetsk il 28 luglio 1986 — quando Gorbaciov stava ancora cercando, con qualche residua speranza, di salvare l'Unione Sovietica. Da allora quel pezzo di metallo compie un giro completo della Terra ogni novantasette minuti, a un'inclinazione di ottantadue gradi e mezzo, passando regolarmente sopra le nostre teste senza che nessuno lo sappia. Quarant'anni. Nessuno l'ha più toccato. Non risponde a nessuno. Eppure è lì, e se voi volete, in questo preciso momento, potete vederlo: è uno dei tanti puntini che, se aprite EarthRadar e ci cliccate sopra, vi raccontano da quanto tempo girano, a che quota, a che velocità.</p>
+
+  <p>L'avevo sempre saputo, in astratto, che lo spazio sopra le nostre teste è un cimitero affollato. Vederlo con i miei occhi, dal divano, è stata un'altra faccenda.</p>
+
+  <p>EarthRadar nasce da qui. Dalla differenza che passa fra <em>sapere</em> e <em>vedere</em>.</p>
+
+  <h2>Cosa ci si vede</h2>
+
+  <p>Aprite l'indirizzo, e dopo un paio di secondi avete davanti il pianeta. Potete sceglierlo in due modi: piatto, come una mappa di Mercatore, oppure tondo, come un piccolo globo che ruota se lo trascinate col dito. Su entrambe le viste è disegnata, in tempo reale, la linea del terminatore — quella curva sottile che separa il giorno dalla notte, e che si sposta lentamente da est verso ovest mentre il pianeta gira sotto il Sole. Non è un dettaglio decorativo: è il modo più semplice per ricordarsi, ogni volta che si apre l'app, che il pianeta è vivo, e ruota, e che mentre noi siamo qui a discutere di altro c'è metà del mondo che dorme e l'altra metà che si sveglia.</p>
+
+  <p>Sopra il pianeta ci sono i dati, e sono tanti. Potete accenderli e spegnerli a piacere come fareste con gli interruttori di una vecchia centralina elettrica.</p>
+
+  <p>Ci sono i terremoti: i puntini più grossi e rossi sono i più forti, quelli piccoli e gialli sono i tremori che la crosta terrestre genera senza sosta, in qualunque ora del giorno, in qualunque parte del mondo. Scoprire che la Terra trema continuamente, decine di volte al minuto, da qualche parte, è una di quelle informazioni che si sapevano per sentito dire e che, viste in faccia, hanno tutto un altro peso.</p>
+
+  <p>Ci sono i satelliti, migliaia. Di ogni genere e di ogni epoca. Ce ne sono di costruiti per fotografare i campi di grano, di costruiti per portare la televisione nelle case, di costruiti quarant'anni fa per scopi militari ormai dimenticati e mai recuperati — come il nostro SL-14 di prima. Cliccate uno qualunque, vi dice tutto: la sua identità, la sua orbita, il suo passato, dove sta passando in questo momento sopra le vostre teste.</p>
+
+  <p>Ci sono gli aerei civili in volo, quelli i cui transponder dichiarano apertamente la loro posizione, e che i collezionisti di <em>plane spotting</em> riconoscono come gente di famiglia. Ci sono gli incendi attivi visti da satellite. Ci sono gli uragani in formazione, segnalati come si segnalano sulla cartografia meteorologica seria. C'è il radar delle precipitazioni che potete scrubbare avanti e indietro nel tempo come un piccolo videoregistratore meteorologico, vedendo arrivare il fronte temporalesco da un'ora prima che vi piova in testa.</p>
+
+  <p>C'è la posizione esatta della Stazione Spaziale Internazionale, e se le date la vostra latitudine vi dice anche quando passerà visibile sopra la vostra terrazza — così potete uscire nel cortile a un'ora precisa, alzare gli occhi, e vederla davvero, perché passa, e si vede a occhio nudo come un punto luminoso che attraversa il cielo silenzioso in tre minuti, e voi siete lì sotto, in pigiama, a salutarla con la mano. È una di quelle cose stupide e meravigliose che vale la pena fare almeno una volta.</p>
+
+  <p>C'è infine, per chi ama questi piccoli omaggi sentimentali, una modalità radar che imita i monitor verdi della guerra fredda. Lo <em>sweep</em> che gira, il bip quando un evento entra nel raggio. È inutile, naturalmente. È anche bellissimo.</p>
+
+  <h2>Le mappe che fanno da sfondo</h2>
+
+  <p>I dati, per essere capiti, hanno bisogno di un fondale. EarthRadar ne offre cinque, scegliete voi.</p>
+
+  <p>Potete vedere la Terra in <em>true color</em>, come la fotografano in questo momento i satelliti VIIRS della NASA: nuvole reali, di oggi, alla luce vera del Sole. Potete vederla in <em>Black Marble</em>, la celebre mappa notturna delle luci artificiali, e capire al volo dove sono le città, dove sono i deserti, dove finisce l'Europa abitata e dove comincia il vuoto siberiano (poco vuoto, in realtà: c'è più gente di quanto si creda anche lì, basta guardare le luci). Potete vederla in <em>GeoColor</em>, una composizione meteorologica aggiornata ogni dieci minuti che mostra contemporaneamente la copertura nuvolosa di giorno e di notte. Potete sovrapporre la temperatura dell'aria al suolo, le mappe di qualità dell'aria, la copertura nevosa, l'estensione del ghiaccio marino artico e antartico — tutti dati che le agenzie spaziali aggiornano quotidianamente e che, fino a qualche anno fa, erano accessibili soltanto a ricercatori specializzati con l'accesso giusto.</p>
+
+  <p>E se volete il fondale neutro, c'è anche OpenStreetMap, quella carta dettagliata fatta a mano dai volontari di mezzo mondo, sulla quale i puntini dei dati assumono un'altra eloquenza: meno scenografici, più precisi, più adatti a chi vuole capire dove sta una cosa rispetto alla città, alla strada, al fiume.</p>
+
+  <h2>Cosa promette, e cosa non promette</h2>
+
+  <p>Sento il dovere di un disclaimer, perché la storia recente è piena di software che promettevano cose che non potevano mantenere, e di lettori che ci hanno creduto.</p>
+
+  <p>EarthRadar è uno strumento divulgativo. <strong>Non è certificato, non è ufficiale, non sostituisce sismografi professionali, né stazioni meteo militari, né i radar dei controllori di volo.</strong> Lo dice in cima alla pagina, lo ripete a ogni pannello, in piccolo ma con costanza.</p>
+
+  <p>Se pensate di evacuare un edificio sulla base di una scossa che vedete su EarthRadar, fermatevi. Se pensate di pilotare un aereo sulla base delle posizioni che vi mostra, fermatevi due volte e chiamate qualcuno. EarthRadar è uno strumento per <em>capire</em>, non uno strumento per <em>decidere</em>.</p>
+
+  <p>È, se volete, l'equivalente del telescopio amatoriale che vostro zio teneva sul terrazzo: vi fa vedere bellissime cose, vi insegna qualcosa, vi mette di buon umore. Per fare astronomia di precisione, ovviamente, c'è l'Osservatorio di Asiago.</p>
+
+  <h2>Il piccolo trucco onesto</h2>
+
+  <p>EarthRadar è una di quelle cose che gli addetti ai lavori chiamano PWA, <em>Progressive Web App</em>. Tradotto per chi non parla informatichese: si apre nel browser come una pagina qualunque, ma può essere installata sul telefono o sul computer con un solo tap, e da lì in poi si comporta come un'app vera. Funziona offline, almeno per i dati che avete già caricato. Pesa meno di un megabyte. Non vi profila, non vi traccia, non vi chiede di registrarvi, non vi mostra pubblicità. È, lo dico senza falsa modestia, una versione di software di cui ci si può fidare.</p>
+
+  <p>Il codice è aperto, sotto licenza MIT, sul mio profilo GitHub. Chi vuole può copiarlo, modificarlo, migliorarlo, costruirci sopra qualcosa di diverso. È quanto di più simile a un piccolo bene comune digitale io sia riuscito a fare in questi mesi: nulla di rivoluzionario, ma onesto.</p>
+
+  <h2>Tre app, un angolo di universo</h2>
+
+  <p>EarthRadar è la terza di una piccola serie di macchine divulgative che ho costruito in questo periodo.</p>
+
+  <p>C'è <strong>MeteorWatch</strong>, per chi vuole tenere d'occhio meteoriti, bolidi, oggetti vicini alla Terra — quelle cose che ogni tanto compaiono nei titoli dei giornali con i toni dell'allarme apocalittico e che, viste su una mappa con i loro veri parametri orbitali, fanno molto meno paura. C'è <strong>CubeSat Constellation</strong>, un visualizzatore tridimensionale per studiare le costellazioni di satelliti — Starlink, OneWeb, Galileo, Iridium, e così via — utile per capire perché certe sere il cielo sembra attraversato da treni di puntini luminosi (spoiler: lo è davvero). E adesso c'è <strong>EarthRadar</strong>, per il pianeta in tempo reale.</p>
+
+  <p>Le tre app si parlano fra loro. Cliccate un satellite in EarthRadar e potete aprirlo dentro CubeSat per vederne l'orbita in tre dimensioni. Cliccate un evento spaziale e potete aprirlo dentro MeteorWatch per studiarne i parametri di approccio. Sono finestre diverse sullo stesso paesaggio, ciascuna con la sua scala, e insieme provano a coprire quella sottile fascia di cosmo che, volenti o nolenti, ci riguarda da vicino.</p>
+
+  <h2>Provatela</h2>
+
+  <p>Apritela su qualunque dispositivo. Aspettate quei due o tre secondi che la Terra si carichi (è un pianeta intero, abbiate pazienza). Toccate un satellite, cliccate un terremoto, cambiate modalità, smanettate con i pannelli come fareste con i cassetti di un piccolo laboratorio amatoriale.</p>
+
+  <p>Se vi piace, fatemelo sapere. Le idee per la prossima versione sono già lì sul tavolo: fulmini in tempo reale rilevati dalla rete <em>community</em> Blitzortung, immagini della Terra scattate dal satellite DSCOVR dal punto di Lagrange a un milione e mezzo di chilometri da qui (sono fotografie a tutto disco del pianeta, e sono stupende), predizione dei passaggi dei satelliti Sentinel-2 europei sopra la vostra terrazza, una modalità realtà aumentata per puntare il telefono al cielo e vedere dove sta passando la ISS in questo momento. Ma quale sviluppare per prima la deciderete voi, sulla base di quello che mi raccontate.</p>
+
+  <p>Esiste, da qualche parte sopra di noi, un pezzo di metallo russo del 1986 — NORAD 16882 — che continua a girare. Adesso, se volete, sapete come trovarlo. 🌍</p>
+
+</article>
+
+<div class="links-box">
+  <div class="links-card">
+    <h3>EarthRadar</h3>
+    <a href="https://www.alessandropezzali.it/EarthRadar/" target="_blank" rel="noopener">
+      <i class="fa fa-external-link" aria-hidden="true"></i>
+      alessandropezzali.it/EarthRadar/
+    </a>
+    <a href="https://github.com/pezzaliapp/EarthRadar" target="_blank" rel="noopener">
+      <i class="fa fa-github" aria-hidden="true"></i>
+      github.com/pezzaliapp/EarthRadar
+    </a>
+  </div>
+</div>
+
+<article class="post" style="padding-top:32px;padding-bottom:8px">
+  <p style="font-size:.98rem;color:var(--soft);font-style:italic">EarthRadar è un progetto personale, open source, distribuito sotto licenza MIT. I dati visualizzati provengono da fonti pubbliche: NASA per le mappe satellitari e gli incendi attivi, USGS per i terremoti, NOAA per le composizioni meteorologiche, CelesTrak per le effemeridi orbitali, OpenSky per il traffico aereo, Open-Meteo per le previsioni puntuali.</p>
+</article>
+
+<nav class="post-nav" aria-label="Navigazione tra articoli">
+  <a href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i> Tutti gli articoli</a>
+  <a href="mailto:pezzalialessandro@gmail.com">Scrivimi cosa ne pensi <i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+</nav>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <h4>Trovami qui</h4>
+      <p style="font-size:.92rem">Per email: <a href="mailto:pezzalialessandro@gmail.com" style="color:#aef0df">pezzalialessandro@gmail.com</a></p>
+      <div class="social">
+        <a href="https://github.com/pezzaliapp" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/pezzaliapp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/@pezzaliapp" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
+        <a href="https://www.instagram.com/ale_pezzali/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+        <a href="https://pezzaliapp.com" target="_blank" rel="noopener" aria-label="pezzaliAPP"><i class="fa fa-globe"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Alessandro Pezzali · Tutti i progetti sono open source salvo dove diversamente indicato.</div>
+  </div>
+</footer>
+
+</body>
+</html>
