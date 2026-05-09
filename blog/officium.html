@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>OFFICIUM — Alessandro Pezzali</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Note su una piccola macchina da liturgia industriale, e su perché il vincolo è il vero strumento del progetto.">
+  <meta name="author" content="Alessandro Pezzali">
+  <meta name="theme-color" content="#00b894">
+
+  <link rel="icon" href="../favicon.ico">
+  <link rel="canonical" href="https://www.alessandropezzali.it/blog/officium.html">
+
+  <meta property="og:title" content="OFFICIUM">
+  <meta property="og:description" content="Note su una piccola macchina da liturgia industriale, e su perché il vincolo è il vero strumento del progetto.">
+  <meta property="og:image" content="https://www.alessandropezzali.it/preview.jpg">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.alessandropezzali.it/blog/officium.html">
+  <meta property="article:published_time" content="2026-05-06">
+  <meta property="article:author" content="Alessandro Pezzali">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BlogPosting",
+    "headline":"OFFICIUM",
+    "description":"Note su una piccola macchina da liturgia industriale, e su perché il vincolo è il vero strumento del progetto.",
+    "datePublished":"2026-05-06",
+    "author":{
+      "@type":"Person",
+      "name":"Alessandro Pezzali",
+      "url":"https://www.alessandropezzali.it"
+    },
+    "image":"https://www.alessandropezzali.it/preview.jpg",
+    "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":"https://www.alessandropezzali.it/blog/officium.html"
+    }
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    :root{
+      --bg:#121212;
+      --panel:#1b1b1b;
+      --text:#f0f0f0;
+      --muted:#c8c8c8;
+      --soft:#9a9a9a;
+      --line:rgba(255,255,255,.08);
+      --brand:#00b894;
+      --blue:#0984e3;
+      --shadow:0 12px 32px rgba(0,0,0,.28);
+      --navH:64px;
+      --container:1180px;
+      --read-w:720px;
+      --serif: Georgia, "Iowan Old Style", "Charter", "Source Serif Pro", "Cambria", serif;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;min-height:100%;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+    html{scroll-behavior:smooth}
+    img{max-width:100%;display:block}
+    a{color:inherit}
+
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+    /* Nav */
+    nav.topnav{
+      position:fixed;inset:0 0 auto 0;z-index:1000;
+      background:rgba(8,8,8,.88);
+      backdrop-filter:saturate(140%) blur(10px);
+      -webkit-backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      height:var(--navH);
+    }
+    .nav-wrap{max-width:1320px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:18px;height:100%}
+    .logo{font-size:1rem;font-weight:700;letter-spacing:.2px;white-space:nowrap;flex-shrink:0;text-decoration:none;color:#fff}
+    .logo span{color:var(--brand)}
+    nav.topnav ul{display:flex;flex-wrap:nowrap;gap:6px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;max-width:100%}
+    nav.topnav ul::-webkit-scrollbar{display:none}
+    nav.topnav li{flex:0 0 auto}
+    nav.topnav a{
+      display:inline-flex;align-items:center;justify-content:center;min-height:38px;
+      padding:8px 12px;border-radius:999px;text-decoration:none;font-size:.92rem;color:#f0f0f0;
+      transition:background .2s ease,color .2s ease,transform .2s ease;
+    }
+    nav.topnav a:hover{background:rgba(255,255,255,.06);color:#fff;transform:translateY(-1px)}
+    nav.topnav a.active{background:rgba(0,184,148,.14);border:1px solid rgba(0,184,148,.30);color:#fff}
+    .nav-blue{color:#7ec8ff !important;font-weight:700}
+    .nav-red{color:#ff8181 !important;font-weight:700}
+
+    /* Header articolo */
+    .article-header{
+      position:relative;margin-top:var(--navH);
+      padding:64px 0 32px;border-bottom:1px solid var(--line);overflow:hidden;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(0,184,148,.10), transparent 50%),
+        radial-gradient(ellipse at 80% 30%, rgba(9,132,227,.10), transparent 55%),
+        linear-gradient(180deg, #0a0e14 0%, #121212 100%);
+    }
+    .article-header .inner{max-width:var(--read-w);margin:0 auto;padding:0 20px}
+    .breadcrumb{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:.85rem;color:var(--soft);margin-bottom:18px;text-decoration:none;
+      transition:color .2s ease
+    }
+    .breadcrumb:hover{color:#aef0df}
+    .breadcrumb i{font-size:.78rem}
+    .article-header h1{
+      font-family:'Poppins',sans-serif;
+      font-size:clamp(1.9rem,4.6vw,2.8rem);line-height:1.15;
+      margin:0 0 16px;font-weight:700;letter-spacing:-.4px
+    }
+    .article-header .deck{
+      font-family:var(--serif);font-style:italic;
+      color:var(--muted);font-size:1.05rem;line-height:1.6;margin:0 0 16px;max-width:640px
+    }
+    .article-meta{
+      display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+      font-size:.88rem;color:var(--soft)
+    }
+    .article-meta .sep{opacity:.4}
+    .article-meta strong{color:var(--muted);font-weight:600}
+
+    /* Corpo articolo: serif per leggibilità */
+    article.post{
+      max-width:var(--read-w);margin:0 auto;padding:48px 20px 32px;
+      font-family:var(--serif);
+      font-size:1.16rem;line-height:1.78;color:#e8e8e8;
+    }
+    article.post p{margin:0 0 1.4em}
+    article.post p:first-of-type{
+      font-size:1.22rem;color:#f0f0f0
+    }
+    article.post a{
+      color:#aef0df;text-decoration:underline;text-decoration-color:rgba(0,184,148,.45);
+      text-underline-offset:3px;transition:color .2s ease,text-decoration-color .2s ease
+    }
+    article.post a:hover{color:#13d2ad;text-decoration-color:#13d2ad}
+    article.post h2,article.post h3{
+      font-family:'Poppins',sans-serif;color:#fff;
+      margin:1.8em 0 .6em;line-height:1.3
+    }
+    article.post h2{font-size:1.5rem}
+    article.post h3{font-size:1.2rem}
+    article.post em{color:#f0f0f0}
+    article.post strong{color:#fff;font-weight:700}
+    article.post blockquote{
+      margin:1.6em 0;padding:8px 0 8px 22px;
+      border-left:3px solid var(--brand);
+      color:var(--muted);font-style:italic
+    }
+    article.post code{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:.92em;background:rgba(255,255,255,.06);
+      padding:2px 6px;border-radius:5px;color:#aef0df
+    }
+
+    /* Cesura tipografica al posto di <h2>: un piccolo divisore centrato */
+    article.post .caesura{
+      display:block;text-align:center;margin:2.4em 0 2em;
+      letter-spacing:.6em;color:var(--soft);font-family:'Poppins',sans-serif;
+      font-size:.9rem;user-select:none
+    }
+
+    /* Box link al progetto / call-to-action */
+    .links-box{
+      max-width:var(--read-w);margin:8px auto 0;padding:0 20px;
+    }
+    .links-card{
+      background:linear-gradient(180deg, #1f1f1f, #181818);
+      border:1px solid var(--line);border-radius:14px;
+      padding:20px 22px;display:grid;gap:10px;box-shadow:var(--shadow);
+      font-family:'Poppins',sans-serif
+    }
+    .links-card h3{margin:0 0 4px;font-size:1rem;color:#fff;font-weight:600}
+    .links-card a{
+      display:inline-flex;align-items:center;gap:8px;
+      color:#cfe8ff;text-decoration:none;font-size:.95rem;font-weight:500;
+      padding:6px 0;transition:color .2s ease
+    }
+    .links-card a:hover{color:#7ec8ff}
+    .links-card a i{color:var(--brand);width:18px;text-align:center}
+
+    /* Navigazione tra articoli */
+    .post-nav{
+      max-width:var(--read-w);margin:48px auto 0;padding:24px 20px 0;
+      border-top:1px solid var(--line);
+      display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+      font-family:'Poppins',sans-serif
+    }
+    .post-nav a{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 16px;border-radius:10px;
+      background:rgba(255,255,255,.05);border:1px solid var(--line);
+      color:#fff;text-decoration:none;font-size:.92rem;font-weight:500;
+      transition:background .2s ease,border-color .2s ease,transform .2s ease
+    }
+    .post-nav a:hover{background:rgba(0,184,148,.12);border-color:rgba(0,184,148,.35);transform:translateY(-1px)}
+
+    /* Footer */
+    footer.site-footer{background:#161616;border-top:1px solid rgba(255,255,255,.06);padding:30px 0 16px;margin-top:64px}
+    .footer-grid{max-width:520px;margin:0 auto;text-align:center}
+    .footer-grid p{color:var(--muted);line-height:1.7;margin:0 0 10px}
+    .footer-grid h4{margin:0 0 10px;font-size:.95rem;color:#fff}
+    .social{display:flex;gap:12px;margin-top:10px;justify-content:center}
+    .social a{
+      display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;
+      border-radius:50%;background:#232323;text-decoration:none;color:#fff;
+      transition:background .18s ease,color .18s ease,transform .18s ease
+    }
+    .social a:hover{background:#2d2d2d;color:var(--brand);transform:translateY(-2px)}
+    .footer-bottom{text-align:center;padding:16px 0 6px;color:#aaa;font-size:.85rem;border-top:1px solid rgba(255,255,255,.06);margin-top:24px}
+
+    @media (max-width: 540px){
+      .article-header{padding:48px 0 24px}
+      article.post{padding:36px 18px 24px;font-size:1.08rem;line-height:1.75}
+      article.post p:first-of-type{font-size:1.14rem}
+      article.post .caesura{letter-spacing:.5em;font-size:.85rem}
+      .post-nav{flex-direction:column;align-items:stretch}
+      .post-nav a{justify-content:center}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Navigazione principale">
+  <div class="nav-wrap">
+    <a class="logo" href="../index.html">Alessandro <span>Pezzali</span></a>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../progetti.html">Progetti</a></li>
+      <li><a href="index.html" class="active">Blog</a></li>
+      <li><a href="https://pezzaliapp.com" target="_blank" rel="noopener" class="nav-blue">pezzaliAPP</a></li>
+      <li><a href="https://github.com/pezzaliapp" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="mailto:pezzalialessandro@gmail.com">Contatti</a></li>
+      <li><a href="https://www.patreon.com/c/pezzaliAPP?redirect=true" target="_blank" rel="noopener" class="nav-red">❤ Sostieni</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="inner">
+    <a href="index.html" class="breadcrumb"><i class="fa fa-arrow-left" aria-hidden="true"></i> Tutti gli articoli</a>
+    <h1>OFFICIUM</h1>
+    <p class="deck">Note su una piccola macchina da liturgia industriale, e su perché il vincolo è il vero strumento del progetto.</p>
+    <div class="article-meta">
+      <strong>Alessandro Pezzali</strong>
+      <span class="sep">·</span>
+      <time datetime="2026-05-06">6 maggio 2026</time>
+      <span class="sep">·</span>
+      <span>6 min di lettura</span>
+    </div>
+  </div>
+</header>
+
+<article class="post">
+
+  <p>Non sapevo cosa fare, all'inizio. Avevo un nome di lavoro che mi era stato consegnato come una piccola sfida — tenere insieme la velocità dei breakbeat e la gravità lenta di certi sintetizzatori di una certa Europa del Nord di metà anni Ottanta. Il primo conta i sedicesimi a centosettanta al minuto e non perdona; il secondo può restare fermo su un accordo per cinque minuti senza chiedere scusa. Mi sembravano due cose che parlavano da stanze diverse.</p>
+
+  <p>Ho scartato subito l'idea ovvia. La drum machine con i pad cliccabili, la griglia 16x4 dove l'utente sistema i suoni: ne esistono troppe, e tutte chiedono allo stesso utente di occuparsi di un compito che non gli compete davvero, fare il compositore. Non volevo costruire un giocattolo da workstation. Volevo costruire qualcosa in cui si entra come si entra in una sala vuota: senza pensare a cosa fare, ma a cosa stare ad ascoltare.</p>
+
+  <p>Da lì è venuta la metafora liturgica. Non la confessione, non l'altare, non il tema, ma la pratica. Un <em>officium</em> è ripetizione, è l'ora canonica che ritorna ogni giorno alla stessa ora, è una formula che si dice perché va detta. Tutta la musica elettronica che mi interessa ha qualcosa di questo: il loop come atto di devozione, il pattern fisso come voto. E il drum &amp; bass, nei suoi momenti più severi, è esattamente questo: un breakbeat che non si stanca, un sub che non si stanca, una macchina che continua a battere mentre tu cambi.</p>
+
+  <p>Ho scelto la <em>rota</em>, la ruota, al posto della timeline. Una linea da sinistra a destra è il modo in cui i computer ci hanno insegnato a pensare al tempo. Un cerchio è il modo in cui i campanili lo hanno detto per mille anni. Non c'è un inizio, non c'è una fine, c'è solo il punto in cui il <em>playhead</em> passa adesso. Mi piaceva che la rotazione non fosse un effetto decorativo, ma esattamente la geometria del problema.</p>
+
+  <p>Lungo la strada ho buttato via molte cose. Una versione in cui l'utente piazzava simboli geometrici nei sedici slot — triangoli per il kick, cerchi per la campana — e così facendo costruiva il suo pattern: funzionava, ma era ancora la solita logica del fai-da-te musicale, ti consegna un pannello e ti chiede di riempirlo. Ho preferito togliere quell'autorialità all'utente e dargli invece il controllo di cose che davvero possono spostare il pezzo: spegnere una voce, cambiare ora liturgica, abbassare il polso. Una progressione armonica più ricca, anche quella scartata. L'oscillazione lentissima fra la minore e re minore basta. Non volevo un brano. Volevo uno stato.</p>
+
+  <span class="caesura" aria-hidden="true">· · ·</span>
+
+  <p>Sopra tutto ho messo il TENEBRAE. È il dispositivo a cui tengo di più, e quello su cui ho rischiato di più. È una sola macro globale legata alla posizione verticale del mouse: in alto pulito, in basso saturo. Quando il puntatore scende, la catena umida del bus master apre la porta a distorsione e riverbero, il filtro passa-basso si chiude, la vignetta divora i bordi. Quando risale, il pezzo torna lucido. La maggior parte dei software musicali ti dà cento <em>slider</em>. Io ne volevo uno solo, e volevo che l'utente lo trovasse senza che glielo avessi spiegato. Volevo che il primo gesto involontario, il polso che si muove sopra il <em>trackpad</em>, facesse già musica.</p>
+
+  <p>Sulla sintesi ho lavorato a mano perché mi sembrava onesto. Importare una libreria per costruire un kick era una contraddizione: il pezzo parla di mestiere, di accordatura artigianale, di voci scolpite una alla volta. Le inarmonicità della campana — quelle frazioni che non chiudono perfettamente sull'ottava, due virgola zero zero uno, tre virgola zero uno due, quattro virgola novantanove — sono il dettaglio su cui ho passato più tempo. Una campana suona reale solo quando le sue armoniche non stanno in fila.</p>
+
+  <p>Il latino non è una citazione. Le parole — <em>lux, ferrum, cinis, pulvis, ora</em> — sono la materia minerale di un piccolo glossario che ho compilato io: luce, ferro, cenere, polvere, prega. Sono parole brevi, dure, ognuna leggibile da chiunque abbia attraversato un'iscrizione su un muro. Ho evitato qualunque frase, qualunque formula, qualunque testo in carico ad altri.</p>
+
+  <p>Il colore: un solo accento sul rosso. Non il rosso della segnaletica, non il rosso del Natale; il rosso dell'argilla cotta, del sangue secco, dei piccoli segni sulla pietra. La pagina doveva leggersi come un'iscrizione, non come uno schermo.</p>
+
+  <p>Quello che spero che il visitatore senta nei primi trenta secondi è una piccola disorientazione, e poi un sollievo. La ruota gira. Il sub batte. La parola al centro cambia. Non c'è niente da fare, niente da salvare, niente da esportare, niente da condividere. È un oggetto chiuso. Si entra, si sta dentro per qualche minuto, si esce. È quello che ho cercato di costruire: una stanza piccola, asciutta, in cui qualcosa di severo abbia il tempo di ripetersi.</p>
+
+</article>
+
+<div class="links-box">
+  <div class="links-card">
+    <h3>OFFICIUM</h3>
+    <a href="https://www.alessandropezzali.it/drumbass-depeche-mode/" target="_blank" rel="noopener">
+      <i class="fa fa-external-link" aria-hidden="true"></i>
+      alessandropezzali.it/drumbass-depeche-mode/
+    </a>
+    <a href="https://github.com/pezzaliapp/drumbass-depeche-mode" target="_blank" rel="noopener">
+      <i class="fa fa-github" aria-hidden="true"></i>
+      github.com/pezzaliapp/drumbass-depeche-mode
+    </a>
+  </div>
+</div>
+
+<nav class="post-nav" aria-label="Navigazione tra articoli">
+  <a href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i> Tutti gli articoli</a>
+  <a href="mailto:pezzalialessandro@gmail.com">Scrivimi cosa ne pensi <i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+</nav>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <h4>Trovami qui</h4>
+      <p style="font-size:.92rem">Per email: <a href="mailto:pezzalialessandro@gmail.com" style="color:#aef0df">pezzalialessandro@gmail.com</a></p>
+      <div class="social">
+        <a href="https://github.com/pezzaliapp" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/pezzaliapp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/@pezzaliapp" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
+        <a href="https://www.instagram.com/ale_pezzali/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+        <a href="https://pezzaliapp.com" target="_blank" rel="noopener" aria-label="pezzaliAPP"><i class="fa fa-globe"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Alessandro Pezzali · Tutti i progetti sono open source salvo dove diversamente indicato.</div>
+  </div>
+</footer>
+
+</body>
+</html>
