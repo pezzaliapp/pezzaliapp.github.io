@@ -37,6 +37,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.alessandropezzali.it/Carbur/</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.alessandropezzali.it/EarthRadar/</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.alessandropezzali.it/Onda/</loc>
     <lastmod>2026-06-06</lastmod>
     <changefreq>weekly</changefreq>
