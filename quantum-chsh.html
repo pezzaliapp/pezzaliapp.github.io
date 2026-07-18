@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Quantum Lab Notebook — Test di Bell–CHSH su hardware quantistico reale · Alessandro Pezzali</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Quaderno di laboratorio: test della disuguaglianza di Bell–CHSH eseguito sul processore quantistico Tuna-17 (Quantum Inspire). Risultato: S = 2.585 ± 0.017, violazione del limite classico di 34 deviazioni standard. PDF completo di 15 pagine, dati e codice cQASM 3.0.">
+  <meta name="author" content="Alessandro Pezzali">
+  <meta name="theme-color" content="#00b894">
+
+  <link rel="icon" href="favicon.ico">
+  <link rel="canonical" href="https://www.alessandropezzali.it/quantum-chsh.html">
+
+  <meta property="og:title" content="Test di Bell–CHSH su hardware quantistico reale">
+  <meta property="og:description" content="S = 2.585 ± 0.017 misurato sul processore Tuna-17: la disuguaglianza CHSH violata di 34 deviazioni standard. Quaderno di laboratorio completo in PDF.">
+  <meta property="og:image" content="https://www.alessandropezzali.it/preview.jpg">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.alessandropezzali.it/quantum-chsh.html">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Quantum Laboratory Notebook — Testing a Bell–CHSH Inequality on Real Quantum Hardware",
+    "author": {
+      "@type": "Person",
+      "name": "Alessandro Pezzali",
+      "url": "https://www.alessandropezzali.it"
+    },
+    "datePublished": "2026-07-18",
+    "inLanguage": "en",
+    "url": "https://www.alessandropezzali.it/quantum-chsh.html",
+    "encoding": {
+      "@type": "MediaObject",
+      "contentUrl": "https://www.alessandropezzali.it/pdf/CHSH_Lab_Notebook.pdf",
+      "encodingFormat": "application/pdf"
+    },
+    "about": ["Bell inequality", "CHSH", "quantum entanglement", "quantum computing"],
+    "copyrightHolder": { "@type": "Person", "name": "Alessandro Pezzali" },
+    "copyrightYear": 2026
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    :root{
+      --bg:#121212;
+      --panel:#1b1b1b;
+      --text:#f0f0f0;
+      --muted:#c8c8c8;
+      --line:rgba(255,255,255,.08);
+      --brand:#00b894;
+      --blue:#0984e3;
+      --violet:#9b59b6;
+      --shadow:0 12px 32px rgba(0,0,0,.28);
+      --navH:64px;
+      --container:960px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;min-height:100%;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+    html{scroll-behavior:smooth}
+    img{max-width:100%;display:block}
+    a{color:inherit}
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+    .section-pad{padding:56px 0}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;padding:6px 12px;
+      border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);
+      font-size:.78rem;color:#e8d3ff;margin-bottom:14px;letter-spacing:.3px;text-transform:uppercase
+    }
+    .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--violet)}
+
+    nav.topnav{
+      position:fixed;inset:0 0 auto 0;z-index:1000;
+      background:rgba(8,8,8,.88);
+      backdrop-filter:saturate(140%) blur(10px);
+      -webkit-backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      height:var(--navH);
+    }
+    .nav-wrap{max-width:1320px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:18px;height:100%}
+    .logo{font-size:1rem;font-weight:700;letter-spacing:.2px;white-space:nowrap;flex-shrink:0;text-decoration:none}
+    .logo span{color:var(--brand)}
+    nav.topnav ul{display:flex;flex-wrap:nowrap;gap:6px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;max-width:100%}
+    nav.topnav ul::-webkit-scrollbar{display:none}
+    nav.topnav li{flex:0 0 auto}
+    nav.topnav a{
+      display:inline-flex;align-items:center;justify-content:center;min-height:38px;
+      padding:8px 12px;border-radius:999px;text-decoration:none;font-size:.92rem;color:#f0f0f0;
+      transition:background .2s ease,color .2s ease,transform .2s ease;
+    }
+    nav.topnav a:hover{background:rgba(255,255,255,.06);color:#fff;transform:translateY(-1px)}
+    .nav-blue{color:#7ec8ff !important;font-weight:700}
+    .nav-red{color:#ff8181 !important;font-weight:700}
+
+    /* Hero pubblicazione */
+    .pub-hero{
+      position:relative;margin-top:var(--navH);
+      padding:72px 0 56px;border-bottom:1px solid var(--line);overflow:hidden;isolation:isolate;
+    }
+    .pub-hero::before{
+      content:"";position:absolute;inset:0;z-index:-1;
+      background:
+        radial-gradient(ellipse at 15% 15%, rgba(155,89,182,.16), transparent 45%),
+        radial-gradient(ellipse at 85% 30%, rgba(9,132,227,.16), transparent 50%),
+        linear-gradient(180deg, #0d0a14 0%, #121212 100%);
+    }
+    .pub-hero h1{font-size:clamp(1.7rem,4.6vw,2.8rem);line-height:1.12;margin:0 0 14px;max-width:820px;font-weight:700;letter-spacing:-.4px}
+    .pub-hero h1 .accent{color:var(--violet)}
+    .pub-hero p.lead{font-size:1.05rem;line-height:1.75;color:#ececec;max-width:720px;margin:0 0 26px}
+    .pub-meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
+    .tag{
+      display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;
+      background:rgba(255,255,255,.05);border:1px solid var(--line);
+      font-size:.78rem;color:#dcdcdc
+    }
+    .tag.violet{background:rgba(155,89,182,.14);border-color:rgba(155,89,182,.35);color:#e8d3ff}
+    .tag.brand{background:rgba(0,184,148,.13);border-color:rgba(0,184,148,.30);color:#aef0df}
+    .tag.blue{background:rgba(9,132,227,.13);border-color:rgba(9,132,227,.30);color:#cfe8ff}
+    .hero-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      min-height:48px;padding:13px 22px;border-radius:12px;text-decoration:none;font-weight:600;font-size:.98rem;
+      border:1px solid transparent;transition:transform .18s ease, background .18s ease, box-shadow .18s ease;white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-violet{background:var(--violet);color:#fff;box-shadow:0 8px 22px rgba(155,89,182,.30)}
+    .btn-violet:hover{background:#ab6fc6;box-shadow:0 10px 28px rgba(155,89,182,.45)}
+    .btn-secondary{background:rgba(255,255,255,.06);border-color:var(--line);color:#fff}
+    .btn-secondary:hover{background:rgba(255,255,255,.10)}
+
+    /* Il numero-risultato */
+    .result-band{padding:36px 0;border-bottom:1px solid var(--line);background:#0f0f0f}
+    .result-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:14px;align-items:stretch}
+    .result-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
+      border:1px solid var(--line);border-radius:14px;padding:18px 20px;text-align:center;
+      display:flex;flex-direction:column;justify-content:center
+    }
+    .result-card.main{border-color:rgba(155,89,182,.40);background:linear-gradient(180deg, rgba(155,89,182,.10), rgba(155,89,182,.03))}
+    .result-card strong{display:block;font-size:1.55rem;line-height:1.15;margin-bottom:6px;color:#fff}
+    .result-card.main strong{font-size:1.8rem;color:#e8d3ff}
+    .result-card span{display:block;color:var(--muted);font-size:.85rem;line-height:1.45}
+
+    /* Corpo articolo */
+    .article h2{font-size:1.35rem;margin:38px 0 12px}
+    .article h2:first-child{margin-top:0}
+    .article p{color:var(--muted);line-height:1.8;font-size:.98rem;margin:0 0 16px;max-width:76ch}
+    .article p strong{color:#fff}
+    .article .highlight{color:#aef0df}
+
+    /* Figure su "carta": le SVG del notebook hanno fondo bianco, le presentiamo come pagine del quaderno */
+    .paper{
+      background:#fff;border-radius:12px;padding:18px;margin:22px 0 8px;
+      box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.12)
+    }
+    .paper img{margin:0 auto}
+    .figcap{color:#9a9a9a;font-size:.85rem;line-height:1.6;margin:10px 0 26px;max-width:76ch}
+
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+
+    /* Box download */
+    .dl-box{
+      display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;
+      background:linear-gradient(135deg, rgba(155,89,182,.12), rgba(9,132,227,.10));
+      border:1px solid rgba(155,89,182,.35);border-radius:16px;padding:22px;margin-top:34px
+    }
+    .dl-box .fa-file-pdf-o{font-size:2.2rem;color:#e8d3ff}
+    .dl-box h3{margin:0 0 4px;font-size:1.05rem}
+    .dl-box p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.55}
+
+    footer.site-footer{background:#161616;border-top:1px solid rgba(255,255,255,.06);padding:30px 0 16px;margin-top:40px}
+    .footer-grid{max-width:520px;margin:0 auto;text-align:center}
+    .footer-grid p{color:var(--muted);line-height:1.7;margin:0 0 10px}
+    .footer-grid h4{margin:0 0 10px;font-size:.95rem;color:#fff}
+    .social{display:flex;gap:12px;margin-top:10px;justify-content:center}
+    .social a{
+      display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;
+      border-radius:50%;background:#232323;text-decoration:none;color:#fff;
+      transition:background .18s ease,color .18s ease,transform .18s ease
+    }
+    .social a:hover{background:#2d2d2d;color:var(--brand);transform:translateY(-2px)}
+    .footer-bottom{text-align:center;padding:16px 0 6px;color:#aaa;font-size:.85rem;border-top:1px solid rgba(255,255,255,.06);margin-top:24px}
+
+    @media (max-width: 900px){
+      .result-grid{grid-template-columns:1fr 1fr}
+      .two-col{grid-template-columns:1fr}
+    }
+    @media (max-width: 540px){
+      .section-pad{padding:44px 0}
+      .container{padding:0 16px}
+      .pub-hero{padding:56px 0 44px}
+      .btn{width:100%}
+      .hero-cta{flex-direction:column;align-items:stretch}
+      .result-grid{grid-template-columns:1fr}
+      .dl-box{grid-template-columns:1fr;text-align:center}
+      .dl-box .btn{width:100%}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Navigazione principale">
+  <div class="nav-wrap">
+    <a class="logo" href="index.html">Alessandro <span>Pezzali</span></a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="progetti.html">Progetti</a></li>
+      <li><a href="blog/">Blog</a></li>
+      <li><a href="https://pezzaliapp.com" target="_blank" rel="noopener" class="nav-blue">pezzaliAPP</a></li>
+      <li><a href="https://github.com/pezzaliapp" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="mailto:pezzalialessandro@gmail.com">Contatti</a></li>
+      <li><a href="https://www.patreon.com/c/pezzaliAPP?redirect=true" target="_blank" rel="noopener" class="nav-red">❤ Sostieni</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="pub-hero">
+  <div class="container">
+    <div class="eyebrow"><span class="dot"></span>Pubblicazione · Quaderno di laboratorio</div>
+    <h1>Test di <span class="accent">Bell–CHSH</span> su hardware quantistico reale</h1>
+    <p class="lead">
+      Ho preparato una coppia di qubit in stato entangled sul processore quantistico
+      <strong>Tuna-17</strong> (Quantum Inspire) e l'ho misurata nelle quattro configurazioni
+      richieste dal test CHSH. Il risultato viola il limite del realismo locale — lo stesso tipo
+      di esperimento premiato con il Nobel per la Fisica 2022 — e questo quaderno documenta
+      ogni passaggio: circuiti, dati grezzi, analisi e codice.
+    </p>
+    <div class="pub-meta">
+      <span class="tag violet"><i class="fa fa-flask"></i> Fisica quantistica</span>
+      <span class="tag blue">Quantum Inspire · Tuna-17</span>
+      <span class="tag">cQASM 3.0</span>
+      <span class="tag">8192 shot × 4 run</span>
+      <span class="tag brand">18 luglio 2026</span>
+    </div>
+    <div class="hero-cta">
+      <a class="btn btn-violet" href="pdf/CHSH_Lab_Notebook.pdf" target="_blank" rel="noopener">
+        <i class="fa fa-file-pdf-o"></i> Scarica il PDF (15 pagine)
+      </a>
+      <a class="btn btn-secondary" href="#esperimento">
+        Leggi il riassunto <i class="fa fa-arrow-down"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+<section class="result-band" aria-label="Risultato principale">
+  <div class="container">
+    <div class="result-grid">
+      <div class="result-card main"><strong>S = 2.585 ± 0.017</strong><span>Valore CHSH misurato</span></div>
+      <div class="result-card"><strong>&gt; 2</strong><span>Limite classico superato</span></div>
+      <div class="result-card"><strong>34 σ</strong><span>Deviazioni standard oltre il limite</span></div>
+      <div class="result-card"><strong>&lt; 2√2</strong><span>Sotto il massimo quantistico (2.828)</span></div>
+    </div>
+  </div>
+</section>
+
+<main class="section-pad" id="esperimento">
+  <div class="container article">
+
+    <h2>Che cosa dimostra questo esperimento</h2>
+    <p>
+      Nel 1964 John Bell dimostrò che, se il mondo obbedisse al <strong>realismo locale</strong>
+      — ogni particella che porta con sé risposte già decise — le correlazioni tra due misure
+      dovrebbero rispettare un limite preciso. La disuguaglianza CHSH condensa quel limite in un
+      solo numero: qualsiasi teoria locale-realistica deve dare <strong>S ≤ 2</strong>. La
+      meccanica quantistica prevede invece che due particelle entangled possano superarlo, fino
+      a un massimo di <strong>2√2 ≈ 2.828</strong>.
+    </p>
+    <p>
+      In questo esperimento il valore misurato è <span class="highlight"><strong>S = 2.585 ± 0.017</strong></span>:
+      chiaramente sopra il limite classico e sotto il massimo quantistico — esattamente ciò che
+      la teoria prevede per un dispositivo reale, leggermente rumoroso. Il limite classico è
+      superato di circa 34 deviazioni standard: non è un caso statistico.
+    </p>
+
+    <div class="paper"><img src="images/quantum/fig7_chsh_summary.svg" alt="Il valore CHSH misurato S = 2.585 collocato tra il limite classico 2 e il limite di Tsirelson 2.828" loading="lazy"></div>
+    <p class="figcap">Il risultato in contesto: la barra misurata cade dentro la regione quantistica, sopra il limite classico di 2 e sotto il limite di Tsirelson di 2√2.</p>
+
+    <h2>Come è stato fatto</h2>
+    <p>
+      Ogni run parte dallo stesso stato di Bell |Φ⁺⟩, preparato con due sole porte
+      (<strong>H</strong> + <strong>CNOT</strong>) in cQASM 3.0. Cambia solo la base di misura:
+      Alice misura lungo Z o X, Bob lungo due direzioni a ±45° dall'asse Z. Le quattro
+      combinazioni producono le quattro correlazioni che compongono S. Ogni configurazione è
+      stata eseguita con <strong>8192 shot</strong> sul backend Tuna-17, in un'unica sessione di
+      quattro run consecutivi.
+    </p>
+
+    <div class="two-col">
+      <div>
+        <div class="paper"><img src="images/quantum/fig2_chsh_geometry.svg" alt="Geometria delle quattro direzioni di misura CHSH nel piano X–Z" loading="lazy"></div>
+        <p class="figcap">La geometria delle misure: tre coppie di direzioni a 45° (correlazione positiva) e una a 135° (negativa) — la configurazione che massimizza S.</p>
+      </div>
+      <div>
+        <div class="paper"><img src="images/quantum/fig6_correlations.svg" alt="Le quattro correlazioni misurate: tre positive e una negativa" loading="lazy"></div>
+        <p class="figcap">Le quattro correlazioni misurate: +0.637, +0.643, +0.662 e −0.643. Il pattern simmetrico "tre positive, una negativa" è la firma del test CHSH.</p>
+      </div>
+    </div>
+
+    <h2>Perché non è "teletrasporto"</h2>
+    <p>
+      L'entanglement misurato qui è lo stesso ingrediente su cui si basa il teletrasporto
+      quantistico, ma i due esperimenti sono diversi: il teletrasporto trasferisce uno stato
+      quantistico da un qubit a un altro usando una coppia entangled più due bit classici;
+      il test di Bell–CHSH, invece, dimostra che le correlazioni dell'entanglement
+      <strong>non possono essere spiegate da nessuna teoria locale-realistica</strong>.
+      È il test fondamentale sulla natura della realtà quantistica — quello per cui Aspect,
+      Clauser e Zeilinger hanno ricevuto il Nobel per la Fisica 2022.
+    </p>
+
+    <h2>Trasparenza e riproducibilità</h2>
+    <p>
+      Il quaderno riporta i job ID, i timestamp e gli hash dei quattro programmi eseguiti, le
+      probabilità grezze restituite dalla piattaforma, l'analisi completa delle incertezze e il
+      codice sorgente cQASM 3.0 integrale in appendice, insieme agli screenshot originali della
+      piattaforma. Nessuna pretesa oltre ciò che i dati sostengono: quattro run, una sessione,
+      una violazione netta — documentata in modo che chiunque possa riprodurla.
+    </p>
+    <p>
+      <strong>Autore unico:</strong> Alessandro Pezzali. Progetto di ricerca personale
+      indipendente, a scopo educativo e documentale. © 2026 Alessandro Pezzali.
+    </p>
+
+    <div class="dl-box">
+      <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+      <div>
+        <h3>Quantum Laboratory Notebook — Bell–CHSH on Tuna-17</h3>
+        <p>PDF di 15 pagine in inglese · 7 figure vettoriali · dati grezzi, analisi e codice sorgente completo · 1.7 MB</p>
+      </div>
+      <a class="btn btn-violet" href="pdf/CHSH_Lab_Notebook.pdf" target="_blank" rel="noopener"><i class="fa fa-download"></i> Scarica</a>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <h4>Trovami qui</h4>
+      <p style="font-size:.92rem">Per email: <a href="mailto:pezzalialessandro@gmail.com" style="color:#aef0df">pezzalialessandro@gmail.com</a></p>
+      <div class="social">
+        <a href="https://github.com/pezzaliapp" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/pezzaliapp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/@pezzaliapp" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
+        <a href="https://www.instagram.com/ale_pezzali/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+        <a href="https://pezzaliapp.com" target="_blank" rel="noopener" aria-label="pezzaliAPP"><i class="fa fa-globe"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Alessandro Pezzali · Quaderno di laboratorio e figure: tutti i diritti riservati.</div>
+  </div>
+</footer>
+
+</body>
+</html>
