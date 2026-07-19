@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 440" font-family="Helvetica, Arial, sans-serif">
+  <title>Figure 10 — Measured correlations (GHZ / Mermin)</title>
+  <desc>Author: Alessandro Pezzali. Correlation value E for each of the four Mermin settings, from the parity rule. One correlation is positive and three are negative: the three-and-one sign structure required for a Mermin violation.</desc>
+  <metadata>Author: Alessandro Pezzali. Copyright 2026 Alessandro Pezzali. All rights reserved.</metadata>
+  <rect x="0" y="0" width="820" height="440" fill="#ffffff"/>
+  <text x="40" y="46" font-size="22" font-weight="700" fill="#1a2433">Measured correlations</text>
+  <text x="40" y="72" font-size="14" fill="#5a6b7d">E = (even-parity sum) &#8722; (odd-parity sum) for each Mermin setting</text>
+  <line x1="40" y1="88" x2="780" y2="88" stroke="#e2e8f0" stroke-width="1.5"/>
+  <line x1="120" y1="110" x2="120" y2="390" stroke="#94a3b8" stroke-width="1.3"/>
+  <line x1="120" y1="250" x2="740" y2="250" stroke="#334155" stroke-width="1.6"/>
+  <line x1="120" y1="110" x2="740" y2="110" stroke="#eef2f6" stroke-width="1"/>
+  <line x1="120" y1="180" x2="740" y2="180" stroke="#eef2f6" stroke-width="1"/>
+  <line x1="120" y1="320" x2="740" y2="320" stroke="#eef2f6" stroke-width="1"/>
+  <line x1="120" y1="390" x2="740" y2="390" stroke="#eef2f6" stroke-width="1"/>
+  <text x="112" y="114" font-size="11" fill="#5a6b7d" text-anchor="end">+1.0</text>
+  <text x="112" y="184" font-size="11" fill="#5a6b7d" text-anchor="end">+0.5</text>
+  <text x="112" y="254" font-size="11" fill="#5a6b7d" text-anchor="end">0</text>
+  <text x="112" y="324" font-size="11" fill="#5a6b7d" text-anchor="end">&#8722;0.5</text>
+  <text x="112" y="394" font-size="11" fill="#5a6b7d" text-anchor="end">&#8722;1.0</text>
+  <rect x="160" y="127.8" width="90" height="122.2" rx="4" fill="#3b82f6"/>
+  <text x="205" y="117.8" font-size="14" font-weight="700" fill="#1a2433" text-anchor="middle">+0.873</text>
+  <text x="205" y="272" font-size="13" fill="#334155" text-anchor="middle">&#10216;XXX&#10217;</text>
+  <text x="205" y="290" font-size="10.5" fill="#5a6b7d" text-anchor="middle">X X X</text>
+  <rect x="300" y="250.0" width="90" height="114.4" rx="4" fill="#ef4444"/>
+  <text x="345" y="384.4" font-size="14" font-weight="700" fill="#1a2433" text-anchor="middle">&#8722;0.817</text>
+  <text x="345" y="234" font-size="13" fill="#334155" text-anchor="middle">&#10216;XYY&#10217;</text>
+  <text x="345" y="218" font-size="10.5" fill="#5a6b7d" text-anchor="middle">X Y Y</text>
+  <rect x="440" y="250.0" width="90" height="119.1" rx="4" fill="#ef4444"/>
+  <text x="485" y="389.1" font-size="14" font-weight="700" fill="#1a2433" text-anchor="middle">&#8722;0.851</text>
+  <text x="485" y="234" font-size="13" fill="#334155" text-anchor="middle">&#10216;YXY&#10217;</text>
+  <text x="485" y="218" font-size="10.5" fill="#5a6b7d" text-anchor="middle">Y X Y</text>
+  <rect x="580" y="250.0" width="90" height="122.6" rx="4" fill="#ef4444"/>
+  <text x="625" y="392.6" font-size="14" font-weight="700" fill="#1a2433" text-anchor="middle">&#8722;0.876</text>
+  <text x="625" y="234" font-size="13" fill="#334155" text-anchor="middle">&#10216;YYX&#10217;</text>
+  <text x="625" y="218" font-size="10.5" fill="#5a6b7d" text-anchor="middle">Y Y X</text>
+  <text x="780" y="424" font-size="10.5" fill="#9aa7b4" text-anchor="end">Alessandro Pezzali &#183; 2026</text>
+</svg>

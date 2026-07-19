@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 470" font-family="Helvetica, Arial, sans-serif">
+  <title>Figure 8 — Preparing the three-qubit GHZ state</title>
+  <desc>Author: Alessandro Pezzali. GHZ-state preparation: a Hadamard on qubit 0 followed by two CNOTs entangles all three qubits into (|000> + |111>)/sqrt(2). The Hadamard and the first CNOT are the same block that prepares the Bell state; the second CNOT is the single extra gate that extends it to a third qubit.</desc>
+  <metadata>Author: Alessandro Pezzali. Copyright 2026 Alessandro Pezzali. All rights reserved.</metadata>
+  <rect x="0" y="0" width="820" height="470" fill="#ffffff"/>
+
+  <text x="40" y="46" font-size="22" font-weight="700" fill="#1a2433">Preparing the three-qubit GHZ state</text>
+  <text x="40" y="72" font-size="14" fill="#5a6b7d">The Bell-state recipe (H + CNOT) plus one extra CNOT onto a third qubit</text>
+  <line x1="40" y1="88" x2="780" y2="88" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- stage labels -->
+  <text x="245" y="128" font-size="12.5" font-weight="600" fill="#94a3b8" text-anchor="middle">PREPARE  |GHZ&#10217;</text>
+  <text x="700" y="128" font-size="12.5" font-weight="600" fill="#94a3b8" text-anchor="middle">MEASURE</text>
+  <line x1="640" y1="145" x2="640" y2="400" stroke="#eef2f6" stroke-width="1.5"/>
+
+  <!-- highlight: Bell-state block (H + CNOT q0->q1) -->
+  <rect x="112" y="158" width="150" height="182" rx="10" fill="#f8fafc" stroke="#64748b" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="187" y="357" font-size="11.5" font-weight="600" fill="#64748b" text-anchor="middle">same recipe as the Bell state</text>
+
+  <!-- highlight: the one extra CNOT (q0->q2) -->
+  <rect x="292" y="158" width="66" height="252" rx="10" fill="#e6f6fd" stroke="#0ea5e9" stroke-width="1.8" stroke-dasharray="5 4"/>
+  <text x="325" y="427" font-size="11.5" font-weight="700" fill="#0284c7" text-anchor="middle">+ 1 extra CNOT</text>
+
+  <!-- wires -->
+  <line x1="90" y1="195" x2="770" y2="195" stroke="#334155" stroke-width="2"/>
+  <line x1="90" y1="275" x2="770" y2="275" stroke="#334155" stroke-width="2"/>
+  <line x1="90" y1="355" x2="770" y2="355" stroke="#334155" stroke-width="2"/>
+  <text x="80" y="200" font-size="14" fill="#334155" text-anchor="end">q[0]</text>
+  <text x="80" y="280" font-size="14" fill="#334155" text-anchor="end">q[1]</text>
+  <text x="80" y="360" font-size="14" fill="#334155" text-anchor="end">q[2]</text>
+
+  <!-- H on q0 -->
+  <rect x="128" y="173" width="44" height="44" rx="6" fill="#eff5ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="150" y="202" font-size="18" font-weight="700" fill="#2563eb" text-anchor="middle">H</text>
+
+  <!-- CNOT #1 : control q0 -> target q1 (Bell block) -->
+  <circle cx="225" cy="195" r="6.5" fill="#2563eb"/>
+  <line x1="225" y1="195" x2="225" y2="275" stroke="#2563eb" stroke-width="2"/>
+  <circle cx="225" cy="275" r="16" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <line x1="225" y1="261" x2="225" y2="289" stroke="#2563eb" stroke-width="2"/>
+  <line x1="211" y1="275" x2="239" y2="275" stroke="#2563eb" stroke-width="2"/>
+
+  <!-- CNOT #2 : control q0 -> target q2 (the extra one) -->
+  <circle cx="325" cy="195" r="6.5" fill="#0284c7"/>
+  <line x1="325" y1="195" x2="325" y2="355" stroke="#0284c7" stroke-width="2"/>
+  <circle cx="325" cy="355" r="16" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+  <line x1="325" y1="341" x2="325" y2="369" stroke="#0284c7" stroke-width="2"/>
+  <line x1="311" y1="355" x2="339" y2="355" stroke="#0284c7" stroke-width="2"/>
+
+  <!-- measurements on all three -->
+  <g>
+    <rect x="678" y="173" width="44" height="44" rx="6" fill="#fff7ed" stroke="#ea8a2f" stroke-width="2"/>
+    <path d="M 690 207 A 12 12 0 0 1 710 207" fill="none" stroke="#ea8a2f" stroke-width="2"/>
+    <line x1="700" y1="207" x2="712" y2="190" stroke="#ea8a2f" stroke-width="2"/>
+    <rect x="678" y="253" width="44" height="44" rx="6" fill="#fff7ed" stroke="#ea8a2f" stroke-width="2"/>
+    <path d="M 690 287 A 12 12 0 0 1 710 287" fill="none" stroke="#ea8a2f" stroke-width="2"/>
+    <line x1="700" y1="287" x2="712" y2="270" stroke="#ea8a2f" stroke-width="2"/>
+    <rect x="678" y="333" width="44" height="44" rx="6" fill="#fff7ed" stroke="#ea8a2f" stroke-width="2"/>
+    <path d="M 690 367 A 12 12 0 0 1 710 367" fill="none" stroke="#ea8a2f" stroke-width="2"/>
+    <line x1="700" y1="367" x2="712" y2="350" stroke="#ea8a2f" stroke-width="2"/>
+  </g>
+
+  <!-- basis note -->
+  <text x="470" y="200" font-size="11.5" fill="#5a6b7d">basis rotation</text>
+  <text x="470" y="216" font-size="11.5" fill="#5a6b7d">per run</text>
+  <text x="470" y="275" font-size="11" fill="#94a3b8" font-style="italic">(X: H &#183; Y: S&#8224;,H &#183; Z: none)</text>
+
+  <text x="780" y="458" font-size="10.5" fill="#9aa7b4" text-anchor="end">Alessandro Pezzali &#183; 2026</text>
+</svg>

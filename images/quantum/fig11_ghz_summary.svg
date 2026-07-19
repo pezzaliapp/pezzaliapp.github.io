@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" font-family="Helvetica, Arial, sans-serif">
+  <title>Figure 11 — The Mermin result against the classical and quantum bounds</title>
+  <desc>Author: Alessandro Pezzali. The measured Mermin quantity |&#8201;M&#8201;| = 3.417 +/- 0.011 lies far above the local-realistic bound of 2 and below the quantum maximum of 4.</desc>
+  <metadata>Author: Alessandro Pezzali. Copyright 2026 Alessandro Pezzali. All rights reserved.</metadata>
+  <rect x="0" y="0" width="820" height="400" fill="#ffffff"/>
+  <text x="40" y="46" font-size="22" font-weight="700" fill="#1a2433">The Mermin result in context</text>
+  <text x="40" y="72" font-size="14" fill="#5a6b7d">Measured |&#8201;M&#8201;| against the local-realistic limit (2) and the quantum maximum (4)</text>
+  <line x1="40" y1="88" x2="780" y2="88" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="120" y="170" width="300" height="40" fill="#eef2f6"/>
+  <rect x="420" y="170" width="300" height="40" fill="#e0efff"/>
+  <rect x="120" y="170" width="600" height="40" fill="none" stroke="#cbd5e1" stroke-width="1.3"/>
+  <text x="270" y="233" font-size="11.5" fill="#64748b" text-anchor="middle">classically allowed</text>
+  <text x="570" y="233" font-size="11.5" fill="#2563eb" text-anchor="middle">quantum region</text>
+  <line x1="420" y1="140" x2="420" y2="250" stroke="#64748b" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="420" y="130" font-size="12.5" font-weight="600" fill="#334155" text-anchor="middle">classical bound = 2</text>
+  <line x1="720" y1="140" x2="720" y2="250" stroke="#0284c7" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="720" y="130" font-size="12.5" font-weight="600" fill="#0284c7" text-anchor="middle">quantum max = 4</text>
+  <line x1="616.0" y1="190" x2="649.0" y2="190" stroke="#1a2433" stroke-width="2"/>
+  <line x1="616.0" y1="184" x2="616.0" y2="196" stroke="#1a2433" stroke-width="2"/>
+  <line x1="649.0" y1="184" x2="649.0" y2="196" stroke="#1a2433" stroke-width="2"/>
+  <circle cx="632.5" cy="190" r="8" fill="#1a2433"/>
+  <line x1="632.5" y1="210" x2="632.5" y2="278" stroke="#1a2433" stroke-width="1.2"/>
+  <text x="632.5" y="300" font-size="16" font-weight="700" fill="#1a2433" text-anchor="middle">|&#8201;M&#8201;| = 3.417 &#177; 0.011</text>
+  <line x1="120" y1="210" x2="720" y2="210" stroke="#94a3b8" stroke-width="1.2"/>
+  <g font-size="11" fill="#5a6b7d" text-anchor="middle">
+    <text x="120" y="345">0</text>
+    <text x="270" y="345">1</text>
+    <text x="420" y="345">2</text>
+    <text x="570" y="345">3</text>
+    <text x="720" y="345">4</text>
+  </g>
+  <g stroke="#94a3b8" stroke-width="1.2">
+    <line x1="120" y1="322" x2="120" y2="330"/>
+    <line x1="270" y1="322" x2="270" y2="330"/>
+    <line x1="420" y1="322" x2="420" y2="330"/>
+    <line x1="570" y1="322" x2="570" y2="330"/>
+    <line x1="720" y1="322" x2="720" y2="330"/>
+  </g>
+  <text x="420" y="368" font-size="12" fill="#5a6b7d" text-anchor="middle">Mermin quantity |&#8201;M&#8201;|</text>
+  <text x="780" y="388" font-size="10.5" fill="#9aa7b4" text-anchor="end">Alessandro Pezzali &#183; 2026</text>
+</svg>

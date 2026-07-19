@@ -2,41 +2,46 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Quantum Lab Notebook — Test di Bell–CHSH su hardware quantistico reale · Alessandro Pezzali</title>
+  <title>Quantum Lab Notebook — Test GHZ–Mermin a tre qubit su hardware quantistico reale · Alessandro Pezzali</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Quaderno di laboratorio: test della disuguaglianza di Bell–CHSH eseguito sul processore quantistico Tuna-17 (Quantum Inspire). Risultato: S = 2.585 ± 0.017, violazione del limite classico di 34 deviazioni standard. PDF completo di 15 pagine, dati e codice cQASM 3.0.">
+  <meta name="description" content="Quaderno di laboratorio, capitolo 2: stato GHZ a tre qubit e test di Mermin eseguiti sul processore quantistico Tuna-17 (Quantum Inspire). Risultato: |M| = 3.417 ± 0.011, limite classico superato di 123 deviazioni standard. PDF completo di 18 pagine, dati e codice cQASM 3.0.">
   <meta name="author" content="Alessandro Pezzali">
   <meta name="theme-color" content="#00b894">
 
   <link rel="icon" href="favicon.ico">
-  <link rel="canonical" href="https://www.alessandropezzali.it/quantum-chsh.html">
+  <link rel="canonical" href="https://www.alessandropezzali.it/quantum-ghz.html">
 
-  <meta property="og:title" content="Test di Bell–CHSH su hardware quantistico reale">
-  <meta property="og:description" content="S = 2.585 ± 0.017 misurato sul processore Tuna-17: la disuguaglianza CHSH violata di 34 deviazioni standard. Quaderno di laboratorio completo in PDF.">
+  <meta property="og:title" content="Test GHZ–Mermin a tre qubit su hardware quantistico reale">
+  <meta property="og:description" content="|M| = 3.417 ± 0.011 misurato sul processore Tuna-17: il limite del realismo locale superato di 123 deviazioni standard con tre qubit entangled. Quaderno di laboratorio completo in PDF.">
   <meta property="og:image" content="https://www.alessandropezzali.it/preview.jpg">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.alessandropezzali.it/quantum-chsh.html">
+  <meta property="og:url" content="https://www.alessandropezzali.it/quantum-ghz.html">
   <meta name="twitter:card" content="summary_large_image">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "Quantum Laboratory Notebook — Testing a Bell–CHSH Inequality on Real Quantum Hardware",
+    "headline": "Quantum Laboratory Notebook — A Three-Qubit GHZ / Mermin Test on Real Quantum Hardware",
     "author": {
       "@type": "Person",
       "name": "Alessandro Pezzali",
       "url": "https://www.alessandropezzali.it"
     },
-    "datePublished": "2026-07-18",
+    "datePublished": "2026-07-19",
     "inLanguage": "en",
-    "url": "https://www.alessandropezzali.it/quantum-chsh.html",
+    "url": "https://www.alessandropezzali.it/quantum-ghz.html",
     "encoding": {
       "@type": "MediaObject",
-      "contentUrl": "https://www.alessandropezzali.it/pdf/CHSH_Lab_Notebook.pdf",
+      "contentUrl": "https://www.alessandropezzali.it/pdf/GHZ_Lab_Notebook.pdf",
       "encodingFormat": "application/pdf"
     },
-    "about": ["Bell inequality", "CHSH", "quantum entanglement", "quantum computing"],
+    "about": ["GHZ state", "Mermin inequality", "quantum entanglement", "quantum computing"],
+    "isPartOf": {
+      "@type": "CreativeWorkSeries",
+      "name": "Quantum Laboratory Notebook",
+      "url": "https://www.alessandropezzali.it/quantum-chsh.html"
+    },
     "copyrightHolder": { "@type": "Person", "name": "Alessandro Pezzali" },
     "copyrightYear": 2026
   }
@@ -45,7 +50,7 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <style>
+<style>
     :root{
       --bg:#121212;
       --panel:#1b1b1b;
@@ -230,25 +235,27 @@
 
 <header class="pub-hero">
   <div class="container">
-    <div class="eyebrow"><span class="dot"></span>Pubblicazione · Quaderno di laboratorio</div>
-    <h1>Test di <span class="accent">Bell–CHSH</span> su hardware quantistico reale</h1>
+    <div class="eyebrow"><span class="dot"></span>Pubblicazione · Quaderno di laboratorio — Capitolo 2</div>
+    <h1>Test <span class="accent">GHZ–Mermin</span> a tre qubit su hardware quantistico reale</h1>
     <p class="lead">
-      Ho preparato una coppia di qubit in stato entangled sul processore quantistico
-      <strong>Tuna-17</strong> (Quantum Inspire) e l'ho misurata nelle quattro configurazioni
-      richieste dal test CHSH. Il risultato viola il limite del realismo locale — lo stesso tipo
-      di esperimento premiato con il Nobel per la Fisica 2022 — e questo quaderno documenta
-      ogni passaggio: circuiti, dati grezzi, analisi e codice.
+      Il giorno dopo il test di Bell sono andato un qubit oltre. Ho preparato uno stato
+      <strong>GHZ a tre qubit</strong> sul processore <strong>Tuna-17</strong> (Quantum Inspire)
+      — la stessa ricetta dello stato di Bell, con una CNOT in più — e l'ho misurato nelle quattro
+      configurazioni dell'argomento di Mermin. Con tre qubit il conflitto con il realismo locale
+      non si nasconde più in una media statistica: emerge direttamente nei <strong>segni</strong>
+      delle correlazioni. Questo quaderno documenta le cinque run, i dati grezzi, l'analisi — e
+      una sorpresa onesta sui segni che solo una macchina vera poteva insegnare.
     </p>
     <div class="pub-meta">
       <span class="tag violet"><i class="fa fa-flask"></i> Fisica quantistica</span>
       <span class="tag blue">Quantum Inspire · Tuna-17</span>
       <span class="tag">cQASM 3.0</span>
-      <span class="tag">8192 shot × 4 run</span>
-      <span class="tag brand">18 luglio 2026</span>
+      <span class="tag">8192 shot × 5 run</span>
+      <span class="tag brand">19 luglio 2026</span>
     </div>
     <div class="hero-cta">
-      <a class="btn btn-violet" href="pdf/CHSH_Lab_Notebook.pdf" target="_blank" rel="noopener">
-        <i class="fa fa-file-pdf-o"></i> Scarica il PDF (15 pagine)
+      <a class="btn btn-violet" href="pdf/GHZ_Lab_Notebook.pdf" target="_blank" rel="noopener">
+        <i class="fa fa-file-pdf-o"></i> Scarica il PDF (18 pagine)
       </a>
       <a class="btn btn-secondary" href="#esperimento">
         Leggi il riassunto <i class="fa fa-arrow-down"></i>
@@ -260,10 +267,10 @@
 <section class="result-band" aria-label="Risultato principale">
   <div class="container">
     <div class="result-grid">
-      <div class="result-card main"><strong>S = 2.585 ± 0.017</strong><span>Valore CHSH misurato</span></div>
+      <div class="result-card main"><strong>|M| = 3.417 ± 0.011</strong><span>Quantità di Mermin misurata</span></div>
       <div class="result-card"><strong>&gt; 2</strong><span>Limite classico superato</span></div>
-      <div class="result-card"><strong>34 σ</strong><span>Deviazioni standard oltre il limite</span></div>
-      <div class="result-card"><strong>&lt; 2√2</strong><span>Sotto il massimo quantistico (2.828)</span></div>
+      <div class="result-card"><strong>123 σ</strong><span>Deviazioni standard oltre il limite</span></div>
+      <div class="result-card"><strong>&lt; 4</strong><span>Sotto il massimo quantistico</span></div>
     </div>
   </div>
 </section>
@@ -273,62 +280,86 @@
 
     <h2>Che cosa dimostra questo esperimento</h2>
     <p>
-      Nel 1964 John Bell dimostrò che, se il mondo obbedisse al <strong>realismo locale</strong>
-      — ogni particella che porta con sé risposte già decise — le correlazioni tra due misure
-      dovrebbero rispettare un limite preciso. La disuguaglianza CHSH condensa quel limite in un
-      solo numero: qualsiasi teoria locale-realistica deve dare <strong>S ≤ 2</strong>. La
-      meccanica quantistica prevede invece che due particelle entangled possano superarlo, fino
-      a un massimo di <strong>2√2 ≈ 2.828</strong>.
+      Nel 1989 Greenberger, Horne e Zeilinger mostrarono che <strong>tre</strong> particelle
+      entangled espongono il conflitto tra meccanica quantistica e realismo locale in modo molto
+      più netto di due. Il test di Bell a due qubit produce una disuguaglianza statistica — serve
+      la media di molte run per vedere la violazione. L'argomento GHZ produce invece una
+      contraddizione tutto-o-niente: per quattro configurazioni di misura, realismo locale e
+      meccanica quantistica prevedono <strong>segni opposti</strong> della stessa quantità.
+      Mermin condensò tutto in un solo numero M: qualsiasi teoria locale-realistica deve
+      rispettare <strong>|M| ≤ 2</strong>, mentre la meccanica quantistica arriva fino a
+      <strong>|M| = 4</strong>.
     </p>
     <p>
-      In questo esperimento il valore misurato è <span class="highlight"><strong>S = 2.585 ± 0.017</strong></span>:
-      chiaramente sopra il limite classico e sotto il massimo quantistico — esattamente ciò che
-      la teoria prevede per un dispositivo reale, leggermente rumoroso. Il limite classico è
-      superato di circa 34 deviazioni standard: non è un caso statistico.
+      In questo esperimento il valore misurato è <span class="highlight"><strong>|M| = 3.417 ± 0.011</strong></span>:
+      il limite classico è superato di circa <strong>123 deviazioni standard</strong> — un margine
+      3.6 volte più ampio dei 34σ del test CHSH a due qubit sulla stessa macchina. Ed è esattamente
+      questo il punto di aggiungere un terzo qubit: l'argomento concentra il conflitto nei segni
+      delle correlazioni, così anche uno stato parzialmente degradato atterra lontanissimo dal
+      limite classico.
     </p>
 
-    <div class="paper"><img src="images/quantum/fig7_chsh_summary.svg" alt="Il valore CHSH misurato S = 2.585 collocato tra il limite classico 2 e il limite di Tsirelson 2.828" loading="lazy"></div>
-    <p class="figcap">Il risultato in contesto: la barra misurata cade dentro la regione quantistica, sopra il limite classico di 2 e sotto il limite di Tsirelson di 2√2.</p>
+    <div class="paper"><img src="images/quantum/fig11_ghz_summary.svg" alt="Il valore di Mermin misurato |M| = 3.417 collocato tra il limite classico 2 e il massimo quantistico 4" loading="lazy"></div>
+    <p class="figcap">Il risultato in contesto: la barra misurata cade in profondità dentro la regione quantistica, sopra il limite classico di 2 e sotto il massimo algebrico di 4.</p>
 
     <h2>Come è stato fatto</h2>
     <p>
-      Ogni run parte dallo stesso stato di Bell |Φ⁺⟩, preparato con due sole porte
-      (<strong>H</strong> + <strong>CNOT</strong>) in cQASM 3.0. Cambia solo la base di misura:
-      Alice misura lungo Z o X, Bob lungo due direzioni a ±45° dall'asse Z. Le quattro
-      combinazioni producono le quattro correlazioni che compongono S. Ogni configurazione è
-      stata eseguita con <strong>8192 shot</strong> sul backend Tuna-17, in un'unica sessione di
-      quattro run consecutivi.
+      Ogni run parte dallo stesso stato GHZ |000⟩+|111⟩, preparato con tre sole porte in cQASM 3.0:
+      la stessa coppia <strong>H</strong> + <strong>CNOT</strong> dello stato di Bell del Capitolo 1,
+      più <strong>una CNOT in più</strong> che copia la correlazione su un terzo qubit. Cambiano solo
+      le rotazioni di base finali: quattro run misurano le combinazioni di Mermin (XXX, XYY, YXY, YYX)
+      e una quinta run di controllo misura in base Z per verificare lo stato preparato. Ogni
+      configurazione è stata eseguita con <strong>8192 shot</strong> sul backend Tuna-17, in
+      un'unica sessione di cinque run consecutive.
+    </p>
+    <p>
+      La run di controllo risponde anche a una domanda più silenziosa: la seconda porta entangling
+      distrugge lo stato? No. Lo stato preparato mostra solo 000 e 111 con peso complessivo
+      <strong>0.938</strong> (fedeltà), e la forza media delle correlazioni è
+      <strong>0.854</strong> — contro circa 0.91 dello stato di Bell a due qubit sullo stesso
+      hardware. Il terzo qubit è costato pochissimo: un risultato silenzioso ma per nulla scontato
+      su un processore reale.
     </p>
 
     <div class="two-col">
       <div>
-        <div class="paper"><img src="images/quantum/fig2_chsh_geometry.svg" alt="Geometria delle quattro direzioni di misura CHSH nel piano X–Z" loading="lazy"></div>
-        <p class="figcap">La geometria delle misure: tre coppie di direzioni a 45° (correlazione positiva) e una a 135° (negativa) — la configurazione che massimizza S.</p>
+        <div class="paper"><img src="images/quantum/fig8_ghz_circuit.svg" alt="Il circuito di preparazione GHZ: Hadamard più due CNOT, seguiti dalle rotazioni di base per ogni run" loading="lazy"></div>
+        <p class="figcap">Il circuito: H + CNOT — lo stesso blocco del Capitolo 1 — più una sola CNOT aggiuntiva. Quella porta è l'intera differenza tra due e tre qubit entangled.</p>
       </div>
       <div>
-        <div class="paper"><img src="images/quantum/fig6_correlations.svg" alt="Le quattro correlazioni misurate: tre positive e una negativa" loading="lazy"></div>
-        <p class="figcap">Le quattro correlazioni misurate: +0.637, +0.643, +0.662 e −0.643. Il pattern simmetrico "tre positive, una negativa" è la firma del test CHSH.</p>
+        <div class="paper"><img src="images/quantum/fig10_ghz_correlations.svg" alt="Le quattro correlazioni di Mermin misurate: una positiva e tre negative" loading="lazy"></div>
+        <p class="figcap">Le quattro correlazioni misurate: +0.873, −0.817, −0.851, −0.876. Il pattern "tre-e-uno" nei segni è la firma che la combinazione di Mermin è costruita per rilevare.</p>
       </div>
     </div>
 
-    <h2>Perché non è "teletrasporto"</h2>
+    <div class="paper"><img src="images/quantum/fig9_ghz_histograms.svg" alt="Le distribuzioni di probabilità misurate nelle cinque run" loading="lazy"></div>
+    <p class="figcap">Le distribuzioni misurate. Nella run di controllo (Z Z Z) dominano solo 000 e 111 — la firma dello stato GHZ. Nelle quattro run di misura domina una sola parità: è questo squilibrio a produrre correlazioni grandi e di segno definito.</p>
+
+    <h2>La sorpresa onesta dei segni</h2>
     <p>
-      L'entanglement misurato qui è lo stesso ingrediente su cui si basa il teletrasporto
-      quantistico, ma i due esperimenti sono diversi: il teletrasporto trasferisce uno stato
-      quantistico da un qubit a un altro usando una coppia entangled più due bit classici;
-      il test di Bell–CHSH, invece, dimostra che le correlazioni dell'entanglement
-      <strong>non possono essere spiegate da nessuna teoria locale-realistica</strong>.
-      È il test fondamentale sulla natura della realtà quantistica — quello per cui Aspect,
-      Clauser e Zeilinger hanno ricevuto il Nobel per la Fisica 2022.
+      Tutte e quattro le correlazioni sono arrivate con il segno <strong>opposto</strong> alla
+      previsione "da manuale": il pattern è globalmente ribaltato. Non è un errore e non è rumore —
+      è una convenzione fissa nel modo in cui la piattaforma implementa la misura in base Y
+      (la rotazione S†·H e l'etichettatura del suo esito). Il ribaltamento è identico e coerente
+      su tutte le run e sull'intera sessione: un guasto casuale non potrebbe mai essere così
+      consistente. La struttura di Mermin resta intatta — sempre tre correlazioni di un segno e
+      una dell'altro — e |M| non dipende in alcun modo dalla convenzione.
+    </p>
+    <p>
+      Ho scelto di documentare questo dettaglio apertamente invece di assorbire il segno meno in
+      silenzio, perché è esattamente il genere di cosa che non compare in nessun libro di testo:
+      emerge solo quando esegui il circuito su hardware vero e leggi i numeri che la macchina
+      restituisce davvero.
     </p>
 
     <h2>Trasparenza e riproducibilità</h2>
     <p>
-      Il quaderno riporta i job ID, i timestamp e gli hash dei quattro programmi eseguiti, le
-      probabilità grezze restituite dalla piattaforma, l'analisi completa delle incertezze e il
-      codice sorgente cQASM 3.0 integrale in appendice, insieme agli screenshot originali della
-      piattaforma. Nessuna pretesa oltre ciò che i dati sostengono: quattro run, una sessione,
-      una violazione netta — documentata in modo che chiunque possa riprodurla.
+      Il quaderno riporta i job ID, i result ID, i timestamp e gli hash dei cinque programmi
+      eseguiti, le probabilità grezze restituite dalla piattaforma, l'analisi completa delle
+      incertezze e il codice sorgente cQASM 3.0 integrale in appendice, insieme agli screenshot
+      originali della piattaforma per tutte e cinque le run. Nessuna pretesa oltre ciò che i dati
+      sostengono: cinque run, una sessione, una violazione enorme — documentata in modo che
+      chiunque possa riprodurla.
     </p>
     <p>
       <strong>Autore unico:</strong> Alessandro Pezzali. Progetto di ricerca personale
@@ -338,14 +369,14 @@
     <div class="dl-box">
       <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
       <div>
-        <h3>Quantum Laboratory Notebook — Bell–CHSH on Tuna-17</h3>
-        <p>PDF di 15 pagine in inglese · 7 figure vettoriali · dati grezzi, analisi e codice sorgente completo · 1.7 MB</p>
+        <h3>Quantum Laboratory Notebook — GHZ / Mermin on Tuna-17</h3>
+        <p>PDF di 18 pagine in inglese · 4 figure vettoriali · screenshot originali delle cinque run · dati grezzi, analisi e codice sorgente completo · 1.9 MB</p>
       </div>
-      <a class="btn btn-violet" href="pdf/CHSH_Lab_Notebook.pdf" target="_blank" rel="noopener"><i class="fa fa-download"></i> Scarica</a>
+      <a class="btn btn-violet" href="pdf/GHZ_Lab_Notebook.pdf" target="_blank" rel="noopener"><i class="fa fa-download"></i> Scarica</a>
     </div>
 
     <div class="chapter-nav">
-      <a href="quantum-ghz.html" style="margin-left:auto">Capitolo 2 — Test GHZ–Mermin a tre qubit <i class="fa fa-arrow-right"></i></a>
+      <a href="quantum-chsh.html"><i class="fa fa-arrow-left"></i> Capitolo 1 — Test di Bell–CHSH a due qubit</a>
     </div>
 
   </div>

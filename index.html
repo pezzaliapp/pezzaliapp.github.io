@@ -499,19 +499,20 @@
 <!-- Pubblicazione: Quantum Lab Notebook -->
 <section class="section-pad" id="pubblicazioni" style="padding-top:0">
   <div class="container">
-    <div class="eyebrow"><span class="dot" style="background:#9b59b6"></span>Pubblicazione</div>
-    <h2 class="section-title">Test di Bell–CHSH su hardware quantistico reale</h2>
+    <div class="eyebrow"><span class="dot" style="background:#9b59b6"></span>Pubblicazioni</div>
+    <h2 class="section-title">Quantum Laboratory Notebook — esperimenti su hardware reale</h2>
     <p class="section-lead">
-      Un quaderno di laboratorio completo: ho preparato una coppia di qubit entangled sul processore
-      Tuna-17 (Quantum Inspire) e misurato la disuguaglianza CHSH — lo stesso tipo di esperimento
-      premiato con il Nobel per la Fisica 2022. Risultato: <strong style="color:#e8d3ff">S = 2.585 ± 0.017</strong>,
-      oltre il limite classico di 34 deviazioni standard. Dati grezzi, analisi, figure vettoriali e
-      codice cQASM 3.0 in un PDF di 15 pagine.
+      Una serie di quaderni di laboratorio: esperimenti quantistici reali eseguiti sul processore
+      Tuna-17 (Quantum Inspire), documentati passo per passo con dati grezzi, analisi, figure
+      vettoriali e codice cQASM 3.0. Capitolo 1: la disuguaglianza di Bell–CHSH violata con due
+      qubit (<strong style="color:#e8d3ff">S = 2.585 ± 0.017</strong>, 34σ oltre il limite
+      classico). Capitolo 2: lo stato GHZ a tre qubit e il test di Mermin
+      (<strong style="color:#e8d3ff">|M| = 3.417 ± 0.011</strong>, 123σ oltre il limite).
     </p>
-    <div class="apps-grid" style="grid-template-columns:1fr;max-width:760px">
+    <div class="apps-grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));max-width:1040px">
       <article class="app-card" style="border-color:rgba(155,89,182,.35)">
         <div class="icon-ph violet"><i class="fa fa-flask"></i></div>
-        <h3>Quantum Laboratory Notebook — Bell–CHSH on Tuna-17</h3>
+        <h3>Capitolo 1 — Bell–CHSH on Tuna-17</h3>
         <p>
           Quattro run da 8192 shot in un'unica sessione, quattro correlazioni, un numero solo:
           la violazione del realismo locale misurata su un processore quantistico reale.
@@ -527,6 +528,26 @@
         <div class="actions">
           <a class="primary" style="background:#9b59b6" href="quantum-chsh.html">Leggi la pubblicazione</a>
           <a class="secondary" href="pdf/CHSH_Lab_Notebook.pdf" target="_blank" rel="noopener"><i class="fa fa-file-pdf-o"></i> Scarica il PDF</a>
+        </div>
+      </article>
+      <article class="app-card" style="border-color:rgba(155,89,182,.35)">
+        <div class="icon-ph violet"><i class="fa fa-cubes"></i></div>
+        <h3>Capitolo 2 — GHZ / Mermin on Tuna-17</h3>
+        <p>
+          Un qubit oltre: tre qubit entangled in uno stato GHZ e le quattro misure di Mermin,
+          dove il conflitto con il realismo locale emerge nei segni delle correlazioni, non
+          nelle medie. Cinque run da 8192 shot, fedeltà 0.938 — e una sorpresa onesta sulla
+          convenzione dei segni che solo l'hardware vero poteva insegnare.
+        </p>
+        <div class="meta">
+          <span class="tag" style="background:rgba(155,89,182,.13);border-color:rgba(155,89,182,.30);color:#e8d3ff">Fisica quantistica</span>
+          <span class="tag blue">Tuna-17</span>
+          <span class="tag">cQASM 3.0</span>
+          <span class="tag brand">PDF · 18 pagine</span>
+        </div>
+        <div class="actions">
+          <a class="primary" style="background:#9b59b6" href="quantum-ghz.html">Leggi la pubblicazione</a>
+          <a class="secondary" href="pdf/GHZ_Lab_Notebook.pdf" target="_blank" rel="noopener"><i class="fa fa-file-pdf-o"></i> Scarica il PDF</a>
         </div>
       </article>
     </div>

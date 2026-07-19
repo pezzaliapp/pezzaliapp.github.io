@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 840" font-family="Helvetica, Arial, sans-serif">
+  <title>Figure 9 — Measured outcome distributions (GHZ)</title>
+  <desc>Author: Alessandro Pezzali. Measured probabilities of the eight outcomes 000..111 for the five runs, each from 8192 shots on the Tuna-17 backend. GHZ_0 shows the GHZ signature (only 000 and 111); the four measurement runs are dominated by one parity.</desc>
+  <metadata>Author: Alessandro Pezzali. Copyright 2026 Alessandro Pezzali. All rights reserved.</metadata>
+  <rect x="0" y="0" width="820" height="840" fill="#ffffff"/>
+  <text x="40" y="46" font-size="22" font-weight="700" fill="#1a2433">Measured outcome distributions</text>
+  <text x="40" y="72" font-size="14" fill="#5a6b7d">8192 shots per run &#183; Quantum Inspire, Tuna-17 backend &#183; five configurations</text>
+  <line x1="40" y1="88" x2="780" y2="88" stroke="#e2e8f0" stroke-width="1.5"/>
+  <g transform="translate(40,110)">
+    <rect x="0" y="0" width="360" height="210" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="20" y="28" font-size="14" font-weight="700" fill="#1a2433">GHZ_0</text>
+    <text x="150" y="28" font-size="12" fill="#5a6b7d">Z Z Z</text>
+    <text x="340" y="28" font-size="11.5" fill="#5a6b7d" text-anchor="end">Result 1116830</text>
+    <line x1="50" y1="50" x2="50" y2="185" stroke="#94a3b8" stroke-width="1.3"/>
+    <line x1="50" y1="185" x2="345" y2="185" stroke="#94a3b8" stroke-width="1.3"/>
+    <line x1="50" y1="50" x2="345" y2="50" stroke="#eef2f6" stroke-width="1"/>
+    <line x1="50" y1="117.5" x2="345" y2="117.5" stroke="#eef2f6" stroke-width="1"/>
+    <text x="44" y="54" font-size="10" fill="#5a6b7d" text-anchor="end">0.5</text>
+    <text x="44" y="121" font-size="10" fill="#5a6b7d" text-anchor="end">0.25</text>
+    <text x="44" y="188" font-size="10" fill="#5a6b7d" text-anchor="end">0</text>
+    <rect x="56" y="59.4" width="24" height="125.6" rx="2.5" fill="#3b82f6"/>
+    <text x="68" y="55.4" font-size="8.5" fill="#334155" text-anchor="middle">0.465</text>
+    <text x="68" y="200" font-size="8.5" fill="#334155" text-anchor="middle">000</text>
+    <rect x="92" y="183.9" width="24" height="1.1" rx="2.5" fill="#93c5fd"/>
+    <text x="104" y="200" font-size="8.5" fill="#334155" text-anchor="middle">001</text>
+    <rect x="128" y="179.9" width="24" height="5.1" rx="2.5" fill="#93c5fd"/>
+    <text x="140" y="200" font-size="8.5" fill="#334155" text-anchor="middle">010</text>
+    <rect x="164" y="182.6" width="24" height="2.4" rx="2.5" fill="#3b82f6"/>
+    <text x="176" y="200" font-size="8.5" fill="#334155" text-anchor="middle">011</text>
+    <rect x="200" y="182.6" width="24" height="2.4" rx="2.5" fill="#93c5fd"/>
+    <text x="212" y="200" font-size="8.5" fill="#334155" text-anchor="middle">100</text>
+    <rect x="236" y="181.5" width="24" height="3.5" rx="2.5" fill="#3b82f6"/>
+    <text x="248" y="200" font-size="8.5" fill="#334155" text-anchor="middle">101</text>
+    <rect x="272" y="182.8" width="24" height="2.2" rx="2.5" fill="#3b82f6"/>
+    <text x="284" y="200" font-size="8.5" fill="#334155" text-anchor="middle">110</text>
+    <rect x="308" y="57.3" width="24" height="127.7" rx="2.5" fill="#93c5fd"/>
+    <text x="320" y="53.3" font-size="8.5" fill="#334155" text-anchor="middle">0.473</text>
+    <text x="320" y="200" font-size="8.5" fill="#334155" text-anchor="middle">111</text>
+  </g>
+  <g transform="translate(420,110)">
+    <rect x="0" y="0" width="360" height="210" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="20" y="28" font-size="14" font-weight="700" fill="#1a2433">GHZ_1</text>
+    <text x="150" y="28" font-size="12" fill="#5a6b7d">X X X</text>
+    <text x="340" y="28" font-size="11.5" fill="#5a6b7d" text-anchor="end">Result 1116854</text>
+    <line x1="50" y1="50" x2="50" y2="185" stroke="#94a3b8" stroke-width="1.3"/>
+    <line x1="50" y1="185" x2="345" y2="185" stroke="#94a3b8" stroke-width="1.3"/>
+    <line x1="50" y1="50" x2="345" y2="50" stroke="#eef2f6" stroke-width="1"/>
+    <line x1="50" y1="117.5" x2="345" y2="117.5" stroke="#eef2f6" stroke-width="1"/>
+    <text x="44" y="54" font-size="10" fill="#5a6b7d" text-anchor="end">0.5</text>
+    <text x="44" y="121" font-size="10" fill="#5a6b7d" text-anchor="end">0.25</text>
+    <text x="44" y="188" font-size="10" fill="#5a6b7d" text-anchor="end">0</text>
+    <rect x="56" y="120.7" width="24" height="64.3" rx="2.5" fill="#3b82f6"/>
+    <text x="68" y="116.7" font-size="8.5" fill="#334155" text-anchor="middle">0.238</text>
+    <text x="68" y="200" font-size="8.5" fill="#334155" text-anchor="middle">000</text>
+    <rect x="92" y="181.2" width="24" height="3.8" rx="2.5" fill="#93c5fd"/>
+    <text x="104" y="200" font-size="8.5" fill="#334155" text-anchor="middle">001</text>
+    <rect x="128" y="180.9" width="24" height="4.0" rx="2.5" fill="#93c5fd"/>
+    <text x="140" y="200" font-size="8.5" fill="#334155" text-anchor="middle">010</text>
+    <rect x="164" y="124.3" width="24" height="60.8" rx="2.5" fill="#3b82f6"/>
+    <text x="176" y="120.3" font-size="8.5" fill="#334155" text-anchor="middle">0.225</text>
+    <text x="176" y="200" font-size="8.5" fill="#334155" text-anchor="middle">011</text>
+    <rect x="200" y="180.4" width="24" height="4.6" rx="2.5" fill="#93c5fd"/>
+    <text x="212" y="200" font-size="8.5" fill="#334155" text-anchor="middle">100</text>
+    <rect x="236" y="119.9" width="24" height="65.1" rx="2.5" fill="#3b82f6"/>
+    <text x="248" y="115.9" font-size="8.5" fill="#334155" text-anchor="middle">0.241</text>
+    <text x="248" y="200" font-size="8.5" fill="#334155" text-anchor="middle">101</text>
+    <rect x="272" y="122.4" width="24" height="62.6" rx="2.5" fill="#3b82f6"/>
+    <text x="284" y="118.4" font-size="8.5" fill="#334155" text-anchor="middle">0.232</text>
+    <text x="284" y="200" font-size="8.5" fill="#334155" text-anchor="middle">110</text>
+    <rect x="308" y="180.4" width="24" height="4.6" rx="2.5" fill="#93c5fd"/>
+    <text x="320" y="200" font-size="8.5" fill="#334155" text-anchor="middle">111</text>
+  </g>
+  <g transform="translate(40,345)">
+    <rect x="0" y="0" width="360" height="210" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="20" y="28" font-size="14" font-weight="700" fill="#1a2433">GHZ_2</text>
+    <text x="150" y="28" font-size="12" fill="#5a6b7d">X Y Y</text>
+    <text x="340" y="28" font-size="11.5" fill="#5a6b7d" text-anchor="end">Result 1116874</text>
+    <line x1="50" y1="50" x2="50" y2="185" stroke="#94a3b8" stroke-width="1.3"/>
+    <line x1="50" y1="185" x2="345" y2="185" stroke="#94a3b8" stroke-width="1.3"/>
+    <line x1="50" y1="50" x2="345" y2="50" stroke="#eef2f6" stroke-width="1"/>
+    <line x1="50" y1="117.5" x2="345" y2="117.5" stroke="#eef2f6" stroke-width="1"/>
+    <text x="44" y="54" font-size="10" fill="#5a6b7d" text-anchor="end">0.5</text>
+    <text x="44" y="121" font-size="10" fill="#5a6b7d" text-anchor="end">0.25</text>
+    <text x="44" y="188" font-size="10" fill="#5a6b7d" text-anchor="end">0</text>
+    <rect x="56" y="178.8" width="24" height="6.2" rx="2.5" fill="#3b82f6"/>
+    <text x="68" y="200" font-size="8.5" fill="#334155" text-anchor="middle">000</text>
+    <rect x="92" y="126.4" width="24" height="58.6" rx="2.5" fill="#93c5fd"/>
+    <text x="104" y="122.4" font-size="8.5" fill="#334155" text-anchor="middle">0.217</text>
+    <text x="104" y="200" font-size="8.5" fill="#334155" text-anchor="middle">001</text>
+    <rect x="128" y="126.1" width="24" height="58.9" rx="2.5" fill="#93c5fd"/>
+    <text x="140" y="122.1" font-size="8.5" fill="#334155" text-anchor="middle">0.218</text>
+    <text x="140" y="200" font-size="8.5" fill="#334155" text-anchor="middle">010</text>
+    <rect x="164" y="179.3" width="24" height="5.7" rx="2.5" fill="#3b82f6"/>
+    <text x="176" y="200" font-size="8.5" fill="#334155" text-anchor="middle">011</text>
+    <rect x="200" y="122.1" width="24" height="62.9" rx="2.5" fill="#93c5fd"/>
+    <text x="212" y="118.1" font-size="8.5" fill="#334155" text-anchor="middle">0.233</text>
+    <text x="212" y="200" font-size="8.5" fill="#334155" text-anchor="middle">100</text>
+    <rect x="236" y="179.3" width="24" height="5.7" rx="2.5" fill="#3b82f6"/>
+    <text x="248" y="200" font-size="8.5" fill="#334155" text-anchor="middle">101</text>
+    <rect x="272" y="177.7" width="24" height="7.3" rx="2.5" fill="#3b82f6"/>
+    <text x="284" y="200" font-size="8.5" fill="#334155" text-anchor="middle">110</text>
+    <rect x="308" y="119.9" width="24" height="65.1" rx="2.5" fill="#93c5fd"/>
+    <text x="320" y="115.9" font-size="8.5" fill="#334155" text-anchor="middle">0.241</text>
+    <text x="320" y="200" font-size="8.5" fill="#334155" text-anchor="middle">111</text>
+  </g>
+  <g transform="translate(420,345)">
+    <rect x="0" y="0" width="360" height="210" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="20" y="28" font-size="14" font-weight="700" fill="#1a2433">GHZ_3</text>
+    <text x="150" y="28" font-size="12" fill="#5a6b7d">Y X Y</text>
+    <text x="340" y="28" font-size="11.5" fill="#5a6b7d" text-anchor="end">Result 1116905</text>
+    <line x1="50" y1="50" x2="50" y2="185" stroke="#94a3b8" stroke-width="1.3"/>
+    <line x1="50" y1="185" x2="345" y2="185" stroke="#94a3b8" stroke-width="1.3"/>
+    <line x1="50" y1="50" x2="345" y2="50" stroke="#eef2f6" stroke-width="1"/>
+    <line x1="50" y1="117.5" x2="345" y2="117.5" stroke="#eef2f6" stroke-width="1"/>
+    <text x="44" y="54" font-size="10" fill="#5a6b7d" text-anchor="end">0.5</text>
+    <text x="44" y="121" font-size="10" fill="#5a6b7d" text-anchor="end">0.25</text>
+    <text x="44" y="188" font-size="10" fill="#5a6b7d" text-anchor="end">0</text>
+    <rect x="56" y="179.6" width="24" height="5.4" rx="2.5" fill="#3b82f6"/>
+    <text x="68" y="200" font-size="8.5" fill="#334155" text-anchor="middle">000</text>
+    <rect x="92" y="124.0" width="24" height="61.0" rx="2.5" fill="#93c5fd"/>
+    <text x="104" y="120.0" font-size="8.5" fill="#334155" text-anchor="middle">0.226</text>
+    <text x="104" y="200" font-size="8.5" fill="#334155" text-anchor="middle">001</text>
+    <rect x="128" y="127.5" width="24" height="57.5" rx="2.5" fill="#93c5fd"/>
+    <text x="140" y="123.5" font-size="8.5" fill="#334155" text-anchor="middle">0.213</text>
+    <text x="140" y="200" font-size="8.5" fill="#334155" text-anchor="middle">010</text>
+    <rect x="164" y="180.7" width="24" height="4.3" rx="2.5" fill="#3b82f6"/>
+    <text x="176" y="200" font-size="8.5" fill="#334155" text-anchor="middle">011</text>
+    <rect x="200" y="120.5" width="24" height="64.5" rx="2.5" fill="#93c5fd"/>
+    <text x="212" y="116.5" font-size="8.5" fill="#334155" text-anchor="middle">0.239</text>
+    <text x="212" y="200" font-size="8.5" fill="#334155" text-anchor="middle">100</text>
+    <rect x="236" y="179.9" width="24" height="5.1" rx="2.5" fill="#3b82f6"/>
+    <text x="248" y="200" font-size="8.5" fill="#334155" text-anchor="middle">101</text>
+    <rect x="272" y="179.9" width="24" height="5.1" rx="2.5" fill="#3b82f6"/>
+    <text x="284" y="200" font-size="8.5" fill="#334155" text-anchor="middle">110</text>
+    <rect x="308" y="118.3" width="24" height="66.7" rx="2.5" fill="#93c5fd"/>
+    <text x="320" y="114.3" font-size="8.5" fill="#334155" text-anchor="middle">0.247</text>
+    <text x="320" y="200" font-size="8.5" fill="#334155" text-anchor="middle">111</text>
+  </g>
+  <g transform="translate(40,580)">
+    <rect x="0" y="0" width="360" height="210" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="20" y="28" font-size="14" font-weight="700" fill="#1a2433">GHZ_4</text>
+    <text x="150" y="28" font-size="12" fill="#5a6b7d">Y Y X</text>
+    <text x="340" y="28" font-size="11.5" fill="#5a6b7d" text-anchor="end">Result 1116926</text>
+    <line x1="50" y1="50" x2="50" y2="185" stroke="#94a3b8" stroke-width="1.3"/>
+    <line x1="50" y1="185" x2="345" y2="185" stroke="#94a3b8" stroke-width="1.3"/>
+    <line x1="50" y1="50" x2="345" y2="50" stroke="#eef2f6" stroke-width="1"/>
+    <line x1="50" y1="117.5" x2="345" y2="117.5" stroke="#eef2f6" stroke-width="1"/>
+    <text x="44" y="54" font-size="10" fill="#5a6b7d" text-anchor="end">0.5</text>
+    <text x="44" y="121" font-size="10" fill="#5a6b7d" text-anchor="end">0.25</text>
+    <text x="44" y="188" font-size="10" fill="#5a6b7d" text-anchor="end">0</text>
+    <rect x="56" y="180.7" width="24" height="4.3" rx="2.5" fill="#3b82f6"/>
+    <text x="68" y="200" font-size="8.5" fill="#334155" text-anchor="middle">000</text>
+    <rect x="92" y="124.8" width="24" height="60.2" rx="2.5" fill="#93c5fd"/>
+    <text x="104" y="120.8" font-size="8.5" fill="#334155" text-anchor="middle">0.223</text>
+    <text x="104" y="200" font-size="8.5" fill="#334155" text-anchor="middle">001</text>
+    <rect x="128" y="118.6" width="24" height="66.4" rx="2.5" fill="#93c5fd"/>
+    <text x="140" y="114.6" font-size="8.5" fill="#334155" text-anchor="middle">0.246</text>
+    <text x="140" y="200" font-size="8.5" fill="#334155" text-anchor="middle">010</text>
+    <rect x="164" y="180.9" width="24" height="4.0" rx="2.5" fill="#3b82f6"/>
+    <text x="176" y="200" font-size="8.5" fill="#334155" text-anchor="middle">011</text>
+    <rect x="200" y="122.1" width="24" height="62.9" rx="2.5" fill="#93c5fd"/>
+    <text x="212" y="118.1" font-size="8.5" fill="#334155" text-anchor="middle">0.233</text>
+    <text x="212" y="200" font-size="8.5" fill="#334155" text-anchor="middle">100</text>
+    <rect x="236" y="180.7" width="24" height="4.3" rx="2.5" fill="#3b82f6"/>
+    <text x="248" y="200" font-size="8.5" fill="#334155" text-anchor="middle">101</text>
+    <rect x="272" y="180.7" width="24" height="4.3" rx="2.5" fill="#3b82f6"/>
+    <text x="284" y="200" font-size="8.5" fill="#334155" text-anchor="middle">110</text>
+    <rect x="308" y="121.0" width="24" height="64.0" rx="2.5" fill="#93c5fd"/>
+    <text x="320" y="117.0" font-size="8.5" fill="#334155" text-anchor="middle">0.237</text>
+    <text x="320" y="200" font-size="8.5" fill="#334155" text-anchor="middle">111</text>
+  </g>
+  <g transform="translate(420,580)">
+    <rect x="0" y="0" width="360" height="210" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="24" y="34" font-size="14" font-weight="700" fill="#1a2433">Reading the bars</text>
+    <rect x="24" y="58" width="26" height="18" rx="3" fill="#3b82f6"/>
+    <text x="60" y="72" font-size="12" fill="#334155">even parity &#8212; 000, 011, 101, 110  (counts as +1)</text>
+    <rect x="24" y="90" width="26" height="18" rx="3" fill="#93c5fd"/>
+    <text x="60" y="104" font-size="12" fill="#334155">odd parity &#8212; 001, 010, 100, 111  (counts as &#8722;1)</text>
+    <line x1="24" y1="128" x2="336" y2="128" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="24" y="150" font-size="11.5" fill="#5a6b7d">Correlation E = (sum of even) &#8722; (sum of odd).</text>
+    <text x="24" y="169" font-size="11.5" fill="#5a6b7d">In GHZ_0 the state shows only 000 and 111;</text>
+    <text x="24" y="186" font-size="11.5" fill="#5a6b7d">in the four measurement runs one parity dominates.</text>
+  </g>
+  <text x="780" y="828" font-size="10.5" fill="#9aa7b4" text-anchor="end">Alessandro Pezzali &#183; 2026</text>
+</svg>
