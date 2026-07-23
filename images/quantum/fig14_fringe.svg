@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 520" font-family="Helvetica, Arial, sans-serif">
+  <title>Figure 14 — The calibration fringe</title>
+  <desc>Author: Alessandro Pezzali. Nine measured correlations E(theta) on bond (0,1), B8 measured twice, fitted to v*cos(theta - phi0) with v = 0.932 and phi0 = -1.0 degrees. Residuals shown below. Points B8 and B9 were taken after a 33-minute auto-tuning window.</desc>
+  <metadata>Author: Alessandro Pezzali. Copyright 2026 Alessandro Pezzali. All rights reserved.</metadata>
+  <rect x="0" y="0" width="820" height="520" fill="#ffffff"/>
+
+  <text x="40" y="46" font-size="22" font-weight="700" fill="#1a2433">The calibration fringe</text>
+  <text x="40" y="72" font-size="14" fill="#5a6b7d">E(&#952;) = v &#183; cos(&#952; &#8722; &#966;&#8320;) on bond (0,1) &#8212; fit: v = 0.932, &#966;&#8320; = &#8722;1.0&#176; &#177; 1.1&#176;</text>
+  <line x1="40" y1="88" x2="780" y2="88" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- post-tuning band behind B8/B9 -->
+  <rect x="628" y="130" width="102" height="200" fill="#fdf4e8"/>
+  <text x="679" y="146" font-size="10.5" fill="#ea8a2f" text-anchor="middle" font-style="italic">after 33-min</text>
+  <text x="679" y="159" font-size="10.5" fill="#ea8a2f" text-anchor="middle" font-style="italic">tuning (20:14)</text>
+
+  <!-- main plot: E axis +1 at y=130, 0 at y=230, -1 at y=330 ; theta -pi..+pi mapped 140..720 -->
+  <line x1="140" y1="130" x2="720" y2="130" stroke="#eef2f6" stroke-width="1"/>
+  <line x1="140" y1="180" x2="720" y2="180" stroke="#eef2f6" stroke-width="1"/>
+  <line x1="140" y1="280" x2="720" y2="280" stroke="#eef2f6" stroke-width="1"/>
+  <line x1="140" y1="330" x2="720" y2="330" stroke="#eef2f6" stroke-width="1"/>
+  <line x1="140" y1="230" x2="720" y2="230" stroke="#334155" stroke-width="1.5"/>
+  <line x1="140" y1="120" x2="140" y2="340" stroke="#94a3b8" stroke-width="1.3"/>
+
+  <!-- y labels -->
+  <g font-size="11" fill="#5a6b7d" text-anchor="end">
+    <text x="132" y="134">+1</text>
+    <text x="132" y="184">+0.5</text>
+    <text x="132" y="234">0</text>
+    <text x="132" y="284">&#8722;0.5</text>
+    <text x="132" y="334">&#8722;1</text>
+  </g>
+
+  <!-- x ticks at -pi,-pi/2,0,pi/2,pi -->
+  <g stroke="#94a3b8" stroke-width="1.2">
+    <line x1="140" y1="330" x2="140" y2="337"/>
+    <line x1="285" y1="330" x2="285" y2="337"/>
+    <line x1="430" y1="330" x2="430" y2="337"/>
+    <line x1="575" y1="330" x2="575" y2="337"/>
+    <line x1="720" y1="330" x2="720" y2="337"/>
+  </g>
+  <g font-size="11.5" fill="#5a6b7d" text-anchor="middle">
+    <text x="140" y="353">&#8722;&#960;</text>
+    <text x="285" y="353">&#8722;&#960;/2</text>
+    <text x="430" y="353">0</text>
+    <text x="575" y="353">+&#960;/2</text>
+    <text x="720" y="353">+&#960;</text>
+  </g>
+  <text x="430" y="372" font-size="12" fill="#5a6b7d" text-anchor="middle">Bob's angle &#952;</text>
+
+  <!-- fitted cosine -->
+  <polyline fill="none" stroke="#3b82f6" stroke-width="2.5"
+    points="140,323.2 176.25,315.7 212.5,294.9 248.75,264.4 285,231.6 321.25,193.0 357.5,163.0 393.75,143.3 430,136.8 466.25,144.5 502.5,165.4 538.75,195.7 575,231.6 611.25,267.3 647.5,297.1 683.75,316.3 720,323.2"/>
+
+  <!-- legend -->
+  <circle cx="152" cy="112" r="5" fill="#1a2433"/>
+  <text x="163" y="116" font-size="11.5" fill="#334155">measured</text>
+  <line x1="238" y1="112" x2="268" y2="112" stroke="#3b82f6" stroke-width="2.5"/>
+  <text x="274" y="116" font-size="11.5" fill="#334155">v &#183; cos(&#952; &#8722; &#966;&#8320;) fit</text>
+
+  <!-- measured points -->
+  <g fill="#1a2433">
+    <circle cx="140" cy="322.6" r="5"/>
+    <circle cx="212.5" cy="294.8" r="5"/>
+    <circle cx="285" cy="221.8" r="5"/>
+    <circle cx="357.5" cy="158.1" r="5"/>
+    <circle cx="430" cy="136.7" r="5"/>
+    <circle cx="502.5" cy="160.8" r="5"/>
+    <circle cx="575" cy="229.6" r="5"/>
+    <circle cx="643" cy="292.5" r="5"/>
+    <circle cx="720" cy="321.8" r="5"/>
+  </g>
+  <!-- B8 re-run: second point as hollow marker -->
+  <circle cx="653" cy="295.2" r="5" fill="#ffffff" stroke="#1a2433" stroke-width="2"/>
+  <text x="648" y="278" font-size="10" fill="#ea8a2f" text-anchor="middle">B8 &#215;2</text>
+
+  <!-- residual strip: baseline y=420, +0.1 at 390, -0.1 at 450 ; scale 300px/unit -->
+  <text x="40" y="404" font-size="12.5" font-weight="600" fill="#1a2433">Residuals (E &#8722; fit)</text>
+  <line x1="140" y1="390" x2="720" y2="390" stroke="#eef2f6" stroke-width="1"/>
+  <line x1="140" y1="450" x2="720" y2="450" stroke="#eef2f6" stroke-width="1"/>
+  <line x1="140" y1="420" x2="720" y2="420" stroke="#334155" stroke-width="1.3"/>
+  <line x1="140" y1="385" x2="140" y2="455" stroke="#94a3b8" stroke-width="1.2"/>
+  <g font-size="10" fill="#5a6b7d" text-anchor="end">
+    <text x="132" y="393">+0.1</text>
+    <text x="132" y="423">0</text>
+    <text x="132" y="453">&#8722;0.1</text>
+  </g>
+  <!-- residual stems + dots -->
+  <g stroke="#94a3b8" stroke-width="1.2">
+    <line x1="140" y1="420" x2="140" y2="418.2"/>
+    <line x1="212.5" y1="420" x2="212.5" y2="419.7"/>
+    <line x1="285" y1="420" x2="285" y2="390.6"/>
+    <line x1="357.5" y1="420" x2="357.5" y2="405.3"/>
+    <line x1="430" y1="420" x2="430" y2="419.7"/>
+    <line x1="502.5" y1="420" x2="502.5" y2="406.2"/>
+    <line x1="575" y1="420" x2="575" y2="414.0"/>
+    <line x1="643" y1="420" x2="643" y2="406.2"/>
+    <line x1="653" y1="420" x2="653" y2="414.3"/>
+    <line x1="720" y1="420" x2="720" y2="415.8"/>
+  </g>
+  <g fill="#1a2433">
+    <circle cx="140" cy="418.2" r="3.5"/>
+    <circle cx="212.5" cy="419.7" r="3.5"/>
+    <circle cx="285" cy="390.6" r="3.5"/>
+    <circle cx="357.5" cy="405.3" r="3.5"/>
+    <circle cx="430" cy="419.7" r="3.5"/>
+    <circle cx="502.5" cy="406.2" r="3.5"/>
+    <circle cx="575" cy="414.0" r="3.5"/>
+    <circle cx="643" cy="406.2" r="3.5"/>
+    <circle cx="720" cy="415.8" r="3.5"/>
+  </g>
+  <circle cx="653" cy="414.3" r="3.5" fill="#ffffff" stroke="#1a2433" stroke-width="1.6"/>
+
+  <text x="780" y="508" font-size="10.5" fill="#9aa7b4" text-anchor="end">Alessandro Pezzali &#183; 2026</text>
+</svg>

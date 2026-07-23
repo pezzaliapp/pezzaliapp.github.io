@@ -2,41 +2,41 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Quantum Lab Notebook — Test GHZ–Mermin a tre qubit su hardware quantistico reale · Alessandro Pezzali</title>
+  <title>Quantum Lab Notebook — Chasing Tsirelson: quanto vicino a 2√2 arriva un processore quantistico pubblico · Alessandro Pezzali</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Quaderno di laboratorio, capitolo 2: stato GHZ a tre qubit e test di Mermin eseguiti sul processore quantistico Tuna-17 (Quantum Inspire). Risultato: |M| = 3.417 ± 0.011, limite classico superato di 123 deviazioni standard. PDF completo di 18 pagine, dati e codice cQASM 3.0.">
+  <meta name="description" content="Quaderno di laboratorio, capitolo 3: quanto vicino al bound di Tsirelson (2√2) arriva un processore quantistico pubblico. Sul Tuna-17 (Quantum Inspire): S_raw = 2.494 ± 0.039 (88.2%, 12.7σ oltre il limite classico), S_mitigated = 2.736 ± 0.047 (96.7%) corretto per errore di lettura. Il divario vive nei rivelatori, non nello stato entangled. PDF completo di 26 pagine, dati e codice cQASM 3.0.">
   <meta name="author" content="Alessandro Pezzali">
   <meta name="theme-color" content="#00b894">
 
   <link rel="icon" href="favicon.ico">
-  <link rel="canonical" href="https://www.alessandropezzali.it/quantum-ghz.html">
+  <link rel="canonical" href="https://www.alessandropezzali.it/quantum-tsirelson.html">
 
-  <meta property="og:title" content="Test GHZ–Mermin a tre qubit su hardware quantistico reale">
-  <meta property="og:description" content="|M| = 3.417 ± 0.011 misurato sul processore Tuna-17: il limite del realismo locale superato di 123 deviazioni standard con tre qubit entangled. Quaderno di laboratorio completo in PDF.">
+  <meta property="og:title" content="Chasing Tsirelson — quanto vicino a 2√2 arriva un processore quantistico pubblico?">
+  <meta property="og:description" content="Sul Tuna-17: S_raw = 2.494 ± 0.039 (88.2%), S_mitigated = 2.736 ± 0.047 (96.7%). Il divario da Tsirelson vive nei rivelatori, non nello stato entangled. Quaderno di laboratorio completo in PDF.">
   <meta property="og:image" content="https://www.alessandropezzali.it/preview.jpg">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.alessandropezzali.it/quantum-ghz.html">
+  <meta property="og:url" content="https://www.alessandropezzali.it/quantum-tsirelson.html">
   <meta name="twitter:card" content="summary_large_image">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "Quantum Laboratory Notebook — A Three-Qubit GHZ / Mermin Test on Real Quantum Hardware",
+    "headline": "Quantum Laboratory Notebook — Chasing Tsirelson: How Close Can a Public Quantum Processor Get to 2√2?",
     "author": {
       "@type": "Person",
       "name": "Alessandro Pezzali",
       "url": "https://www.alessandropezzali.it"
     },
-    "datePublished": "2026-07-19",
+    "datePublished": "2026-07-23",
     "inLanguage": "en",
-    "url": "https://www.alessandropezzali.it/quantum-ghz.html",
+    "url": "https://www.alessandropezzali.it/quantum-tsirelson.html",
     "encoding": {
       "@type": "MediaObject",
-      "contentUrl": "https://www.alessandropezzali.it/pdf/GHZ_Lab_Notebook.pdf",
+      "contentUrl": "https://www.alessandropezzali.it/pdf/Tsirelson_Lab_Notebook.pdf",
       "encodingFormat": "application/pdf"
     },
-    "about": ["GHZ state", "Mermin inequality", "quantum entanglement", "quantum computing"],
+    "about": ["CHSH inequality", "Tsirelson bound", "readout error mitigation", "quantum entanglement", "quantum computing"],
     "isPartOf": {
       "@type": "CreativeWorkSeries",
       "name": "Quantum Laboratory Notebook",
@@ -235,27 +235,28 @@
 
 <header class="pub-hero">
   <div class="container">
-    <div class="eyebrow"><span class="dot"></span>Pubblicazione · Quaderno di laboratorio — Capitolo 2</div>
-    <h1>Test <span class="accent">GHZ–Mermin</span> a tre qubit su hardware quantistico reale</h1>
+    <div class="eyebrow"><span class="dot"></span>Pubblicazione · Quaderno di laboratorio — Capitolo 3</div>
+    <h1>Chasing <span class="accent">Tsirelson</span> — quanto vicino a 2√2 arriva un processore quantistico pubblico?</h1>
     <p class="lead">
-      Il giorno dopo il test di Bell sono andato un qubit oltre. Ho preparato uno stato
-      <strong>GHZ a tre qubit</strong> sul processore <strong>Tuna-17</strong> (Quantum Inspire)
-      — la stessa ricetta dello stato di Bell, con una CNOT in più — e l'ho misurato nelle quattro
-      configurazioni dell'argomento di Mermin. Con tre qubit il conflitto con il realismo locale
-      non si nasconde più in una media statistica: emerge direttamente nei <strong>segni</strong>
-      delle correlazioni. Questo quaderno documenta le cinque run, i dati grezzi, l'analisi — e
-      una sorpresa onesta sui segni che solo una macchina vera poteva insegnare.
+      Nei due capitoli precedenti avevo mostrato che l'hardware viola il limite classico:
+      un risultato sì-o-no. Qui volevo un numero: quanto vicino al massimo quantistico — il bound di Tsirelson,
+      <strong>2√2 ≈ 2.828</strong> — può arrivare un processore accessibile a chiunque, e dove
+      finisce il divario che resta. Così ho fatto le cose per bene: ho cercato la coppia di qubit
+      migliore del chip, ho misurato gli angoli di misura <em>veri</em> invece di fidarmi di quelli
+      nominali, ho eseguito il test CHSH definitivo e infine ho caratterizzato i rivelatori. Il
+      valore grezzo è uscito più basso di quello del Capitolo 1 — e la spiegazione, arrivata
+      correggendo l'errore di lettura, ribalta la storia.
     </p>
     <div class="pub-meta">
       <span class="tag violet"><i class="fa fa-flask"></i> Fisica quantistica</span>
       <span class="tag blue">Quantum Inspire · Tuna-17</span>
       <span class="tag">cQASM 3.0</span>
-      <span class="tag">8192 shot × 5 run</span>
-      <span class="tag brand">19 luglio 2026</span>
+      <span class="tag">512 shot · coppia (0,1)</span>
+      <span class="tag brand">22–23 luglio 2026</span>
     </div>
     <div class="hero-cta">
-      <a class="btn btn-violet" href="pdf/GHZ_Lab_Notebook.pdf" target="_blank" rel="noopener">
-        <i class="fa fa-file-pdf-o"></i> Scarica il PDF (18 pagine)
+      <a class="btn btn-violet" href="pdf/Tsirelson_Lab_Notebook.pdf" target="_blank" rel="noopener">
+        <i class="fa fa-file-pdf-o"></i> Scarica il PDF (26 pagine)
       </a>
       <a class="btn btn-secondary" href="#esperimento">
         Leggi il riassunto <i class="fa fa-arrow-down"></i>
@@ -267,10 +268,10 @@
 <section class="result-band" aria-label="Risultato principale">
   <div class="container">
     <div class="result-grid">
-      <div class="result-card main"><strong>|M| = 3.417 ± 0.011</strong><span>Quantità di Mermin misurata</span></div>
-      <div class="result-card"><strong>&gt; 2</strong><span>Limite classico superato</span></div>
-      <div class="result-card"><strong>123 σ</strong><span>Deviazioni standard oltre il limite</span></div>
-      <div class="result-card"><strong>&lt; 4</strong><span>Sotto il massimo quantistico</span></div>
+      <div class="result-card main"><strong>S_raw = 2.494 ± 0.039</strong><span>Valore CHSH grezzo · 88.2% del bound di Tsirelson</span></div>
+      <div class="result-card"><strong>S_mitigated = 2.736 ± 0.047</strong><span>Stima corretta per errore di lettura · 96.7%</span></div>
+      <div class="result-card"><strong>12.7 σ</strong><span>Deviazioni standard oltre il limite classico</span></div>
+      <div class="result-card"><strong>&lt; 2√2</strong><span>Sotto il massimo quantistico (2.828)</span></div>
     </div>
   </div>
 </section>
@@ -280,86 +281,112 @@
 
     <h2>Che cosa dimostra questo esperimento</h2>
     <p>
-      Nel 1989 Greenberger, Horne e Zeilinger mostrarono che <strong>tre</strong> particelle
-      entangled espongono il conflitto tra meccanica quantistica e realismo locale in modo molto
-      più netto di due. Il test di Bell a due qubit produce una disuguaglianza statistica — serve
-      la media di molte run per vedere la violazione. L'argomento GHZ produce invece una
-      contraddizione tutto-o-niente: per quattro configurazioni di misura, realismo locale e
-      meccanica quantistica prevedono <strong>segni opposti</strong> della stessa quantità.
-      Mermin condensò tutto in un solo numero M: qualsiasi teoria locale-realistica deve
-      rispettare <strong>|M| ≤ 2</strong>, mentre la meccanica quantistica arriva fino a
-      <strong>|M| = 4</strong>.
+      Il bound di Tsirelson non si può battere: è un teorema. La domanda del capitolo non è quindi
+      <em>superarlo</em>, ma misurare quanto vicino può arrivarci un processore quantistico pubblico,
+      e rendere conto di ogni punto del divario. Tutto ruota attorno a una sola identità: per lo stato
+      di Bell, <strong>S = 2√2·v</strong>, dove <em>v</em> è la <strong>visibilità</strong> — quanto lo
+      stato preparato dall'hardware si avvicina a una coppia entangled perfetta. Inseguire Tsirelson
+      significa inseguire <em>v</em> → 1, e ogni imperfezione della macchina compare come un calo di <em>v</em>.
     </p>
     <p>
-      In questo esperimento il valore misurato è <span class="highlight"><strong>|M| = 3.417 ± 0.011</strong></span>:
-      il limite classico è superato di circa <strong>123 deviazioni standard</strong> — un margine
-      3.6 volte più ampio dei 34σ del test CHSH a due qubit sulla stessa macchina. Ed è esattamente
-      questo il punto di aggiungere un terzo qubit: l'argomento concentra il conflitto nei segni
-      delle correlazioni, così anche uno stato parzialmente degradato atterra lontanissimo dal
-      limite classico.
+      Sulla coppia d'angolo <strong>(0,1)</strong> del processore Tuna-17, il test CHSH definitivo —
+      tre blocchi consecutivi delle quattro configurazioni, 512 shot ciascuna — ha restituito
+      <span class="highlight"><strong>S_raw</strong> (il valore grezzo) <strong>= 2.494 ± 0.039</strong></span>:
+      oltre il limite classico — <strong>S ≤ 2</strong>, la soglia imposta dal realismo locale — di circa
+      <strong>12.7 deviazioni standard</strong> (una violazione netta), ma solo l'<strong>88.2%</strong>
+      del massimo quantistico, e — va detto — un po' <em>meno</em> del 91.4% del Capitolo 1. A prima
+      vista la versione più accurata ha fatto peggio della prima. La spiegazione arriva più avanti,
+      ed è la parte più interessante.
     </p>
 
-    <div class="paper"><img src="images/quantum/fig11_ghz_summary.svg" alt="Il valore di Mermin misurato |M| = 3.417 collocato tra il limite classico 2 e il massimo quantistico 4" loading="lazy"></div>
-    <p class="figcap">Il risultato in contesto: la barra misurata cade in profondità dentro la regione quantistica, sopra il limite classico di 2 e sotto il massimo algebrico di 4.</p>
-
-    <h2>Come è stato fatto</h2>
+    <h2>Scegliere i qubit e calibrare gli angoli</h2>
     <p>
-      Ogni run parte dallo stesso stato GHZ |000⟩+|111⟩, preparato con tre sole porte in cQASM 3.0:
-      la stessa coppia <strong>H</strong> + <strong>CNOT</strong> dello stato di Bell del Capitolo 1,
-      più <strong>una CNOT in più</strong> che copia la correlazione su un terzo qubit. Cambiano solo
-      le rotazioni di base finali: quattro run misurano le combinazioni di Mermin (XXX, XYY, YXY, YYX)
-      e una quinta run di controllo misura in base Z per verificare lo stato preparato. Ogni
-      configurazione è stata eseguita con <strong>8192 shot</strong> sul backend Tuna-17, in
-      un'unica sessione di cinque run consecutive.
-    </p>
-    <p>
-      La run di controllo risponde anche a una domanda più silenziosa: la seconda porta entangling
-      distrugge lo stato? No. Lo stato preparato mostra solo 000 e 111 con peso complessivo
-      <strong>0.938</strong> (fedeltà), e la forza media delle correlazioni è
-      <strong>0.854</strong> — contro circa 0.91 dello stato di Bell a due qubit sullo stesso
-      hardware. Il terzo qubit è costato pochissimo: un risultato silenzioso ma per nulla scontato
-      su un processore reale.
+      Per questo chip non esiste una tabella di calibrazione pubblica, quindi la coppia migliore va
+      trovata sul campo — e il compilatore di Tuna-17 ha offerto un regalo. Mappa i qubit uno-a-uno e
+      <strong>rifiuta in compilazione</strong> una porta tra qubit non connessi, invece di instradarla:
+      quel rifiuto è un <strong>oracolo di adiacenza gratuito</strong>. Due sole submission — una
+      accettata su (0,1), una rifiutata su (0,8) — sono bastate a confermare che la topologia è il
+      codice di superficie di distanza 3, "Surface-17": nove qubit dati e otto di ancilla, 24
+      accoppiatori dati–ancilla.
     </p>
 
     <div class="two-col">
       <div>
-        <div class="paper"><img src="images/quantum/fig8_ghz_circuit.svg" alt="Il circuito di preparazione GHZ: Hadamard più due CNOT, seguiti dalle rotazioni di base per ogni run" loading="lazy"></div>
-        <p class="figcap">Il circuito: H + CNOT — lo stesso blocco del Capitolo 1 — più una sola CNOT aggiuntiva. Quella porta è l'intera differenza tra due e tre qubit entangled.</p>
+        <div class="paper"><img src="images/quantum/fig12_tuna17_topology.svg" alt="Il chip Tuna-17 come reticolo di codice di superficie: nove qubit dati, otto di ancilla, 24 accoppiatori, con la coppia (0,1) evidenziata e l'hub Q8 marcato" loading="lazy"></div>
+        <p class="figcap">Il chip Tuna-17 come codice di superficie di distanza 3: nove qubit dati (in blu) e otto di ancilla (in grigio), 24 accoppiatori dati–ancilla. La coppia d'angolo (0,1) usata nell'esperimento è evidenziata in arancione; l'hub centrale Q8, il più connesso, è marcato come quello che ha dato le coppie peggiori.</p>
       </div>
       <div>
-        <div class="paper"><img src="images/quantum/fig10_ghz_correlations.svg" alt="Le quattro correlazioni di Mermin misurate: una positiva e tre negative" loading="lazy"></div>
-        <p class="figcap">Le quattro correlazioni misurate: +0.873, −0.817, −0.851, −0.876. Il pattern "tre-e-uno" nei segni è la firma che la combinazione di Mermin è costruita per rilevare.</p>
+        <div class="paper"><img src="images/quantum/fig13_pair_scan.svg" alt="La classifica delle sei coppie candidate per punteggio: le due coppie sull'hub Q8 sono ultime, con i marcatori del tie-break di seconda sessione" loading="lazy"></div>
+        <p class="figcap">La classifica delle sei coppie candidate per punteggio r (barre = prima sessione): le due coppie sull'hub Q8 — le barre rosse a destra — sono ultime, la periferia batte il centro. La coppia (0,1) ha il bordo arancione; i cerchi vuoti sono la ri-misura di controllo (tie-break, seconda sessione), che mostra (0,1) fermo mentre (2,5) e (15,16) calano. L'ho scelta per questa stabilità, non per il punteggio più alto.</p>
       </div>
     </div>
 
-    <div class="paper"><img src="images/quantum/fig9_ghz_histograms.svg" alt="Le distribuzioni di probabilità misurate nelle cinque run" loading="lazy"></div>
-    <p class="figcap">Le distribuzioni misurate. Nella run di controllo (Z Z Z) dominano solo 000 e 111 — la firma dello stato GHZ. Nelle quattro run di misura domina una sola parità: è questo squilibrio a produrre correlazioni grandi e di segno definito.</p>
+    <p>
+      La scansione delle coppie ha dato la sorpresa più netta: le due coppie che toccano <strong>Q8</strong>
+      — il qubit più connesso del chip, l'hub centrale di grado 4 — sono le <em>peggiori</em> delle sei.
+      Su questo dispositivo la <strong>periferia batte il centro</strong>. Ho portato avanti la coppia
+      (0,1) non per il punteggio più alto, ma per la sua <strong>stabilità</strong>: la qualità delle
+      coppie è soggetta a un drift di calibrazione di circa <strong>0.03 su tempi di ~30 minuti</strong>,
+      e (0,1) era quella che si muoveva di meno.
+    </p>
+    <p>
+      Prima del test vero ho misurato gli angoli invece di fidarmi di quelli nominali — una frangia di
+      calibrazione da cui leggo la visibilità <strong>v = 0.932</strong> e uno scostamento sistematico
+      <strong>φ₀ = −1.0° ± 1.1°</strong>. Quel φ₀ è più piccolo della griglia da 5° che l'hardware
+      riesce a rappresentare: il verdetto della calibrazione è il raro e soddisfacente
+      <strong>"niente da correggere"</strong> — gli angoli nominali erano già veri.
+    </p>
 
-    <h2>La sorpresa onesta dei segni</h2>
+    <div class="paper"><img src="images/quantum/fig14_fringe.svg" alt="La frangia di calibrazione: dieci acquisizioni a nove angoli con il coseno interpolato v·cos(θ − φ₀) e i residui" loading="lazy"></div>
+    <p class="figcap">La frangia di calibrazione: dieci acquisizioni a nove angoli (B8 misurata due volte), con il coseno interpolato v·cos(θ − φ₀) e i residui in basso. L'ampiezza della curva è la visibilità v = 0.932; lo scostamento orizzontale φ₀ = −1.0° è sotto la griglia hardware da 5° — nessuna correzione da applicare.</p>
+
+    <h2>Dove vive il divario: nei rivelatori, non nello stato</h2>
     <p>
-      Tutte e quattro le correlazioni sono arrivate con il segno <strong>opposto</strong> alla
-      previsione "da manuale": il pattern è globalmente ribaltato. Non è un errore e non è rumore —
-      è una convenzione fissa nel modo in cui la piattaforma implementa la misura in base Y
-      (la rotazione S†·H e l'etichettatura del suo esito). Il ribaltamento è identico e coerente
-      su tutte le run e sull'intera sessione: un guasto casuale non potrebbe mai essere così
-      consistente. La struttura di Mermin resta intatta — sempre tre correlazioni di un segno e
-      una dell'altro — e |M| non dipende in alcun modo dalla convenzione.
+      La svolta è la Fase D. Preparando e misurando i quattro stati di base ho costruito la
+      <strong>matrice di confusione</strong> della lettura (fedeltà 0.945–0.965) e ho corretto gli
+      stessi dati del test CHSH: <span class="highlight"><strong>S_mitigated</strong> (il valore
+      corretto) <strong>= 2.736 ± 0.047</strong></span>, il <strong>96.7%</strong> del bound di
+      Tsirelson. Tre precisazioni non negoziabili: S_mitigated è una <strong>stima</strong> dello stato
+      prima della lettura, non una misura migliore, e non prende mai il posto del grezzo; la correzione
+      <strong>allarga</strong> la barra d'errore (0.039 → 0.047), non la stringe, perché invertire la
+      matrice mescola gli esiti e amplifica il rumore; e il valore resta <strong>sotto 2√2</strong> —
+      il controllo che la correzione non stia sovracorreggendo verso la regione proibita.
     </p>
+
+    <div class="paper"><img src="images/quantum/fig16_confusion_matrix.svg" alt="La matrice di confusione 4×4 della lettura, base visualizzata b[1]b[0], con la diagonale in arancione e i pesi fuori diagonale" loading="lazy"></div>
+    <p class="figcap">La matrice di confusione 4×4 della lettura (base visualizzata b[1]b[0]): ogni colonna è la distribuzione misurata per uno stato di base preparato. La diagonale (in arancione, fedeltà 0.945–0.965) è la lettura corretta; il peso fuori diagonale è l'errore di lettura che la mitigazione rimuove — il più grande, 0.041, è uno scambio 00→10.</p>
+
     <p>
-      Ho scelto di documentare questo dettaglio apertamente invece di assorbire il segno meno in
-      silenzio, perché è esattamente il genere di cosa che non compare in nessun libro di testo:
-      emerge solo quando esegui il circuito su hardware vero e leggi i numeri che la macchina
-      restituisce davvero.
+      Il risultato ribalta la lettura del numero grezzo. Il divario dal massimo quantistico vive quasi
+      tutto nei <strong>rivelatori</strong>: circa <strong>8.5 punti percentuali</strong> sono errore di
+      lettura, e solo <strong>~3.3 punti</strong> sono porte e decoerenza. Lo stato entangled che
+      Tuna-17 ha preparato era già entro il <strong>3%</strong> da una coppia di Bell perfetta.
+      Inseguire Tsirelson, su questa macchina, è soprattutto inseguire una <em>misura</em> migliore,
+      non uno stato migliore.
     </p>
+
+    <h2>Le sei scoperte</h2>
+    <p>In breve, le sei cose che il capitolo ha stabilito:</p>
+    <ul style="color:var(--muted);line-height:1.75;font-size:.98rem;margin:0 0 16px;padding-left:1.25em;max-width:76ch">
+      <li><strong>Oracolo di adiacenza gratuito:</strong> il compilatore rifiuta le coppie non connesse invece di instradarle — topologia Surface-17 confermata con due submission.</li>
+      <li><strong>La periferia batte il centro:</strong> l'hub Q8 (grado 4) produce le due coppie peggiori.</li>
+      <li><strong>Drift di calibrazione</strong> di ~0.03 su tempi di ~30 minuti.</li>
+      <li><strong>Angoli nominali già corretti:</strong> φ₀ = −1.0° ± 1.1°, sotto la griglia hardware da 5°.</li>
+      <li><strong>Due valori di S, divario decomposto:</strong> 88.2% grezzo → 96.7% corretto, con il grosso del divario nei rivelatori.</li>
+      <li><strong>Bitstring visualizzato invertito</strong> (b[1]b[0]): una trappola per chi legge i singoli esiti, ma la parità — e quindi S — ne è immune.</li>
+    </ul>
+
+    <div class="paper"><img src="images/quantum/fig15_s_summary.svg" alt="I due valori di S sull'asse CHSH: S_raw = 2.494 e S_mitigated = 2.736, tra il limite classico e il bound di Tsirelson, con la parentesi dell'errore di lettura" loading="lazy"></div>
+    <p class="figcap">I due numeri sull'asse CHSH: S_raw = 2.494 (marcatore pieno) e S_mitigated = 2.736 (marcatore vuoto), tra il limite classico (2) e il bound di Tsirelson (2√2 ≈ 2.828). La parentesi tra i due è l'errore di lettura (≈ 0.24): il divario dal massimo quantistico vive nei rivelatori, non nello stato.</p>
 
     <h2>Trasparenza e riproducibilità</h2>
     <p>
-      Il quaderno riporta i job ID, i result ID, i timestamp e gli hash dei cinque programmi
-      eseguiti, le probabilità grezze restituite dalla piattaforma, l'analisi completa delle
-      incertezze e il codice sorgente cQASM 3.0 integrale in appendice, insieme agli screenshot
-      originali della piattaforma per tutte e cinque le run. Nessuna pretesa oltre ciò che i dati
-      sostengono: cinque run, una sessione, una violazione enorme — documentata in modo che
-      chiunque possa riprodurla.
+      Il quaderno riporta i job ID, i result ID, i timestamp e gli hash dei programmi eseguiti, le
+      probabilità grezze restituite dalla piattaforma, l'analisi completa delle incertezze e il codice
+      sorgente cQASM 3.0 integrale in appendice, insieme agli screenshot originali della piattaforma —
+      compresa la coppia accetta/rifiuta dell'oracolo di adiacenza. I due numeri sono sempre riportati
+      insieme: il grezzo come headline, il corretto come stima. Nessuna pretesa oltre ciò che i dati
+      sostengono.
     </p>
     <p>
       <strong>Autore unico:</strong> Alessandro Pezzali. Progetto di ricerca personale
@@ -369,15 +396,15 @@
     <div class="dl-box">
       <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
       <div>
-        <h3>Quantum Laboratory Notebook — GHZ / Mermin on Tuna-17</h3>
-        <p>PDF di 18 pagine in inglese · 4 figure vettoriali · screenshot originali delle cinque run · dati grezzi, analisi e codice sorgente completo · 1.9 MB</p>
+        <h3>Quantum Laboratory Notebook — Chasing Tsirelson on Tuna-17</h3>
+        <p>PDF di 26 pagine in inglese · 5 figure vettoriali · screenshot originali (inclusa la coppia accetta/rifiuta dell'oracolo di adiacenza) · dati grezzi, analisi e codice sorgente completo · 2.6 MB</p>
       </div>
-      <a class="btn btn-violet" href="pdf/GHZ_Lab_Notebook.pdf" target="_blank" rel="noopener"><i class="fa fa-download"></i> Scarica</a>
+      <a class="btn btn-violet" href="pdf/Tsirelson_Lab_Notebook.pdf" target="_blank" rel="noopener"><i class="fa fa-download"></i> Scarica</a>
     </div>
 
-    <div class="chapter-nav">
+    <div class="chapter-nav" style="justify-content:flex-start">
       <a href="quantum-chsh.html"><i class="fa fa-arrow-left"></i> Capitolo 1 — Test di Bell–CHSH a due qubit</a>
-      <a href="quantum-tsirelson.html">Capitolo 3 — Chasing Tsirelson <i class="fa fa-arrow-right"></i></a>
+      <a href="quantum-ghz.html"><i class="fa fa-arrow-left"></i> Capitolo 2 — Test GHZ–Mermin a tre qubit</a>
     </div>
 
   </div>

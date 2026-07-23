@@ -2,19 +2,25 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.alessandropezzali.it/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.alessandropezzali.it/quantum-chsh.html</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.alessandropezzali.it/quantum-ghz.html</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.alessandropezzali.it/quantum-tsirelson.html</loc>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
