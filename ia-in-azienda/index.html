@@ -1,1 +1,297 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Intelligenza artificiale in azienda — strumenti operativi | Alessandro Pezzali</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Registri, checklist e moduli compilabili del libro «Intelligenza artificiale in azienda». Download diretto, senza registrazione. Insieme all'applicazione Registro IA.">
+  <meta name="author" content="Alessandro Pezzali">
+  <meta name="theme-color" content="#14303A">
 
+  <link rel="icon" href="../favicon.ico">
+  <link rel="canonical" href="https://www.alessandropezzali.it/ia-in-azienda/">
+
+  <meta property="og:title" content="Intelligenza artificiale in azienda — strumenti operativi">
+  <meta property="og:description" content="Registri, checklist e moduli compilabili del libro. Download diretto, senza registrazione.">
+  <meta property="og:image" content="https://www.alessandropezzali.it/ia-in-azienda/copertina.jpg">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.alessandropezzali.it/ia-in-azienda/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#121212;
+      --panel:#1b1b1b;
+      --text:#f0f0f0;
+      --muted:#c8c8c8;
+      --soft:#9a9a9a;
+      --line:rgba(255,255,255,.08);
+      --brand:#00b894;
+      --blue:#0984e3;
+      --petrolio:#14303A;
+      --ocra:#D9A441;
+      --rosso:#B23A2E;
+      --radius:16px;
+      --navH:64px;
+      --container:1080px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;min-height:100%;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+    html{scroll-behavior:smooth}
+    img{max-width:100%;display:block}
+    a{color:inherit}
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+    /* Nav, coerente con il resto del sito */
+    nav.topnav{
+      position:fixed;inset:0 0 auto 0;z-index:1000;
+      background:rgba(8,8,8,.88);
+      backdrop-filter:saturate(140%) blur(10px);
+      -webkit-backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      height:var(--navH);
+    }
+    .nav-wrap{max-width:1320px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:18px;height:100%}
+    .logo{font-size:1rem;font-weight:700;letter-spacing:.2px;white-space:nowrap;flex-shrink:0;text-decoration:none}
+    .logo span{color:var(--brand)}
+    nav.topnav ul{display:flex;flex-wrap:nowrap;gap:6px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;max-width:100%}
+    nav.topnav ul::-webkit-scrollbar{display:none}
+    nav.topnav li{flex:0 0 auto}
+    nav.topnav a{
+      display:inline-flex;align-items:center;justify-content:center;min-height:38px;
+      padding:8px 12px;border-radius:999px;text-decoration:none;font-size:.92rem;color:#f0f0f0;
+      transition:background .2s ease,color .2s ease,transform .2s ease;
+    }
+    nav.topnav a:hover{background:rgba(255,255,255,.06);color:#fff;transform:translateY(-1px)}
+    nav.topnav a.active{background:rgba(0,184,148,.14);border:1px solid rgba(0,184,148,.30);color:#fff}
+    .nav-blue{color:#7ec8ff !important;font-weight:700}
+
+    /* Intestazione */
+    header.hero{
+      margin-top:var(--navH);
+      padding:56px 0 48px;
+      border-bottom:1px solid var(--line);
+      background:
+        radial-gradient(ellipse at 15% 0%, rgba(20,48,58,.85), transparent 55%),
+        linear-gradient(180deg,#0d1418 0%, #121212 100%);
+    }
+    .hero-grid{display:grid;grid-template-columns:250px 1fr;gap:38px;align-items:start}
+    .copertina{border-radius:10px;box-shadow:0 18px 44px rgba(0,0,0,.5);border:1px solid var(--line)}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;padding:6px 12px;
+      border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);
+      font-size:.76rem;color:#d7fff6;margin-bottom:14px;letter-spacing:.4px;text-transform:uppercase
+    }
+    .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--brand)}
+    h1{font-size:clamp(1.6rem,3.6vw,2.3rem);line-height:1.25;margin:0 0 12px}
+    .sottotitolo{color:var(--muted);font-size:1.02rem;line-height:1.7;margin:0 0 22px;max-width:640px}
+    .claim{list-style:none;padding:0;margin:0 0 24px;color:#dcdcdc}
+    .claim li{padding-left:18px;position:relative;margin-bottom:6px;font-size:.96rem}
+    .claim li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--ocra)}
+    .nota-agg{font-size:.85rem;color:var(--soft)}
+
+    /* Sezioni */
+    .sez{padding:52px 0;border-bottom:1px solid var(--line)}
+    .sez h2{font-size:1.35rem;margin:0 0 10px}
+    .sez .lead{color:var(--muted);line-height:1.75;max-width:760px;margin:0 0 26px}
+
+    .griglia{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .scheda{
+      background:linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.012));
+      border:1px solid var(--line);border-radius:var(--radius);padding:24px;
+      display:flex;flex-direction:column
+    }
+    .scheda h3{margin:0 0 10px;font-size:1.06rem}
+    .scheda p{color:var(--muted);line-height:1.7;font-size:.94rem;margin:0 0 14px}
+    .scheda ul{color:var(--muted);font-size:.9rem;line-height:1.7;margin:0 0 18px;padding-left:18px}
+    .scheda .spinta{margin-top:auto}
+    .peso{font-size:.8rem;color:var(--soft);margin-top:10px}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      min-height:48px;padding:13px 22px;border-radius:12px;text-decoration:none;font-weight:600;font-size:.96rem;
+      border:1px solid transparent;transition:transform .18s ease, background .18s ease, box-shadow .18s ease;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-green{background:var(--brand);color:#fff;box-shadow:0 8px 22px rgba(0,184,148,.28)}
+    .btn-green:hover{background:#13d2ad}
+    .btn-blue{background:var(--blue);color:#fff;box-shadow:0 8px 22px rgba(9,132,227,.28)}
+    .btn-blue:hover{background:#1696f5}
+    .btn-secondary{background:rgba(255,255,255,.06);border-color:var(--line);color:#fff}
+    .btn-secondary:hover{background:rgba(255,255,255,.10)}
+
+    /* Elenco contenuti del fascicolo */
+    .contenuti{columns:2;column-gap:32px;color:var(--muted);font-size:.92rem;line-height:1.9;margin:0;padding-left:18px}
+    .contenuti li{break-inside:avoid}
+
+    /* Riquadro avvertenza, richiama i box del libro */
+    .avviso{
+      border:1px solid rgba(217,164,65,.35);
+      border-left:4px solid var(--ocra);
+      background:rgba(217,164,65,.05);
+      border-radius:12px;padding:22px 24px;
+    }
+    .avviso h3{margin:0 0 12px;font-size:.82rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--ocra)}
+    .avviso p{color:var(--muted);line-height:1.75;font-size:.92rem;margin:0 0 12px}
+    .avviso p:last-child{margin-bottom:0}
+
+    .aggiornamento{
+      display:inline-flex;align-items:center;gap:10px;
+      border:1px solid var(--line);border-radius:999px;padding:8px 16px;
+      font-size:.85rem;color:var(--soft);background:rgba(255,255,255,.02)
+    }
+
+    footer.site-footer{background:#161616;border-top:1px solid rgba(255,255,255,.06);padding:30px 0 16px}
+    .footer-grid{max-width:520px;margin:0 auto;text-align:center}
+    .footer-grid p{color:var(--muted);line-height:1.7;margin:0 0 10px;font-size:.92rem}
+    .footer-grid h4{margin:0 0 10px;font-size:.95rem;color:#fff}
+    .footer-bottom{text-align:center;padding:16px 0 6px;color:#aaa;font-size:.85rem;border-top:1px solid rgba(255,255,255,.06);margin-top:24px}
+
+    @media (max-width:880px){
+      .hero-grid{grid-template-columns:1fr;gap:26px}
+      .copertina{max-width:210px}
+      .griglia{grid-template-columns:1fr}
+      .contenuti{columns:1}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Navigazione principale">
+  <div class="nav-wrap">
+    <a class="logo" href="../index.html">Alessandro <span>Pezzali</span></a>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../progetti.html">Progetti</a></li>
+      <li><a href="../blog/">Blog</a></li>
+      <li><a href="./" class="active">IA in azienda</a></li>
+      <li><a href="https://pezzaliapp.com" target="_blank" rel="noopener" class="nav-blue">pezzaliAPP</a></li>
+      <li><a href="https://github.com/pezzaliapp" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <img class="copertina" src="copertina.jpg" alt="Copertina del libro Intelligenza artificiale in azienda" width="640" height="1024">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Strumenti operativi del libro</span>
+        <h1>Intelligenza artificiale in azienda</h1>
+        <p class="sottotitolo">Guida organizzativa per imprese, PMI e professionisti. Questa pagina raccoglie i registri, le checklist e i moduli citati nel libro, insieme all'applicazione che li riproduce su telefono e tablet.</p>
+        <ul class="claim">
+          <li>Che cosa è già obbligatorio.</li>
+          <li>Che cosa è stato rinviato.</li>
+          <li>Che cosa fare domani mattina.</li>
+        </ul>
+        <p class="nota-agg">Testo aggiornato al 3 agosto 2026, con le modifiche del Regolamento (UE) 2026/1744.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="sez">
+  <div class="container">
+    <h2>Scarica gli strumenti</h2>
+    <p class="lead">Download diretto e gratuito. Non è richiesta alcuna registrazione, non viene chiesto alcun indirizzo di posta elettronica, non viene raccolto alcun dato.</p>
+
+    <div class="griglia">
+      <div class="scheda">
+        <h3>Il fascicolo compilabile</h3>
+        <p>Un foglio di calcolo con undici strumenti pronti: le celle da compilare sono evidenziate, ogni tabella ha una riga di esempio da cancellare, le colonne che servono a filtrare hanno valori predefiniti.</p>
+        <ul class="contenuti">
+          <li>Registro dei sistemi di IA (venti campi)</li>
+          <li>Qualificazione del ruolo</li>
+          <li>Scheda di valutazione dell'utilizzo</li>
+          <li>Checklist AI Act</li>
+          <li>Checklist GDPR</li>
+          <li>Autorizzazione di un nuovo strumento</li>
+          <li>Registro della formazione</li>
+          <li>Registro di errori e incidenti</li>
+          <li>Scheda di riesame annuale</li>
+          <li>Strumenti autorizzati e utilizzi vietati</li>
+          <li>Matrice delle responsabilità</li>
+        </ul>
+        <div class="spinta">
+          <a class="btn btn-green" href="Allegati_IA_in_Azienda.xlsx" download>Scarica il foglio di calcolo</a>
+          <p class="peso">Formato .xlsx · si apre con Excel, Numbers, LibreOffice o Fogli Google</p>
+        </div>
+      </div>
+
+      <div class="scheda">
+        <h3>I moduli da sottoscrivere</h3>
+        <p>Tre modelli in formato testo, da adattare, protocollare e far firmare. Sono i documenti che nel libro chiudono il percorso: quelli che trasformano una regola in un'istruzione aziendale con una data e una firma.</p>
+        <ul class="contenuti" style="columns:1">
+          <li>Dichiarazione dell'utilizzatore</li>
+          <li>Atto di incarico del referente per l'IA</li>
+          <li>Procedura per errori e incidenti</li>
+        </ul>
+        <div class="spinta">
+          <a class="btn btn-green" href="Moduli_IA_in_Azienda.docx" download>Scarica i moduli</a>
+          <p class="peso">Formato .docx · si apre con Word, Pages, LibreOffice o Documenti Google</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sez">
+  <div class="container">
+    <h2>L'applicazione «Registro IA»</h2>
+    <p class="lead">Gli stessi registri, in forma di applicazione installabile, per chi preferisce compilarli dal telefono invece che in un foglio di calcolo. Copre il censimento dei sistemi, le valutazioni d'uso, gli strumenti autorizzati, la formazione, gli errori e gli incidenti, e genera una relazione periodica da presentare al vertice aziendale.</p>
+
+    <div class="griglia">
+      <div class="scheda">
+        <h3>Come funziona</h3>
+        <p>Si apre nel browser e si installa sulla schermata iniziale come una normale applicazione. Funziona senza connessione, non richiede registrazione e non prevede alcun account.</p>
+        <div class="spinta">
+          <a class="btn btn-blue" href="https://ia.alessandropezzali.it" target="_blank" rel="noopener">Apri l'applicazione</a>
+        </div>
+      </div>
+
+      <div class="scheda">
+        <h3>Dove finiscono i dati</h3>
+        <p>Nell'archivio locale del browser, sul dispositivo in uso. Non vengono trasmessi ad alcun server: l'applicazione non ha un backend e non effettua chiamate di rete oltre al caricamento dei propri file. Nessuno, autore compreso, ha accesso a ciò che vi inserisci.</p>
+        <ul style="color:var(--muted);font-size:.9rem;line-height:1.8;margin:0;padding-left:18px">
+          <li>I registri non si sincronizzano fra dispositivi diversi.</li>
+          <li>Se cancelli i dati di navigazione, i registri vengono persi.</li>
+          <li>Chi accede a quel profilo del browser accede ai registri.</li>
+        </ul>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.7;margin-top:14px">Usa la funzione di esportazione con regolarità e conserva il file nei sistemi documentali aziendali.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sez">
+  <div class="container">
+    <div class="avviso">
+      <h3>Che cosa questi strumenti non sono</h3>
+      <p>Sono strumenti organizzativi. Non costituiscono parere legale, non sostituiscono la valutazione del consulente legale o del responsabile della protezione dei dati e <strong>non attestano la conformità</strong> dell'organizzazione ad alcuna disposizione, europea o nazionale. Le classificazioni di rischio che consentono di registrare sono valutazioni preliminari, da confermare in sede professionale.</p>
+      <p>Sono forniti gratuitamente e <strong>nello stato in cui si trovano</strong>, senza garanzia di funzionamento, di completezza, di aggiornamento o di idoneità a uno scopo determinato. L'autore non risponde di eventuali errori, malfunzionamenti, perdite di dati o conseguenze derivanti dal loro utilizzo, né di decisioni assunte sulla base di quanto vi è registrato. L'uso avviene sotto la responsabilità esclusiva di chi lo effettua.</p>
+      <p>Le scadenze normative eventualmente indicate riflettono il quadro alla data di pubblicazione e vanno riverificate sulle fonti ufficiali indicate nel libro.</p>
+      <p>Nei registri va inserita la <strong>descrizione</strong> delle informazioni trattate, non le informazioni riservate in sé. Il titolare del trattamento resta l'organizzazione che li utilizza, alla quale competono per intero gli adempimenti in materia di protezione dei dati, di sicurezza e di conservazione.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sez" style="border-bottom:none">
+  <div class="container">
+    <span class="aggiornamento">Ultima revisione dei file: 4 agosto 2026</span>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <h4>Trovami qui</h4>
+      <p>Per email: <a href="mailto:pezzalialessandro@gmail.com" style="color:#aef0df">pezzalialessandro@gmail.com</a></p>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Alessandro Pezzali · Tutti i progetti sono open source salvo dove diversamente indicato.</div>
+  </div>
+</footer>
+
+</body>
+</html>
