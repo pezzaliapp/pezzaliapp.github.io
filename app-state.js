@@ -24,11 +24,11 @@
       body: "Questa applicazione non è disponibile pubblicamente. L'accesso è riservato agli utenti autorizzati."
     },
     unavailable: {
-      badge: "In aggiornamento",
-      badgeIcon: "fa-clock-o",
+      badge: "Non disponibile",
+      badgeIcon: "fa-info-circle",
       badgeClass: "app-badge--unavailable",
       title: "Applicazione non disponibile",
-      body: "Questa applicazione è al momento non raggiungibile. Riprova più tardi."
+      body: "Questa applicazione è attualmente non disponibile."
     }
   };
 
