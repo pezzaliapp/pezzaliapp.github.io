@@ -288,12 +288,12 @@
     <div class="eyebrow"><span class="dot"></span>Made for Makers · Catalogo curato</div>
     <h1>Tutti i progetti, <span class="accent">in chiaro</span>.<br>Strumenti, giochi, <span class="accent-blue">esperimenti</span>.</h1>
     <p class="lead">
-      Una selezione di 39 progetti — PWA, tool operativi, giochi e simulatori — scelti tra oltre
+      Una selezione di 40 progetti — PWA, tool operativi, giochi e simulatori — scelti tra oltre
       250 repository pubblici. Tutto è statico, leggero, installabile come app, e quasi sempre
       utilizzabile offline. Open source, senza framework e senza tracker pesanti.
     </p>
     <div class="hero-stats">
-      <div class="stat"><strong>39</strong><span>Progetti curati nel catalogo</span></div>
+      <div class="stat"><strong>40</strong><span>Progetti curati nel catalogo</span></div>
       <div class="stat"><strong>11</strong><span>Categorie, dall'officina allo spazio</span></div>
       <div class="stat"><strong>250+</strong><span>Repo pubbliche su GitHub</span></div>
       <div class="stat"><strong>4.300+</strong><span>Contributi nell'ultimo anno</span></div>
@@ -314,7 +314,7 @@
       <a class="chip" href="#scienza"><i class="fa fa-cubes"></i> Scienza e rompicapi <span class="count">5</span></a>
       <a class="chip" href="#musica"><i class="fa fa-music"></i> Musica e creatività <span class="count">4</span></a>
       <a class="chip" href="#cyber"><i class="fa fa-shield"></i> Cyber e tributi retro <span class="count">2</span></a>
-      <a class="chip" href="#utility"><i class="fa fa-cog"></i> Utility <span class="count">1</span></a>
+      <a class="chip" href="#utility"><i class="fa fa-cog"></i> Utility <span class="count">3</span></a>
     </div>
   </div>
 </section>
@@ -354,13 +354,13 @@
         </div>
       </article>
 
-      <article class="app-card">
+      <article class="app-card" data-app-state="unavailable">
         <div class="icon-ph blue"><i class="fa fa-qrcode"></i></div>
         <h3>GommistaPro Assistant</h3>
         <p>Assistente per gommisti: gestisce listini fornitori, fa check stock e prezzi nei magazzini, genera preventivi. Senza fornitori caricati gira con dati demo. Legge anche il QR code dei pneumatici. App gratuita.</p>
         <div class="meta"><span class="tag brand">Gommista</span><span class="tag blue">QR scan</span><span class="tag">Listini</span></div>
         <div class="actions">
-          <a class="primary" href="https://gommistapro-assistant.alessandropezzali.it" target="_blank" rel="noopener">Apri</a>
+          <button type="button" class="primary appx-guard" aria-haspopup="dialog">Apri</button>
           <a class="secondary" href="https://github.com/pezzaliapp/gommistapro-assistant" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
         </div>
       </article>
@@ -491,15 +491,15 @@
     </div>
 
     <div class="apps-grid">
-      <article class="app-card">
+      <article class="app-card" data-app-state="private">
         <span class="card-badge"><i class="fa fa-trophy"></i> Kaggle 2026</span>
         <div class="icon-ph violet"><i class="fa fa-medkit"></i></div>
         <h3>TriageFirst</h3>
         <p>Assistente di triage medico offline-ready basato su Gemma 4: la PWA suggerisce livello di urgenza (rosso/giallo/verde) per comunità con accesso sanitario limitato. Ingresso voce/testo, 8 lingue, nessun account. In gara nella Kaggle Gemma 4 Impact Challenge.</p>
         <div class="meta"><span class="tag brand">Gemma 4</span><span class="tag blue">Offline-ready</span><span class="tag">PWA</span></div>
         <div class="actions">
-          <a class="primary" href="https://www.alessandropezzali.it/triagefirst/" target="_blank" rel="noopener">Apri</a>
-          <a class="secondary" href="https://github.com/pezzaliapp/triagefirst" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+          <button type="button" class="primary appx-guard" aria-haspopup="dialog">Apri</button>
+          <button type="button" class="secondary appx-guard" aria-haspopup="dialog"><i class="fa fa-github"></i> Codice</button>
         </div>
       </article>
 
@@ -753,14 +753,14 @@
         </div>
       </article>
 
-      <article class="app-card">
+      <article class="app-card" data-app-state="private">
         <div class="icon-ph warm"><i class="fa fa-cube"></i></div>
         <h3>RubikAPP</h3>
         <p>Cubo di Rubik virtuale con visualizzazione 3D e supporto alla risoluzione assistita. Tributo allo storico rompicapo, in versione PWA.</p>
         <div class="meta"><span class="tag">Puzzle</span><span class="tag brand">3D</span></div>
         <div class="actions">
-          <a class="primary" href="https://www.alessandropezzali.it/RubikAPP/" target="_blank" rel="noopener">Apri</a>
-          <a class="secondary" href="https://github.com/pezzaliapp/RubikAPP" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+          <button type="button" class="primary appx-guard" aria-haspopup="dialog">Apri</button>
+          <button type="button" class="secondary appx-guard" aria-haspopup="dialog"><i class="fa fa-github"></i> Codice</button>
         </div>
       </article>
 
@@ -829,18 +829,18 @@
         <p>Synth poliphonic a otto voci, browser-based: oscillatori, filtro e modulazioni in una sola pagina, navigabile come un sintetizzatore reale.</p>
         <div class="meta"><span class="tag blue">Synth</span><span class="tag">Web Audio</span></div>
         <div class="actions">
-          <a class="primary" href="https://www.alessandropezzali.it/moog-muse/" target="_blank" rel="noopener">Apri</a>
-          <a class="secondary" href="https://github.com/pezzaliapp/moog-muse" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
+          <a class="primary" href="https://www.alessandropezzali.it/POLY8/" target="_blank" rel="noopener">Apri</a>
+          <a class="secondary" href="https://github.com/pezzaliapp/POLY8" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
         </div>
       </article>
 
-      <article class="app-card">
+      <article class="app-card" data-app-state="unavailable">
         <div class="icon-ph warm"><i class="fa fa-music"></i></div>
         <h3>ONDA — Le Radio nel Mondo</h3>
         <p>Directory indipendente che ti collega in streaming alle radio di tutto il mondo: ricerca per nome, nazione o genere, preferiti, cronologia e sleep timer. Niente account e nessun tracciamento: le preferenze restano solo sul tuo dispositivo. PWA installabile.</p>
         <div class="meta"><span class="tag brand">Radio</span><span class="tag blue">Streaming</span><span class="tag">PWA</span></div>
         <div class="actions">
-          <a class="primary" href="https://www.alessandropezzali.it/Onda/" target="_blank" rel="noopener">Apri</a>
+          <button type="button" class="primary appx-guard" aria-haspopup="dialog">Apri</button>
           <a class="secondary" href="https://www.alessandropezzali.it/privacy-onda.html" target="_blank" rel="noopener"><i class="fa fa-shield"></i> Privacy</a>
         </div>
       </article>
@@ -894,7 +894,7 @@
         <h2 class="section-title">Piccoli strumenti per la vita di tutti i giorni</h2>
         <p class="section-lead">App leggere che risolvono un problema quotidiano e basta: niente fronzoli, niente account, niente tracciamento. Fatte per essere aperte, usate e chiuse.</p>
       </div>
-      <span class="count-pill">2 progetti</span>
+      <span class="count-pill">3 progetti</span>
     </div>
 
     <div class="apps-grid">
@@ -916,6 +916,16 @@
         <div class="meta"><span class="tag brand">Carburante</span><span class="tag blue">Prezzi</span><span class="tag">37 KB</span></div>
         <div class="actions">
           <a class="primary" href="https://www.alessandropezzali.it/Carbur/" target="_blank" rel="noopener">Apri</a>
+        </div>
+      </article>
+
+      <article class="app-card">
+        <div class="icon-ph blue"><i class="fa fa-th-large"></i></div>
+        <h3>Pezzali Open Source Toolbox</h3>
+        <p>Catalogo di librerie e risorse open-source per app, PWA, grafica, calcoli, 3D, mappe, dati e sviluppo. Licenze, zero-cost, compatibilità e utilizzo offline verificabili.</p>
+        <div class="meta"><span class="tag brand">Open Source</span><span class="tag blue">Librerie</span><span class="tag">Sviluppo</span></div>
+        <div class="actions">
+          <a class="primary" href="https://toolbox.alessandropezzali.it/" target="_blank" rel="noopener">Apri</a>
         </div>
       </article>
     </div>
@@ -960,6 +970,7 @@
 </footer>
 
 <script type="text/javascript" src="https://mapmyvisitors.com/map.js?cl=ffffff&w=a&t=tt&d=JWZAw6LMmQJ4s9bv0vPpPAhuGUraBPzrUI52jjFdEtM"></script>
+<script defer src="app-state.js"></script>
 
 </body>
 </html>
