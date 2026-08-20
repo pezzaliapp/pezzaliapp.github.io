@@ -95,6 +95,11 @@
     font-size: 0.9rem;
   }
 
+  footer p {
+    color: var(--muted);
+    margin-bottom: 0.35rem;
+  }
+
   a {
     color: var(--accent);
     text-decoration: none;
@@ -102,6 +107,21 @@
 
   a:hover {
     text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    body {
+      padding: 1rem 0.75rem;
+    }
+
+    main {
+      padding: 1.5rem;
+      border-radius: 10px;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+    }
   }
 </style>
 </head>
@@ -114,7 +134,6 @@
 
   <p class="meta">
     App: <strong>CSVXpressSmart Pezzali</strong> per Android e iOS
-    &middot; Versione 1.0
     &middot; Aggiornato il 20 agosto 2026
   </p>
 
@@ -131,8 +150,7 @@
   <h2>1. Titolare del trattamento</h2>
 
   <p>
-    Alessandro Pezzali
-    &middot;
+    Alessandro Pezzali &middot;
     Sito web:
     <a href="https://www.alessandropezzali.it">
       www.alessandropezzali.it
@@ -228,7 +246,7 @@
   <p>
     Dal momento in cui il contenuto viene trasferito al servizio scelto,
     il relativo trattamento dei dati è soggetto alle condizioni
-    e alla privacy policy del servizio esterno utilizzato.
+    e alla Privacy Policy del servizio esterno utilizzato.
   </p>
 
   <p>
@@ -326,19 +344,8 @@
   </p>
 
   <footer>
-    <p>
-      &copy; 2026 Alessandro Pezzali
-      &middot;
-      Tutti i diritti riservati
-    </p>
-
-    <p>
-      Documento valido per CSVXpressSmart Pezzali
-      Android e iOS
-      &middot;
-      Package / Bundle ID:
-      it.alessandropezzali.csvxpresssmart
-    </p>
+    <p>&copy; 2026 Alessandro Pezzali &middot; CSVXpressSmart Pezzali</p>
+    <p>Privacy Policy &middot; Android e iOS</p>
   </footer>
 
 </main>
