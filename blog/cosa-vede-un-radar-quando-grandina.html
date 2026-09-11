@@ -326,7 +326,7 @@
   <div class="inner">
     <a href="index.html" class="breadcrumb"><i class="fa fa-arrow-left" aria-hidden="true"></i> Tutti gli articoli</a>
     <h1>Cosa vede davvero un radar quando grandina</h1>
-    <p class="deck">Il radar non vede la grandine: vede un'eco e qualcuno deduce il resto. Ho scritto un motore che prova a farlo da solo, e qui c'è cosa fa, quanto preavviso dà davvero, e cosa non può dire.</p>
+    <p class="deck">Il radar non vede la grandine: vede un'eco, e il resto lo deduce qualcun altro. Ho scritto un motore che prova a dedurlo da solo; qui racconto che cosa fa, quanto preavviso dà davvero e che cosa non può dire.</p>
     <div class="article-meta">
       <strong>Alessandro Pezzali</strong>
       <span class="sep">·</span>
@@ -344,25 +344,26 @@
          alt="Schema del corridoio previsto: la cella temporalesca misurata adesso e i cerchi della
               sua posizione stimata, che si allargano man mano che ci si allontana nel tempo, con
               un comune sorvegliato dentro il cono.">
-    <figcaption>Quello che il motore calcola: la cella misurata adesso, e dove stima che sarà
-    minuto per minuto. Più il cerchio è avanti nel tempo, più è largo — cioè meno preciso.</figcaption>
+    <figcaption>Che cosa calcola il motore: la cella come il radar la misura adesso, e dove
+    prevede che si troverà minuto per minuto. Più un cerchio è lontano nel tempo, più è largo,
+    cioè meno preciso.</figcaption>
   </figure>
 
   <p>Il radar meteorologico <strong>non vede la grandine</strong>. Vede un'eco forte a qualche
-  chilometro d'altezza, e da lì qualcuno — un algoritmo, o una persona — deduce due cose: che
-  lassù c'è ghiaccio, e che quel ghiaccio arriverà fino a terra senza sciogliersi. Sono due
-  deduzioni diverse, e possono sbagliare tutte e due.</p>
+  chilometro d'altezza, e da quell'eco qualcuno — un algoritmo, o una persona — deduce due cose:
+  che lassù c'è del ghiaccio, e che quel ghiaccio arriverà fino a terra senza sciogliersi. Sono
+  due deduzioni distinte, e possono sbagliare tutte e due.</p>
 
   <p>Ho scritto un motore che prova a farle da solo. Si chiama <strong>Nowcast</strong>, gira su
   un portatile in casa mia, legge i mosaici radar della Protezione Civile e del servizio meteo
-  tedesco, insegue le celle temporalesche e manda una notifica quando una punta verso un comune
-  che hai messo sotto controllo.</p>
+  tedesco, insegue le celle temporalesche e manda una notifica quando una di queste punta verso
+  un comune che hai scelto di sorvegliare.</p>
 
   <aside class="cta-app">
     <div class="cta-testo">
       <h2>Provalo</h2>
-      <p>Gratis, senza registrazione. È un esperimento in corso: non sostituisce le allerte
-      ufficiali della Protezione Civile.</p>
+      <p>Gratis e senza registrazione. È un esperimento ancora in corso: non sostituisce le
+      allerte ufficiali della Protezione Civile.</p>
     </div>
     <a class="cta-bottone" href="https://nowcast.pezzalihub.app" target="_blank" rel="noopener">
       <i class="fa fa-bolt" aria-hidden="true"></i> Apri Nowcast
@@ -371,48 +372,51 @@
 
   <h2>Quanto preavviso dà davvero</h2>
 
-  <p><strong>Dieci, quindici minuti.</strong> Non di più, e chi promette di più sta promettendo
+  <p><strong>Dieci o quindici minuti.</strong> Non di più: chi promette di più sta promettendo
   un'altra cosa. Il corridoio disegnato sulla mappa arriva a settantacinque minuti, ma quella è
-  l'estensione della proiezione, non il preavviso: più ci si allontana nel tempo, più il cerchio
-  si allarga, e a un certo punto «forse passa di qua» copre mezza provincia e non serve a niente.
-  Dieci minuti sono quelli che bastano a mettere la macchina al coperto, non a cambiare i
-  programmi della giornata.</p>
+  la lunghezza della proiezione, non il preavviso: più ci si allontana nel tempo, più il cerchio
+  si allarga, finché «forse passa di qua» copre mezza provincia e non serve più a niente. Dieci
+  minuti bastano a mettere la macchina al coperto; non servono a cambiare i programmi della
+  giornata.</p>
 
   <h2>Che cosa guarda, e cosa non può guardare</h2>
 
-  <p>Guarda <strong>grandine</strong> e <strong>downburst</strong> — le raffiche che precipitano
-  da un temporale che collassa e stendono gli alberi a raggiera. Non guarda le trombe d'aria:
-  un tornado si riconosce dalla velocità radiale Doppler, e sui dati pubblici quel dato non c'è.
-  Senza, il vortice non si vede poco: non si vede.</p>
+  <p>Guarda la <strong>grandine</strong> e i <strong>downburst</strong>, cioè le raffiche che
+  precipitano da un temporale in collasso e stendono gli alberi a raggiera. Non guarda le trombe
+  d'aria: un tornado si riconosce dalla velocità radiale Doppler, e nei dati pubblici quel dato
+  non c'è. Senza, il vortice non si vede poco: non si vede affatto.</p>
 
-  <p>Della grandine, poi, il radar dice se c'è, non quanto è grossa. L'unico indizio sulla taglia
-  è la densità VIL — quanta acqua equivalente è concentrata in quanto spessore di nube — e la
-  soglia che separa la gragnola dai chicchi che ammaccano le lamiere sta attorno ai
-  <strong>3,5 g/m³</strong>. Il perché è più sotto, per chi ha voglia.</p>
+  <p>Della grandine, poi, il radar dice se c'è, non quanto è grossa. L'unico indizio sulla
+  dimensione è la densità VIL — quanta acqua equivalente è concentrata in quanto spessore di
+  nube — e la soglia che separa la gragnola dai chicchi capaci di ammaccare le lamiere si aggira
+  intorno ai <strong>3,5 g/m³</strong>. Il perché è più avanti, per chi ha voglia di leggerlo.</p>
 
   <h2>Funziona? Non lo so ancora, ed è il punto</h2>
 
   <p>Il motore ha emesso più di trecento avvisi. Di questi ne ho verificati sei — sei — con un
-  registro pubblico che tiene traccia di ognuno: cosa aveva previsto, e cosa è successo davvero.
-  Sei verifiche non sono un campione, sono aneddoti: cambiando idea su uno solo si passa dal
-  cinquanta al settantacinque per cento. Per questo dove dovrebbe esserci una percentuale di
-  successo il motore scrive che il campione non è sufficiente, invece di scrivere un numero
-  che farebbe scena.</p>
+  registro pubblico che tiene traccia di ognuno: che cosa aveva previsto, e che cosa è successo
+  davvero. Sei verifiche non sono un campione, sono aneddoti: basta cambiare idea su una sola per
+  passare dal cinquanta al settantacinque per cento. Per questo, dove dovrebbe esserci una
+  percentuale di successo, il motore scrive che il campione non è sufficiente, invece di scrivere
+  un numero che farebbe scena.</p>
 
-  <p>Mi rendo conto che sia il contrario di come si presenta un prodotto. Ma quella soglia dei
+  <p>Mi rendo conto che sia il contrario di come si presenta un prodotto. Ma quella soglia di
   3,5 g/m³ viene dalla letteratura scientifica e <strong>non è mai stata confrontata con un
-  chicco vero caduto in Italia</strong>: finché non lo sarà, ogni ritocco sarebbe fatto al buio.</p>
+  chicco vero caduto in Italia</strong>: finché non lo sarà, ogni ritocco sarebbe fatto al
+  buio.</p>
 
-  <p>Per questo la cosa che chiedo a chi apre l'app non è di installarla. È di rispondere alla
-  domanda che compare dopo ogni avviso — <em>è arrivata?</em> — <strong>soprattutto quando la
-  risposta è no</strong>. Un «non è successo niente» vale più di dieci conferme, perché è
-  l'unico dato che dice quando il motore sta gridando al lupo.</p>
+  <p><strong>Installala, anzi</strong>: su iPhone è indispensabile, perché le notifiche arrivano
+  soltanto all'app aggiunta alla schermata Home. Ma l'installazione, da sola, non mi dice niente.
+  Quello che mi serve è che tu risponda alla domanda che compare dopo ogni avviso —
+  <em>è arrivata?</em> — <strong>soprattutto quando la risposta è no</strong>. Un «non è successo
+  niente» vale più di dieci conferme: è l'unico dato che dice quando il motore sta gridando al
+  lupo.</p>
 
   <hr class="divisore">
 
-  <p class="avviso-tecnico">Da qui in poi è la parte tecnica: cosa misurano davvero i prodotti
-  radar pubblici, e perché «probabilità di grandine» non vuol dire quello che sembra. Non serve
-  per usare l'app — serve per sapere di cosa ci si sta fidando.</p>
+  <p class="avviso-tecnico">Da qui in poi è la parte tecnica: che cosa misurano davvero i
+  prodotti radar pubblici, e perché «probabilità di grandine» non vuol dire quello che sembra.
+  Non serve per usare l'app; serve per sapere di che cosa ci si sta fidando.</p>
 
   <h2>Il radar guarda in alto, la grandine cade in basso</h2>
 
@@ -464,16 +468,17 @@
 
   <h2>E le fonti?</h2>
 
-  <p>I dati di partenza sono pubblici e li può guardare chiunque: il mosaico radar è del
+  <p>I dati di partenza sono pubblici e li può consultare chiunque: il mosaico radar è del
   <a href="https://radar-protezionecivile.it" target="_blank" rel="noopener">Dipartimento della
   Protezione Civile</a>, quello tedesco del <a href="https://www.dwd.de" target="_blank"
-  rel="noopener">Deutscher Wetterdienst</a>. La parte interessante non è possederli. È sapere
-  cosa non dicono.</p>
+  rel="noopener">Deutscher Wetterdienst</a>. La parte interessante non è possederli: è sapere
+  che cosa non dicono.</p>
 
   <aside class="cta-app">
     <div class="cta-testo">
       <h2>Nowcast</h2>
-      <p>L'app che usa tutto questo. Gratis, senza registrazione, sperimentale.</p>
+      <p>Il motore che mette in pratica tutto questo. Gratis, senza registrazione,
+      sperimentale.</p>
     </div>
     <a class="cta-bottone" href="https://nowcast.pezzalihub.app" target="_blank" rel="noopener">
       <i class="fa fa-bolt" aria-hidden="true"></i> Apri Nowcast
