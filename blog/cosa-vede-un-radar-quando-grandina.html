@@ -351,8 +351,8 @@
 
   <p>Il radar meteorologico <strong>non vede la grandine</strong>. Vede un'eco forte a qualche
   chilometro d'altezza, e da quell'eco qualcuno — un algoritmo, o una persona — deduce due cose:
-  che lassù c'è del ghiaccio, e che quel ghiaccio arriverà fino a terra senza sciogliersi. Sono
-  due deduzioni distinte, e possono sbagliare tutte e due.</p>
+  che lassù c'è del ghiaccio, e che arriverà fino a terra senza sciogliersi. Possono sbagliare
+  tutte e due.</p>
 
   <p>Ho scritto un motore che prova a farle da solo. Si chiama <strong>Nowcast</strong>, gira su
   un portatile in casa mia, legge i mosaici radar della Protezione Civile e del servizio meteo
@@ -373,36 +373,45 @@
   <h2>Quanto preavviso dà davvero</h2>
 
   <p><strong>Dieci o quindici minuti.</strong> Non di più: chi promette di più sta promettendo
-  un'altra cosa. Il corridoio disegnato sulla mappa arriva a settantacinque minuti, ma quella è
-  la lunghezza della proiezione, non il preavviso: più ci si allontana nel tempo, più il cerchio
-  si allarga, finché «forse passa di qua» copre mezza provincia e non serve più a niente. Dieci
-  minuti bastano a mettere la macchina al coperto; non servono a cambiare i programmi della
-  giornata.</p>
+  un'altra cosa. Il corridoio sulla mappa arriva a settantacinque minuti, ma quella è la
+  lunghezza della proiezione, non il preavviso — più ci si allontana nel tempo più il cerchio si
+  allarga, finché «forse passa di qua» copre mezza provincia. Dieci minuti bastano a mettere la
+  macchina al coperto; non a cambiare i programmi della giornata.</p>
 
   <h2>Che cosa guarda, e cosa non può guardare</h2>
 
-  <p>Guarda la <strong>grandine</strong> e i <strong>downburst</strong>, cioè le raffiche che
+  <p>Guarda la <strong>grandine</strong> e i <strong>downburst</strong>, le raffiche che
   precipitano da un temporale in collasso e stendono gli alberi a raggiera. Non guarda le trombe
-  d'aria: un tornado si riconosce dalla velocità radiale Doppler, e nei dati pubblici quel dato
-  non c'è. Senza, il vortice non si vede poco: non si vede affatto.</p>
+  d'aria: un tornado si riconosce dalla velocità Doppler, che nei dati pubblici non c'è, e senza
+  quella il vortice non si vede affatto.</p>
 
-  <p>Della grandine, poi, il radar dice se c'è, non quanto è grossa. L'unico indizio sulla
-  dimensione è la densità VIL — quanta acqua equivalente è concentrata in quanto spessore di
-  nube — e la soglia che separa la gragnola dai chicchi capaci di ammaccare le lamiere si aggira
-  intorno ai <strong>3,5 g/m³</strong>. Il perché è più avanti, per chi ha voglia di leggerlo.</p>
+  <h2>Se i chicchi sono piccoli, l'avviso non parte</h2>
+
+  <p>Della grandine il radar dice se c'è, non quanto è grossa: il punteggio del motore nasce dai
+  dBZ, e i dBZ non distinguono la gragnola dal chicco da quattro centimetri. L'unico indizio
+  sulla dimensione è la <strong>densità VIL</strong> — quanta acqua equivalente è concentrata in
+  quanto spessore di nube — e la soglia che separa i due mondi si aggira intorno ai
+  <strong>3,5 g/m³</strong>.</p>
+
+  <p>Sotto quel valore <strong>Nowcast non manda niente</strong>, anche quando tutti gli altri
+  indicatori sono alti: quelli dicono che c'è un temporale e che è vigoroso, ma nessuno di loro
+  risponde alla domanda che il messaggio pone. Non lo apre nemmeno la conferma del servizio
+  meteo tedesco — vedere del ghiaccio non è dire che i chicchi sono grossi. E vale solo dove VIL
+  e altezza dell'eco sono <strong>misurati davvero</strong>: dove quei numeri non arrivano il
+  motore non trattiene nulla, perché un dato che manca non deve diventare un silenzio.</p>
 
   <h2>Funziona? Non lo so ancora, ed è il punto</h2>
 
   <p>Il motore ha emesso più di trecento avvisi. Di questi ne ho verificati sei — sei — con un
-  registro pubblico che tiene traccia di ognuno: che cosa aveva previsto, e che cosa è successo
-  davvero. Sei verifiche non sono un campione, sono aneddoti: basta cambiare idea su una sola per
-  passare dal cinquanta al settantacinque per cento. Per questo, dove dovrebbe esserci una
-  percentuale di successo, il motore scrive che il campione non è sufficiente, invece di scrivere
-  un numero che farebbe scena.</p>
+  registro che tiene traccia di ognuno: che cosa aveva previsto, e che cosa è successo davvero.
+  Il registro non è aperto al pubblico — è lo strumento con cui taro il motore — e i numeri di
+  questa pagina vengono da lì. Sei verifiche non sono un campione, sono aneddoti: basta cambiare
+  idea su una sola per passare dal cinquanta al settantacinque per cento. Per questo, dove
+  dovrebbe esserci una percentuale di successo, il motore scrive che il campione non basta.</p>
 
   <p>Mi rendo conto che sia il contrario di come si presenta un prodotto. Ma quella soglia di
   3,5 g/m³ viene dalla letteratura scientifica e <strong>non è mai stata confrontata con un
-  chicco vero caduto in Italia</strong>: finché non lo sarà, ogni ritocco sarebbe fatto al
+  chicco vero caduto in Italia</strong>: finché non lo sarà, ritoccarla sarebbe farlo al
   buio.</p>
 
   <p><strong>Installala, anzi</strong>: su iPhone è indispensabile, perché le notifiche arrivano

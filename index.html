@@ -339,6 +339,16 @@
     .nc-primary:hover{background:#eeae58}
     .nc-second{background:rgba(255,255,255,.05);color:#fff;border:1px solid var(--line)}
     .nc-second:hover{background:rgba(255,255,255,.09);border-color:rgba(224,154,60,.35)}
+    /* La cosa che il motore fa e che altrove non ho visto fare: il
+       cancello sulla densita' VIL. Sta sotto i pulsanti perche' non e'
+       quello che convince ad aprire l'app - e' quello che convince a
+       non disinstallarla dopo il terzo falso allarme. */
+    .nowcast-piu{
+      margin:0 0 14px;padding:12px 0 12px 16px;
+      border-left:3px solid rgba(224,154,60,.45);
+      color:var(--muted);font-size:.95rem;line-height:1.65;max-width:54ch
+    }
+    .nowcast-piu strong.testa{color:#f2c98a;display:block;margin-bottom:4px}
     .nowcast-note{margin:0;color:var(--soft);font-size:.85rem;line-height:1.6}
     .nowcast-fig img{
       width:100%;height:auto;border-radius:14px;border:1px solid rgba(255,255,255,.08);
@@ -423,6 +433,13 @@
           <strong>grandine</strong> o <strong>downburst</strong> — punta verso una zona che hai
           scelto di sorvegliare. Il preavviso reale è di dieci o quindici minuti: quelli che
           bastano a mettere la macchina al coperto.
+        </p>
+        <p class="nowcast-piu">
+          <strong class="testa">Se i chicchi sono piccoli, l'avviso non parte.</strong>
+          Il punteggio nasce dai dBZ, e i dBZ non distinguono la gragnola dalla grandine grossa.
+          Nowcast guarda anche la densità VIL — quanto ghiaccio è concentrato in quanto spessore
+          di nube — e sotto i 3,5 g/m³ non manda niente, nemmeno quando tutti gli altri
+          indicatori sono alti.
         </p>
         <p class="nowcast-note">
           Gratis e senza registrazione. Su iPhone va aggiunta alla schermata Home, altrimenti
