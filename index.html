@@ -290,6 +290,8 @@
       background:
         radial-gradient(ellipse at 78% 40%, rgba(224,154,60,.14), transparent 60%),
         linear-gradient(180deg,#0c1319 0%,#0e1620 100%);
+      /* dopo la scorciatoia, non prima: altrimenti lo azzera lei */
+      background-color:#0c1319;
       border-bottom:1px solid rgba(224,154,60,.22);
       padding:38px 0 34px;
     }
@@ -423,14 +425,15 @@
 
       <div class="nc-intro">
         <div class="nowcast-eyebrow"><span class="dot"></span>Novità · esperimento aperto</div>
-        <h2 id="nowcast-titolo">Ti avviso quando il temporale <span class="acc">punta verso il tuo comune</span>.</h2>
+        <h2 id="nowcast-titolo">Ti avviso quando <span class="acc">grandine o raffiche</span> puntano verso il tuo comune.</h2>
       </div>
 
       <div class="nc-dett">
         <p class="nowcast-lead">
           <strong>Nowcast</strong> legge i mosaici radar della Protezione Civile e del servizio
-          meteo tedesco, insegue i temporali e manda una notifica quando una cella pericolosa —
-          <strong>grandine</strong> o <strong>downburst</strong> — punta verso una zona che hai
+          meteo tedesco, insegue le celle temporalesche e manda una notifica quando una di loro
+          diventa pericolosa — <strong>grandine</strong> o <strong>downburst</strong> — e punta
+          verso una zona che hai
           scelto di sorvegliare. Il preavviso reale è di dieci o quindici minuti: quelli che
           bastano a mettere la macchina al coperto.
         </p>
