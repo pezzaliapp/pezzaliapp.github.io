@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Cosa vede davvero un radar quando grandina — Alessandro Pezzali</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Cosa misurano davvero POH, VIL e densità VIL, perché un radar senza Doppler non può vedere una tromba d'aria, che differenza c'è fra downburst e tornado e fra nowcasting e previsione.">
+  <meta name="description" content="Nowcast avvisa quando grandine o downburst puntano verso il tuo comune: dieci-quindici minuti di preavviso dai radar della Protezione Civile e del DWD. Cosa misurano davvero POH, VIL e densità VIL, e perché un radar senza Doppler non può vedere una tromba d'aria.">
   <meta name="author" content="Alessandro Pezzali">
   <meta name="theme-color" content="#00b894">
 
@@ -12,8 +12,10 @@
   <link rel="canonical" href="https://www.alessandropezzali.it/blog/cosa-vede-un-radar-quando-grandina.html">
 
   <meta property="og:title" content="Cosa vede davvero un radar quando grandina">
-  <meta property="og:description" content="Cosa misurano davvero POH, VIL e densità VIL, perché un radar senza Doppler non può vedere una tromba d'aria, che differenza c'è fra downburst e tornado e fra nowcasting e previsione.">
-  <meta property="og:image" content="https://www.alessandropezzali.it/preview.jpg">
+  <meta property="og:description" content="Nowcast avvisa quando grandine o downburst puntano verso il tuo comune: dieci-quindici minuti di preavviso dai radar della Protezione Civile e del DWD. Cosa misurano davvero POH, VIL e densità VIL, e perché un radar senza Doppler non può vedere una tromba d'aria.">
+  <meta property="og:image" content="https://www.alessandropezzali.it/images/nowcast-corridoio.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.alessandropezzali.it/blog/cosa-vede-un-radar-quando-grandina.html">
   <meta property="article:published_time" content="2026-09-11">
@@ -25,7 +27,7 @@
     "@context":"https://schema.org",
     "@type":"BlogPosting",
     "headline":"Cosa vede davvero un radar quando grandina",
-    "description":"Cosa misurano davvero POH, VIL e densità VIL, perché un radar senza Doppler non può vedere una tromba d'aria, che differenza c'è fra downburst e tornado e fra nowcasting e previsione.",
+    "description":"Nowcast avvisa quando grandine o downburst puntano verso il tuo comune: dieci-quindici minuti di preavviso dai radar della Protezione Civile e del DWD. Cosa misurano davvero POH, VIL e densità VIL, e perché un radar senza Doppler non può vedere una tromba d'aria.",
     "datePublished":"2026-09-11",
     "dateModified":"2026-09-11",
     "inLanguage":"it-IT",
@@ -34,7 +36,7 @@
       "name":"Alessandro Pezzali",
       "url":"https://www.alessandropezzali.it"
     },
-    "image":"https://www.alessandropezzali.it/preview.jpg",
+    "image":"https://www.alessandropezzali.it/images/nowcast-corridoio.png",
     "mainEntityOfPage":{
       "@type":"WebPage",
       "@id":"https://www.alessandropezzali.it/blog/cosa-vede-un-radar-quando-grandina.html"
@@ -183,6 +185,62 @@
       padding:2px 6px;border-radius:5px;color:#aef0df
     }
 
+    /* ===== Apertura: l'immagine prima di tutto =====
+       La figura sfora la colonna di lettura di 40 px per lato: su
+       schermo largo si vede che e' un'illustrazione e non un blocco di
+       testo; sotto i 540 px torna dentro i margini. */
+    article.post figure.apri{
+      margin:0 -40px 1.8em;
+    }
+    article.post figure.apri img{
+      width:100%;height:auto;border-radius:14px;border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 14px 34px rgba(0,0,0,.45)
+    }
+    article.post figure.apri figcaption{
+      font-family:'Poppins',sans-serif;font-size:.86rem;line-height:1.6;
+      color:var(--soft);margin-top:10px;text-align:center;padding:0 40px
+    }
+
+    /* Riquadro con il link all'app: uno in cima, uno in fondo. */
+    .cta-app{
+      display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;
+      margin:2em 0;padding:22px 24px;border-radius:14px;
+      font-family:'Poppins',sans-serif;
+      background:
+        radial-gradient(ellipse at 85% 30%, rgba(224,154,60,.14), transparent 65%),
+        linear-gradient(180deg,#1b232c,#151c23);
+      border:1px solid rgba(224,154,60,.28);
+      box-shadow:var(--shadow)
+    }
+    .cta-testo{flex:1 1 260px}
+    article.post .cta-app h2{
+      margin:0 0 6px;font-size:1.15rem;color:#fff
+    }
+    article.post .cta-app p{
+      margin:0;font-family:'Poppins',sans-serif;font-size:.92rem;line-height:1.6;
+      color:var(--muted);text-align:left;hyphens:none;-webkit-hyphens:none
+    }
+    article.post a.cta-bottone{
+      display:inline-flex;align-items:center;gap:9px;flex:0 0 auto;
+      padding:13px 22px;border-radius:12px;
+      background:#E09A3C;color:#0C1319;border:1px solid #E09A3C;
+      font-weight:700;font-size:.98rem;text-decoration:none;
+      transition:background .18s ease,transform .18s ease
+    }
+    article.post a.cta-bottone:hover{
+      background:#eeae58;color:#0C1319;transform:translateY(-2px);text-decoration:none
+    }
+
+    /* Lo stacco fra la parte per tutti e la parte tecnica. */
+    hr.divisore{
+      border:0;height:1px;background:var(--line);margin:3em 0 1.6em
+    }
+    article.post p.avviso-tecnico{
+      font-family:'Poppins',sans-serif;font-size:.92rem;line-height:1.65;
+      color:var(--soft);text-align:left;hyphens:none;-webkit-hyphens:none;
+      border-left:3px solid rgba(224,154,60,.45);padding-left:16px
+    }
+
     /* Box link al progetto / call-to-action */
     .links-box{
       max-width:var(--read-w);margin:8px auto 0;padding:0 20px;
@@ -237,6 +295,10 @@
       article.post{padding:36px 18px 24px;font-size:1.08rem;line-height:1.75}
       article.post p{text-align:left;hyphens:none;-webkit-hyphens:none}
       article.post p:first-of-type{font-size:1.14rem}
+      article.post figure.apri{margin:0 0 1.5em}
+      article.post figure.apri figcaption{padding:0;text-align:left}
+      .cta-app{padding:18px;gap:14px}
+      article.post a.cta-bottone{width:100%;justify-content:center}
       .post-nav{flex-direction:column;align-items:stretch}
       .post-nav a{justify-content:center}
     }
@@ -264,24 +326,93 @@
   <div class="inner">
     <a href="index.html" class="breadcrumb"><i class="fa fa-arrow-left" aria-hidden="true"></i> Tutti gli articoli</a>
     <h1>Cosa vede davvero un radar quando grandina</h1>
-    <p class="deck">POH, VIL, densità VIL, echo top: cosa misurano davvero i prodotti radar pubblici, che cosa non possono dire, e perché «probabilità di grandine» non vuol dire quello che sembra.</p>
+    <p class="deck">Il radar non vede la grandine: vede un'eco e qualcuno deduce il resto. Ho scritto un motore che prova a farlo da solo, e qui c'è cosa fa, quanto preavviso dà davvero, e cosa non può dire.</p>
     <div class="article-meta">
       <strong>Alessandro Pezzali</strong>
       <span class="sep">·</span>
       <time datetime="2026-09-11">11 settembre 2026</time>
       <span class="sep">·</span>
-      <span>10 min di lettura</span>
+      <span>4 min, più la parte tecnica</span>
     </div>
   </div>
 </header>
 
 <article class="post">
 
-  <p>C'è una frase che sento ripetere ogni estate, di solito da qualcuno che ha appena guardato un'app sul telefono: «il radar dice che grandina». Non è sbagliata come sembra. È sbagliata in un modo più sottile, e vale la pena capirlo, perché da quella frase dipende se ci si fida o no di un avviso che arriva dieci minuti prima di una grandinata.</p>
+  <figure class="apri">
+    <img src="../images/nowcast-schema.png" width="1000" height="620" loading="eager"
+         alt="Schema del corridoio previsto: la cella temporalesca misurata adesso e i cerchi della
+              sua posizione stimata, che si allargano man mano che ci si allontana nel tempo, con
+              un comune sorvegliato dentro il cono.">
+    <figcaption>Quello che il motore calcola: la cella misurata adesso, e dove stima che sarà
+    minuto per minuto. Più il cerchio è avanti nel tempo, più è largo — cioè meno preciso.</figcaption>
+  </figure>
 
-  <p>Il radar meteorologico non vede la grandine. Manda un impulso, ascolta quanto gli torna indietro, e da quanto gli torna indietro deduce che lassù, a qualche chilometro d'altezza, c'è qualcosa che riflette molto. Il ghiaccio riflette molto. Anche una pioggia molto intensa riflette molto. Il radar registra un'eco forte e scrive un numero; che quel numero sia grandine, e soprattutto che quella grandine arrivi fino a terra senza sciogliersi, è una deduzione, e la fa qualcun altro — un algoritmo, o una persona.</p>
+  <p>Il radar meteorologico <strong>non vede la grandine</strong>. Vede un'eco forte a qualche
+  chilometro d'altezza, e da lì qualcuno — un algoritmo, o una persona — deduce due cose: che
+  lassù c'è ghiaccio, e che quel ghiaccio arriverà fino a terra senza sciogliersi. Sono due
+  deduzioni diverse, e possono sbagliare tutte e due.</p>
 
-  <p>Io questa differenza l'ho capita davvero solo costruendo un motore che prova a fare quella deduzione da solo. Quello che segue è, in sostanza, l'elenco delle cose che ho sbagliato per primo.</p>
+  <p>Ho scritto un motore che prova a farle da solo. Si chiama <strong>Nowcast</strong>, gira su
+  un portatile in casa mia, legge i mosaici radar della Protezione Civile e del servizio meteo
+  tedesco, insegue le celle temporalesche e manda una notifica quando una punta verso un comune
+  che hai messo sotto controllo.</p>
+
+  <aside class="cta-app">
+    <div class="cta-testo">
+      <h2>Provalo</h2>
+      <p>Gratis, senza registrazione. È un esperimento in corso: non sostituisce le allerte
+      ufficiali della Protezione Civile.</p>
+    </div>
+    <a class="cta-bottone" href="https://nowcast.pezzalihub.app" target="_blank" rel="noopener">
+      <i class="fa fa-bolt" aria-hidden="true"></i> Apri Nowcast
+    </a>
+  </aside>
+
+  <h2>Quanto preavviso dà davvero</h2>
+
+  <p><strong>Dieci, quindici minuti.</strong> Non di più, e chi promette di più sta promettendo
+  un'altra cosa. Il corridoio disegnato sulla mappa arriva a settantacinque minuti, ma quella è
+  l'estensione della proiezione, non il preavviso: più ci si allontana nel tempo, più il cerchio
+  si allarga, e a un certo punto «forse passa di qua» copre mezza provincia e non serve a niente.
+  Dieci minuti sono quelli che bastano a mettere la macchina al coperto, non a cambiare i
+  programmi della giornata.</p>
+
+  <h2>Che cosa guarda, e cosa non può guardare</h2>
+
+  <p>Guarda <strong>grandine</strong> e <strong>downburst</strong> — le raffiche che precipitano
+  da un temporale che collassa e stendono gli alberi a raggiera. Non guarda le trombe d'aria:
+  un tornado si riconosce dalla velocità radiale Doppler, e sui dati pubblici quel dato non c'è.
+  Senza, il vortice non si vede poco: non si vede.</p>
+
+  <p>Della grandine, poi, il radar dice se c'è, non quanto è grossa. L'unico indizio sulla taglia
+  è la densità VIL — quanta acqua equivalente è concentrata in quanto spessore di nube — e la
+  soglia che separa la gragnola dai chicchi che ammaccano le lamiere sta attorno ai
+  <strong>3,5 g/m³</strong>. Il perché è più sotto, per chi ha voglia.</p>
+
+  <h2>Funziona? Non lo so ancora, ed è il punto</h2>
+
+  <p>Il motore ha emesso più di trecento avvisi. Di questi ne ho verificati sei — sei — con un
+  registro pubblico che tiene traccia di ognuno: cosa aveva previsto, e cosa è successo davvero.
+  Sei verifiche non sono un campione, sono aneddoti: cambiando idea su uno solo si passa dal
+  cinquanta al settantacinque per cento. Per questo dove dovrebbe esserci una percentuale di
+  successo il motore scrive che il campione non è sufficiente, invece di scrivere un numero
+  che farebbe scena.</p>
+
+  <p>Mi rendo conto che sia il contrario di come si presenta un prodotto. Ma quella soglia dei
+  3,5 g/m³ viene dalla letteratura scientifica e <strong>non è mai stata confrontata con un
+  chicco vero caduto in Italia</strong>: finché non lo sarà, ogni ritocco sarebbe fatto al buio.</p>
+
+  <p>Per questo la cosa che chiedo a chi apre l'app non è di installarla. È di rispondere alla
+  domanda che compare dopo ogni avviso — <em>è arrivata?</em> — <strong>soprattutto quando la
+  risposta è no</strong>. Un «non è successo niente» vale più di dieci conferme, perché è
+  l'unico dato che dice quando il motore sta gridando al lupo.</p>
+
+  <hr class="divisore">
+
+  <p class="avviso-tecnico">Da qui in poi è la parte tecnica: cosa misurano davvero i prodotti
+  radar pubblici, e perché «probabilità di grandine» non vuol dire quello che sembra. Non serve
+  per usare l'app — serve per sapere di cosa ci si sta fidando.</p>
 
   <h2>Il radar guarda in alto, la grandine cade in basso</h2>
 
@@ -331,19 +462,23 @@
 
   <p>Sono strumenti complementari, e sbagliano in modo diverso. Il modello sbaglia perché semplifica; l'estrapolazione sbaglia perché i temporali nascono, si fondono e muoiono, e una cella che sta per collassare continua a essere proiettata come se dovesse durare. Per questo un nowcast onesto dichiara sempre due cose: quanto è vecchio il dato radar da cui parte, e quanto è affidabile il moto che ha misurato.</p>
 
-  <h2>E adesso la parte scomoda</h2>
+  <h2>E le fonti?</h2>
 
-  <p>Tutto quello che ho scritto sopra l'ho messo dentro un motore che gira su un portatile in casa mia. Si chiama Nowcast, legge il mosaico della Protezione Civile e quello del servizio meteo tedesco, individua le celle, le insegue, e quando una punta verso un comune sorvegliato manda una notifica. Il preavviso realistico è di dieci, quindici minuti: quelli che servono a mettere la macchina al coperto, non a cambiare i programmi della giornata.</p>
+  <p>I dati di partenza sono pubblici e li può guardare chiunque: il mosaico radar è del
+  <a href="https://radar-protezionecivile.it" target="_blank" rel="noopener">Dipartimento della
+  Protezione Civile</a>, quello tedesco del <a href="https://www.dwd.de" target="_blank"
+  rel="noopener">Deutscher Wetterdienst</a>. La parte interessante non è possederli. È sapere
+  cosa non dicono.</p>
 
-  <p>Funziona? <strong>Non lo so ancora, e questo è il punto.</strong></p>
-
-  <p>Ha emesso più di trecento avvisi. Di questi ne ho verificati sei — sei, con un registro pubblico che tiene traccia di ognuno, di cosa aveva previsto e di cosa è successo davvero. Sei verifiche non sono un campione: sono aneddoti. Cambiando idea su uno solo si passa dal cinquanta al settantacinque per cento, e per questo il motore, dove dovrebbe esserci una percentuale di successo, scrive che il campione non è sufficiente.</p>
-
-  <p>Mi rendo conto che sia il contrario di come si presenta un prodotto. Ma la soglia dei 3,5 g/m³ sulla densità VIL viene dalla letteratura scientifica e <strong>non è mai stata confrontata con un chicco vero caduto in Italia</strong>. Finché non lo sarà, ogni ritocco a quel numero sarebbe fatto al buio. Per questo la cosa che chiedo a chi prova l'app non è di installarla: è di rispondere alla domanda che compare dopo ogni avviso — <em>è arrivata?</em> — soprattutto quando la risposta è no. Un «non è successo niente» vale più di dieci conferme, perché è l'unico dato che dice quando il motore sta gridando al lupo.</p>
-
-  <p>Se vi interessa guardarlo, o provarlo, l'indirizzo è <a href="https://nowcast.pezzalihub.app" target="_blank" rel="noopener">nowcast.pezzalihub.app</a>. È gratuito, non chiede registrazione e non sostituisce le allerte ufficiali della Protezione Civile: è un esperimento in corso, e finché il registro non dirà qualcosa va trattato come tale.</p>
-
-  <p>I dati di partenza, invece, sono pubblici e li può guardare chiunque: il mosaico radar è del <a href="https://radar-protezionecivile.it" target="_blank" rel="noopener">Dipartimento della Protezione Civile</a>, quello tedesco del <a href="https://www.dwd.de" target="_blank" rel="noopener">Deutscher Wetterdienst</a>. La parte interessante non è possederli. È sapere cosa non dicono.</p>
+  <aside class="cta-app">
+    <div class="cta-testo">
+      <h2>Nowcast</h2>
+      <p>L'app che usa tutto questo. Gratis, senza registrazione, sperimentale.</p>
+    </div>
+    <a class="cta-bottone" href="https://nowcast.pezzalihub.app" target="_blank" rel="noopener">
+      <i class="fa fa-bolt" aria-hidden="true"></i> Apri Nowcast
+    </a>
+  </aside>
 
 </article>
 

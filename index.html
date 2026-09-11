@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <title>Alessandro Pezzali — Made for Makers · 40 PWA, tool e simulatori</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Sviluppatore indipendente, maker e autore. PWA operative, AI applicata al lavoro, simulatori scientifici e giochi arcade. Open source, leggero, statico su GitHub Pages.">
-  <meta name="keywords" content="Alessandro Pezzali, pezzaliAPP, PWA, Made for Makers, MeteorWatch, CubeSat, GeoTrack, FleXiLift, open source, GitHub Pages">
+  <meta name="description" content="Sviluppatore indipendente, maker e autore. Nowcast, l'app sperimentale che avvisa quando grandine o downburst puntano verso il tuo comune, più PWA operative, AI applicata al lavoro e simulatori scientifici. Open source, leggero, statico su GitHub Pages.">
+  <meta name="keywords" content="Nowcast grandine, allerta grandine, downburst, nowcasting radar, Alessandro Pezzali, pezzaliAPP, PWA, Made for Makers, MeteorWatch, CubeSat, GeoTrack, FleXiLift, open source, GitHub Pages">
   <meta name="author" content="Alessandro Pezzali">
   <meta name="theme-color" content="#00b894">
 
@@ -284,6 +284,86 @@
     .footer-bottom{text-align:center;padding:16px 0 6px;color:#aaa;font-size:.85rem;border-top:1px solid rgba(255,255,255,.06);margin-top:24px}
     .map-wrap{max-width:520px;margin:24px auto 0}
 
+    /* ===== Fascia Nowcast (in cima, sopra l'hero) ===== */
+    .nowcast-band{
+      margin-top:var(--navH);
+      background:
+        radial-gradient(ellipse at 78% 40%, rgba(224,154,60,.14), transparent 60%),
+        linear-gradient(180deg,#0c1319 0%,#0e1620 100%);
+      border-bottom:1px solid rgba(224,154,60,.22);
+      padding:38px 0 34px;
+    }
+    .nowcast-band + .hero{margin-top:0}
+    /* Su schermo largo: testo a sinistra, disegno a destra.
+       Su telefono l'ordine cambia — titolo, disegno, pulsanti, e solo
+       dopo la spiegazione lunga — perche' il pulsante deve stare nella
+       prima schermata, e la spiegazione da sola la mangerebbe tutta. */
+    .nowcast-grid{
+      display:grid;gap:10px 34px;
+      grid-template-columns:1.05fr .95fr;
+      grid-template-areas:
+        "intro  fig"
+        "dett   fig"
+        "azione fig";
+      align-content:center
+    }
+    .nc-intro{grid-area:intro}
+    .nc-dett{grid-area:dett}
+    .nc-azione{grid-area:azione}
+    .nowcast-fig{grid-area:fig;align-self:center}
+    .nowcast-eyebrow{
+      display:inline-flex;align-items:center;gap:8px;padding:6px 12px;
+      border:1px solid rgba(224,154,60,.34);border-radius:999px;
+      background:rgba(224,154,60,.08);
+      font-size:.76rem;color:#f2c98a;margin-bottom:14px;
+      letter-spacing:.4px;text-transform:uppercase;font-weight:600
+    }
+    .nowcast-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#E09A3C}
+    .nowcast-band h2{
+      margin:0 0 12px;font-size:clamp(1.55rem,3.6vw,2.3rem);line-height:1.15;
+      letter-spacing:-.02em
+    }
+    .nowcast-band h2 .acc{color:#E09A3C}
+    .nowcast-band p.nowcast-lead{
+      margin:0 0 18px;color:var(--muted);font-size:1.02rem;line-height:1.65;max-width:54ch
+    }
+    .nowcast-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:14px}
+    .nowcast-cta a{
+      display:inline-flex;align-items:center;gap:9px;
+      padding:13px 22px;border-radius:12px;text-decoration:none;
+      font-weight:700;font-size:.98rem;
+      transition:transform .18s ease,background .18s ease,border-color .18s ease
+    }
+    .nowcast-cta a:hover{transform:translateY(-2px)}
+    .nc-primary{background:#E09A3C;color:#0C1319;border:1px solid #E09A3C}
+    .nc-primary:hover{background:#eeae58}
+    .nc-second{background:rgba(255,255,255,.05);color:#fff;border:1px solid var(--line)}
+    .nc-second:hover{background:rgba(255,255,255,.09);border-color:rgba(224,154,60,.35)}
+    .nowcast-note{margin:0;color:var(--soft);font-size:.85rem;line-height:1.6}
+    .nowcast-fig img{
+      width:100%;height:auto;border-radius:14px;border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 14px 34px rgba(0,0,0,.45)
+    }
+    .nowcast-fig figcaption{
+      margin-top:9px;color:var(--soft);font-size:.82rem;line-height:1.55;text-align:center
+    }
+    @media (max-width: 880px){
+      .nowcast-grid{
+        grid-template-columns:1fr;gap:18px;
+        grid-template-areas:"intro" "fig" "azione" "dett"
+      }
+      .nowcast-band p.nowcast-lead{margin-bottom:0}
+      .nowcast-note{margin-top:12px}
+    }
+    @media (max-width: 540px){
+      .nowcast-band{padding:22px 0 26px}
+      .nowcast-grid{gap:14px}
+      .nowcast-band h2{margin-bottom:0}
+      .nowcast-cta{flex-direction:column;align-items:stretch;margin-bottom:0}
+      .nowcast-cta a{justify-content:center;width:100%}
+      .nowcast-fig figcaption{margin-top:8px;font-size:.78rem;text-align:left}
+    }
+
     /* Responsive */
     @media (max-width: 1180px){
       .apps-grid{grid-template-columns:repeat(2,1fr)}
@@ -323,6 +403,58 @@
     </ul>
   </div>
 </nav>
+
+<!-- Nowcast: in cima, prima di tutto il resto. Non una finestra sopra
+     la pagina - Google penalizza gli avvisi a tutto schermo su mobile
+     e chi arriva li chiude senza leggerli. -->
+<section class="nowcast-band" aria-labelledby="nowcast-titolo">
+  <div class="container">
+    <div class="nowcast-grid">
+
+      <div class="nc-intro">
+        <div class="nowcast-eyebrow"><span class="dot"></span>Novità · esperimento aperto</div>
+        <h2 id="nowcast-titolo">Ti avviso quando il temporale <span class="acc">punta verso il tuo comune</span>.</h2>
+      </div>
+
+      <div class="nc-dett">
+        <p class="nowcast-lead">
+          <strong>Nowcast</strong> legge i mosaici radar della Protezione Civile e del servizio
+          meteo tedesco, insegue le celle temporalesche e manda una notifica quando una cella
+          pericolosa — <strong>grandine</strong> o <strong>downburst</strong> — punta verso un
+          comune che hai messo sotto controllo. Il preavviso reale è di dieci, quindici minuti:
+          quelli che servono a mettere la macchina al coperto.
+        </p>
+        <p class="nowcast-note">
+          Gratis, senza registrazione. È un motore sperimentale in fase di validazione:
+          <strong>non sostituisce</strong> le allerte ufficiali della Protezione Civile.
+        </p>
+      </div>
+
+      <div class="nc-azione">
+        <div class="nowcast-cta">
+          <a class="nc-primary" href="https://nowcast.pezzalihub.app" target="_blank" rel="noopener">
+            <i class="fa fa-bolt"></i> Apri Nowcast
+          </a>
+          <a class="nc-second" href="blog/cosa-vede-un-radar-quando-grandina.html">
+            Come funziona <i class="fa fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <figure class="nowcast-fig">
+        <img src="images/nowcast-schema.png" width="1000" height="620" loading="eager"
+             alt="Schema del corridoio previsto: la cella temporalesca misurata adesso e i cerchi
+                  della sua posizione stimata, che si allargano man mano che ci si allontana nel
+                  tempo, con un comune sorvegliato dentro il cono.">
+        <figcaption>
+          La cella misurata adesso, e dove il motore stima che sarà minuto per minuto.
+          Più il cerchio è avanti nel tempo, più è largo: meno preciso.
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
 
 <header class="hero">
   <!-- Sfondo animato: orbite + stelle, puro SVG/CSS -->
