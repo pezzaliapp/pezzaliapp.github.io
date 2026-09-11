@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Cosa vede davvero un radar quando grandina — Alessandro Pezzali</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cosa misurano davvero POH, VIL e densità VIL, perché un radar senza Doppler non può vedere una tromba d'aria, che differenza c'è fra downburst e tornado e fra nowcasting e previsione.">
+  <meta name="author" content="Alessandro Pezzali">
+  <meta name="theme-color" content="#00b894">
+
+  <link rel="icon" href="../favicon.ico">
+  <link rel="canonical" href="https://www.alessandropezzali.it/blog/cosa-vede-un-radar-quando-grandina.html">
+
+  <meta property="og:title" content="Cosa vede davvero un radar quando grandina">
+  <meta property="og:description" content="Cosa misurano davvero POH, VIL e densità VIL, perché un radar senza Doppler non può vedere una tromba d'aria, che differenza c'è fra downburst e tornado e fra nowcasting e previsione.">
+  <meta property="og:image" content="https://www.alessandropezzali.it/preview.jpg">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.alessandropezzali.it/blog/cosa-vede-un-radar-quando-grandina.html">
+  <meta property="article:published_time" content="2026-09-11">
+  <meta property="article:author" content="Alessandro Pezzali">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BlogPosting",
+    "headline":"Cosa vede davvero un radar quando grandina",
+    "description":"Cosa misurano davvero POH, VIL e densità VIL, perché un radar senza Doppler non può vedere una tromba d'aria, che differenza c'è fra downburst e tornado e fra nowcasting e previsione.",
+    "datePublished":"2026-09-11",
+    "dateModified":"2026-09-11",
+    "inLanguage":"it-IT",
+    "author":{
+      "@type":"Person",
+      "name":"Alessandro Pezzali",
+      "url":"https://www.alessandropezzali.it"
+    },
+    "image":"https://www.alessandropezzali.it/preview.jpg",
+    "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":"https://www.alessandropezzali.it/blog/cosa-vede-un-radar-quando-grandina.html"
+    },
+    "about":[
+      {"@type":"Thing","name":"grandine"},
+      {"@type":"Thing","name":"radar meteorologico"},
+      {"@type":"Thing","name":"downburst"},
+      {"@type":"Thing","name":"nowcasting"}
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    :root{
+      --bg:#121212;
+      --panel:#1b1b1b;
+      --text:#f0f0f0;
+      --muted:#c8c8c8;
+      --soft:#9a9a9a;
+      --line:rgba(255,255,255,.08);
+      --brand:#00b894;
+      --blue:#0984e3;
+      --shadow:0 12px 32px rgba(0,0,0,.28);
+      --navH:64px;
+      --container:1180px;
+      --read-w:720px;
+      --serif: Georgia, "Iowan Old Style", "Charter", "Source Serif Pro", "Cambria", serif;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;min-height:100%;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+    html{scroll-behavior:smooth}
+    img{max-width:100%;display:block}
+    a{color:inherit}
+
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+    /* Nav */
+    nav.topnav{
+      position:fixed;inset:0 0 auto 0;z-index:1000;
+      background:rgba(8,8,8,.88);
+      backdrop-filter:saturate(140%) blur(10px);
+      -webkit-backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      height:var(--navH);
+    }
+    .nav-wrap{max-width:1320px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:18px;height:100%}
+    .logo{font-size:1rem;font-weight:700;letter-spacing:.2px;white-space:nowrap;flex-shrink:0;text-decoration:none;color:#fff}
+    .logo span{color:var(--brand)}
+    nav.topnav ul{display:flex;flex-wrap:nowrap;gap:6px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;max-width:100%}
+    nav.topnav ul::-webkit-scrollbar{display:none}
+    nav.topnav li{flex:0 0 auto}
+    nav.topnav a{
+      display:inline-flex;align-items:center;justify-content:center;min-height:38px;
+      padding:8px 12px;border-radius:999px;text-decoration:none;font-size:.92rem;color:#f0f0f0;
+      transition:background .2s ease,color .2s ease,transform .2s ease;
+    }
+    nav.topnav a:hover{background:rgba(255,255,255,.06);color:#fff;transform:translateY(-1px)}
+    nav.topnav a.active{background:rgba(0,184,148,.14);border:1px solid rgba(0,184,148,.30);color:#fff}
+    .nav-blue{color:#7ec8ff !important;font-weight:700}
+    .nav-red{color:#ff8181 !important;font-weight:700}
+
+    /* Header articolo */
+    .article-header{
+      position:relative;margin-top:var(--navH);
+      padding:64px 0 32px;border-bottom:1px solid var(--line);overflow:hidden;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(0,184,148,.10), transparent 50%),
+        radial-gradient(ellipse at 80% 30%, rgba(9,132,227,.10), transparent 55%),
+        linear-gradient(180deg, #0a0e14 0%, #121212 100%);
+    }
+    .article-header .inner{max-width:var(--read-w);margin:0 auto;padding:0 20px}
+    .breadcrumb{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:.85rem;color:var(--soft);margin-bottom:18px;text-decoration:none;
+      transition:color .2s ease
+    }
+    .breadcrumb:hover{color:#aef0df}
+    .breadcrumb i{font-size:.78rem}
+    .article-header h1{
+      font-family:'Poppins',sans-serif;
+      font-size:clamp(1.9rem,4.6vw,2.8rem);line-height:1.15;
+      margin:0 0 16px;font-weight:700;letter-spacing:-.4px
+    }
+    .article-header .deck{
+      font-family:var(--serif);font-style:italic;
+      color:var(--muted);font-size:1.05rem;line-height:1.6;margin:0 0 16px;max-width:640px
+    }
+    .article-meta{
+      display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+      font-size:.88rem;color:var(--soft)
+    }
+    .article-meta .sep{opacity:.4}
+    .article-meta strong{color:var(--muted);font-weight:600}
+
+    /* Corpo articolo: serif per leggibilità */
+    article.post{
+      max-width:var(--read-w);margin:0 auto;padding:48px 20px 32px;
+      font-family:var(--serif);
+      font-size:1.16rem;line-height:1.78;color:#e8e8e8;
+    }
+    /* TESTO GIUSTIFICATO.
+       Da solo il giustificato sul web peggiora la lettura: il browser
+       allarga gli spazi fra le parole per far quadrare la riga, e su una
+       colonna stretta si aprono i «fiumi» bianchi verticali. La sillabazione
+       automatica e' quello che lo rende leggibile — spezza le parole lunghe
+       e gli spazi restano normali. Funziona perche' la pagina dichiara
+       lang="it": senza quella, il browser non sa dove spezzare.
+       Sotto i 540 px torna allineato a sinistra: su una colonna da telefono
+       nemmeno la sillabazione basta a evitare i buchi. */
+    article.post p{
+      margin:0 0 1.4em;
+      text-align:justify;
+      text-justify:inter-word;
+      hyphens:auto;
+      -webkit-hyphens:auto;
+    }
+    article.post p:first-of-type{
+      font-size:1.22rem;color:#f0f0f0
+    }
+    article.post a{
+      color:#aef0df;text-decoration:underline;text-decoration-color:rgba(0,184,148,.45);
+      text-underline-offset:3px;transition:color .2s ease,text-decoration-color .2s ease
+    }
+    article.post a:hover{color:#13d2ad;text-decoration-color:#13d2ad}
+    article.post h2,article.post h3{
+      font-family:'Poppins',sans-serif;color:#fff;
+      margin:1.8em 0 .6em;line-height:1.3
+    }
+    article.post h2{font-size:1.5rem}
+    article.post h3{font-size:1.2rem}
+    article.post em{color:#f0f0f0}
+    article.post strong{color:#fff;font-weight:700}
+    article.post blockquote{
+      margin:1.6em 0;padding:8px 0 8px 22px;
+      border-left:3px solid var(--brand);
+      color:var(--muted);font-style:italic
+    }
+    article.post code{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:.92em;background:rgba(255,255,255,.06);
+      padding:2px 6px;border-radius:5px;color:#aef0df
+    }
+
+    /* Box link al progetto / call-to-action */
+    .links-box{
+      max-width:var(--read-w);margin:8px auto 0;padding:0 20px;
+    }
+    .links-card{
+      background:linear-gradient(180deg, #1f1f1f, #181818);
+      border:1px solid var(--line);border-radius:14px;
+      padding:20px 22px;display:grid;gap:10px;box-shadow:var(--shadow);
+      font-family:'Poppins',sans-serif
+    }
+    .links-card h3{margin:0 0 4px;font-size:1rem;color:#fff;font-weight:600}
+    .links-card a{
+      display:inline-flex;align-items:center;gap:8px;
+      color:#cfe8ff;text-decoration:none;font-size:.95rem;font-weight:500;
+      padding:6px 0;transition:color .2s ease
+    }
+    .links-card a:hover{color:#7ec8ff}
+    .links-card a i{color:var(--brand);width:18px;text-align:center}
+
+    /* Navigazione tra articoli */
+    .post-nav{
+      max-width:var(--read-w);margin:48px auto 0;padding:24px 20px 0;
+      border-top:1px solid var(--line);
+      display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+      font-family:'Poppins',sans-serif
+    }
+    .post-nav a{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 16px;border-radius:10px;
+      background:rgba(255,255,255,.05);border:1px solid var(--line);
+      color:#fff;text-decoration:none;font-size:.92rem;font-weight:500;
+      transition:background .2s ease,border-color .2s ease,transform .2s ease
+    }
+    .post-nav a:hover{background:rgba(0,184,148,.12);border-color:rgba(0,184,148,.35);transform:translateY(-1px)}
+
+    /* Footer */
+    footer.site-footer{background:#161616;border-top:1px solid rgba(255,255,255,.06);padding:30px 0 16px;margin-top:64px}
+    .footer-grid{max-width:520px;margin:0 auto;text-align:center}
+    .footer-grid p{color:var(--muted);line-height:1.7;margin:0 0 10px}
+    .footer-grid h4{margin:0 0 10px;font-size:.95rem;color:#fff}
+    .social{display:flex;gap:12px;margin-top:10px;justify-content:center}
+    .social a{
+      display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;
+      border-radius:50%;background:#232323;text-decoration:none;color:#fff;
+      transition:background .18s ease,color .18s ease,transform .18s ease
+    }
+    .social a:hover{background:#2d2d2d;color:var(--brand);transform:translateY(-2px)}
+    .footer-bottom{text-align:center;padding:16px 0 6px;color:#aaa;font-size:.85rem;border-top:1px solid rgba(255,255,255,.06);margin-top:24px}
+
+    @media (max-width: 540px){
+      .article-header{padding:48px 0 24px}
+      article.post{padding:36px 18px 24px;font-size:1.08rem;line-height:1.75}
+      article.post p{text-align:left;hyphens:none;-webkit-hyphens:none}
+      article.post p:first-of-type{font-size:1.14rem}
+      .post-nav{flex-direction:column;align-items:stretch}
+      .post-nav a{justify-content:center}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Navigazione principale">
+  <div class="nav-wrap">
+    <a class="logo" href="../index.html">Alessandro <span>Pezzali</span></a>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../progetti.html">Progetti</a></li>
+      <li><a href="index.html" class="active">Blog</a></li>
+      <li><a href="../ia-in-azienda/">IA in azienda</a></li>
+      <li><a href="https://pezzaliapp.com" target="_blank" rel="noopener" class="nav-blue">pezzaliAPP</a></li>
+      <li><a href="https://github.com/pezzaliapp" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="mailto:pezzalialessandro@gmail.com">Contatti</a></li>
+      <li><a href="https://www.patreon.com/c/pezzaliAPP?redirect=true" target="_blank" rel="noopener" class="nav-red">❤ Sostieni</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="inner">
+    <a href="index.html" class="breadcrumb"><i class="fa fa-arrow-left" aria-hidden="true"></i> Tutti gli articoli</a>
+    <h1>Cosa vede davvero un radar quando grandina</h1>
+    <p class="deck">POH, VIL, densità VIL, echo top: cosa misurano davvero i prodotti radar pubblici, che cosa non possono dire, e perché «probabilità di grandine» non vuol dire quello che sembra.</p>
+    <div class="article-meta">
+      <strong>Alessandro Pezzali</strong>
+      <span class="sep">·</span>
+      <time datetime="2026-09-11">11 settembre 2026</time>
+      <span class="sep">·</span>
+      <span>10 min di lettura</span>
+    </div>
+  </div>
+</header>
+
+<article class="post">
+
+  <p>C'è una frase che sento ripetere ogni estate, di solito da qualcuno che ha appena guardato un'app sul telefono: «il radar dice che grandina». Non è sbagliata come sembra. È sbagliata in un modo più sottile, e vale la pena capirlo, perché da quella frase dipende se ci si fida o no di un avviso che arriva dieci minuti prima di una grandinata.</p>
+
+  <p>Il radar meteorologico non vede la grandine. Manda un impulso, ascolta quanto gli torna indietro, e da quanto gli torna indietro deduce che lassù, a qualche chilometro d'altezza, c'è qualcosa che riflette molto. Il ghiaccio riflette molto. Anche una pioggia molto intensa riflette molto. Il radar registra un'eco forte e scrive un numero; che quel numero sia grandine, e soprattutto che quella grandine arrivi fino a terra senza sciogliersi, è una deduzione, e la fa qualcun altro — un algoritmo, o una persona.</p>
+
+  <p>Io questa differenza l'ho capita davvero solo costruendo un motore che prova a fare quella deduzione da solo. Quello che segue è, in sostanza, l'elenco delle cose che ho sbagliato per primo.</p>
+
+  <h2>Il radar guarda in alto, la grandine cade in basso</h2>
+
+  <p>Il mosaico radar nazionale del Dipartimento della Protezione Civile pubblica diversi prodotti, e i due che si incontrano più spesso sono il VMI e la POH. Il VMI è la riflettività massima della colonna: di tutta la verticale sopra un punto, il valore più alto, misurato in decibel Z — i famosi dBZ. La POH è la <em>Probability of Hail</em>, la probabilità che quella cella contenga grandine.</p>
+
+  <p>Entrambi descrivono una <strong>colonna d'aria</strong>, non un pezzo di terreno. Fra il punto in cui il radar vede il ghiaccio e il punto in cui qualcuno lo prende in testa ci sono chilometri di atmosfera, e in quei chilometri succedono cose: il chicco cade, attraversa aria più calda, si scioglie. Un chicco piccolo può sciogliersi del tutto. Un chicco grosso arriva.</p>
+
+  <p>Ecco perché la POH non dice quello che il suo nome fa credere. Dice: <em>qui sopra c'è probabilmente della grandine</em>. Non dice: <em>qui sotto probabilmente grandinerà</em>. Sono due affermazioni diverse, e la seconda nessun radar da solo la può fare. Chi costruisce un servizio di allerta questa distinzione la deve dichiarare, perché è esattamente il punto in cui un numero smette di essere una misura e diventa un'interpretazione.</p>
+
+  <h2>VIL e densità VIL: l'unico indizio sulla taglia</h2>
+
+  <p>Il VIL — <em>Vertically Integrated Liquid</em> — è la quantità d'acqua equivalente contenuta nell'intera colonna, espressa in chilogrammi per metro quadrato. È un numero utile, ma da solo è muto: una colonna alta e una colonna bassa possono contenere la stessa acqua e comportarsi in modo completamente diverso.</p>
+
+  <p>Quello che parla è il rapporto fra il VIL e l'altezza dell'eco — la <strong>densità VIL</strong>, in grammi per metro cubo. Una colonna che concentra molta acqua equivalente in poco spessore è una colonna piena di ghiaccio compatto: sono i chicchi grossi. Una colonna che distribuisce la stessa massa su dieci chilometri è pioggia intensa, e al massimo gragnola che si scioglie per strada.</p>
+
+  <p>In letteratura la soglia che separa i due mondi sta attorno ai <strong>3,5 g/m³</strong>. Sotto, la grandine se arriva è piccola; sopra, comincia a essere roba che ammacca le lamiere. È l'unico indicatore, fra quelli disponibili su dati pubblici, che dica qualcosa sulla <em>taglia</em> invece che sulla presenza. Ed è per questo che vale più di un punteggio complessivo: la differenza fra un temporale fastidioso e un temporale costoso non è se grandina, è quanto sono grossi i chicchi.</p>
+
+  <p>Una precisazione che sembra pedante e non lo è: la densità VIL si calcola dividendo due grandezze che devono venire <strong>dalla stessa rete radar</strong>. Prendere il VIL da un mosaico e l'altezza dell'eco da un altro produce un numero che non descrive nessuna colonna reale. Sembra ovvio scritto così; è uno degli errori più facili da commettere quando si mettono insieme fonti diverse, e l'ho commesso.</p>
+
+  <h2>Il criterio di Waldvogel, e perché spesso non si può usare</h2>
+
+  <p>Negli anni Settanta il meteorologo svizzero Albert Waldvogel propose un criterio semplice e rimasto in uso: conta quanto la sommità dell'eco radar supera la quota dello zero termico. Se la nube spinge il suo ghiaccio molto al di sopra del livello in cui l'aria comincia a essere sotto zero, vuol dire che le correnti ascensionali sono forti abbastanza da tenere su chicchi pesanti, e quei chicchi cresceranno. La misura è in chilometri sopra lo zero termico, e più sono, peggio è.</p>
+
+  <p>È un criterio elegante, e ha un presupposto rigido: quell'altezza dell'eco deve essere <strong>misurata</strong>, non dedotta. Dove la rete radar non pubblica l'echo top, il criterio di Waldvogel non si applica — punto. Non si sostituisce con una stima, non si prende il dato di un'altra rete: si dichiara che quell'indicatore, lì, non esiste, e si dice apertamente che il giudizio si regge su meno gambe.</p>
+
+  <p>Questa è la regola generale, e secondo me è la più importante di tutta la materia: <strong>un dato mancante è meglio di un dato preso altrove</strong>. Un indicatore assente rende un giudizio più debole, e lo si può scrivere. Un indicatore sbagliato rende un giudizio falso, e non lo si vede.</p>
+
+  <h2>Downburst non è una tromba d'aria</h2>
+
+  <p>Qui la confusione è quasi totale, anche nei titoli dei giornali, e riguarda due fenomeni che fanno danni simili per ragioni opposte.</p>
+
+  <p>La <strong>tromba d'aria</strong> — un tornado — è un vortice: l'aria ruota attorno a un asse verticale e sale. Il <strong>downburst</strong> è il contrario: una massa d'aria fredda e pesante che precipita dalla nube verso il suolo, ci sbatte contro e si apre in tutte le direzioni come acqua versata su un tavolo. Le raffiche possono superare i cento chilometri orari e abbattere alberi e capannoni esattamente come un tornado, ma il segno che lasciano a terra è diverso: il tornado ritorce, il downburst stende tutto nella stessa direzione, a raggiera dal punto d'impatto.</p>
+
+  <p>La differenza non è accademica, perché cambia radicalmente cosa si può vedere col radar. Il vortice del tornado si riconosce dalla <strong>velocità radiale Doppler</strong>: serve un radar che misuri non solo quanto torna indietro, ma a che velocità l'aria si avvicina o si allontana. Senza quel dato, il mesociclone non si vede. Non si vede poco: non si vede.</p>
+
+  <p>Il downburst, invece, un'impronta la lascia anche nella sola riflettività, perché la cella che collassa si svuota: il nucleo scende di quota, il VIL crolla in pochi minuti, la sommità dell'eco si abbassa. È una firma indiretta — la si deduce dal crollo, non la si misura — e infatti è molto più incerta. Ma esiste.</p>
+
+  <p>Morale: chiunque dica di rilevare trombe d'aria senza avere il Doppler sta descrivendo qualcos'altro. Ed è una cosa che va detta chiaramente, perché è la promessa più facile da fare e la più impossibile da mantenere.</p>
+
+  <h2>Nowcasting non è previsione</h2>
+
+  <p>Un'ultima distinzione, e poi la parte difficile.</p>
+
+  <p>Una <strong>previsione</strong> nasce da un modello numerico: si prende lo stato dell'atmosfera, si risolvono le equazioni, si guarda cosa esce fra sei, dodici, quarantotto ore. È un esercizio di fisica, costa un supercomputer, e sui temporali resta vago per costruzione — il modello sa che oggi pomeriggio la provincia è a rischio, non sa che alle 15:40 grandinerà su quel paese.</p>
+
+  <p>Il <strong>nowcasting</strong> non risolve niente. Guarda dov'è la cella adesso, dov'era cinque minuti fa, calcola come si sta muovendo e proietta quel movimento avanti di un'ora o poco più. È estrapolazione, non fisica, e fuori da quella finestra non vale niente — ma dentro è l'unica cosa che può dire un <em>dove</em> e un <em>quando</em> precisi.</p>
+
+  <p>Sono strumenti complementari, e sbagliano in modo diverso. Il modello sbaglia perché semplifica; l'estrapolazione sbaglia perché i temporali nascono, si fondono e muoiono, e una cella che sta per collassare continua a essere proiettata come se dovesse durare. Per questo un nowcast onesto dichiara sempre due cose: quanto è vecchio il dato radar da cui parte, e quanto è affidabile il moto che ha misurato.</p>
+
+  <h2>E adesso la parte scomoda</h2>
+
+  <p>Tutto quello che ho scritto sopra l'ho messo dentro un motore che gira su un portatile in casa mia. Si chiama Nowcast, legge il mosaico della Protezione Civile e quello del servizio meteo tedesco, individua le celle, le insegue, e quando una punta verso un comune sorvegliato manda una notifica. Il preavviso realistico è di dieci, quindici minuti: quelli che servono a mettere la macchina al coperto, non a cambiare i programmi della giornata.</p>
+
+  <p>Funziona? <strong>Non lo so ancora, e questo è il punto.</strong></p>
+
+  <p>Ha emesso più di trecento avvisi. Di questi ne ho verificati sei — sei, con un registro pubblico che tiene traccia di ognuno, di cosa aveva previsto e di cosa è successo davvero. Sei verifiche non sono un campione: sono aneddoti. Cambiando idea su uno solo si passa dal cinquanta al settantacinque per cento, e per questo il motore, dove dovrebbe esserci una percentuale di successo, scrive che il campione non è sufficiente.</p>
+
+  <p>Mi rendo conto che sia il contrario di come si presenta un prodotto. Ma la soglia dei 3,5 g/m³ sulla densità VIL viene dalla letteratura scientifica e <strong>non è mai stata confrontata con un chicco vero caduto in Italia</strong>. Finché non lo sarà, ogni ritocco a quel numero sarebbe fatto al buio. Per questo la cosa che chiedo a chi prova l'app non è di installarla: è di rispondere alla domanda che compare dopo ogni avviso — <em>è arrivata?</em> — soprattutto quando la risposta è no. Un «non è successo niente» vale più di dieci conferme, perché è l'unico dato che dice quando il motore sta gridando al lupo.</p>
+
+  <p>Se vi interessa guardarlo, o provarlo, l'indirizzo è <a href="https://nowcast.pezzalihub.app" target="_blank" rel="noopener">nowcast.pezzalihub.app</a>. È gratuito, non chiede registrazione e non sostituisce le allerte ufficiali della Protezione Civile: è un esperimento in corso, e finché il registro non dirà qualcosa va trattato come tale.</p>
+
+  <p>I dati di partenza, invece, sono pubblici e li può guardare chiunque: il mosaico radar è del <a href="https://radar-protezionecivile.it" target="_blank" rel="noopener">Dipartimento della Protezione Civile</a>, quello tedesco del <a href="https://www.dwd.de" target="_blank" rel="noopener">Deutscher Wetterdienst</a>. La parte interessante non è possederli. È sapere cosa non dicono.</p>
+
+</article>
+
+<nav class="post-nav" aria-label="Navigazione tra articoli">
+  <a href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i> Tutti gli articoli</a>
+  <a href="mailto:pezzalialessandro@gmail.com">Scrivimi cosa ne pensi <i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+</nav>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <h4>Trovami qui</h4>
+      <p style="font-size:.92rem">Per email: <a href="mailto:pezzalialessandro@gmail.com" style="color:#aef0df">pezzalialessandro@gmail.com</a></p>
+      <div class="social">
+        <a href="https://github.com/pezzaliapp" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/pezzaliapp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/@pezzaliapp" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
+        <a href="https://www.instagram.com/ale_pezzali/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+        <a href="https://pezzaliapp.com" target="_blank" rel="noopener" aria-label="pezzaliAPP"><i class="fa fa-globe"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Alessandro Pezzali · Tutti i progetti sono open source salvo dove diversamente indicato.</div>
+  </div>
+</footer>
+
+</body>
+</html>
