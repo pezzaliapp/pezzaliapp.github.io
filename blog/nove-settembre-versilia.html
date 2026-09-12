@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Tre comuni avvisati, uno no: il 9 settembre in Versilia — Alessandro Pezzali</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Grandine da cinque centimetri a Forte dei Marmi, una raffica misurata a 123 km/h a Viareggio. Per la prima volta ho potuto confrontare gli avvisi di Nowcast con quello che è successo davvero, ora per ora. Il tabellone completo, buco compreso.">
+  <meta name="author" content="Alessandro Pezzali">
+  <meta name="theme-color" content="#00b894">
+
+  <link rel="icon" href="../favicon.ico">
+  <link rel="canonical" href="https://www.alessandropezzali.it/blog/nove-settembre-versilia.html">
+
+  <meta property="og:title" content="Tre comuni avvisati, uno no: il 9 settembre in Versilia">
+  <meta property="og:description" content="Grandine da cinque centimetri a Forte dei Marmi, una raffica misurata a 123 km/h a Viareggio. Per la prima volta ho potuto confrontare gli avvisi di Nowcast con quello che è successo davvero, ora per ora. Il tabellone completo, buco compreso.">
+  <meta property="og:image" content="https://www.alessandropezzali.it/images/nowcast-corridoio.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.alessandropezzali.it/blog/nove-settembre-versilia.html">
+  <meta property="article:published_time" content="2026-09-12">
+  <meta property="article:author" content="Alessandro Pezzali">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BlogPosting",
+    "headline":"Tre comuni avvisati, uno no: il 9 settembre in Versilia",
+    "description":"Grandine da cinque centimetri a Forte dei Marmi, una raffica misurata a 123 km/h a Viareggio. Per la prima volta ho potuto confrontare gli avvisi di Nowcast con quello che è successo davvero, ora per ora.",
+    "datePublished":"2026-09-12",
+    "dateModified":"2026-09-12",
+    "inLanguage":"it-IT",
+    "author":{
+      "@type":"Person",
+      "name":"Alessandro Pezzali",
+      "url":"https://www.alessandropezzali.it"
+    },
+    "image":"https://www.alessandropezzali.it/images/nowcast-corridoio.png",
+    "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":"https://www.alessandropezzali.it/blog/nove-settembre-versilia.html"
+    },
+    "about":[
+      {"@type":"Thing","name":"grandine"},
+      {"@type":"Thing","name":"downburst"},
+      {"@type":"Thing","name":"nowcasting"},
+      {"@type":"Thing","name":"Versilia"}
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    :root{
+      --bg:#121212;
+      --panel:#1b1b1b;
+      --text:#f0f0f0;
+      --muted:#c8c8c8;
+      --soft:#9a9a9a;
+      --line:rgba(255,255,255,.08);
+      --brand:#00b894;
+      --blue:#0984e3;
+      --shadow:0 12px 32px rgba(0,0,0,.28);
+      --navH:64px;
+      --container:1180px;
+      --read-w:720px;
+      --serif: Georgia, "Iowan Old Style", "Charter", "Source Serif Pro", "Cambria", serif;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;min-height:100%;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+    html{scroll-behavior:smooth}
+    img{max-width:100%;display:block}
+    a{color:inherit}
+
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+    /* Nav */
+    nav.topnav{
+      position:fixed;inset:0 0 auto 0;z-index:1000;
+      background:rgba(8,8,8,.88);
+      backdrop-filter:saturate(140%) blur(10px);
+      -webkit-backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      height:var(--navH);
+    }
+    .nav-wrap{max-width:1320px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:18px;height:100%}
+    .logo{font-size:1rem;font-weight:700;letter-spacing:.2px;white-space:nowrap;flex-shrink:0;text-decoration:none;color:#fff}
+    .logo span{color:var(--brand)}
+    nav.topnav ul{display:flex;flex-wrap:nowrap;gap:6px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;max-width:100%}
+    nav.topnav ul::-webkit-scrollbar{display:none}
+    nav.topnav li{flex:0 0 auto}
+    nav.topnav a{
+      display:inline-flex;align-items:center;justify-content:center;min-height:38px;
+      padding:8px 12px;border-radius:999px;text-decoration:none;font-size:.92rem;color:#f0f0f0;
+      transition:background .2s ease,color .2s ease,transform .2s ease;
+    }
+    nav.topnav a:hover{background:rgba(255,255,255,.06);color:#fff;transform:translateY(-1px)}
+    nav.topnav a.active{background:rgba(0,184,148,.14);border:1px solid rgba(0,184,148,.30);color:#fff}
+    .nav-blue{color:#7ec8ff !important;font-weight:700}
+    .nav-red{color:#ff8181 !important;font-weight:700}
+
+    /* Header articolo */
+    .article-header{
+      position:relative;margin-top:var(--navH);
+      padding:64px 0 32px;border-bottom:1px solid var(--line);overflow:hidden;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(0,184,148,.10), transparent 50%),
+        radial-gradient(ellipse at 80% 30%, rgba(9,132,227,.10), transparent 55%),
+        linear-gradient(180deg, #0a0e14 0%, #121212 100%);
+    }
+    .article-header .inner{max-width:var(--read-w);margin:0 auto;padding:0 20px}
+    .breadcrumb{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:.85rem;color:var(--soft);margin-bottom:18px;text-decoration:none;
+      transition:color .2s ease
+    }
+    .breadcrumb:hover{color:#aef0df}
+    .breadcrumb i{font-size:.78rem}
+    .article-header h1{
+      font-family:'Poppins',sans-serif;
+      font-size:clamp(1.9rem,4.6vw,2.8rem);line-height:1.15;
+      margin:0 0 16px;font-weight:700;letter-spacing:-.4px
+    }
+    .article-header .deck{
+      font-family:var(--serif);font-style:italic;
+      color:var(--muted);font-size:1.05rem;line-height:1.6;margin:0 0 16px;max-width:640px
+    }
+    .article-meta{
+      display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+      font-size:.88rem;color:var(--soft)
+    }
+    .article-meta .sep{opacity:.4}
+    .article-meta strong{color:var(--muted);font-weight:600}
+
+    /* Corpo articolo */
+    article.post{
+      max-width:var(--read-w);margin:0 auto;padding:48px 20px 32px;
+      font-family:var(--serif);
+      font-size:1.16rem;line-height:1.78;color:#e8e8e8;
+    }
+    article.post p{
+      margin:0 0 1.4em;
+      text-align:justify;
+      text-justify:inter-word;
+      hyphens:auto;
+      -webkit-hyphens:auto;
+    }
+    article.post p:first-of-type{
+      font-size:1.22rem;color:#f0f0f0
+    }
+    article.post a{
+      color:#aef0df;text-decoration:underline;text-decoration-color:rgba(0,184,148,.45);
+      text-underline-offset:3px;transition:color .2s ease,text-decoration-color .2s ease
+    }
+    article.post a:hover{color:#13d2ad;text-decoration-color:#13d2ad}
+    article.post h2,article.post h3{
+      font-family:'Poppins',sans-serif;color:#fff;
+      margin:1.8em 0 .6em;line-height:1.3
+    }
+    article.post h2{font-size:1.5rem}
+    article.post h3{font-size:1.2rem}
+    article.post em{color:#f0f0f0}
+    article.post strong{color:#fff;font-weight:700}
+    article.post blockquote{
+      margin:1.6em 0;padding:8px 0 8px 22px;
+      border-left:3px solid var(--brand);
+      color:var(--muted);font-style:italic
+    }
+    article.post code{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:.92em;background:rgba(255,255,255,.06);
+      padding:2px 6px;border-radius:5px;color:#aef0df
+    }
+
+    /* ===== Tabelle =====
+       Il contenuto di questo articolo E' la tabella: la cronologia e il
+       tabellone. Su telefono non si rimpicciolisce il testo — si lascia
+       scorrere la tabella dentro il suo contenitore, che e' l'unica cosa
+       nella pagina autorizzata a essere piu' larga della colonna. */
+    .tab-wrap{
+      margin:1.8em -40px;overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      border-radius:12px;border:1px solid var(--line);
+      background:linear-gradient(180deg,#1a1a1a,#161616)
+    }
+    table.tabellone{
+      width:100%;border-collapse:collapse;
+      font-family:'Poppins',sans-serif;font-size:.94rem;line-height:1.5
+    }
+    table.tabellone th,table.tabellone td{
+      padding:12px 16px;text-align:left;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      white-space:nowrap
+    }
+    table.tabellone th{
+      font-weight:600;font-size:.82rem;letter-spacing:.4px;text-transform:uppercase;
+      color:var(--soft);background:rgba(255,255,255,.03)
+    }
+    table.tabellone tr:last-child td{border-bottom:0}
+    table.tabellone td.ora{
+      font-variant-numeric:tabular-nums;color:#aef0df;font-weight:600
+    }
+    table.tabellone td.fatto{white-space:normal;min-width:260px;color:var(--muted)}
+    table.tabellone td.buono{color:#7fe3c4;font-weight:600}
+    table.tabellone td.male{color:#ff9b9b;font-weight:600}
+    table.tabellone tr.evidenza td{background:rgba(0,184,148,.07)}
+    table.tabellone tr.mancato td{background:rgba(255,90,90,.07)}
+    .tab-nota{
+      font-family:'Poppins',sans-serif;font-size:.84rem;line-height:1.6;
+      color:var(--soft);margin:-.6em 0 1.8em;text-align:left;
+      hyphens:none;-webkit-hyphens:none
+    }
+
+    /* Riquadro con il link all'app */
+    .cta-app{
+      display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;
+      margin:2em 0;padding:22px 24px;border-radius:14px;
+      font-family:'Poppins',sans-serif;
+      background:
+        radial-gradient(ellipse at 85% 30%, rgba(224,154,60,.14), transparent 65%),
+        linear-gradient(180deg,#1b232c,#151c23);
+      border:1px solid rgba(224,154,60,.28);
+      box-shadow:var(--shadow)
+    }
+    .cta-testo{flex:1 1 260px}
+    article.post .cta-app h2{
+      margin:0 0 6px;font-size:1.15rem;color:#fff
+    }
+    article.post .cta-app p{
+      margin:0;font-family:'Poppins',sans-serif;font-size:.92rem;line-height:1.6;
+      color:var(--muted);text-align:left;hyphens:none;-webkit-hyphens:none
+    }
+    article.post a.cta-bottone{
+      display:inline-flex;align-items:center;gap:9px;flex:0 0 auto;
+      padding:13px 22px;border-radius:12px;
+      background:#E09A3C;color:#0C1319;border:1px solid #E09A3C;
+      font-weight:700;font-size:.98rem;text-decoration:none;
+      transition:background .18s ease,transform .18s ease
+    }
+    article.post a.cta-bottone:hover{
+      background:#eeae58;color:#0C1319;transform:translateY(-2px);text-decoration:none
+    }
+
+    hr.divisore{
+      border:0;height:1px;background:var(--line);margin:3em 0 1.6em
+    }
+    article.post p.avviso-tecnico{
+      font-family:'Poppins',sans-serif;font-size:.92rem;line-height:1.65;
+      color:var(--soft);text-align:left;hyphens:none;-webkit-hyphens:none;
+      border-left:3px solid rgba(224,154,60,.45);padding-left:16px
+    }
+
+    /* Elenco delle fonti in fondo */
+    .fonti{
+      max-width:var(--read-w);margin:0 auto;padding:0 20px 8px;
+      font-family:'Poppins',sans-serif;font-size:.88rem;line-height:1.75;color:var(--soft)
+    }
+    .fonti h3{font-size:.95rem;color:#fff;margin:0 0 8px;font-weight:600}
+    .fonti ul{margin:0;padding-left:18px}
+    .fonti li{margin-bottom:6px}
+    .fonti a{color:#cfe8ff;text-decoration:none}
+    .fonti a:hover{color:#7ec8ff;text-decoration:underline}
+
+    /* Navigazione tra articoli */
+    .post-nav{
+      max-width:var(--read-w);margin:48px auto 0;padding:24px 20px 0;
+      border-top:1px solid var(--line);
+      display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+      font-family:'Poppins',sans-serif
+    }
+    .post-nav a{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 16px;border-radius:10px;
+      background:rgba(255,255,255,.05);border:1px solid var(--line);
+      color:#fff;text-decoration:none;font-size:.92rem;font-weight:500;
+      transition:background .2s ease,border-color .2s ease,transform .2s ease
+    }
+    .post-nav a:hover{background:rgba(0,184,148,.12);border-color:rgba(0,184,148,.35);transform:translateY(-1px)}
+
+    /* Footer */
+    footer.site-footer{background:#161616;border-top:1px solid rgba(255,255,255,.06);padding:30px 0 16px;margin-top:64px}
+    .footer-grid{max-width:520px;margin:0 auto;text-align:center}
+    .footer-grid p{color:var(--muted);line-height:1.7;margin:0 0 10px}
+    .footer-grid h4{margin:0 0 10px;font-size:.95rem;color:#fff}
+    .social{display:flex;gap:12px;margin-top:10px;justify-content:center}
+    .social a{
+      display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;
+      border-radius:50%;background:#232323;text-decoration:none;color:#fff;
+      transition:background .18s ease,color .18s ease,transform .18s ease
+    }
+    .social a:hover{background:#2d2d2d;color:var(--brand);transform:translateY(-2px)}
+    .footer-bottom{text-align:center;padding:16px 0 6px;color:#aaa;font-size:.85rem;border-top:1px solid rgba(255,255,255,.06);margin-top:24px}
+
+    @media (max-width: 820px){
+      .tab-wrap{margin-left:0;margin-right:0}
+    }
+    @media (max-width: 540px){
+      .article-header{padding:48px 0 24px}
+      article.post{padding:36px 18px 24px;font-size:1.08rem;line-height:1.75}
+      article.post p{text-align:left;hyphens:none;-webkit-hyphens:none}
+      article.post p:first-of-type{font-size:1.14rem}
+      table.tabellone th,table.tabellone td{padding:10px 12px;font-size:.88rem}
+      .cta-app{padding:18px;gap:14px}
+      article.post a.cta-bottone{width:100%;justify-content:center}
+      .post-nav{flex-direction:column;align-items:stretch}
+      .post-nav a{justify-content:center}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Navigazione principale">
+  <div class="nav-wrap">
+    <a class="logo" href="../index.html">Alessandro <span>Pezzali</span></a>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../progetti.html">Progetti</a></li>
+      <li><a href="index.html" class="active">Blog</a></li>
+      <li><a href="../ia-in-azienda/">IA in azienda</a></li>
+      <li><a href="https://pezzaliapp.com" target="_blank" rel="noopener" class="nav-blue">pezzaliAPP</a></li>
+      <li><a href="https://github.com/pezzaliapp" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="mailto:pezzalialessandro@gmail.com">Contatti</a></li>
+      <li><a href="https://www.patreon.com/c/pezzaliAPP?redirect=true" target="_blank" rel="noopener" class="nav-red">❤ Sostieni</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="inner">
+    <a href="index.html" class="breadcrumb"><i class="fa fa-arrow-left" aria-hidden="true"></i> Tutti gli articoli</a>
+    <h1>Tre comuni avvisati, uno no: il 9 settembre in Versilia</h1>
+    <p class="deck">Chicchi da cinque centimetri a Forte dei Marmi, una raffica misurata a 123 km/h a Viareggio. Per la prima volta ho potuto mettere accanto quello che il mio motore aveva detto e quello che è successo davvero, ora per ora. Questo è il tabellone, buco compreso.</p>
+    <div class="article-meta">
+      <strong>Alessandro Pezzali</strong>
+      <span class="sep">·</span>
+      <time datetime="2026-09-12">12 settembre 2026</time>
+      <span class="sep">·</span>
+      <span>5 min</span>
+    </div>
+  </div>
+</header>
+
+<article class="post">
+
+  <p>Il 9 settembre, nel primo pomeriggio, una cella temporalesca ha attraversato la costa
+  apuo&#8209;versiliese. Ha lasciato chicchi di grandine da cinque centimetri fra Forte dei Marmi
+  e il Cinquale, alberi abbattuti e stabilimenti balneari distrutti a Viareggio, e una raffica
+  massima <strong>misurata a 123 km/h</strong> sul lungomare. È la prima volta, da quando ho
+  acceso <strong>Nowcast</strong>, che un evento italiano importante è stato raccontato ora per
+  ora da cronache pubbliche. Cioè la prima volta che posso controllare.</p>
+
+  <p>Fino a ieri il mio registro contava oltre cinquecento avvisi in undici giorni e sette
+  verifiche. Sette. Il motore chiede a chi riceve una notifica <em>è arrivata?</em>, e quasi
+  nessuno risponde — il che è comprensibile, ma significa che il registro da solo non dimostra
+  niente. Il silenzio di chi non risponde non è un no; è solo silenzio, e trattarlo come un no
+  era il difetto più grosso che avevo in casa.</p>
+
+  <h2>Che cosa è successo, con gli orari veri</h2>
+
+  <div class="tab-wrap">
+  <table class="tabellone">
+    <thead>
+      <tr><th>Ora</th><th>Fatto</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="ora">13:14</td><td class="fatto">Cella temporalesca e tromba d'aria, video dalla costa</td></tr>
+      <tr><td class="ora">13:18</td><td class="fatto">Pino crollato in via Sant'Andrea, Viareggio</td></tr>
+      <tr><td class="ora">13:27</td><td class="fatto">Zeri 80 mm; Carrara 43 mm in un'ora</td></tr>
+      <tr class="evidenza"><td class="ora">13:30</td><td class="fatto"><strong>Grandine a Forte dei Marmi, Vittoria Apuana e Cinquale</strong> — «palle da tennis»</td></tr>
+      <tr class="mancato"><td class="ora">14:13</td><td class="fatto"><strong>Raffica massima 123 km/h</strong> sul lungomare di Viareggio</td></tr>
+      <tr><td class="ora">~16:00</td><td class="fatto">Nubifragio e allagamenti lampo a San Giovanni Valdarno</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="tab-nota">Orari dal live blog de La Nazione del 9 settembre, che pubblicava minuto
+  per minuto. Le fonti complete sono in fondo alla pagina.</p>
+
+  <h2>Il tabellone</h2>
+
+  <p>Nowcast non avvisa una provincia: avvisa i comuni che stanno dentro il corridoio calcolato
+  per una singola cella. Quindi il confronto giusto è comune per comune, e si fa in un modo
+  solo: qual è l'ultimo avviso che <em>nomina quel comune</em> prima che succeda.</p>
+
+  <div class="tab-wrap">
+  <table class="tabellone">
+    <thead>
+      <tr><th>Comune</th><th>Evento</th><th>Ultimo avviso prima</th><th>Margine, al più</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Forte dei Marmi</td><td>grandine 13:30</td>
+        <td class="ora">12:00</td><td class="buono">≤ 90 min</td>
+      </tr>
+      <tr>
+        <td>Pietrasanta (V. Apuana)</td><td>grandine 13:30</td>
+        <td class="ora">12:00</td><td class="buono">≤ 90 min</td>
+      </tr>
+      <tr>
+        <td>Montignoso (Cinquale)</td><td>grandine 13:30</td>
+        <td class="ora">12:00</td><td class="buono">≤ 90 min</td>
+      </tr>
+      <tr class="mancato">
+        <td>Viareggio</td><td>raffica 123 km/h, 14:13</td>
+        <td class="ora">—</td><td class="male">nessun avviso</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p><strong>«Al più» non è una modestia: è quello che i dati permettono di dire.</strong> Le
+  13:30 sono l'ora in cui il live blog ha pubblicato la grandinata, e una cronaca in diretta
+  scrive sempre dopo il fatto. Quindi la grandine è caduta alle 13:30 o prima, e il margine è
+  quel numero o meno. Un orario al minuto ce l'avrebbe solo una foto con i suoi dati di scatto,
+  o un pluviometro; io non ce l'ho, e scrivere «90 minuti» come se lo avessi misurato sarebbe
+  esattamente il tipo di numero che questo articolo serve a non produrre.</p>
+
+  <p>Con questa cautela: tre comuni su quattro sono stati nominati, per nome, più di un'ora
+  prima. L'avviso delle 12:00 elencava Seravezza, Stazzema, Pietrasanta, Montignoso, Forte dei
+  Marmi e Massa: sei comuni, e la grandine è caduta in tre di quelli. Il quarto — Viareggio —
+  non compare in nessun avviso di quella giornata.</p>
+
+  <aside class="cta-app">
+    <div class="cta-testo">
+      <h2>Provalo</h2>
+      <p>Gratis e senza registrazione. È sperimentale, ancora in validazione: non sostituisce
+      le allerte ufficiali della Protezione Civile.</p>
+    </div>
+    <a class="cta-bottone" href="https://nowcast.pezzalihub.app" target="_blank" rel="noopener">
+      <i class="fa fa-bolt" aria-hidden="true"></i> Apri Nowcast
+    </a>
+  </aside>
+
+  <h2>Un'ora e mezza di anticipo non è una buona notizia</h2>
+
+  <p>Qui viene la parte che mi interessa di più, ed è quella che un comunicato stampa
+  taglierebbe.</p>
+
+  <p>Il corridoio calcolato per quella cella dava l'arrivo su Forte dei Marmi <strong>entro
+  dodici minuti</strong>, cioè verso le 12:12. La grandine è caduta più di un'ora dopo quel
+  momento. Quindi il motore ha azzeccato il <em>dove</em> e ha sbagliato il <em>quando</em>, di
+  parecchio. Un'ora e mezza di preavviso non è una prestazione: è un errore di tempo che per
+  fortuna è caduto dalla parte giusta.</p>
+
+  <p>C'è anche una seconda lettura, e dai soli dati del registro non riesco a separarla dalla
+  prima: che l'avviso delle 12:00 riguardasse una cella diversa, passata senza grandinare, e
+  che a grandinare alle 13:30 sia stata un'altra cella che non ha mai fatto scattare un avviso
+  suo. Per distinguere le due cose servirebbero i fotogrammi radar fra mezzogiorno e l'una e
+  mezza, e quelli non li conservo. Me li conserverò da adesso.</p>
+
+  <p>In entrambi i casi la conclusione pratica è la stessa: la frase che ho scritto sulle mie
+  pagine — <em>«il preavviso reale è di dieci o quindici minuti»</em> — descrive il numero che
+  il corridoio calcola, non il tempo che passa davvero fra la notifica e la grandine. Sono due
+  cose diverse e finora le ho confuse.</p>
+
+  <h2>Viareggio è il buco, e va detto per primo</h2>
+
+  <p>A Viareggio non è caduta grandine: è caduto il vento. Un pino su un'auto in via
+  Sant'Andrea, tetti scoperchiati, i cantieri navali danneggiati, e una raffica misurata a
+  <strong>123 km/h</strong>. La stampa locale lo ha chiamato con il suo nome: un
+  <strong>downburst</strong>, cioè esattamente uno dei due fenomeni per cui Nowcast esiste.</p>
+
+  <p>Nowcast non ha emesso nessun avviso su Viareggio. E non è un caso isolato: in undici giorni
+  il motore ha emesso ventiquattro avvisi di raffica, <strong>tutti tedeschi, nessuno
+  italiano</strong>. Il segnale che li genera — la colonna d'acqua che collassa — viene
+  calcolato anche sui dati italiani, compare nei log oltre cento volte, e non supera mai la
+  soglia. Detto senza giri: sul vento, in Italia, il motore in questo momento è spento di
+  fatto. Questa è la cosa da sistemare, e non si sistema a occhio: la soglia va ricavata
+  confrontando i collassi misurati con le raffiche realmente registrate al suolo.</p>
+
+  <h2>La soglia dei chicchi grossi ha tenuto</h2>
+
+  <p>Nell'articolo precedente avevo scritto che la soglia con cui distinguo la gragnola dalla
+  grandine vera —
+  <strong>3,5 g/m³</strong> di densità VIL — veniva dalla letteratura e non era mai stata
+  confrontata con un chicco vero caduto in Italia. Adesso lo è.</p>
+
+  <p>L'avviso delle 12:00 portava densità <strong>3,7</strong>: appena sopra. E a terra sono
+  arrivati cinque centimetri. Il numero era dalla parte giusta della soglia, e la soglia ha
+  fatto il suo lavoro. Un caso solo non è una taratura — con un campione da uno non si cambia
+  niente e non si conferma niente — ma è il primo punto vero su un grafico che finora era
+  vuoto.</p>
+
+  <h2>Quello che il motore non poteva vedere</h2>
+
+  <p>Alle 13:14 le cronache parlano di una tromba d'aria. Nowcast non l'ha vista e non poteva
+  vederla: un vortice si riconosce dalla velocità Doppler del radar, che nei mosaici pubblici
+  non c'è. Senza quel dato la rotazione non è debolmente visibile — è invisibile. Se un giorno
+  leggerete che quest'app ha annunciato una tromba d'aria, non credeteci.</p>
+
+  <p>Resta fuori anche il pomeriggio: il nubifragio sul Valdarno verso le 16, con allagamenti a
+  San Giovanni. Nowcast non avvisa per la pioggia, quindi quell'evento è fuori dal suo
+  perimetro per definizione. Sono comunque andato a vedere se in quell'ora il motore avesse
+  qualcosa di attivo da quelle parti, e la risposta merita di essere scritta: nel registro
+  <strong>non c'è nessun avviso sul Valdarno</strong>, né quel pomeriggio né negli undici
+  giorni precedenti. Alle 16:10 e alle 16:25 il motore stava avvisando l'aretino — ma la
+  Valtiberina, Sansepolcro e Anghiari, cinquanta chilometri più a est e dall'altra parte dello
+  spartiacque. Provincia giusta, valle sbagliata.</p>
+
+  <h2>Che cosa cambia</h2>
+
+  <p>Tre cose. La prima: i due avvisi del 9 settembre che avevo archiviato come
+  <em>«non è successo niente»</em> erano archiviati male — nessuno era andato a controllare, e
+  invece era successo eccome. Il registro adesso distingue <em>silenzio</em> da <em>nulla</em>,
+  e per dire «nulla» il programma pretende che si citi una fonte.</p>
+
+  <p>La seconda: ogni giudizio deve dire <strong>da cosa lo so</strong>. Un articolo con la
+  data, un bollettino, qualcuno che era sul posto. Le sette verifiche che avevo prima di oggi
+  non lo dicevano, e quindi valevano molto meno di quanto pensassi.</p>
+
+  <p>La terza: la soglia del vento in Italia. È l'unica modifica che questo 9 settembre chiede
+  davvero, ed è quella che farò per ultima, perché voglio i numeri prima.</p>
+
+  <aside class="cta-app">
+    <div class="cta-testo">
+      <h2>Serve una mano, non un download</h2>
+      <p>Installala se ti è utile. Ma quello che mi serve davvero è che tu risponda alla domanda
+      dopo l'avviso — <em>è arrivata?</em> — soprattutto quando la risposta è no.</p>
+    </div>
+    <a class="cta-bottone" href="https://nowcast.pezzalihub.app" target="_blank" rel="noopener">
+      <i class="fa fa-bolt" aria-hidden="true"></i> Apri Nowcast
+    </a>
+  </aside>
+
+  <hr class="divisore">
+
+  <p class="avviso-tecnico">Se ti interessa il funzionamento invece dei risultati — che cosa
+  misurano davvero POH, VIL e densità VIL, perché «probabilità di grandine» non vuol dire quello
+  che sembra e perché un radar senza Doppler non vede le trombe d'aria — l'ho scritto qui:
+  <a href="cosa-vede-un-radar-quando-grandina.html">Cosa vede davvero un radar quando
+  grandina</a>.</p>
+
+</article>
+
+<section class="fonti">
+  <h3>Fonti</h3>
+  <ul>
+    <li><a href="https://www.lanazione.it/cronaca/diretta-maltempo-toscana-dzeeysip" target="_blank" rel="noopener">La Nazione — Maltempo in Toscana, la diretta del 9 settembre 2026</a> (orari del live blog)</li>
+    <li><a href="https://www.iltirreno.it/versilia/cronaca/2026/09/09/news/maltempo-a-viareggio-la-citta-devastata-dal-vento-danni-a-case-hotel-e-cantieri-1.100915783" target="_blank" rel="noopener">Il Tirreno — Viareggio devastata dal vento: danni a case, hotel e cantieri</a></li>
+    <li><a href="https://www.luccaindiretta.it/cronaca/2026/09/10/maltempo-a-viareggio-il-bilancio-e-pesante-si-lavora-per-riaprire-le-strade-e-mettere-in-sicurezza-alberi-ed-edifici/519237" target="_blank" rel="noopener">LuccaInDiretta — Il bilancio a Viareggio dopo il downburst</a></li>
+    <li><a href="https://www.ilmeteo.it/notizie/meteo-grandine-grossa-in-versilia-chicchi-fino-a-5-cm-tra-forte-dei-marmi-e-montignoso-video-153002" target="_blank" rel="noopener">ilMeteo.it — Grandine grossa in Versilia, chicchi fino a 5 cm</a></li>
+    <li><a href="https://www.lanazione.it/arezzo/cronaca/violento-temporale-in-valdarno-allagamenti-e-disagi-a-san-giovanni-strade-come-fiumi-e-acqua-negli-spogliatoi-del-fedini-e329fpge" target="_blank" rel="noopener">La Nazione — Violento temporale in Valdarno, allagamenti a San Giovanni</a></li>
+  </ul>
+</section>
+
+<nav class="post-nav" aria-label="Navigazione tra articoli">
+  <a href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i> Tutti gli articoli</a>
+  <a href="mailto:pezzalialessandro@gmail.com">Scrivimi cosa ne pensi <i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+</nav>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <h4>Trovami qui</h4>
+      <p style="font-size:.92rem">Per email: <a href="mailto:pezzalialessandro@gmail.com" style="color:#aef0df">pezzalialessandro@gmail.com</a></p>
+      <div class="social">
+        <a href="https://github.com/pezzaliapp" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/pezzaliapp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/@pezzaliapp" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
+        <a href="https://www.instagram.com/ale_pezzali/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+        <a href="https://pezzaliapp.com" target="_blank" rel="noopener" aria-label="pezzaliAPP"><i class="fa fa-globe"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Alessandro Pezzali · Tutti i progetti sono open source salvo dove diversamente indicato.</div>
+  </div>
+</footer>
+
+</body>
+</html>
