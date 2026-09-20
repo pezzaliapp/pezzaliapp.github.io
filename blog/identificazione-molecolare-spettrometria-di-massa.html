@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Identificazione molecolare da spettrometria di massa — Alessandro Pezzali</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Migliaia di molecole rilevate in un campione biologico, e per la maggior parte nessun nome. Cosa manca oggi, perché è un problema di ordinamento e non di chimica, e cosa ho imparato nelle prime ore di una competizione Kaggle.">
+  <meta name="author" content="Alessandro Pezzali">
+  <meta name="theme-color" content="#00b894">
+
+  <link rel="icon" href="../favicon.ico">
+  <link rel="canonical" href="https://www.alessandropezzali.it/blog/identificazione-molecolare-spettrometria-di-massa.html">
+
+  <meta property="og:title" content="Identificazione molecolare da spettrometria di massa">
+  <meta property="og:description" content="Migliaia di molecole rilevate in un campione biologico, e per la maggior parte nessun nome. Cosa manca oggi, perché è un problema di ordinamento e non di chimica, e cosa ho imparato nelle prime ore di una competizione Kaggle.">
+  <meta property="og:image" content="https://www.alessandropezzali.it/preview.jpg">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.alessandropezzali.it/blog/identificazione-molecolare-spettrometria-di-massa.html">
+  <meta property="article:published_time" content="2026-09-20">
+  <meta property="article:author" content="Alessandro Pezzali">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BlogPosting",
+    "headline":"Identificazione molecolare da spettrometria di massa",
+    "description":"Migliaia di molecole rilevate in un campione biologico, e per la maggior parte nessun nome. Cosa manca oggi, perché è un problema di ordinamento e non di chimica, e cosa ho imparato nelle prime ore di una competizione Kaggle.",
+    "datePublished":"2026-09-20",
+    "author":{
+      "@type":"Person",
+      "name":"Alessandro Pezzali",
+      "url":"https://www.alessandropezzali.it"
+    },
+    "image":"https://www.alessandropezzali.it/preview.jpg",
+    "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":"https://www.alessandropezzali.it/blog/identificazione-molecolare-spettrometria-di-massa.html"
+    }
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    :root{
+      --bg:#121212;
+      --panel:#1b1b1b;
+      --text:#f0f0f0;
+      --muted:#c8c8c8;
+      --soft:#9a9a9a;
+      --line:rgba(255,255,255,.08);
+      --brand:#00b894;
+      --blue:#0984e3;
+      --shadow:0 12px 32px rgba(0,0,0,.28);
+      --navH:64px;
+      --container:1180px;
+      --read-w:720px;
+      --serif: Georgia, "Iowan Old Style", "Charter", "Source Serif Pro", "Cambria", serif;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;min-height:100%;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+    html{scroll-behavior:smooth}
+    img{max-width:100%;display:block}
+    a{color:inherit}
+
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+    /* Nav */
+    nav.topnav{
+      position:fixed;inset:0 0 auto 0;z-index:1000;
+      background:rgba(8,8,8,.88);
+      backdrop-filter:saturate(140%) blur(10px);
+      -webkit-backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+      height:var(--navH);
+    }
+    .nav-wrap{max-width:1320px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:18px;height:100%}
+    .logo{font-size:1rem;font-weight:700;letter-spacing:.2px;white-space:nowrap;flex-shrink:0;text-decoration:none;color:#fff}
+    .logo span{color:var(--brand)}
+    nav.topnav ul{display:flex;flex-wrap:nowrap;gap:6px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;max-width:100%}
+    nav.topnav ul::-webkit-scrollbar{display:none}
+    nav.topnav li{flex:0 0 auto}
+    nav.topnav a{
+      display:inline-flex;align-items:center;justify-content:center;min-height:38px;
+      padding:8px 12px;border-radius:999px;text-decoration:none;font-size:.92rem;color:#f0f0f0;
+      transition:background .2s ease,color .2s ease,transform .2s ease;
+    }
+    nav.topnav a:hover{background:rgba(255,255,255,.06);color:#fff;transform:translateY(-1px)}
+    nav.topnav a.active{background:rgba(0,184,148,.14);border:1px solid rgba(0,184,148,.30);color:#fff}
+    .nav-blue{color:#7ec8ff !important;font-weight:700}
+    .nav-red{color:#ff8181 !important;font-weight:700}
+
+    /* Header articolo */
+    .article-header{
+      position:relative;margin-top:var(--navH);
+      padding:64px 0 32px;border-bottom:1px solid var(--line);overflow:hidden;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(0,184,148,.10), transparent 50%),
+        radial-gradient(ellipse at 80% 30%, rgba(9,132,227,.10), transparent 55%),
+        linear-gradient(180deg, #0a0e14 0%, #121212 100%);
+    }
+    .article-header .inner{max-width:var(--read-w);margin:0 auto;padding:0 20px}
+    .breadcrumb{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:.85rem;color:var(--soft);margin-bottom:18px;text-decoration:none;
+      transition:color .2s ease
+    }
+    .breadcrumb:hover{color:#aef0df}
+    .breadcrumb i{font-size:.78rem}
+    .article-header h1{
+      font-family:'Poppins',sans-serif;
+      font-size:clamp(1.9rem,4.6vw,2.8rem);line-height:1.15;
+      margin:0 0 16px;font-weight:700;letter-spacing:-.4px
+    }
+    .article-meta{
+      display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+      font-size:.88rem;color:var(--soft)
+    }
+    .article-meta .sep{opacity:.4}
+    .article-meta strong{color:var(--muted);font-weight:600}
+
+    /* Corpo articolo: serif per leggibilità */
+    article.post{
+      max-width:var(--read-w);margin:0 auto;padding:48px 20px 32px;
+      font-family:var(--serif);
+      font-size:1.16rem;line-height:1.78;color:#e8e8e8;
+    }
+    article.post p{margin:0 0 1.4em}
+    article.post p:first-of-type{
+      font-size:1.22rem;color:#f0f0f0
+    }
+    article.post a{
+      color:#aef0df;text-decoration:underline;text-decoration-color:rgba(0,184,148,.45);
+      text-underline-offset:3px;transition:color .2s ease,text-decoration-color .2s ease
+    }
+    article.post a:hover{color:#13d2ad;text-decoration-color:#13d2ad}
+    article.post h2,article.post h3{
+      font-family:'Poppins',sans-serif;color:#fff;
+      margin:1.8em 0 .6em;line-height:1.3
+    }
+    article.post h2{font-size:1.5rem}
+    article.post h3{font-size:1.2rem}
+    article.post em{color:#f0f0f0}
+    article.post strong{color:#fff;font-weight:700}
+    article.post blockquote{
+      margin:1.6em 0;padding:8px 0 8px 22px;
+      border-left:3px solid var(--brand);
+      color:var(--muted);font-style:italic
+    }
+    article.post code{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:.92em;background:rgba(255,255,255,.06);
+      padding:2px 6px;border-radius:5px;color:#aef0df
+    }
+
+    /* Box link al progetto / call-to-action */
+    .links-box{
+      max-width:var(--read-w);margin:8px auto 0;padding:0 20px;
+    }
+    .links-card{
+      background:linear-gradient(180deg, #1f1f1f, #181818);
+      border:1px solid var(--line);border-radius:14px;
+      padding:20px 22px;display:grid;gap:10px;box-shadow:var(--shadow);
+      font-family:'Poppins',sans-serif
+    }
+    .links-card h3{margin:0 0 4px;font-size:1rem;color:#fff;font-weight:600}
+    .links-card a{
+      display:inline-flex;align-items:center;gap:8px;
+      color:#cfe8ff;text-decoration:none;font-size:.95rem;font-weight:500;
+      padding:6px 0;transition:color .2s ease
+    }
+    .links-card a:hover{color:#7ec8ff}
+    .links-card a i{color:var(--brand);width:18px;text-align:center}
+
+    /* Navigazione tra articoli */
+    .post-nav{
+      max-width:var(--read-w);margin:48px auto 0;padding:24px 20px 0;
+      border-top:1px solid var(--line);
+      display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+      font-family:'Poppins',sans-serif
+    }
+    .post-nav a{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 16px;border-radius:10px;
+      background:rgba(255,255,255,.05);border:1px solid var(--line);
+      color:#fff;text-decoration:none;font-size:.92rem;font-weight:500;
+      transition:background .2s ease,border-color .2s ease,transform .2s ease
+    }
+    .post-nav a:hover{background:rgba(0,184,148,.12);border-color:rgba(0,184,148,.35);transform:translateY(-1px)}
+
+    /* Footer */
+    footer.site-footer{background:#161616;border-top:1px solid rgba(255,255,255,.06);padding:30px 0 16px;margin-top:64px}
+    .footer-grid{max-width:520px;margin:0 auto;text-align:center}
+    .footer-grid p{color:var(--muted);line-height:1.7;margin:0 0 10px}
+    .footer-grid h4{margin:0 0 10px;font-size:.95rem;color:#fff}
+    .social{display:flex;gap:12px;margin-top:10px;justify-content:center}
+    .social a{
+      display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;
+      border-radius:50%;background:#232323;text-decoration:none;color:#fff;
+      transition:background .18s ease,color .18s ease,transform .18s ease
+    }
+    .social a:hover{background:#2d2d2d;color:var(--brand);transform:translateY(-2px)}
+    .footer-bottom{text-align:center;padding:16px 0 6px;color:#aaa;font-size:.85rem;border-top:1px solid rgba(255,255,255,.06);margin-top:24px}
+
+    @media (max-width: 540px){
+      .article-header{padding:48px 0 24px}
+      article.post{padding:36px 18px 24px;font-size:1.08rem;line-height:1.75}
+      article.post p:first-of-type{font-size:1.14rem}
+      .post-nav{flex-direction:column;align-items:stretch}
+      .post-nav a{justify-content:center}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Navigazione principale">
+  <div class="nav-wrap">
+    <a class="logo" href="../index.html">Alessandro <span>Pezzali</span></a>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../progetti.html">Progetti</a></li>
+      <li><a href="index.html" class="active">Blog</a></li>
+      <li><a href="../ia-in-azienda/">IA in azienda</a></li>
+      <li><a href="https://pezzaliapp.com" target="_blank" rel="noopener" class="nav-blue">pezzaliAPP</a></li>
+      <li><a href="https://github.com/pezzaliapp" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="mailto:pezzalialessandro@gmail.com">Contatti</a></li>
+      <li><a href="https://www.patreon.com/c/pezzaliAPP?redirect=true" target="_blank" rel="noopener" class="nav-red">&hearts; Sostieni</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="inner">
+    <a href="index.html" class="breadcrumb"><i class="fa fa-arrow-left" aria-hidden="true"></i> Tutti gli articoli</a>
+    <h1>Identificazione molecolare da spettrometria di massa</h1>
+    <div class="article-meta">
+      <strong>Alessandro Pezzali</strong>
+      <span class="sep">&middot;</span>
+      <time datetime="2026-09-20">20 settembre 2026</time>
+      <span class="sep">&middot;</span>
+      <span>7 min di lettura</span>
+    </div>
+  </div>
+</header>
+
+<article class="post">
+
+  <p>Oggi l&rsquo;unico modo per identificare una molecola che non compare in nessuna libreria di riferimento &egrave; isolarla fisicamente e caratterizzarla in laboratorio. Settimane o mesi per composto, con costi proporzionali. &Egrave; per questo che gli archivi di dati spettrali del mondo sono pieni di segnali mai identificati.</p>
+
+  <p>Il problema nasce da come funziona il metodo standard. Quando analizzi un estratto biologico &mdash; una pianta, un fungo, il plasma di un paziente &mdash; lo spettrometro di massa registra migliaia di segnali, e ognuno corrisponde a una molecola realmente presente in quel campione. Per dare un nome a ciascuna si confronta lo spettro misurato con librerie costruite analizzando composti gi&agrave; noti e purificati. Se la molecola &egrave; in libreria la trovi; altrimenti resta un picco anonimo. E nei campioni veri la gran parte lo &egrave;.</p>
+
+  <p>Da qualche giorno partecipo a una competizione che affronta esattamente questo. Non sono un biologo e di spettrometria di massa non so nulla: la gara &egrave; aperta a chiunque, e gli organizzatori scrivono esplicitamente che non serve una formazione in chimica per partecipare. Serve saper lavorare coi dati, e quello &egrave; il terreno su cui mi muovo &mdash; strumenti web per chi lavora davvero, e qualche esperimento scientifico documentato con le sue barre d&rsquo;errore. &Egrave; l&igrave; che ho imparato la cosa che poi &egrave; servita anche qui: un numero senza la sua incertezza non &egrave; un risultato.</p>
+
+  <p>La organizza Enveda, un&rsquo;azienda farmaceutica americana che cerca molecole terapeutiche nei prodotti naturali, e si svolge su Kaggle, la piattaforma dove aziende e centri di ricerca mettono in palio premi per chi risolve meglio un problema di analisi dati. Il compito: ricevi gli spettri di circa quattrocento molecole e devi proporre, per ciascuna, fino a venticinque ipotesi sulla sua struttura chimica, ordinate dalla pi&ugrave; probabile. Il punteggio va da 0 a 1 e premia quanto in alto nella lista finisce la risposta giusta &mdash; se &egrave; prima vale un punto pieno, se &egrave; seconda mezzo punto, se non c&rsquo;&egrave; vale zero. Contano solo le strutture esatte: una sbavatura e il punteggio &egrave; zero.</p>
+
+  <p>Qui emerge il dato che spiega tutta la difficolt&agrave;. Gli organizzatori hanno costruito il test in modo che la ricerca in libreria, da sola, valga circa 0,15 su 1. <strong>Circa l&rsquo;84% delle molecole del test &egrave; fuori dalla portata del metodo standard.</strong> Non &egrave; un artificio della gara: rispecchia quello che succede nei campioni reali.</p>
+
+  <p>Un sistema che ordina bene le strutture candidate cambia l&rsquo;economia del problema: da &laquo;isola e caratterizza alla cieca&raquo; a &laquo;hai venticinque ipotesi ordinate, verifica la prima&raquo;. Il lavoro di laboratorio non sparisce, ma diventa mirato.</p>
+
+  <h2>A cosa serve</h2>
+
+  <p>Le applicazioni immediate sono due. La scoperta di farmaci &mdash; Enveda non pu&ograve; testare molecole che non sa di avere, e se in un estratto ce ne sono duemila e ne riconosce duecento, le altre milleottocento sono invisibili. E i biomarcatori di malattia: quando si confrontano campioni di pazienti e controlli si trovano metaboliti che cambiano concentrazione in modo sistematico, e spesso restano picchi anonimi. Sai che qualcosa si muove, non sai cosa.</p>
+
+  <p>Su quest&rsquo;ultimo punto conviene non promettere troppo. La ricerca sui biomarcatori metabolici esiste ed &egrave; attiva &mdash; nel tumore del pancreas sono state descritte combinazioni di metaboliti che superano il CA19-9, oggi l&rsquo;unico marcatore approvato &mdash; ma la letteratura &egrave; netta sui limiti: manca standardizzazione e manca validazione su popolazioni ampie. E soprattutto, i biomarcatori trovati finora sono quasi tutti molecole gi&agrave; note. Identificare meglio le sconosciute non produce automaticamente diagnosi migliori: apre uno spazio di ricerca oggi chiuso, senza garanzia che l&igrave; dentro ci sia qualcosa di utile. Rimuovere un collo di bottiglia non &egrave; una terapia. &Egrave; la condizione perch&eacute; qualcuno possa cercarne una.</p>
+
+  <p>C&rsquo;&egrave; poi una ragione per cui tutto questo &egrave; una gara pubblica e non un progetto interno: chi vince deve rilasciare il codice sotto licenza MIT, cio&egrave; liberamente riutilizzabile. Enveda mette cinquantamila dollari per far avanzare un metodo che rester&agrave; disponibile a chiunque, concorrenti diretti inclusi.</p>
+
+  <h2>L&rsquo;idea che funziona</h2>
+
+  <p>L&rsquo;idea su cui si regge la soluzione migliore &egrave; chimica, non informatica. Due molecole che condividono lo stesso scheletro e differiscono per un solo pezzo si spezzano negli stessi frammenti, traslati di una massa costante. Una molecola che non ha spettro di riferimento ha quasi sempre parenti strutturali che invece ce l&rsquo;hanno, e la si pu&ograve; riconoscere attraverso di loro. Misurato su un insieme di controllo: ordinare le ipotesi a caso d&agrave; 0,138, ordinarle per differenza di massa &mdash; quello che fa la maggior parte degli approcci diffusi &mdash; d&agrave; 0,164, riconoscerle attraverso i parenti d&agrave; 0,521. Da uno a tre.</p>
+
+  <p>C&rsquo;&egrave; anche una mossa controintuitiva. Dato che serve la struttura esatta, chiedere a un modello generativo di inventare la formula &egrave; la strada sbagliata: la probabilit&agrave; di azzeccarla &egrave; minima. La soluzione &egrave; rovesciare il problema &mdash; non generare molecole nuove, ma mettere in ordine una lista di molecole che esistono gi&agrave;. Un problema di creazione impossibile diventa un problema di ordinamento affrontabile.</p>
+
+  <p>Questa riformulazione cambia la natura del problema: smette di essere una questione di chimica. Mettere in ordine una lista di candidati &egrave; lo stesso lavoro che fa un motore di ricerca quando decide quale risultato mostrarti per primo, o Netflix quando sceglie cosa proporti. Cambia l&rsquo;argomento, non il tipo di problema.</p>
+
+  <h2>Misurare prima di ottimizzare</h2>
+
+  <p>Sono partito dal lavoro pubblico di un altro concorrente, prvsiyan, che ha condiviso il suo codice insieme a tutte le misure che lo giustificano, fallimenti inclusi. Tra i suoi avvertimenti ce n&rsquo;era uno che mi ha fermato prima ancora di cominciare: aveva inviato due volte la stessa identica soluzione ottenendo due punteggi diversi, 0,292 e 0,298, perch&eacute; una parte del sistema partiva da un numero casuale. La sua conclusione era che chi insegue una differenza di cinque millesimi, in questa gara, probabilmente sta inseguendo il caso.</p>
+
+  <p>Cos&igrave;, prima di toccare qualunque cosa, ho speso un&rsquo;esecuzione intera a rifare esattamente la stessa identica cosa. Due ore di calcolo per non guadagnare nulla. Sono usciti 0,323 e 0,323: identici. Poi ho cambiato due cose, una alla volta, e sono arrivato a 0,328 e quindi a 0,329.</p>
+
+  <p>Qui conviene essere onesti, perch&eacute; &egrave; facile raccontarsela. Quel secondo guadagno &mdash; un millesimo su quattrocento molecole &mdash; significa che <em>una sola</em> molecola si &egrave; spostata di qualche posizione. Non &egrave; un miglioramento, &egrave; un pareggio. Il primo ne vale due o tre. Sono numeri minuscoli. La differenza &egrave; che adesso so quanto sono minuscoli: senza quell&rsquo;esecuzione apparentemente sprecata avrei potuto convincermi di aver trovato qualcosa e costruirci sopra. Sono passato dal 262&deg; al 171&deg; posto su 888 squadre, ma quel salto &egrave; quasi tutto affollamento &mdash; in quella fascia centinaia di concorrenti usano lo stesso punto di partenza pubblico, separati da pochi millesimi.</p>
+
+  <p>Con l&rsquo;elenco di molecole candidate attuale, un sistema di ordinamento perfetto arriverebbe intorno a 0,43. &Egrave; un tetto: sopra quel limite non basta ordinare meglio, bisogna aggiungere alla lista molecole che oggi non ci sono. Che poi &egrave; il problema di partenza in un&rsquo;altra forma &mdash; non puoi identificare ci&ograve; che non hai mai considerato. La gara chiude a dicembre, e il lavoro vero comincia adesso.</p>
+
+</article>
+
+<div class="links-box">
+  <div class="links-card">
+    <h3>Riferimenti</h3>
+    <a href="https://www.kaggle.com/competitions/enveda-CASMI26-molecule-id-mass-spectra" target="_blank" rel="noopener">
+      <i class="fa fa-external-link" aria-hidden="true"></i>
+      La competizione su Kaggle
+    </a>
+    <a href="https://www.kaggle.com/code/prvsiyan/analog-propagation-casmi-2026-baseline" target="_blank" rel="noopener">
+      <i class="fa fa-code" aria-hidden="true"></i>
+      Il notebook di prvsiyan da cui sono partito
+    </a>
+  </div>
+</div>
+
+<nav class="post-nav" aria-label="Navigazione tra articoli">
+  <a href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i> Tutti gli articoli</a>
+  <a href="mailto:pezzalialessandro@gmail.com">Scrivimi cosa ne pensi <i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+</nav>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <h4>Trovami qui</h4>
+      <p style="font-size:.92rem">Per email: <a href="mailto:pezzalialessandro@gmail.com" style="color:#aef0df">pezzalialessandro@gmail.com</a></p>
+      <div class="social">
+        <a href="https://github.com/pezzaliapp" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/pezzaliapp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/@pezzaliapp" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
+        <a href="https://www.instagram.com/ale_pezzali/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+        <a href="https://pezzaliapp.com" target="_blank" rel="noopener" aria-label="pezzaliAPP"><i class="fa fa-globe"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Alessandro Pezzali &middot; Tutti i progetti sono open source salvo dove diversamente indicato.</div>
+  </div>
+</footer>
+
+</body>
+</html>
