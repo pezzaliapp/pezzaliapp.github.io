@@ -1,889 +1,102 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Alessandro Pezzali — Made for Makers · 40 PWA, tool e simulatori</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Sviluppatore indipendente, maker e autore. Nowcast, l'app sperimentale che avvisa quando grandine o downburst puntano verso il tuo comune, più PWA operative, AI applicata al lavoro e simulatori scientifici. Open source, leggero, statico su GitHub Pages.">
-  <meta name="keywords" content="Nowcast grandine, allerta grandine, downburst, nowcasting radar, Alessandro Pezzali, pezzaliAPP, PWA, Made for Makers, MeteorWatch, CubeSat, GeoTrack, FleXiLift, open source, GitHub Pages">
-  <meta name="author" content="Alessandro Pezzali">
-  <meta name="theme-color" content="#00b894">
-
-  <link rel="icon" href="favicon.ico">
-  <link rel="canonical" href="https://www.alessandropezzali.it/">
-
-  <meta property="og:title" content="Alessandro Pezzali — Made for Makers">
-  <meta property="og:description" content="40 PWA, tool e simulatori. Open source, leggeri, statici. Dall'officina allo spazio.">
-  <meta property="og:image" content="https://www.alessandropezzali.it/preview.jpg">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.alessandropezzali.it/">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Alessandro Pezzali",
-    "alternateName":"PezzaliAPP",
-    "url":"https://www.alessandropezzali.it",
-    "jobTitle":"Sviluppatore indipendente, maker, autore",
-    "email":"pezzalialessandro@gmail.com",
-    "image":"https://www.alessandropezzali.it/images/alessandro-pezzali.jpg",
-    "sameAs":[
-      "https://pezzaliapp.com",
-      "https://github.com/pezzaliapp",
-      "https://www.linkedin.com/in/pezzaliapp/",
-      "https://www.youtube.com/@pezzaliapp",
-      "https://www.instagram.com/ale_pezzali/"
-    ]
-  }
-  </script>
-
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <style>
-    :root{
-      --bg:#121212;
-      --panel:#1b1b1b;
-      --panel-2:#202020;
-      --text:#f0f0f0;
-      --muted:#c8c8c8;
-      --soft:#9a9a9a;
-      --line:rgba(255,255,255,.08);
-      --brand:#00b894;
-      --blue:#0984e3;
-      --red:#ff2b2b;
-      --shadow:0 12px 32px rgba(0,0,0,.28);
-      --radius:16px;
-      --navH:64px;
-      --container:1180px;
-    }
-
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;min-height:100%;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
-    html{scroll-behavior:smooth}
-    img{max-width:100%;display:block}
-    a{color:inherit}
-
-    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
-    .section-pad{padding:64px 0}
-    .section-title{font-size:clamp(1.4rem,3.2vw,2rem);margin:0 0 10px}
-    .section-lead{max-width:760px;margin:0 0 28px;color:var(--muted);font-size:1rem;line-height:1.7}
-    .eyebrow{
-      display:inline-flex;align-items:center;gap:8px;padding:6px 12px;
-      border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);
-      font-size:.78rem;color:#d7fff6;margin-bottom:14px;letter-spacing:.3px;text-transform:uppercase
-    }
-    .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--brand)}
-
-    /* Nav */
-    nav.topnav{
-      position:fixed;inset:0 0 auto 0;z-index:1000;
-      background:rgba(8,8,8,.88);
-      backdrop-filter:saturate(140%) blur(10px);
-      -webkit-backdrop-filter:saturate(140%) blur(10px);
-      border-bottom:1px solid rgba(255,255,255,.06);
-      height:var(--navH);
-    }
-    .nav-wrap{max-width:1320px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:18px;height:100%}
-    .logo{font-size:1rem;font-weight:700;letter-spacing:.2px;white-space:nowrap;flex-shrink:0}
-    .logo span{color:var(--brand)}
-    nav.topnav ul{display:flex;flex-wrap:nowrap;gap:6px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;max-width:100%}
-    nav.topnav ul::-webkit-scrollbar{display:none}
-    nav.topnav li{flex:0 0 auto}
-    nav.topnav a{
-      display:inline-flex;align-items:center;justify-content:center;min-height:38px;
-      padding:8px 12px;border-radius:999px;text-decoration:none;font-size:.92rem;color:#f0f0f0;
-      transition:background .2s ease,color .2s ease,transform .2s ease;
-    }
-    nav.topnav a:hover{background:rgba(255,255,255,.06);color:#fff;transform:translateY(-1px)}
-    nav.topnav a.active{background:rgba(0,184,148,.14);border:1px solid rgba(0,184,148,.30);color:#fff}
-    .nav-blue{color:#7ec8ff !important;font-weight:700}
-    .nav-red{color:#ff8181 !important;font-weight:700}
-
-    /* ===== Hero animato ===== */
-    .hero{
-      position:relative;margin-top:var(--navH);
-      padding:84px 0 72px;border-bottom:1px solid var(--line);overflow:hidden;
-      isolation:isolate;
-    }
-    /* sfondo cosmico: gradiente radiale + nebulose */
-    .hero::before{
-      content:"";position:absolute;inset:0;z-index:-3;
-      background:
-        radial-gradient(ellipse at 20% 10%, rgba(0,184,148,.18), transparent 45%),
-        radial-gradient(ellipse at 80% 20%, rgba(9,132,227,.20), transparent 50%),
-        radial-gradient(ellipse at 60% 90%, rgba(155,89,182,.12), transparent 55%),
-        linear-gradient(180deg, #0a0e14 0%, #121212 100%);
-    }
-    /* SVG orbite + stelle */
-    .hero-bg{
-      position:absolute;inset:0;z-index:-2;width:100%;height:100%;pointer-events:none;
-      opacity:.55;mask-image:radial-gradient(ellipse at center, #000 60%, transparent 100%);
-              -webkit-mask-image:radial-gradient(ellipse at center, #000 60%, transparent 100%);
-    }
-    .orbit{fill:none;stroke:rgba(255,255,255,.10);stroke-width:.6}
-    .orbit-glow{fill:none;stroke:url(#og);stroke-width:1.1}
-    .sat{fill:#aef0df;filter:drop-shadow(0 0 6px rgba(0,184,148,.65))}
-    .sat-blue{fill:#cfe8ff;filter:drop-shadow(0 0 6px rgba(9,132,227,.65))}
-    .sat-violet{fill:#e8d3ff;filter:drop-shadow(0 0 6px rgba(155,89,182,.55))}
-    .star{fill:#fff;opacity:.65}
-    .core{fill:#1a1a1a;stroke:rgba(255,255,255,.08);stroke-width:.5}
-
-    @keyframes spinSlow   { to { transform:rotate(360deg) } }
-    @keyframes spinMed    { to { transform:rotate(360deg) } }
-    @keyframes spinFast   { to { transform:rotate(360deg) } }
-    @keyframes spinReverse{ to { transform:rotate(-360deg) } }
-    @keyframes twinkle    { 0%,100%{opacity:.25} 50%{opacity:.95} }
-
-    .ring-1{transform-origin:50% 50%;animation:spinSlow    180s linear infinite}
-    .ring-2{transform-origin:50% 50%;animation:spinReverse 110s linear infinite}
-    .ring-3{transform-origin:50% 50%;animation:spinMed      72s linear infinite}
-    .ring-4{transform-origin:50% 50%;animation:spinFast     46s linear infinite}
-    .star.t1{animation:twinkle 3.2s ease-in-out infinite}
-    .star.t2{animation:twinkle 4.8s ease-in-out infinite .6s}
-    .star.t3{animation:twinkle 5.6s ease-in-out infinite 1.2s}
-
-    @media (prefers-reduced-motion: reduce){
-      .ring-1,.ring-2,.ring-3,.ring-4,.star{animation:none !important}
-    }
-
-    .hero-inner{position:relative;z-index:1}
-    .hero h1{
-      font-size:clamp(2.2rem,6vw,4rem);line-height:1.04;margin:0 0 18px;max-width:920px;font-weight:700;letter-spacing:-.5px
-    }
-    .hero h1 .accent{color:var(--brand)}
-    .hero h1 .accent-blue{color:var(--blue)}
-    .hero p.lead{font-size:1.1rem;line-height:1.7;color:#ececec;max-width:680px;margin:0 0 30px}
-    .hero-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:9px;
-      min-height:48px;padding:13px 22px;border-radius:12px;text-decoration:none;font-weight:600;font-size:.98rem;
-      border:1px solid transparent;transition:transform .18s ease, background .18s ease, box-shadow .18s ease;
-      white-space:nowrap;
-    }
-    .btn:hover{transform:translateY(-2px)}
-    .btn-green{background:var(--brand);color:#fff;box-shadow:0 8px 22px rgba(0,184,148,.28)}
-    .btn-green:hover{background:#13d2ad;box-shadow:0 10px 28px rgba(0,184,148,.42)}
-    .btn-blue{background:var(--blue);color:#fff;box-shadow:0 8px 22px rgba(9,132,227,.28)}
-    .btn-blue:hover{background:#1696f5;box-shadow:0 10px 28px rgba(9,132,227,.42)}
-    .btn-secondary{background:rgba(255,255,255,.06);border-color:var(--line);color:#fff}
-    .btn-secondary:hover{background:rgba(255,255,255,.10)}
-
-    /* Stat cards */
-    .stats-strip{padding:36px 0;border-bottom:1px solid var(--line);background:#0f0f0f}
-    .hero-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;max-width:1040px;margin:0 auto}
-    .stat{
-      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
-      border:1px solid var(--line);border-radius:14px;padding:18px 20px;text-align:center
-    }
-    .stat strong{display:block;font-size:1.7rem;line-height:1;margin-bottom:6px;color:#fff}
-    .stat span{display:block;color:var(--muted);font-size:.88rem;line-height:1.45}
-
-    /* Apps grid (in evidenza) */
-    .apps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .app-card{
-      background:linear-gradient(180deg, #1f1f1f, #181818);
-      padding:20px;border-radius:16px;border:1px solid var(--line);box-shadow:var(--shadow);
-      text-align:left;display:flex;flex-direction:column;
-      transition:transform .2s ease,border-color .2s ease
-    }
-    .app-card:hover{transform:translateY(-3px);border-color:rgba(0,184,148,.35)}
-    .icon-ph{
-      width:76px;height:76px;border-radius:14px;
-      display:flex;align-items:center;justify-content:center;
-      background:linear-gradient(135deg, rgba(0,184,148,.22), rgba(9,132,227,.20));
-      border:1px solid var(--line);font-size:1.95rem;color:#fff;margin-bottom:14px
-    }
-    .icon-ph.blue{background:linear-gradient(135deg, rgba(9,132,227,.30), rgba(0,184,148,.14))}
-    .icon-ph.warm{background:linear-gradient(135deg, rgba(255,193,7,.22), rgba(255,87,34,.18))}
-    .icon-ph.violet{background:linear-gradient(135deg, rgba(155,89,182,.28), rgba(9,132,227,.16))}
-    .icon-ph.mono{background:linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.04))}
-    .app-card h3{font-size:1.1rem;margin:0 0 8px;line-height:1.3}
-    .app-card p{font-size:.93rem;color:var(--muted);line-height:1.65;margin:0 0 14px;flex-grow:1}
-    .app-card .meta{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
-    .tag{
-      display:inline-flex;padding:3px 9px;border-radius:999px;
-      background:rgba(255,255,255,.05);border:1px solid var(--line);
-      font-size:.72rem;color:#dcdcdc
-    }
-    .tag.brand{background:rgba(0,184,148,.13);border-color:rgba(0,184,148,.30);color:#aef0df}
-    .tag.blue{background:rgba(9,132,227,.13);border-color:rgba(9,132,227,.30);color:#cfe8ff}
-    .actions{display:flex;flex-wrap:wrap;gap:8px}
-    .actions a{
-      display:inline-flex;align-items:center;justify-content:center;gap:6px;
-      padding:9px 12px;border-radius:10px;text-decoration:none;
-      background:#2a2a2a;color:#fff;font-size:.88rem;font-weight:600;
-      transition:transform .18s ease, background .18s ease
-    }
-    .actions a:hover{transform:translateY(-1px)}
-    .actions a.primary{background:var(--brand)}
-    .actions a.primary:hover{background:#13d2ad}
-    .actions a.secondary{background:transparent;border:1px solid var(--line);color:#e5e5e5}
-    .actions a.secondary:hover{background:rgba(255,255,255,.06);border-color:rgba(0,184,148,.40)}
-    .card-badge{
-      display:inline-flex;align-items:center;gap:6px;
-      padding:4px 10px;border-radius:999px;
-      background:linear-gradient(135deg, rgba(32,191,132,.18), rgba(66,133,244,.20));
-      border:1px solid rgba(66,133,244,.40);
-      font-size:.7rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;
-      color:#cfe8ff;margin-bottom:10px;align-self:flex-start
-    }
-    .card-badge i{color:#ffd766;font-size:.78rem}
-
-    /* Chips esplora per categoria */
-    .chips{
-      display:flex;flex-wrap:wrap;gap:10px
-    }
-    .chip{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:10px 15px;border-radius:999px;
-      background:rgba(255,255,255,.04);border:1px solid var(--line);
-      text-decoration:none;color:#eaeaea;font-size:.92rem;
-      transition:background .18s ease,border-color .18s ease,transform .18s ease
-    }
-    .chip:hover{background:rgba(0,184,148,.12);border-color:rgba(0,184,148,.35);transform:translateY(-1px)}
-    .chip i{color:var(--brand);font-size:1rem}
-
-    /* Sezione Chi è Alessandro */
-    .about-grid{
-      display:grid;grid-template-columns:220px 1fr;gap:36px;align-items:center;
-      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
-      border:1px solid var(--line);border-radius:18px;padding:30px
-    }
-    .about-photo{
-      width:200px;height:200px;border-radius:50%;overflow:hidden;
-      border:3px solid rgba(0,184,148,.40);box-shadow:0 12px 28px rgba(0,0,0,.35);
-      flex-shrink:0;background:#222
-    }
-    .about-photo img{width:100%;height:100%;object-fit:cover}
-    .about-text h2{margin:0 0 12px;font-size:1.45rem}
-    .about-text p{color:var(--muted);line-height:1.75;margin:0 0 12px;font-size:.98rem}
-    .about-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-    .about-links a{
-      display:inline-flex;align-items:center;gap:7px;
-      padding:9px 14px;border-radius:10px;text-decoration:none;font-size:.9rem;font-weight:600;
-      background:rgba(255,255,255,.05);border:1px solid var(--line);color:#fff;
-      transition:background .18s ease,border-color .18s ease,transform .18s ease
-    }
-    .about-links a:hover{background:rgba(0,184,148,.12);border-color:rgba(0,184,148,.35);transform:translateY(-1px)}
-
-    /* Footer */
-    footer.site-footer{background:#161616;border-top:1px solid rgba(255,255,255,.06);padding:30px 0 16px;margin-top:24px}
-    .footer-grid{max-width:520px;margin:0 auto;text-align:center}
-    .footer-grid p{color:var(--muted);line-height:1.7;margin:0 0 10px}
-    .footer-grid h4{margin:0 0 10px;font-size:.95rem;color:#fff}
-    .social{display:flex;gap:12px;margin-top:10px;justify-content:center}
-    .social a{
-      display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;
-      border-radius:50%;background:#232323;text-decoration:none;color:#fff;
-      transition:background .18s ease,color .18s ease,transform .18s ease
-    }
-    .social a:hover{background:#2d2d2d;color:var(--brand);transform:translateY(-2px)}
-    .footer-bottom{text-align:center;padding:16px 0 6px;color:#aaa;font-size:.85rem;border-top:1px solid rgba(255,255,255,.06);margin-top:24px}
-    .map-wrap{max-width:520px;margin:24px auto 0}
-
-    /* ===== Fascia Nowcast (in cima, sopra l'hero) ===== */
-    .nowcast-band{
-      margin-top:var(--navH);
-      background:
-        radial-gradient(ellipse at 78% 40%, rgba(224,154,60,.14), transparent 60%),
-        linear-gradient(180deg,#0c1319 0%,#0e1620 100%);
-      /* dopo la scorciatoia, non prima: altrimenti lo azzera lei */
-      background-color:#0c1319;
-      border-bottom:1px solid rgba(224,154,60,.22);
-      padding:38px 0 34px;
-    }
-    .nowcast-band + .hero{margin-top:0}
-    /* Su schermo largo: testo a sinistra, disegno a destra.
-       Su telefono l'ordine cambia — titolo, disegno, pulsanti, e solo
-       dopo la spiegazione lunga — perche' il pulsante deve stare nella
-       prima schermata, e la spiegazione da sola la mangerebbe tutta. */
-    .nowcast-grid{
-      display:grid;gap:10px 34px;
-      grid-template-columns:1.05fr .95fr;
-      grid-template-areas:
-        "intro  fig"
-        "dett   fig"
-        "azione fig";
-      align-content:center
-    }
-    .nc-intro{grid-area:intro}
-    .nc-dett{grid-area:dett}
-    .nc-azione{grid-area:azione}
-    .nowcast-fig{grid-area:fig;align-self:center}
-    .nowcast-eyebrow{
-      display:inline-flex;align-items:center;gap:8px;padding:6px 12px;
-      border:1px solid rgba(224,154,60,.34);border-radius:999px;
-      background:rgba(224,154,60,.08);
-      font-size:.76rem;color:#f2c98a;margin-bottom:14px;
-      letter-spacing:.4px;text-transform:uppercase;font-weight:600
-    }
-    .nowcast-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:#E09A3C}
-    .nowcast-band h2{
-      margin:0 0 12px;font-size:clamp(1.55rem,3.6vw,2.3rem);line-height:1.15;
-      letter-spacing:-.02em
-    }
-    .nowcast-band h2 .acc{color:#E09A3C}
-    .nowcast-band p.nowcast-lead{
-      margin:0 0 18px;color:var(--muted);font-size:1.02rem;line-height:1.65;max-width:54ch
-    }
-    .nowcast-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:14px}
-    .nowcast-cta a{
-      display:inline-flex;align-items:center;gap:9px;
-      padding:13px 22px;border-radius:12px;text-decoration:none;
-      font-weight:700;font-size:.98rem;
-      transition:transform .18s ease,background .18s ease,border-color .18s ease
-    }
-    .nowcast-cta a:hover{transform:translateY(-2px)}
-    .nc-primary{background:#E09A3C;color:#0C1319;border:1px solid #E09A3C}
-    .nc-primary:hover{background:#eeae58}
-    .nc-second{background:rgba(255,255,255,.05);color:#fff;border:1px solid var(--line)}
-    .nc-second:hover{background:rgba(255,255,255,.09);border-color:rgba(224,154,60,.35)}
-    /* La cosa che il motore fa e che altrove non ho visto fare: il
-       cancello sulla densita' VIL. Sta sotto i pulsanti perche' non e'
-       quello che convince ad aprire l'app - e' quello che convince a
-       non disinstallarla dopo il terzo falso allarme. */
-    .nowcast-piu{
-      margin:0 0 14px;padding:12px 0 12px 16px;
-      border-left:3px solid rgba(224,154,60,.45);
-      color:var(--muted);font-size:.95rem;line-height:1.65;max-width:54ch
-    }
-    .nowcast-piu strong.testa{color:#f2c98a;display:block;margin-bottom:4px}
-    .nowcast-note{margin:0;color:var(--soft);font-size:.85rem;line-height:1.6}
-    .nowcast-fig img{
-      width:100%;height:auto;border-radius:14px;border:1px solid rgba(255,255,255,.08);
-      box-shadow:0 14px 34px rgba(0,0,0,.45)
-    }
-    .nowcast-fig figcaption{
-      margin-top:9px;color:var(--soft);font-size:.82rem;line-height:1.55;text-align:center
-    }
-    @media (max-width: 880px){
-      .nowcast-grid{
-        grid-template-columns:1fr;gap:18px;
-        grid-template-areas:"intro" "fig" "azione" "dett"
-      }
-      .nowcast-band p.nowcast-lead{margin-bottom:0}
-      .nowcast-note{margin-top:12px}
-    }
-    @media (max-width: 540px){
-      .nowcast-band{padding:22px 0 26px}
-      .nowcast-grid{gap:14px}
-      .nowcast-band h2{margin-bottom:0}
-      .nowcast-cta{flex-direction:column;align-items:stretch;margin-bottom:0}
-      .nowcast-cta a{justify-content:center;width:100%}
-      .nowcast-fig figcaption{margin-top:8px;font-size:.78rem;text-align:left}
-    }
-
-    /* Responsive */
-    @media (max-width: 1180px){
-      .apps-grid{grid-template-columns:repeat(2,1fr)}
-    }
-    @media (max-width: 1040px){
-      .hero-stats{grid-template-columns:repeat(2,1fr);max-width:560px}
-    }
-    @media (max-width: 880px){
-      .about-grid{grid-template-columns:1fr;text-align:center;padding:24px}
-      .about-photo{margin:0 auto}
-      .about-links{justify-content:center}
-    }
-    @media (max-width: 540px){
-      .apps-grid{grid-template-columns:1fr}
-      .section-pad{padding:48px 0}
-      .container{padding:0 16px}
-      .hero{padding:60px 0 50px}
-      .btn{width:100%}
-      .hero-cta{flex-direction:column;align-items:stretch}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alessandro Pezzali — Il laboratorio PezzaliAPP</title>
+<meta name="description" content="Il laboratorio PezzaliAPP: strumenti, PWA, giochi, simulatori ed esperimenti indipendenti da aprire e provare direttamente dal browser.">
+<meta name="author" content="Alessandro Pezzali">
+<meta name="theme-color" content="#00b894">
+<link rel="canonical" href="https://www.alessandropezzali.it/">
+<link rel="icon" href="favicon.ico">
+<meta property="og:title" content="Alessandro Pezzali — Il laboratorio PezzaliAPP">
+<meta property="og:description" content="Strumenti, PWA, giochi ed esperimenti. Apri. Prova. Usa.">
+<meta property="og:image" content="https://www.alessandropezzali.it/preview.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.alessandropezzali.it/">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Alessandro Pezzali","alternateName":"PezzaliAPP","url":"https://www.alessandropezzali.it","jobTitle":"Sviluppatore indipendente, maker, autore","email":"pezzalialessandro@gmail.com","image":"https://www.alessandropezzali.it/images/alessandro-pezzali.jpg","sameAs":["https://pezzaliapp.com","https://github.com/pezzaliapp","https://www.linkedin.com/in/pezzaliapp/","https://www.youtube.com/@pezzaliapp","https://www.instagram.com/ale_pezzali/"]}
+</script>
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+:root{--bg:#121212;--panel:#1b1b1b;--panel2:#202020;--text:#f0f0f0;--muted:#bdbdbd;--soft:#929292;--line:rgba(255,255,255,.09);--brand:#00b894;--blue:#0984e3;--purple:#9b59b6;--gold:#d9a441;--nav:64px;--max:1180px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Poppins,sans-serif}a{color:inherit}img{max-width:100%;display:block}.container{max-width:var(--max);margin:auto;padding:0 20px}
+nav{position:fixed;z-index:1000;inset:0 0 auto;height:var(--nav);background:rgba(8,8,8,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}.navin{height:100%;display:flex;align-items:center;gap:24px}.logo{text-decoration:none;font-weight:700;white-space:nowrap}.logo span{color:var(--brand)}nav ul{display:flex;gap:5px;list-style:none;margin:0;padding:0;overflow:auto;scrollbar-width:none}nav li{flex:0 0 auto}nav ul a{display:block;text-decoration:none;padding:9px 12px;border-radius:999px;font-size:.9rem}nav ul a:hover{background:#202020}.to-pa{color:#8dd4ff;font-weight:700}
+.hero{margin-top:var(--nav);padding:100px 0 82px;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 15% 30%,rgba(0,184,148,.16),transparent 42%),radial-gradient(ellipse at 80% 20%,rgba(9,132,227,.12),transparent 42%),#111}.kicker,.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 11px;border:1px solid rgba(0,184,148,.28);border-radius:999px;background:rgba(0,184,148,.07);font-size:.76rem;color:#cffff4;margin-bottom:18px}.dot{width:6px;height:6px;border-radius:50%;background:var(--brand)}h1{font-size:clamp(2.7rem,7vw,5.4rem);line-height:.98;letter-spacing:-.05em;margin:0 0 24px;max-width:920px}.accent{color:var(--brand)}.lead{font-size:1.08rem;line-height:1.75;color:#d6d6d6;max-width:760px;margin:0 0 30px}.actions{display:flex;flex-wrap:wrap;gap:10px}.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:11px;text-decoration:none;font-weight:600;border:1px solid var(--line)}.primary{background:var(--brand);border-color:var(--brand);color:#081713}.secondary{background:rgba(255,255,255,.04)}.btn:hover{transform:translateY(-1px)}
+.section{padding:70px 0}.section+.section{border-top:1px solid var(--line)}h2{font-size:clamp(1.65rem,4vw,2.45rem);margin:0 0 10px;letter-spacing:-.025em}.intro{color:var(--muted);line-height:1.7;max-width:780px;margin:0 0 30px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{display:flex;flex-direction:column;min-height:250px;padding:21px;background:linear-gradient(180deg,#1e1e1e,#181818);border:1px solid var(--line);border-radius:16px;text-decoration:none;transition:.2s}.card:hover{transform:translateY(-3px);border-color:rgba(0,184,148,.38)}.card .type{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--brand);margin-bottom:15px}.card h3{margin:0 0 9px;font-size:1.12rem}.card p{color:var(--muted);line-height:1.65;font-size:.9rem;margin:0 0 18px;flex:1}.go{font-size:.86rem;font-weight:600}.worlds{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.world{padding:17px;border:1px solid var(--line);border-radius:13px;background:#181818;text-decoration:none}.world:hover{border-color:rgba(0,184,148,.4)}.world b{display:block;font-size:.92rem;margin-bottom:5px}.world span{font-size:.78rem;color:var(--soft);line-height:1.5;display:block}
+.pubgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.panel{padding:24px;border:1px solid var(--line);border-radius:16px;background:#181818}.panel.purple{border-color:rgba(155,89,182,.3)}.panel.gold{border-color:rgba(217,164,65,.3)}.panel h3{margin:0 0 10px}.panel p{color:var(--muted);line-height:1.7;font-size:.92rem}.mini-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.mini-links a{padding:8px 11px;border:1px solid var(--line);border-radius:9px;text-decoration:none;font-size:.82rem}
+.about{display:grid;grid-template-columns:170px 1fr;gap:30px;align-items:center}.photo{width:160px;height:160px;border-radius:50%;overflow:hidden;border:2px solid rgba(0,184,148,.38)}.photo img{width:100%;height:100%;object-fit:cover}.about p{color:var(--muted);line-height:1.75}.about strong{color:#fff}
+footer{padding:34px 0;border-top:1px solid var(--line);background:#0f0f0f;text-align:center;color:#999;font-size:.84rem}.social{display:flex;justify-content:center;gap:12px;margin:0 0 18px}.social a{width:40px;height:40px;display:grid;place-items:center;border-radius:50%;background:#202020;text-decoration:none}.social a:hover{color:var(--brand)}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.worlds{grid-template-columns:repeat(2,1fr)}.pubgrid{grid-template-columns:1fr}}@media(max-width:600px){.container{padding:0 16px}.hero{padding:72px 0 58px}.grid,.worlds{grid-template-columns:1fr}.about{grid-template-columns:1fr;text-align:center}.photo{margin:auto}.actions .btn{width:100%;justify-content:center}.section{padding:52px 0}}
+</style>
 </head>
 <body>
+<nav><div class="container navin"><a class="logo" href="index.html">Alessandro <span>Pezzali</span></a><ul>
+<li><a href="#laboratorio">Laboratorio</a></li><li><a href="progetti.html">Progetti</a></li><li><a href="#pubblicazioni">Pubblicazioni</a></li><li><a href="blog/">Blog</a></li><li><a href="ia-in-azienda/">IA in azienda</a></li><li><a class="to-pa" href="https://pezzaliapp.com" target="_blank" rel="noopener">PezzaliAPP ↗</a></li><li><a href="#chi-sono">Chi sono</a></li>
+</ul></div></nav>
 
-<nav class="topnav" aria-label="Navigazione principale">
-  <div class="nav-wrap">
-    <a class="logo" href="index.html">Alessandro <span>Pezzali</span></a>
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="progetti.html">Progetti</a></li>
-      <li><a href="blog/">Blog</a></li>
-      <li><a href="ia-in-azienda/">IA in azienda</a></li>
-      <li><a href="https://pezzaliapp.com" target="_blank" rel="noopener" class="nav-blue">pezzaliAPP</a></li>
-      <li><a href="https://github.com/pezzaliapp" target="_blank" rel="noopener">GitHub</a></li>
-      <li><a href="mailto:pezzalialessandro@gmail.com">Contatti</a></li>
-      <li><a href="https://www.patreon.com/c/pezzaliAPP?redirect=true" target="_blank" rel="noopener" class="nav-red">❤ Sostieni</a></li>
-    </ul>
-  </div>
-</nav>
+<header class="hero"><div class="container">
+<div class="kicker"><span class="dot"></span>alessandropezzali.it · laboratorio digitale</div>
+<h1>Il laboratorio<br><span class="accent">PezzaliAPP.</span></h1>
+<p class="lead">Strumenti, PWA, giochi ed esperimenti. Progetti indipendenti nati per risolvere un problema, esplorare un'idea o semplicemente vedere se può funzionare.</p>
+<div class="actions"><a class="btn primary" href="#laboratorio">Apri. Prova. Usa.</a><a class="btn secondary" href="progetti.html">Tutti i progetti →</a><a class="btn secondary" href="https://pezzaliapp.com" target="_blank" rel="noopener">Vedi l'ecosistema PezzaliAPP ↗</a></div>
+</div></header>
 
-<!-- Nowcast: in cima, prima di tutto il resto. Non una finestra sopra
-     la pagina - Google penalizza gli avvisi a tutto schermo su mobile
-     e chi arriva li chiude senza leggerli. -->
-<section class="nowcast-band" aria-labelledby="nowcast-titolo">
-  <div class="container">
-    <div class="nowcast-grid">
+<section class="section" id="laboratorio"><div class="container">
+<div class="eyebrow"><span class="dot"></span>Dal laboratorio</div>
+<h2>Sei porte d'ingresso.</h2>
+<p class="intro">Non una classifica: sei progetti diversi per capire cosa succede qui dentro. Meteo, territorio, dati, interfacce, gioco e scienza.</p>
+<div class="grid">
+<a class="card" href="https://nowcast.pezzalihub.app" target="_blank" rel="noopener"><span class="type">Meteo · territorio</span><h3>NOWCAST</h3><p>Motore sperimentale che segue le celle temporalesche e avvisa quando grandine o downburst puntano verso una zona sorvegliata.</p><span class="go">Apri →</span></a>
+<a class="card" href="https://www.alessandropezzali.it/EarthRadar/" target="_blank" rel="noopener"><span class="type">Terra · sensori</span><h3>EarthRadar</h3><p>Un modo visuale per osservare la Terra e seguire elementi in movimento direttamente dal browser.</p><span class="go">Apri →</span></a>
+<a class="card" href="https://www.alessandropezzali.it/CSVXpressSmart/" target="_blank" rel="noopener"><span class="type">Data · work</span><h3>CSVXpressSmart</h3><p>Versione Web/PWA multipiattaforma per lavorare con listini CSV, prezzi, sconti e dati operativi.</p><span class="go">Apri Web/PWA →</span></a>
+<a class="card" href="https://www.alessandropezzali.it/AURAE/" target="_blank" rel="noopener"><span class="type">Future interfaces</span><h3>AURÆ</h3><p>Concept software per creare, archiviare e condividere rappresentazioni digitali di fragranze.</p><span class="go">Esplora →</span></a>
+<a class="card" href="https://www.alessandropezzali.it/ILCUBO/" target="_blank" rel="noopener"><span class="type">Game · puzzle</span><h3>IL CUBO</h3><p>Un gioco-rompicapo interattivo: una delle deviazioni ludiche del laboratorio.</p><span class="go">Gioca →</span></a>
+<a class="card" href="https://pezzaliapp.github.io/CubeSat_Constellation/" target="_blank" rel="noopener"><span class="type">Scienza · spazio</span><h3>CubeSat Constellation</h3><p>Visualizzazione 3D multi-satellite con TLE live, meccanica orbitale SGP4/SDP4 e tracciamento solare.</p><span class="go">Apri →</span></a>
+</div>
+</div></section>
 
-      <div class="nc-intro">
-        <div class="nowcast-eyebrow"><span class="dot"></span>Novità · esperimento aperto</div>
-        <h2 id="nowcast-titolo">Ti avviso quando <span class="acc">grandine o raffiche</span> puntano verso il tuo comune.</h2>
-      </div>
+<section class="section"><div class="container">
+<div class="eyebrow"><span class="dot"></span>Esplora per mondo</div>
+<h2>Stessa logica. Progetti diversi.</h2>
+<p class="intro">Questi sono i mondi usati nell'ecosistema PezzaliAPP. Il catalogo completo verrà riallineato a questa struttura nella fase successiva.</p>
+<div class="worlds">
+<a class="world" href="progetti.html#mobility"><b>Mobility & Territory</b><span>Strada, territorio, navigazione e sistemi live.</span></a>
+<a class="world" href="progetti.html#tools"><b>Tools & Productivity</b><span>Strumenti pratici per lavorare e fare più in fretta.</span></a>
+<a class="world" href="progetti.html#data"><b>Data & Work</b><span>CSV, Excel, listini, dati e processi operativi.</span></a>
+<a class="world" href="progetti.html#automotive"><b>Automotive</b><span>Officina, pneumatici e strumenti verticali.</span></a>
+<a class="world" href="progetti.html#meteo"><b>Meteo, Terra & Sensori</b><span>Radar, osservazione e dati dal mondo reale.</span></a>
+<a class="world" href="progetti.html#audio"><b>Audio & Music</b><span>Radio, suono, ritmo e sperimentazione musicale.</span></a>
+<a class="world" href="progetti.html#lab"><b>Lab & Experiments</b><span>Idee che vale la pena mettere alla prova.</span></a>
+<a class="world" href="progetti.html#games"><b>Games, Retro & Puzzle</b><span>Giochi, arcade, rompicapi e deviazioni ludiche.</span></a>
+<a class="world" href="progetti.html#system"><b>System & Device Utilities</b><span>Utility per computer e dispositivi.</span></a>
+<a class="world" href="progetti.html#future"><b>Future Interfaces</b><span>Interfacce e tecnologie ancora da esplorare.</span></a>
+<a class="world" href="progetti.html#kids"><b>Kids & Stories</b><span>Esperienze semplici, narrative e accessibili.</span></a>
+<a class="world" href="https://pezzaliapp.com" target="_blank" rel="noopener"><b>PezzaliAPP Ecosystem ↗</b><span>La mappa completa che collega domini, mondi e progetti.</span></a>
+</div>
+</div></section>
 
-      <div class="nc-dett">
-        <p class="nowcast-lead">
-          <strong>Nowcast</strong> legge i mosaici radar della Protezione Civile e del servizio
-          meteo tedesco, insegue le celle temporalesche e manda una notifica quando una di loro
-          diventa pericolosa — <strong>grandine</strong> o <strong>downburst</strong> — e punta
-          verso una zona che hai
-          scelto di sorvegliare. Il preavviso reale è di dieci o quindici minuti: quelli che
-          bastano a mettere la macchina al coperto.
-        </p>
-        <p class="nowcast-piu">
-          <strong class="testa">Se i chicchi sono piccoli, l'avviso non parte.</strong>
-          Il punteggio nasce dai dBZ, e i dBZ non distinguono la gragnola dalla grandine grossa.
-          Nowcast guarda anche la densità VIL — quanto ghiaccio è concentrato in quanto spessore
-          di nube — e sotto i 3,5 g/m³ non manda niente, nemmeno quando tutti gli altri
-          indicatori sono alti.
-        </p>
-        <p class="nowcast-note">
-          Gratis e senza registrazione. Su iPhone va aggiunta alla schermata Home, altrimenti
-          le notifiche non arrivano. È un motore sperimentale, ancora in fase di validazione:
-          <strong>non sostituisce</strong> le allerte ufficiali della Protezione Civile.
-        </p>
-      </div>
+<section class="section" id="pubblicazioni"><div class="container">
+<div class="eyebrow"><span class="dot"></span>Pubblicazioni</div>
+<h2>Non solo applicazioni.</h2>
+<p class="intro">Il laboratorio comprende anche quaderni di ricerca e progetti editoriali. Qui restano visibili senza trasformare la home in un secondo catalogo.</p>
+<div class="pubgrid">
+<div class="panel purple"><h3>Quantum Laboratory Notebook</h3><p>Esperimenti quantistici eseguiti su hardware reale Tuna-17 e documentati con dati, analisi e codice cQASM 3.0.</p><div class="mini-links"><a href="quantum-chsh.html">Bell–CHSH</a><a href="quantum-ghz.html">GHZ / Mermin</a><a href="quantum-tsirelson.html">Chasing Tsirelson</a></div></div>
+<div class="panel gold"><h3>Intelligenza artificiale in azienda</h3><p>Libro, strumenti operativi e applicazione dedicati all'uso dell'IA in azienda.</p><div class="mini-links"><a href="ia-in-azienda/">Vai al progetto →</a></div></div>
+</div>
+</div></section>
 
-      <div class="nc-azione">
-        <div class="nowcast-cta">
-          <a class="nc-primary" href="https://nowcast.pezzalihub.app" target="_blank" rel="noopener">
-            <i class="fa fa-bolt"></i> Apri Nowcast
-          </a>
-          <a class="nc-second" href="blog/cosa-vede-un-radar-quando-grandina.html">
-            Come funziona <i class="fa fa-arrow-right"></i>
-          </a>
-        </div>
-      </div>
+<section class="section" id="chi-sono"><div class="container">
+<div class="about"><div class="photo"><img src="images/alessandro-pezzali.jpg" alt="Alessandro Pezzali"></div><div>
+<div class="eyebrow"><span class="dot"></span>Chi sono</div><h2>Alessandro Pezzali</h2>
+<p>Sviluppatore indipendente, maker e autore. Costruisco strumenti web leggeri, PWA, simulatori ed esperimenti digitali.</p>
+<p><strong>alessandropezzali.it è il mio laboratorio. PezzaliAPP è l'ecosistema che collega i progetti.</strong></p>
+<div class="actions"><a class="btn secondary" href="https://github.com/pezzaliapp" target="_blank" rel="noopener"><i class="fa fa-github"></i> GitHub</a><a class="btn secondary" href="https://www.linkedin.com/in/pezzaliapp/" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i> LinkedIn</a><a class="btn secondary" href="mailto:pezzalialessandro@gmail.com"><i class="fa fa-envelope"></i> Email</a></div>
+</div></div>
+</div></section>
 
-      <figure class="nowcast-fig">
-        <img src="images/nowcast-schema.png" width="1000" height="620" loading="eager"
-             alt="Schema del corridoio previsto: la cella temporalesca misurata adesso e i cerchi
-                  della sua posizione stimata, che si allargano man mano che ci si allontana nel
-                  tempo, con un comune sorvegliato dentro il cono.">
-        <figcaption>
-          La cella come il radar la misura adesso, e dove il motore prevede che si troverà
-          minuto per minuto. Più un cerchio è lontano nel tempo, più è largo: cioè meno preciso.
-        </figcaption>
-      </figure>
-
-    </div>
-  </div>
-</section>
-
-<header class="hero">
-  <!-- Sfondo animato: orbite + stelle, puro SVG/CSS -->
-  <svg class="hero-bg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <defs>
-      <linearGradient id="og" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0" stop-color="#00b894" stop-opacity="0"/>
-        <stop offset=".5" stop-color="#00b894" stop-opacity=".55"/>
-        <stop offset="1" stop-color="#0984e3" stop-opacity="0"/>
-      </linearGradient>
-    </defs>
-
-    <!-- Stelle (twinkle) -->
-    <g>
-      <circle class="star t1" cx="120"  cy="80"  r="1.4"/>
-      <circle class="star t2" cx="220"  cy="180" r="1.0"/>
-      <circle class="star t3" cx="340"  cy="60"  r="1.6"/>
-      <circle class="star t1" cx="500"  cy="120" r="1.1"/>
-      <circle class="star t2" cx="640"  cy="40"  r="1.3"/>
-      <circle class="star t3" cx="780"  cy="160" r="1.0"/>
-      <circle class="star t1" cx="920"  cy="80"  r="1.5"/>
-      <circle class="star t2" cx="1060" cy="200" r="1.2"/>
-      <circle class="star t3" cx="1140" cy="100" r="1.0"/>
-      <circle class="star t1" cx="80"   cy="300" r="1.0"/>
-      <circle class="star t2" cx="180"  cy="500" r="1.4"/>
-      <circle class="star t3" cx="60"   cy="600" r="1.1"/>
-      <circle class="star t1" cx="280"  cy="640" r="1.0"/>
-      <circle class="star t2" cx="440"  cy="580" r="1.3"/>
-      <circle class="star t3" cx="600"  cy="660" r="1.5"/>
-      <circle class="star t1" cx="780"  cy="540" r="1.0"/>
-      <circle class="star t2" cx="940"  cy="600" r="1.2"/>
-      <circle class="star t3" cx="1080" cy="500" r="1.4"/>
-      <circle class="star t1" cx="1160" cy="380" r="1.0"/>
-      <circle class="star t2" cx="40"   cy="420" r="1.2"/>
-    </g>
-
-    <!-- Orbite concentriche al centro-destra -->
-    <g transform="translate(600 350)">
-      <!-- ring 1: la più larga, lenta -->
-      <g class="ring-1">
-        <ellipse class="orbit" rx="320" ry="170"/>
-        <ellipse class="orbit-glow" rx="320" ry="170" stroke-dasharray="6 14"/>
-        <circle class="sat-blue" cx="320" cy="0" r="4.5"/>
-      </g>
-      <!-- ring 2: media, controrotante -->
-      <g class="ring-2">
-        <ellipse class="orbit" rx="240" ry="125" transform="rotate(18)"/>
-        <circle class="sat" cx="240" cy="0" r="3.6" transform="rotate(18)"/>
-      </g>
-      <!-- ring 3: stretta, veloce -->
-      <g class="ring-3">
-        <ellipse class="orbit" rx="160" ry="84" transform="rotate(-25)"/>
-        <circle class="sat-violet" cx="160" cy="0" r="3" transform="rotate(-25)"/>
-      </g>
-      <!-- ring 4: piccola, velocissima -->
-      <g class="ring-4">
-        <ellipse class="orbit" rx="92" ry="48"/>
-        <circle class="sat" cx="92" cy="0" r="2.4"/>
-      </g>
-      <!-- nucleo -->
-      <circle class="core" r="14"/>
-    </g>
-  </svg>
-
-  <div class="container hero-inner">
-    <div class="eyebrow"><span class="dot"></span>Made for Makers · 2026</div>
-    <h1>Strumenti, <span class="accent">simulatori</span><br>e <span class="accent-blue">spazio</span> dentro al browser.</h1>
-    <p class="lead">
-      Sviluppatore indipendente, maker, autore. Pubblico PWA operative, AI applicata al lavoro, simulatori scientifici e giochi arcade. Statico, open source, senza framework e senza tracker.
-    </p>
-    <div class="hero-cta">
-      <a class="btn btn-green" href="https://pezzaliapp.github.io/CubeSat_Constellation/" target="_blank" rel="noopener">
-        <i class="fa fa-satellite"></i> Apri CubeSat Constellation
-      </a>
-      <a class="btn btn-blue" href="https://pezzaliapp.github.io/MeteorWatch/" target="_blank" rel="noopener">
-        <i class="fa fa-meteor"></i> Apri MeteorWatch
-      </a>
-      <a class="btn btn-secondary" href="progetti.html">
-        Tutti i progetti <i class="fa fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
-</header>
-
-<!-- Stat strip -->
-<section class="stats-strip" aria-label="Numeri del catalogo">
-  <div class="container">
-    <div class="hero-stats">
-      <div class="stat"><strong>40</strong><span>Progetti curati nel catalogo</span></div>
-      <div class="stat"><strong>11</strong><span>Categorie, dall'officina allo spazio</span></div>
-      <div class="stat"><strong>250+</strong><span>Repo pubbliche su GitHub</span></div>
-      <div class="stat"><strong>4.300+</strong><span>Contributi nell'ultimo anno</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- In evidenza -->
-<section class="section-pad" id="in-evidenza">
-  <div class="container">
-    <div class="eyebrow"><span class="dot"></span>In evidenza</div>
-    <h2 class="section-title">Sei progetti che vale la pena aprire</h2>
-    <p class="section-lead">Una selezione di app installabili, ognuna pensata per fare una cosa precisa: dal sollevamento ai dati NASA in tempo reale, dal CSV al pricing, dalla geo-intelligence al monitoraggio dell'aria.</p>
-
-    <div class="apps-grid">
-      <article class="app-card">
-        <div class="icon-ph blue"><i class="fa fa-satellite"></i></div>
-        <h3>CubeSat Constellation</h3>
-        <p>Visualizzazione 3D multi-satellite con catalogo TLE live di Celestrak: meccanica orbitale SGP4/SDP4, libreria satelliti, tracciamento solare. CesiumJS PWA.</p>
-        <div class="meta"><span class="tag brand">CesiumJS</span><span class="tag">TLE live</span></div>
-        <div class="actions">
-          <a class="primary" href="https://pezzaliapp.github.io/CubeSat_Constellation/" target="_blank" rel="noopener">Apri</a>
-          <a class="secondary" href="https://github.com/pezzaliapp/CubeSat_Constellation" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
-        </div>
-      </article>
-
-      <article class="app-card">
-        <div class="icon-ph"><i class="fa fa-meteor"></i></div>
-        <h3>MeteorWatch</h3>
-        <p>Asteroidi NEO, bolidi, sciami meteorici, rientri atmosferici e ISS in tempo reale. Aggrega dati NASA, JPL, ESA e CelesTrak in una PWA con APOD e mappa fireballs.</p>
-        <div class="meta"><span class="tag brand">PWA</span><span class="tag blue">Live data</span></div>
-        <div class="actions">
-          <a class="primary" href="https://pezzaliapp.github.io/MeteorWatch/" target="_blank" rel="noopener">Apri</a>
-          <a class="secondary" href="https://github.com/pezzaliapp/MeteorWatch" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
-        </div>
-      </article>
-
-      <article class="app-card">
-        <div class="icon-ph"><i class="fa fa-globe"></i></div>
-        <h3>GeoTrack</h3>
-        <p>Dashboard di geo-intelligence per le visite del sito: clustering Leaflet, heatmap, filtri temporali, export CSV/JSON. Lettura riservata via Firebase Auth, scrittura validata e immutabile.</p>
-        <div class="meta"><span class="tag brand">Firebase</span><span class="tag">Leaflet</span></div>
-        <div class="actions">
-          <a class="primary" href="https://www.alessandropezzali.it/GeoTrack/" target="_blank" rel="noopener">Apri</a>
-          <a class="secondary" href="https://github.com/pezzaliapp/GeoTrack" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
-        </div>
-      </article>
-
-      <article class="app-card" data-app-state="private">
-        <span class="card-badge"><i class="fa fa-trophy"></i> Kaggle 2026</span>
-        <div class="icon-ph violet"><i class="fa fa-medkit"></i></div>
-        <h3>TriageFirst</h3>
-        <p>Triage medico offline-ready basato su Gemma 4: la PWA suggerisce livello di urgenza (rosso/giallo/verde) per comunità con accesso sanitario limitato. Voce/testo, 8 lingue, in gara nella Kaggle Gemma 4 Impact Challenge.</p>
-        <div class="meta"><span class="tag brand">Gemma 4</span><span class="tag blue">Offline-ready</span></div>
-        <div class="actions">
-          <button type="button" class="primary appx-guard" aria-haspopup="dialog">Apri</button>
-          <button type="button" class="secondary appx-guard" aria-haspopup="dialog"><i class="fa fa-github"></i> Codice</button>
-        </div>
-      </article>
-
-      <article class="app-card">
-        <div class="icon-ph warm"><i class="fa fa-table"></i></div>
-        <h3>ListinoHub</h3>
-        <p>Hub centrale per la gestione dei listini fornitori: importi i CSV, applichi sconti, calcoli margini ed esporti preventivi puliti. Successore evoluto della linea CSVXpress.</p>
-        <div class="meta"><span class="tag">Listini</span><span class="tag brand">Preventivi</span></div>
-        <div class="actions">
-          <a class="primary" href="https://www.alessandropezzali.it/ListinoHub/" target="_blank" rel="noopener">Apri</a>
-          <a class="secondary" href="https://github.com/pezzaliapp/ListinoHub" target="_blank" rel="noopener"><i class="fa fa-github"></i> Codice</a>
-        </div>
-      </article>
-
-      <article class="app-card">
-        <div class="icon-ph"><i class="fa fa-arrows-v"></i></div>
-        <h3>FleXiLift</h3>
-        <p>Traccia lo stato del sollevatore in tempo reale. Hardware open via ESP32, interfaccia browser-first installabile come PWA.</p>
-        <div class="meta"><span class="tag brand">PWA</span><span class="tag">ESP32</span></div>
-        <div class="actions">
-          <a class="primary" href="fleXiLift.html">Scheda</a>
-          <a class="secondary" href="https://pezzaliapp.github.io/FleXiLift/" target="_blank" rel="noopener"><i class="fa fa-external-link"></i> Apri</a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- Pubblicazione: Quantum Lab Notebook -->
-<section class="section-pad" id="pubblicazioni" style="padding-top:0">
-  <div class="container">
-    <div class="eyebrow"><span class="dot" style="background:#9b59b6"></span>Pubblicazioni</div>
-    <h2 class="section-title">Quantum Laboratory Notebook — esperimenti su hardware reale</h2>
-    <p class="section-lead">
-      Una serie di quaderni di laboratorio: esperimenti quantistici reali eseguiti sul processore
-      Tuna-17 (Quantum Inspire), documentati passo per passo con dati grezzi, analisi, figure
-      vettoriali e codice cQASM 3.0. Capitolo 1: la disuguaglianza di Bell–CHSH violata con due
-      qubit (<strong style="color:#e8d3ff">S = 2.585 ± 0.017</strong>, 34σ oltre il limite
-      classico). Capitolo 2: lo stato GHZ a tre qubit e il test di Mermin
-      (<strong style="color:#e8d3ff">|M| = 3.417 ± 0.011</strong>, 123σ oltre il limite).
-      Capitolo 3: quanto vicino al bound di Tsirelson arriva la macchina
-      (<strong style="color:#e8d3ff">S_raw = 2.494 ± 0.039</strong>, 88.2% del massimo quantistico).
-    </p>
-    <div class="apps-grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));max-width:1040px">
-      <article class="app-card" style="border-color:rgba(155,89,182,.35)">
-        <div class="icon-ph violet"><i class="fa fa-flask"></i></div>
-        <h3>Capitolo 1 — Bell–CHSH on Tuna-17</h3>
-        <p>
-          Quattro run da 8192 shot in un'unica sessione, quattro correlazioni, un numero solo:
-          la violazione del realismo locale misurata su un processore quantistico reale.
-          Ogni cifra del documento proviene dai dati della macchina, con job ID, timestamp e
-          sorgenti in appendice. Ricerca personale indipendente, autore unico.
-        </p>
-        <div class="meta">
-          <span class="tag" style="background:rgba(155,89,182,.13);border-color:rgba(155,89,182,.30);color:#e8d3ff">Fisica quantistica</span>
-          <span class="tag blue">Tuna-17</span>
-          <span class="tag">cQASM 3.0</span>
-          <span class="tag brand">PDF · 15 pagine</span>
-        </div>
-        <div class="actions">
-          <a class="primary" style="background:#9b59b6" href="quantum-chsh.html">Leggi la pubblicazione</a>
-          <a class="secondary" href="pdf/CHSH_Lab_Notebook.pdf" target="_blank" rel="noopener"><i class="fa fa-file-pdf-o"></i> Scarica il PDF</a>
-        </div>
-      </article>
-      <article class="app-card" style="border-color:rgba(155,89,182,.35)">
-        <div class="icon-ph violet"><i class="fa fa-cubes"></i></div>
-        <h3>Capitolo 2 — GHZ / Mermin on Tuna-17</h3>
-        <p>
-          Un qubit oltre: tre qubit entangled in uno stato GHZ e le quattro misure di Mermin,
-          dove il conflitto con il realismo locale emerge nei segni delle correlazioni, non
-          nelle medie. Cinque run da 8192 shot, fedeltà 0.938 — e una sorpresa onesta sulla
-          convenzione dei segni che solo l'hardware vero poteva insegnare.
-        </p>
-        <div class="meta">
-          <span class="tag" style="background:rgba(155,89,182,.13);border-color:rgba(155,89,182,.30);color:#e8d3ff">Fisica quantistica</span>
-          <span class="tag blue">Tuna-17</span>
-          <span class="tag">cQASM 3.0</span>
-          <span class="tag brand">PDF · 18 pagine</span>
-        </div>
-        <div class="actions">
-          <a class="primary" style="background:#9b59b6" href="quantum-ghz.html">Leggi la pubblicazione</a>
-          <a class="secondary" href="pdf/GHZ_Lab_Notebook.pdf" target="_blank" rel="noopener"><i class="fa fa-file-pdf-o"></i> Scarica il PDF</a>
-        </div>
-      </article>
-      <article class="app-card" style="border-color:rgba(155,89,182,.35)">
-        <div class="icon-ph violet"><i class="fa fa-crosshairs"></i></div>
-        <h3>Capitolo 3 — Chasing Tsirelson on Tuna-17</h3>
-        <p>
-          Quanto vicino al massimo quantistico (2√2) arriva un processore pubblico? Scansione delle
-          coppie di qubit, calibrazione della frangia e test CHSH definitivo sulla coppia (0,1),
-          512 shot per run: S_raw = 2.494 grezzo, S_mitigated = 2.736 dopo la correzione
-          dell'errore di lettura. Il divario da Tsirelson vive nei rivelatori, non nello stato
-          entangled — che era già entro il 3% da una coppia di Bell perfetta.
-        </p>
-        <div class="meta">
-          <span class="tag" style="background:rgba(155,89,182,.13);border-color:rgba(155,89,182,.30);color:#e8d3ff">Fisica quantistica</span>
-          <span class="tag blue">Tuna-17</span>
-          <span class="tag">cQASM 3.0</span>
-          <span class="tag brand">PDF · 26 pagine</span>
-        </div>
-        <div class="actions">
-          <a class="primary" style="background:#9b59b6" href="quantum-tsirelson.html">Leggi la pubblicazione</a>
-          <a class="secondary" href="pdf/Tsirelson_Lab_Notebook.pdf" target="_blank" rel="noopener"><i class="fa fa-file-pdf-o"></i> Scarica il PDF</a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- Libro: Intelligenza artificiale in azienda -->
-<section class="section-pad" id="ia-in-azienda" style="padding-top:0">
-  <div class="container">
-    <div class="eyebrow"><span class="dot" style="background:#D9A441"></span>Libro</div>
-    <h2 class="section-title">Intelligenza artificiale in azienda</h2>
-    <p class="section-lead">
-      Guida organizzativa per imprese, PMI e professionisti: che cosa prevede davvero
-      il regolamento europeo sull'intelligenza artificiale, che cosa è già applicabile,
-      che cosa è stato rinviato al 2027 e al 2028, e quali passaggi concreti un'azienda
-      può compiere da sola. Testo aggiornato al 3 agosto 2026, con le modifiche del
-      <strong style="color:#f0d79a">Regolamento (UE) 2026/1744</strong>.
-      Registri, checklist e moduli compilabili scaricabili gratuitamente, insieme
-      all'applicazione che li riproduce su telefono e tablet.
-    </p>
-    <div class="apps-grid" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr));max-width:1040px">
-
-      <article class="app-card" style="border-color:rgba(217,164,65,.35)">
-        <div class="icon-ph"><i class="fa fa-book" style="color:#D9A441"></i></div>
-        <h3>Il libro</h3>
-        <p>
-          Diciotto capitoli, dalle date che contano agli usi che richiedono cautela:
-          selezione del personale, monitoraggio, biometria, trasparenza dei contenuti
-          generati, dati personali, riservatezza. Ogni affermazione normativa rinvia
-          alla fonte ufficiale, con articolo, data e collegamento.
-        </p>
-        <div class="meta">
-          <span class="tag" style="background:rgba(217,164,65,.13);border-color:rgba(217,164,65,.30);color:#f0d79a">AI Act</span>
-          <span class="tag blue">GDPR</span>
-          <span class="tag">PMI</span>
-        </div>
-        <div class="actions">
-          <a class="primary" style="background:#D9A441;color:#14303A" href="https://www.amazon.it/dp/B0HCX62TCQ" target="_blank" rel="noopener"><i class="fa fa-amazon"></i> Acquista su Amazon</a>
-          <a class="secondary" href="ia-in-azienda/">Vai alla pagina del libro</a>
-        </div>
-      </article>
-
-      <article class="app-card" style="border-color:rgba(217,164,65,.35)">
-        <div class="icon-ph"><i class="fa fa-check-square-o" style="color:#D9A441"></i></div>
-        <h3>Strumenti operativi</h3>
-        <p>
-          Un foglio di calcolo con registro dei sistemi di IA, qualificazione del ruolo,
-          schede di valutazione, checklist AI Act e GDPR, registri di formazione e incidenti,
-          matrice delle responsabilità. Più tre moduli da sottoscrivere. Download diretto,
-          senza registrazione e senza raccolta di dati.
-        </p>
-        <div class="meta">
-          <span class="tag brand">Gratuito</span>
-          <span class="tag">.xlsx / .docx</span>
-        </div>
-        <div class="actions">
-          <a class="primary" style="background:#D9A441;color:#14303A" href="ia-in-azienda/">Scarica gli strumenti</a>
-        </div>
-      </article>
-
-      <article class="app-card" style="border-color:rgba(9,132,227,.35)">
-        <div class="icon-ph blue"><i class="fa fa-mobile"></i></div>
-        <h3>Registro IA — l'applicazione</h3>
-        <p>
-          Gli stessi registri in forma di app installabile: censimento dei sistemi,
-          valutazioni d'uso, strumenti autorizzati, formazione, errori e incidenti,
-          con relazione periodica per il vertice aziendale. Funziona offline, nessun
-          account, nessun dato trasmesso.
-        </p>
-        <div class="meta">
-          <span class="tag blue">PWA</span>
-          <span class="tag">Offline</span>
-          <span class="tag brand">Zero tracking</span>
-        </div>
-        <div class="actions">
-          <a class="primary" href="https://ia.alessandropezzali.it" target="_blank" rel="noopener">Apri l'applicazione</a>
-          <a class="secondary" href="ia-in-azienda/">Dettagli</a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- Esplora per categoria -->
-<section class="section-pad" id="categorie" style="padding-top:0">
-  <div class="container">
-    <div class="eyebrow"><span class="dot"></span>Esplora per categoria</div>
-    <h2 class="section-title">11 mondi, un solo catalogo</h2>
-    <p class="section-lead">Le 11 categorie del catalogo. Clicca per saltare direttamente alla sezione corrispondente.</p>
-    <div class="chips">
-      <a class="chip" href="progetti.html#officina"><i class="fa fa-wrench"></i> Officina e gomme</a>
-      <a class="chip" href="progetti.html#hardware"><i class="fa fa-microchip"></i> Hardware DIY</a>
-      <a class="chip" href="progetti.html#vendita"><i class="fa fa-line-chart"></i> Vendita e listini</a>
-      <a class="chip" href="progetti.html#ai"><i class="fa fa-flask"></i> AI e backoffice</a>
-      <a class="chip" href="progetti.html#trasporti"><i class="fa fa-truck"></i> Trasporti e noleggio</a>
-      <a class="chip" href="progetti.html#giochi"><i class="fa fa-gamepad"></i> Arcade e retro</a>
-      <a class="chip" href="progetti.html#spazio"><i class="fa fa-rocket"></i> Astronomia e spazio</a>
-      <a class="chip" href="progetti.html#scienza"><i class="fa fa-cubes"></i> Scienza e rompicapi</a>
-      <a class="chip" href="progetti.html#musica"><i class="fa fa-music"></i> Musica e creatività</a>
-      <a class="chip" href="progetti.html#cyber"><i class="fa fa-shield"></i> Cyber e tributi retro</a>
-      <a class="chip" href="progetti.html#utility"><i class="fa fa-cog"></i> Utility</a>
-    </div>
-  </div>
-</section>
-
-<!-- Chi è Alessandro -->
-<section class="section-pad" id="chi-sono" style="padding-top:0">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-photo">
-        <img src="images/alessandro-pezzali.jpg" alt="Alessandro Pezzali">
-      </div>
-      <div class="about-text">
-        <h2>Chi è Alessandro</h2>
-        <p>
-          Sviluppatore indipendente, maker e autore. Costruisco strumenti web leggeri per chi
-          lavora davvero: officina, vendita, backoffice. Esploro AI applicata, simulatori
-          scientifici e giochi arcade come palestra di codice.
-        </p>
-        <p>
-          Tutto è installabile come PWA, hostato su GitHub Pages, senza framework né
-          bundler. L'ecosistema più ampio vive su
-          <a href="https://pezzaliapp.com" target="_blank" rel="noopener" style="color:#aef0df">pezzaliapp.com</a>.
-        </p>
-        <div class="about-links">
-          <a href="https://github.com/pezzaliapp" target="_blank" rel="noopener"><i class="fa fa-github"></i> GitHub</a>
-          <a href="https://www.linkedin.com/in/pezzaliapp/" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i> LinkedIn</a>
-          <a href="mailto:pezzalialessandro@gmail.com"><i class="fa fa-envelope"></i> Email</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <h4>Trovami qui</h4>
-      <p style="font-size:.92rem">Per email: <a href="mailto:pezzalialessandro@gmail.com" style="color:#aef0df">pezzalialessandro@gmail.com</a></p>
-      <div class="social">
-        <a href="https://github.com/pezzaliapp" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/pezzaliapp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
-        <a href="https://www.youtube.com/@pezzaliapp" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a>
-        <a href="https://www.instagram.com/ale_pezzali/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
-        <a href="https://pezzaliapp.com" target="_blank" rel="noopener" aria-label="pezzaliAPP"><i class="fa fa-globe"></i></a>
-      </div>
-    </div>
-
-    <div class="map-wrap">
-      <div id="mapmyvisitors" style="width:100%"></div>
-    </div>
-
-    <div class="footer-bottom">&copy; 2026 Alessandro Pezzali · Tutti i progetti sono open source salvo dove diversamente indicato.</div>
-  </div>
-</footer>
-
-<script type="text/javascript" src="https://mapmyvisitors.com/map.js?cl=ffffff&w=a&t=tt&d=JWZAw6LMmQJ4s9bv0vPpPAhuGUraBPzrUI52jjFdEtM"></script>
+<footer><div class="container"><div class="social"><a href="https://github.com/pezzaliapp" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa fa-github"></i></a><a href="https://www.linkedin.com/in/pezzaliapp/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a><a href="https://www.youtube.com/@pezzaliapp" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa fa-youtube-play"></i></a><a href="https://www.instagram.com/ale_pezzali/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa fa-instagram"></i></a></div>© 2026 Alessandro Pezzali · Il laboratorio PezzaliAPP</div></footer>
 <script defer src="app-state.js"></script>
-
-</body>
-</html>
+</body></html>
