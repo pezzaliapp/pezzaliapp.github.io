@@ -2,9 +2,9 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Il sottodominio dimenticato — Alessandro Pezzali</title>
+  <title>Il sottodominio dimenticato: vademecum per chi ha un dominio — Alessandro Pezzali</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Un indirizzo del mio sito mostrava un sito di scommesse online, senza che nessuno fosse entrato nei miei account. Come funziona il furto di sottodominio e la checklist per evitarlo.">
+  <meta name="description" content="Un estraneo può pubblicare un sito sotto il tuo dominio senza entrare nei tuoi account: basta un vecchio record DNS dimenticato. Vademecum con checklist per chi ha un sito.">
   <meta name="author" content="Alessandro Pezzali">
   <meta name="theme-color" content="#00b894">
 
@@ -12,7 +12,7 @@
   <link rel="canonical" href="https://www.alessandropezzali.it/blog/il-sottodominio-dimenticato.html">
 
   <meta property="og:title" content="Il sottodominio dimenticato">
-  <meta property="og:description" content="Un indirizzo del mio sito mostrava un sito di scommesse online, senza che nessuno fosse entrato nei miei account. Come funziona il furto di sottodominio e la checklist per evitarlo.">
+  <meta property="og:description" content="Un estraneo può pubblicare un sito sotto il tuo dominio senza entrare nei tuoi account: basta un vecchio record DNS dimenticato. Vademecum con checklist per chi ha un sito.">
   <meta property="og:image" content="https://www.alessandropezzali.it/preview.jpg">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.alessandropezzali.it/blog/il-sottodominio-dimenticato.html">
@@ -25,7 +25,7 @@
     "@context":"https://schema.org",
     "@type":"BlogPosting",
     "headline":"Il sottodominio dimenticato",
-    "description":"Un indirizzo del mio sito mostrava un sito di scommesse online, senza che nessuno fosse entrato nei miei account. Come funziona il furto di sottodominio e la checklist per evitarlo.",
+    "description":"Un estraneo può pubblicare un sito sotto il tuo dominio senza entrare nei tuoi account: basta un vecchio record DNS dimenticato. Vademecum con checklist per chi ha un sito.",
     "datePublished":"2026-10-10",
     "author":{
       "@type":"Person",
@@ -248,79 +248,81 @@
       <span class="sep">·</span>
       <time datetime="2026-10-10">10 ottobre 2026</time>
       <span class="sep">·</span>
-      <span>7 min di lettura</span>
+      <span>6 min di lettura</span>
+      <span class="sep">·</span>
+      <span>Vademecum</span>
     </div>
   </div>
 </header>
 
 <article class="post">
 
-  <p>Un indirizzo del mio sito che non avevo mai creato mostrava un sito di scommesse online. Nessuno era entrato nei miei account: è bastato un vecchio record DNS dimenticato. Racconto come me ne sono accorto, come funziona il trucco e la checklist che uso adesso per evitarlo.</p>
+  <p>Un sito di scommesse, o una pagina di phishing, pubblicato sotto un indirizzo del tuo dominio. Senza che nessuno entri nei tuoi account, senza password rubate. Si chiama <em>furto di sottodominio</em> e sfrutta un dettaglio che quasi nessuno controlla: i vecchi record DNS. Questo vademecum spiega come funziona, come accorgersene e la checklist per chiudere la porta in dieci minuti.</p>
 
-  <h2>Cosa è successo</h2>
+  <h2>Lo scenario</h2>
 
-  <p>Guardando le statistiche dei visitatori ho notato un sottodominio che non ricordavo: qualcosa come <code>ftp.miodominio.it</code>. Riceveva poche visite, ma c'era.</p>
+  <p>Apri le statistiche del tuo sito e, tra i domini visitati, compare un nome che non ricordi di aver creato: qualcosa come <code>ftp.tuodominio.it</code>. Riceve poche visite, ma non dovrebbe riceverne nessuna.</p>
 
-  <p>L'ho aperto per curiosità. Al posto di una pagina d'errore è comparso un sito in indonesiano che pubblicizzava slot e scommesse, con prezzi finti e pulsanti di accesso e registrazione che portavano altrove. La pagina dichiarava come proprio indirizzo ufficiale proprio il mio sottodominio: qualcuno l'aveva configurata apposta.</p>
+  <p>Dietro quel nome c'è una pagina che non hai mai scritto: slot, scommesse, prezzi finti, pulsanti di accesso e registrazione che portano altrove. E la pagina dichiara come proprio indirizzo ufficiale proprio il tuo sottodominio. Non è un errore: qualcuno l'ha configurata apposta.</p>
 
-  <p>Nelle stesse statistiche comparivano richieste a percorsi come <code>/.env</code>, <code>/.git/config</code> e <code>/phpinfo.php.bak</code>. Sono bot che scandagliano internet in cerca di file con password lasciati per errore: rumore di fondo che riceve ogni sito pubblico, ma un buon promemoria di quanto siamo osservati.</p>
+  <p>Nelle stesse statistiche compaiono spesso anche richieste a percorsi come <code>/.env</code>, <code>/.git/config</code> o <code>/phpinfo.php.bak</code>. Sono bot che scandagliano internet in cerca di file con password lasciati per errore: rumore di fondo che riceve ogni sito pubblico, ma un buon promemoria di quanto siamo osservati.</p>
 
   <h2>Come funziona il trucco</h2>
 
-  <p>Si chiama <em>subdomain takeover</em>, furto di sottodominio: un estraneo pubblica il suo sito sotto un indirizzo tuo, sfruttando un record DNS che punta a un servizio dove nessun tuo progetto lo rivendica.</p>
+  <p>In inglese si chiama <em>subdomain takeover</em>: un estraneo pubblica il suo sito sotto un indirizzo tuo, sfruttando un record DNS che punta a un servizio dove nessun tuo progetto lo rivendica.</p>
 
-  <p>Il DNS è la rubrica di internet: per ogni nome dice dove andare. Nel mio caso la catena era questa:</p>
+  <p>Il DNS è la rubrica di internet: per ogni nome dice dove andare. Una catena tipica è questa:</p>
 
   <ol>
-    <li><code>ftp</code> rimandava a <code>www</code>.</li>
-    <li><code>www</code> rimandava a GitHub Pages, il servizio gratuito che ospita il sito.</li>
-    <li>GitHub Pages sceglie quale sito mostrare in base al nome richiesto. Nessuno dei miei progetti dichiarava “ftp”, quindi quel nome era libero.</li>
-    <li>Un estraneo ha creato un suo progetto dichiarando proprio quel nome, e GitHub ha cominciato a servire il suo sito.</li>
+    <li><code>ftp</code> rimanda a <code>www</code>, per un record creato anni fa.</li>
+    <li><code>www</code> rimanda a un servizio di hosting come GitHub Pages.</li>
+    <li>Il servizio sceglie quale sito mostrare in base al nome richiesto. Se nessun tuo progetto dichiara “ftp”, quel nome è libero.</li>
+    <li>Chiunque può creare un progetto dichiarando proprio quel nome, e il servizio comincia a mostrare il suo sito sotto il tuo indirizzo.</li>
   </ol>
 
   <blockquote>È come lasciare sul citofono il cognome di un inquilino che non abita più lì: chiunque si presenti con quel cognome può farsi recapitare la posta.</blockquote>
 
-  <p>Nessuna password rubata, nessun account violato. Il punto debole era solo un record dimenticato. Lo stesso può accadere con altri servizi dove chiunque può registrarsi e scegliere un dominio: Netlify, Vercel, Heroku, Azure, i servizi di storage cloud.</p>
+  <p>Nessuna password rubata, nessun account violato: solo un record dimenticato. Lo stesso vale per tutti i servizi dove chiunque può registrarsi e scegliere un dominio: GitHub Pages, Netlify, Vercel, Heroku, Azure, gli storage cloud.</p>
 
   <h2>Perché succede: i record che nessuno ha creato</h2>
 
-  <p>Quel sottodominio non l'avevo mai aggiunto io. Quando si registra un dominio, molti registrar creano in automatico una serie di record standard: <code>ftp</code>, <code>mail</code>, <code>webmail</code>, <code>pop3</code>, <code>smtp</code>, <code>admin</code>, perfino <code>localhost</code>.</p>
+  <p>Quando registri un dominio, molti registrar creano in automatico una serie di record standard: <code>ftp</code>, <code>mail</code>, <code>webmail</code>, <code>pop3</code>, <code>smtp</code>, <code>admin</code>, perfino <code>localhost</code>. Nessuno li nota, perché non li ha aggiunti nessuno a mano.</p>
 
   <p>Il problema nasce dopo:</p>
 
   <ul>
-    <li><strong>Si sposta il DNS su un altro servizio</strong>: l'importazione automatica copia tutti i vecchi record, compresi quelli inutili.</li>
-    <li><strong>Si cambia hosting</strong>: il sito va su GitHub Pages o simili, ma i vecchi record restano e ora puntano, direttamente o a catena, al nuovo servizio.</li>
-    <li><strong>Si chiude un progetto</strong>: il sito sparisce, il record resta.</li>
+    <li><strong>Sposti il DNS su un altro servizio</strong>: l'importazione automatica copia tutti i vecchi record, compresi quelli inutili.</li>
+    <li><strong>Cambi hosting</strong>: il sito va su GitHub Pages o simili, ma i vecchi record restano e ora puntano, direttamente o a catena, al nuovo servizio.</li>
+    <li><strong>Chiudi un progetto</strong>: il sito sparisce, il record resta.</li>
   </ul>
 
-  <p>Alla fine ho trovato lo stesso <code>ftp</code> su quasi tutti i domini registrati nello stesso modo. In uno era già stato sfruttato, in un altro era pronto per esserlo.</p>
+  <p>Per questo lo stesso record si ritrova di solito su tutti i domini registrati con lo stesso fornitore: il controllo va sempre esteso a tutti.</p>
 
   <h2>Come accorgersene</h2>
 
-  <p>Il segnale più utile è un nome che non si riconosce. Dove guardare:</p>
+  <p>Il segnale più utile è un nome che non riconosci. Dove guardare:</p>
 
   <ul>
     <li><strong>Statistiche del sito</strong>: tra i domini visitati compare un sottodominio mai usato.</li>
-    <li><strong>Lista dei record DNS</strong>: un CNAME verso <code>*.github.io</code>, <code>*.netlify.app</code>, <code>*.vercel.app</code>, <code>*.herokuapp.com</code> o simili per un sottodominio senza progetto attivo. Oppure un CNAME verso un altro proprio nome che, a sua volta, finisce su uno di questi servizi.</li>
-    <li><strong>Google</strong>: cercare <code>site:tuodominio.it</code> seguito da parole come <em>slot</em>, <em>casino</em> o <em>loan</em>. Pagine spam con il proprio nome sono un campanello d'allarme.</li>
-    <li><strong>Segnalazioni esterne</strong>: avvisi di Search Console su contenuti sospetti, o amici che chiedono perché il sito venda scommesse.</li>
+    <li><strong>Lista dei record DNS</strong>: un CNAME verso <code>*.github.io</code>, <code>*.netlify.app</code>, <code>*.vercel.app</code>, <code>*.herokuapp.com</code> o simili per un sottodominio senza progetto attivo. Oppure un CNAME verso un altro tuo nome che, a sua volta, finisce su uno di questi servizi.</li>
+    <li><strong>Google</strong>: cerca <code>site:tuodominio.it</code> seguito da parole come <em>slot</em>, <em>casino</em> o <em>loan</em>. Pagine spam con il tuo nome sono un campanello d'allarme.</li>
+    <li><strong>Segnalazioni esterne</strong>: avvisi di Search Console su contenuti sospetti, o qualcuno che ti segnala pagine strane sotto il tuo nome.</li>
   </ul>
 
-  <div class="callout"><p>Se trovate un sottodominio sospetto, <strong>non apritelo</strong> per curiosità. Controllate prima il record DNS: dice già tutto quello che serve.</p></div>
+  <div class="callout"><p>Se trovi un sottodominio sospetto, <strong>non aprirlo</strong> per curiosità. Controlla prima il record DNS: dice già tutto quello che serve.</p></div>
 
-  <h2>Cosa fare subito se capita</h2>
+  <h2>Cosa fare subito</h2>
 
-  <p>La soluzione immediata richiede un minuto: eliminare il record. Il resto serve a essere sicuri che nessuno sia entrato e che non succeda di nuovo.</p>
+  <p>La soluzione immediata richiede un minuto: eliminare il record. Il resto serve a confermare che nessuno sia entrato e che non succeda di nuovo.</p>
 
   <ol>
-    <li><strong>Annotare il record e poi eliminarlo.</strong> In pochi minuti il sito spam non risponde più sotto il proprio nome.</li>
-    <li><strong>Controllare il registro attività</strong> del pannello DNS (su Cloudflare si chiama <em>Registri di controllo</em>). Ogni modifica deve essere propria o di sistema. Se il record è vecchio, non c'è stata intrusione: hanno solo sfruttato una porta lasciata aperta.</li>
-    <li><strong>Verificare membri, sessioni attive e app collegate</strong> dell'account. Bisogna riconoscere tutto.</li>
-    <li><strong>Cambiare la password</strong> del pannello DNS: chiude anche le sessioni aperte altrove.</li>
-    <li><strong>Verificare il dominio sulla piattaforma di hosting.</strong> Su GitHub: <em>Settings → Pages → Add a verified domain</em>, poi un record TXT nel DNS. Da quel momento nessun altro account può rivendicare un proprio sottodominio. È la protezione vera.</li>
-    <li><strong>Ripetere il controllo su tutti i domini.</strong> Se uno aveva il problema, quasi certamente lo hanno anche gli altri registrati nello stesso modo.</li>
-    <li><strong>Nei giorni seguenti</strong>, controllare su Google e su Search Console che non restino pagine spam indicizzate, ed eventualmente chiederne la rimozione.</li>
+    <li><strong>Annota il record e poi eliminalo.</strong> In pochi minuti la pagina estranea non risponde più sotto il tuo nome.</li>
+    <li><strong>Controlla il registro attività</strong> del pannello DNS (su Cloudflare si chiama <em>Registri di controllo</em>). Ogni modifica deve essere tua o di sistema. Se il record è vecchio, non c'è stata intrusione: è stata sfruttata una porta lasciata aperta.</li>
+    <li><strong>Verifica membri, sessioni attive e app collegate</strong> dell'account. Devi riconoscere tutto.</li>
+    <li><strong>Cambia la password</strong> del pannello DNS: chiude anche le sessioni aperte altrove.</li>
+    <li><strong>Verifica il dominio sulla piattaforma di hosting.</strong> Su GitHub: <em>Settings → Pages → Add a verified domain</em>, poi un record TXT nel DNS. Da quel momento nessun altro account può rivendicare un tuo sottodominio. È la protezione vera.</li>
+    <li><strong>Ripeti il controllo su tutti i tuoi domini</strong>, compresi quelli che usano solo un redirect.</li>
+    <li><strong>Nei giorni seguenti</strong>, controlla su Google e su Search Console che non restino pagine estranee indicizzate, ed eventualmente chiedine la rimozione.</li>
   </ol>
 
   <h2>Checklist di prevenzione</h2>
@@ -328,44 +330,42 @@
   <p>Dieci minuti l'anno per dominio bastano a chiudere questa porta.</p>
 
   <ul class="checklist">
-    <li>Ogni record DNS ha un motivo per esistere: se non si sa a cosa serve, lo si scopre o lo si elimina.</li>
+    <li>Ogni record DNS ha un motivo per esistere: se non sai a cosa serve, scoprilo o eliminalo.</li>
     <li>Nessun CNAME punta a GitHub Pages, Netlify, Vercel o simili senza un progetto attivo con quel nome.</li>
-    <li>Ogni dominio che usa GitHub Pages è tra i <em>Verified domains</em> dell'account GitHub.</li>
-    <li>Quando si chiude un progetto, si toglie subito il suo record DNS. Prima il record, poi il progetto.</li>
-    <li>Dopo un trasferimento di DNS, si rivedono i record importati in automatico.</li>
+    <li>Ogni dominio che usa GitHub Pages è tra i <em>Verified domains</em> del tuo account GitHub.</li>
+    <li>Quando chiudi un progetto, togli subito il suo record DNS. Prima il record, poi il progetto.</li>
+    <li>Dopo un trasferimento di DNS, rivedi i record importati in automatico.</li>
     <li>Niente record jolly (<code>*</code>) se non servono: fanno rispondere qualunque nome inventato.</li>
     <li>Verifica in due passaggi attiva su registrar, pannello DNS, hosting e sulla email che riceve i link di recupero password.</li>
     <li>Codici di recupero salvati fuori dagli account che proteggono.</li>
     <li>Una volta l'anno: lista dei record, registro attività, sessioni attive, app collegate.</li>
   </ul>
 
-  <h2>Le altre trappole lungo la strada</h2>
+  <h2>Due trappole mentre metti in sicurezza gli account</h2>
 
-  <p>Mettere in sicurezza gli account mi ha fatto incontrare altre due trappole comuni. Le annoto perché colpiscono proprio chi sta cercando di proteggersi.</p>
+  <p><strong>App di autenticazione false a pagamento.</strong> Cercando “authenticator” negli store compaiono app che chiedono abbonamenti annuali di decine di euro. Le app vere sono gratuite: Google Authenticator (sviluppatore <em>Google LLC</em>), Microsoft Authenticator (<em>Microsoft Corporation</em>), o quella integrata nel gestore password del telefono. Prima di installare controlla il nome dello sviluppatore, e annulla subito dallo store un'eventuale “prova gratuita” già avviata.</p>
 
-  <p><strong>App di autenticazione false a pagamento.</strong> Cercando “authenticator” nello store del telefono, la prima app che ho installato chiedeva un abbonamento annuale di oltre 40 euro. Le app vere sono gratuite: Google Authenticator (sviluppatore <em>Google LLC</em>), Microsoft Authenticator (<em>Microsoft Corporation</em>), o quella integrata nel gestore password del telefono. Prima di installare conviene controllare il nome dello sviluppatore, e annullare subito dallo store un'eventuale “prova gratuita” già avviata.</p>
+  <p><strong>Email di reimpostazione password.</strong> Quando reimposti una password arriva un'email con un link. Prima di cliccare, passaci sopra con il mouse e controlla che porti al sito vero del servizio, non a un indirizzo simile. Le false email di “reimposta la password” sono tra i trucchi di phishing più diffusi.</p>
 
-  <p><strong>Email di reimpostazione password.</strong> Quando si reimposta una password arriva un'email con un link. Prima di cliccare, conviene passarci sopra con il mouse e controllare che porti al sito vero del servizio, non a un indirizzo simile. Le false email di “reimposta la password” sono tra i trucchi di phishing più diffusi.</p>
-
-  <p><strong>L'email è la chiave di tutto.</strong> Chi entra nella casella di posta può reimpostare le password di tutti gli altri servizi. È il primo account da proteggere con la verifica in due passaggi.</p>
+  <p><strong>L'email è la chiave di tutto.</strong> Chi entra nella tua casella di posta può reimpostare le password di tutti gli altri servizi. È il primo account da proteggere con la verifica in due passaggi.</p>
 
   <h2>In sintesi: cinque regole</h2>
 
   <ol>
-    <li><strong>Un record che non si usa è una porta aperta.</strong> Va eliminato.</li>
-    <li><strong>Prima si toglie il record, poi si chiude il progetto.</strong> Mai il contrario.</li>
-    <li><strong>I domini vanno verificati</strong> sulle piattaforme che li ospitano, GitHub in testa.</li>
+    <li><strong>Un record che non usi è una porta aperta.</strong> Eliminalo.</li>
+    <li><strong>Prima togli il record, poi chiudi il progetto.</strong> Mai il contrario.</li>
+    <li><strong>Verifica i tuoi domini</strong> sulle piattaforme che li ospitano, GitHub in testa.</li>
     <li><strong>Verifica in due passaggi ovunque conti</strong>: email, registrar, DNS, hosting.</li>
-    <li><strong>Un nome che non si riconosce va controllato</strong>, non aperto.</li>
+    <li><strong>Un nome che non riconosci va controllato</strong>, non aperto.</li>
   </ol>
 
-  <p>Nel mio caso il danno è stato solo d'immagine e si è risolto in un pomeriggio. Ma lo stesso trucco può servire a pagine di phishing con il nostro nome sopra: vale la pena dedicarci dieci minuti oggi.</p>
+  <p>Lo stesso trucco può servire a pagine di phishing con il tuo nome sopra. Dieci minuti oggi, con la lista dei record DNS aperta davanti, valgono più di qualunque rimedio dopo.</p>
 
 </article>
 
 <nav class="post-nav" aria-label="Navigazione tra articoli">
   <a href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i> Tutti gli articoli</a>
-  <a href="mailto:pezzalialessandro@gmail.com">Ti è successo? Scrivimi <i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+  <a href="mailto:pezzalialessandro@gmail.com">Domande o dubbi? Scrivimi <i class="fa fa-envelope-o" aria-hidden="true"></i></a>
 </nav>
 
 <footer class="site-footer">
