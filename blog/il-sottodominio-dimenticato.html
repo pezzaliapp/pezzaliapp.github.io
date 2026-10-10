@@ -257,7 +257,7 @@
 
   <p>Sabato pomeriggio, controllando il monitoraggio del traffico del mio sito su Cloudflare, ho notato un sottodominio che non avevo mai creato. Dietro c'era una pagina di scommesse pubblicata da uno sconosciuto. Pochi minuti dopo il record era eliminato e la pagina non rispondeva più. Il sito principale non è mai stato toccato e nessun dato è stato coinvolto.</p>
 
-  <p>Già che c'ero, ho fatto un giro di controllo completo su Cloudflare, Aruba e GitHub: registro attività, accessi e sessioni erano tutti puliti. Ho aggiunto un livello di protezione in più dove ancora mancava e ripulito gli stessi record ereditati sugli altri domini. Lo racconto perché è un punto cieco comune: non dipende da una password debole né da un errore di configurazione, ma da record creati in automatico da altri, che nessuno ricorda di avere.</p>
+  <p>A seguire ho esteso la verifica a tutti i domini che gestisco, controllando registri attività e accessi su Cloudflare, Aruba e GitHub: nessuna anomalia. Ho applicato ovunque le stesse misure, dalla verifica in due passaggi alla verifica dei domini su GitHub. Lo condivido perché questa vulnerabilità nasce dalle impostazioni predefinite dei registrar, e conoscerla aiuta chiunque gestisca un sito.</p>
 
   <h2>Cosa è successo</h2>
 
@@ -267,7 +267,7 @@
 
   <p>Nelle stesse statistiche comparivano richieste a percorsi come <code>/.env</code>, <code>/.git/config</code> e <code>/phpinfo.php.bak</code>. Sono bot che scandagliano internet in cerca di file con password lasciati per errore: rumore di fondo che riceve ogni sito pubblico, ma un buon promemoria di quanto siamo osservati.</p>
 
-  <p>La risposta, in ordine: eliminato il record, controllato il registro attività di Cloudflare (tutte le modifiche erano mie o di sistema, nessun accesso estraneo), verificati membri, sessioni e app collegate, cambiata la password e attivata la verifica in due passaggi. Poi ho verificato i domini su GitHub e ripetuto il controllo su tutti gli altri domini, dove ho trovato e tolto lo stesso record dimenticato.</p>
+  <p>La procedura, in ordine: eliminazione del record, analisi del registro attività di Cloudflare (tutte le modifiche risultavano mie o di sistema, nessun accesso estraneo), verifica di membri, sessioni e app collegate, rotazione delle credenziali e verifica dei domini su GitHub. Infine, lo stesso controllo su tutti gli altri domini.</p>
 
   <h2>Come funziona il trucco</h2>
 
@@ -298,7 +298,7 @@
     <li><strong>Si chiude un progetto</strong>: il sito sparisce, il record resta.</li>
   </ul>
 
-  <p>Alla fine ho trovato lo stesso <code>ftp</code> su quasi tutti i domini registrati nello stesso modo. In uno era già stato sfruttato, in un altro era pronto per esserlo.</p>
+  <p>Lo stesso record era presente, per impostazione predefinita, su quasi tutti i domini registrati nello stesso modo: per questo il controllo va sempre esteso a tutti.</p>
 
   <h2>Come accorgersene</h2>
 
