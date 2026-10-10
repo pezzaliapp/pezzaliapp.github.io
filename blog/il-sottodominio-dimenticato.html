@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Il sottodominio dimenticato — Alessandro Pezzali</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Ho scoperto e chiuso in un pomeriggio una falla nel mio dominio, senza danni: un sottodominio dimenticato usato da uno sconosciuto. Come funziona il trucco e la checklist per evitarlo.">
+  <meta name="description" content="Un indirizzo del mio sito mostrava un sito di scommesse online, senza che nessuno fosse entrato nei miei account. Come funziona il furto di sottodominio e la checklist per evitarlo.">
   <meta name="author" content="Alessandro Pezzali">
   <meta name="theme-color" content="#00b894">
 
@@ -12,7 +12,7 @@
   <link rel="canonical" href="https://www.alessandropezzali.it/blog/il-sottodominio-dimenticato.html">
 
   <meta property="og:title" content="Il sottodominio dimenticato">
-  <meta property="og:description" content="Ho scoperto e chiuso in un pomeriggio una falla nel mio dominio, senza danni: un sottodominio dimenticato usato da uno sconosciuto. Come funziona il trucco e la checklist per evitarlo.">
+  <meta property="og:description" content="Un indirizzo del mio sito mostrava un sito di scommesse online, senza che nessuno fosse entrato nei miei account. Come funziona il furto di sottodominio e la checklist per evitarlo.">
   <meta property="og:image" content="https://www.alessandropezzali.it/preview.jpg">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.alessandropezzali.it/blog/il-sottodominio-dimenticato.html">
@@ -25,7 +25,7 @@
     "@context":"https://schema.org",
     "@type":"BlogPosting",
     "headline":"Il sottodominio dimenticato",
-    "description":"Ho scoperto e chiuso in un pomeriggio una falla nel mio dominio, senza danni: un sottodominio dimenticato usato da uno sconosciuto. Come funziona il trucco e la checklist per evitarlo.",
+    "description":"Un indirizzo del mio sito mostrava un sito di scommesse online, senza che nessuno fosse entrato nei miei account. Come funziona il furto di sottodominio e la checklist per evitarlo.",
     "datePublished":"2026-10-10",
     "author":{
       "@type":"Person",
@@ -255,19 +255,15 @@
 
 <article class="post">
 
-  <p>Sabato pomeriggio, controllando il monitoraggio del traffico del mio sito su Cloudflare, ho notato un sottodominio che non avevo mai creato. Dietro c'era una pagina di scommesse pubblicata da uno sconosciuto. Pochi minuti dopo il record era eliminato e la pagina non rispondeva più. Il sito principale non è mai stato toccato e nessun dato è stato coinvolto.</p>
-
-  <p>A seguire ho esteso la verifica a tutti i domini che gestisco, controllando registri attività e accessi su Cloudflare, Aruba e GitHub: nessuna anomalia. Ho applicato ovunque le stesse misure, dalla verifica in due passaggi alla verifica dei domini su GitHub. Lo condivido perché questa vulnerabilità nasce dalle impostazioni predefinite dei registrar, e conoscerla aiuta chiunque gestisca un sito.</p>
+  <p>Un indirizzo del mio sito che non avevo mai creato mostrava un sito di scommesse online. Nessuno era entrato nei miei account: è bastato un vecchio record DNS dimenticato. Racconto come me ne sono accorto, come funziona il trucco e la checklist che uso adesso per evitarlo.</p>
 
   <h2>Cosa è successo</h2>
 
-  <p>Tra i domini visitati, nelle statistiche, è comparso un nome che non ricordavo: qualcosa come <code>ftp.miodominio.it</code>. Poche visite, ma non avrebbe dovuto riceverne nessuna.</p>
+  <p>Guardando le statistiche dei visitatori ho notato un sottodominio che non ricordavo: qualcosa come <code>ftp.miodominio.it</code>. Riceveva poche visite, ma c'era.</p>
 
-  <p>Dietro quel nome uno sconosciuto aveva pubblicato un sito in indonesiano che pubblicizzava slot e scommesse, con prezzi finti e pulsanti di accesso e registrazione che portavano altrove. La pagina dichiarava come proprio indirizzo ufficiale proprio il mio sottodominio: era stata configurata apposta.</p>
+  <p>L'ho aperto per curiosità. Al posto di una pagina d'errore è comparso un sito in indonesiano che pubblicizzava slot e scommesse, con prezzi finti e pulsanti di accesso e registrazione che portavano altrove. La pagina dichiarava come proprio indirizzo ufficiale proprio il mio sottodominio: qualcuno l'aveva configurata apposta.</p>
 
   <p>Nelle stesse statistiche comparivano richieste a percorsi come <code>/.env</code>, <code>/.git/config</code> e <code>/phpinfo.php.bak</code>. Sono bot che scandagliano internet in cerca di file con password lasciati per errore: rumore di fondo che riceve ogni sito pubblico, ma un buon promemoria di quanto siamo osservati.</p>
-
-  <p>La procedura, in ordine: eliminazione del record, analisi del registro attività di Cloudflare (tutte le modifiche risultavano mie o di sistema, nessun accesso estraneo), verifica di membri, sessioni e app collegate, rotazione delle credenziali e verifica dei domini su GitHub. Infine, lo stesso controllo su tutti gli altri domini.</p>
 
   <h2>Come funziona il trucco</h2>
 
@@ -298,7 +294,7 @@
     <li><strong>Si chiude un progetto</strong>: il sito sparisce, il record resta.</li>
   </ul>
 
-  <p>Lo stesso record era presente, per impostazione predefinita, su quasi tutti i domini registrati nello stesso modo: per questo il controllo va sempre esteso a tutti.</p>
+  <p>Alla fine ho trovato lo stesso <code>ftp</code> su quasi tutti i domini registrati nello stesso modo. In uno era già stato sfruttato, in un altro era pronto per esserlo.</p>
 
   <h2>Come accorgersene</h2>
 
@@ -308,7 +304,7 @@
     <li><strong>Statistiche del sito</strong>: tra i domini visitati compare un sottodominio mai usato.</li>
     <li><strong>Lista dei record DNS</strong>: un CNAME verso <code>*.github.io</code>, <code>*.netlify.app</code>, <code>*.vercel.app</code>, <code>*.herokuapp.com</code> o simili per un sottodominio senza progetto attivo. Oppure un CNAME verso un altro proprio nome che, a sua volta, finisce su uno di questi servizi.</li>
     <li><strong>Google</strong>: cercare <code>site:tuodominio.it</code> seguito da parole come <em>slot</em>, <em>casino</em> o <em>loan</em>. Pagine spam con il proprio nome sono un campanello d'allarme.</li>
-    <li><strong>Segnalazioni esterne</strong>: avvisi di Search Console su contenuti sospetti, o amici che segnalano pagine strane sotto il vostro nome.</li>
+    <li><strong>Segnalazioni esterne</strong>: avvisi di Search Console su contenuti sospetti, o amici che chiedono perché il sito venda scommesse.</li>
   </ul>
 
   <div class="callout"><p>Se trovate un sottodominio sospetto, <strong>non apritelo</strong> per curiosità. Controllate prima il record DNS: dice già tutto quello che serve.</p></div>
@@ -363,7 +359,7 @@
     <li><strong>Un nome che non si riconosce va controllato</strong>, non aperto.</li>
   </ol>
 
-  <p>Nel mio caso è finita in un pomeriggio, senza danni: un record eliminato, account controllati e cancelli chiusi. Ma lo stesso trucco può servire a pagine di phishing con il nostro nome sopra: vale la pena dedicarci dieci minuti oggi.</p>
+  <p>Nel mio caso il danno è stato solo d'immagine e si è risolto in un pomeriggio. Ma lo stesso trucco può servire a pagine di phishing con il nostro nome sopra: vale la pena dedicarci dieci minuti oggi.</p>
 
 </article>
 
